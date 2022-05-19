@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class DisplayManagerLevel1 : MonoBehaviour
 {
+    // index for the current background displayed (from 1 to 2 in this case)
     private int m_CurrentWall;
     private int m_PreviousWall;
 
@@ -40,12 +41,8 @@ public class DisplayManagerLevel1 : MonoBehaviour
         if (m_CurrentWall != m_PreviousWall)
         {
             GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Sprites/Level1/Background" + CurrentWall.ToString());
-
-
-          //  Debug.Log("Got to if");
         }
 
-       // Debug.Log("Got to );
         m_PreviousWall = CurrentWall;
     }
 }

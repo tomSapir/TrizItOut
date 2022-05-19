@@ -320,8 +320,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03d8f5517732f3742959d89383762d3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rightButton: {fileID: 2009688113}
-  leftButton: {fileID: 1299494712}
+  m_RightButton: {fileID: 2009688113}
+  m_LeftButton: {fileID: 1299494712}
 --- !u!1 &1299494710
 GameObject:
   m_ObjectHideFlags: 0
@@ -335,7 +335,7 @@ GameObject:
   - component: {fileID: 1299494713}
   - component: {fileID: 1299494712}
   m_Layer: 5
-  m_Name: Arrow_Left_Button
+  m_Name: Arrow_Left_Btn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -357,7 +357,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 62.649994, y: 67.18001}
+  m_AnchoredPosition: {x: 62.650024, y: 67.18002}
   m_SizeDelta: {x: 200, y: 140}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1299494712
@@ -628,7 +628,7 @@ GameObject:
   - component: {fileID: 2009688114}
   - component: {fileID: 2009688113}
   m_Layer: 5
-  m_Name: Arrow_Right_Button
+  m_Name: Arrow_Right_Btn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -650,7 +650,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -62.653778, y: 67.180725}
+  m_AnchoredPosition: {x: -62.65381, y: 67.180725}
   m_SizeDelta: {x: 200, y: 140}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2009688113

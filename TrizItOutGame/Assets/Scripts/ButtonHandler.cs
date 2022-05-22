@@ -12,6 +12,9 @@ public class ButtonHandler : MonoBehaviour
     [SerializeField]
     private Button m_LeftButton;
 
+    [SerializeField]
+    private GameObject m_ZoomWindow;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -37,5 +40,10 @@ public class ButtonHandler : MonoBehaviour
         m_CurrentDisplay.CurrentWall--;
         m_LeftButton.gameObject.SetActive(false);
         m_RightButton.gameObject.SetActive(true);
+    }
+
+   public void OnClickCloseZoomInventory()
+    {
+        m_ZoomWindow.SetActive(false);
     }
 }

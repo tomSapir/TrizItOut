@@ -9,17 +9,30 @@ public class SlotManager : MonoBehaviour
     private GameObject m_SlotItemImage;
     [SerializeField]
     private GameObject m_ZoomInWindow;
+    [SerializeField]
+    private bool m_IsEmpty = true;
 
-    void Start()
+    private InventoryItem m_InventoryItem = null;
+
+    public bool IsEmpty
     {
-        
+        set { m_IsEmpty = value; }
+        get { return m_IsEmpty; }
     }
 
-   
-    void Update()
+    public InventoryItem InventoryItem
     {
-        
+        get { return m_InventoryItem; }
+        set
+        {
+            m_InventoryItem = value;
+            IsEmpty = false;
+            m_SlotItemImage.GetComponent<Image>().sprite = m_InventoryItem.Image;
+            m_InventoryItem.InInventory = true;
+            m_InventoryItem.gameObject.SetActive(false);
+        }
     }
+
 
     public void OnClickMagnifierGlass()
     {
@@ -32,8 +45,7 @@ public class SlotManager : MonoBehaviour
         else
         {
             m_ZoomInWindow.SetActive(true);
-            // TODO: stop here
-            //m_ZoomInWindow.
+            m_ZoomInWindow.transform.Find("Item").GetComponent<Image>().sprite = imageToDisplay.sprite;
         }
 
     }

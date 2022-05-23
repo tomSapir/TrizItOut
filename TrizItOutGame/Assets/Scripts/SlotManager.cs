@@ -12,7 +12,7 @@ public class SlotManager : MonoBehaviour
     [SerializeField]
     private bool m_IsEmpty = true;
 
-    private InventoryItem m_InventoryItem = null;
+    private InventoryItemManager m_InventoryItemManager = null;
 
     public bool IsEmpty
     {
@@ -20,19 +20,18 @@ public class SlotManager : MonoBehaviour
         get { return m_IsEmpty; }
     }
 
-    public InventoryItem InventoryItem
+    public InventoryItemManager InventoryItemManager
     {
-        get { return m_InventoryItem; }
+        get { return m_InventoryItemManager; }
         set
         {
-            m_InventoryItem = value;
+            m_InventoryItemManager = value;
             IsEmpty = false;
-            m_SlotItemImage.GetComponent<Image>().sprite = m_InventoryItem.Image;
-            m_InventoryItem.InInventory = true;
-            m_InventoryItem.gameObject.SetActive(false);
+            m_SlotItemImage.GetComponent<Image>().sprite = m_InventoryItemManager.Image;
+            m_InventoryItemManager.InInventory = true;
+            m_InventoryItemManager.gameObject.SetActive(false);
         }
     }
-
 
     public void OnClickMagnifierGlass()
     {
@@ -40,14 +39,12 @@ public class SlotManager : MonoBehaviour
 
         if (imageToDisplay == null)
         {
-            Debug.LogError("Could not find the image.");
+            Debug.LogError("Could not find the image to zoom in.");
         }
         else
         {
             m_ZoomInWindow.SetActive(true);
             m_ZoomInWindow.transform.Find("Item").GetComponent<Image>().sprite = imageToDisplay.sprite;
         }
-
     }
-
 }

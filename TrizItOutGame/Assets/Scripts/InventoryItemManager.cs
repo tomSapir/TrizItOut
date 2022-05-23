@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class InventoryItem : MonoBehaviour
+public class InventoryItemManager : MonoBehaviour
 {
     [SerializeField]
     private string m_Name = string.Empty;
@@ -14,7 +14,7 @@ public class InventoryItem : MonoBehaviour
 
     public void OnClick()
     {
-        
+        // go to the inventory manager and active the method AddItemToInventory
     }
 
     

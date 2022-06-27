@@ -8,13 +8,6 @@ public class DisplayManagerLevel1 : MonoBehaviour
     private int m_CurrentWall;
     private int m_PreviousWall;
 
-    public enum State
-    {
-        normal, zoom
-    };
-
-    public State CurrentState { get; set; }
-
     public int CurrentWall
     {
         get { return m_CurrentWall; }

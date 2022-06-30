@@ -35,7 +35,12 @@ public class SlotManager : MonoBehaviour
 
     public void OnClickMagnifierGlass()
     {
-        Image imageToDisplay = m_SlotItemImage.GetComponent<Image>();
+        Image imageToDisplay = null;
+
+        if (m_SlotItemImage != null)
+        {
+            imageToDisplay = m_SlotItemImage.GetComponent<Image>();
+        }
 
         if (imageToDisplay == null)
         {

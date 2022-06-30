@@ -35,14 +35,12 @@ public class DisplayManagerLevel1 : MonoBehaviour
         }
     }
 
-    // Start is called before the first frame update
     void Start()
     {
         m_PreviousWall = 0;
         m_CurrentWall = 1;
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (m_CurrentWall != m_PreviousWall)

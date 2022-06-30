@@ -5,9 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
 
-
-    public interface Interactable
-    {
-        void Interact(DisplayManagerLevel1 currDisplay);
-    }
-
+public interface IInteractable
+{
+    void Interact(DisplayManagerLevel1 currDisplay);
+}
+    

@@ -16,14 +16,12 @@ public class InventoryItemManager : MonoBehaviour
     {
         // go to the inventory manager and active the method AddItemToInventory
     }
-
     
     public string Name
     {
         get { return m_Name; }
         set { m_Name = value; }
     }
-    
 
     public Sprite Image
     {

@@ -20,7 +20,7 @@ public class ButtonHandler : MonoBehaviour
     {
         m_CurrentDisplay = GameObject.Find("DisplayImage").GetComponent<DisplayManagerLevel1>();
 
-        if(m_CurrentDisplay == null)
+        if (m_CurrentDisplay == null)
         {
             Debug.LogError("Could not found DisplayManagerLevel1.");
         }
@@ -42,7 +42,7 @@ public class ButtonHandler : MonoBehaviour
         m_RightButton.gameObject.SetActive(true);
     }
 
-   public void OnClickCloseZoomInventory()
+    public void OnClickCloseZoomInventory()
     {
         m_ZoomWindow.SetActive(false);
     }

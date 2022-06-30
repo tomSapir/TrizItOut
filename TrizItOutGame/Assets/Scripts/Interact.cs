@@ -6,7 +6,6 @@ public class Interact : MonoBehaviour
 {
     private DisplayManagerLevel1 m_currDisplay;
 
-    // Start is called before the first frame update
     void Start()
     {
         m_currDisplay = GameObject.Find("DisplayImage").GetComponent<DisplayManagerLevel1>();
@@ -16,13 +15,13 @@ public class Interact : MonoBehaviour
     void Update()
     {
         if(Input.GetMouseButtonDown(0))
-        {
+        { 
             Vector2 rayPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             RaycastHit2D hit = Physics2D.Raycast(rayPosition, Vector2.zero, 100);
 
             if(hit && hit.transform.tag == "Interactable")
             {
-                hit.transform.GetComponent<Interactable>().Interact(m_currDisplay);
+                hit.transform.GetComponent<IInteractable>().Interact(m_currDisplay);
             }
         }
     }

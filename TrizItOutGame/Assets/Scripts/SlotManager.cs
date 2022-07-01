@@ -46,7 +46,7 @@ public class SlotManager : MonoBehaviour
         {
             Debug.LogError("Could not find the image to zoom in.");
         }
-        else
+        else if(m_IsEmpty == false)
         {
             m_ZoomInWindow.SetActive(true);
             m_ZoomInWindow.transform.Find("Item").GetComponent<Image>().sprite = imageToDisplay.sprite;

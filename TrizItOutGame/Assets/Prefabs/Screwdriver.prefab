@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4093783439070656511}
   - component: {fileID: 4093783439070656256}
   m_Layer: 0
-  m_Name: Screwdriver2
+  m_Name: Screwdriver
   m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -124,4 +124,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd0fbfc446e98034fb1ec9ed7cc39416, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_DisplaySprite: Screwdriver2
+  m_DisplaySprite: Screwdriver

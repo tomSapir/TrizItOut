@@ -36,6 +36,7 @@ public class PickUpItem : MonoBehaviour, IInteractable
             if(slot.transform.GetChild(0).GetComponent<Image>().sprite.name == "empty_item")
             {
                 slot.transform.GetChild(0).GetComponent<Image>().sprite = Resources.Load<Sprite>("Sprites/Inventory/" + m_DisplaySprite);
+                slot.GetComponent<SlotManager>().IsEmpty = false;
                 Destroy(gameObject);
                 break;
             }

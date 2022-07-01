@@ -40,6 +40,8 @@ public class SlotManager : MonoBehaviour
         if (m_SlotItemImage != null)
         {
             imageToDisplay = m_SlotItemImage.GetComponent<Image>();
+            Debug.Log("Zoo, window");
+
         }
 
         if (imageToDisplay == null)

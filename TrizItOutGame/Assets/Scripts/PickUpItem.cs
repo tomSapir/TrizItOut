@@ -10,7 +10,6 @@ public class PickUpItem : MonoBehaviour, IInteractable
 
     private GameObject m_InventorySlots;
 
-
    
     void Start()
     {

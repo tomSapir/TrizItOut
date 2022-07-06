@@ -2,8 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
-public class SlotManager : MonoBehaviour
+public class SlotManager : MonoBehaviour, IPointerClickHandler
 {
     [SerializeField]
     private GameObject m_SlotItemImage;
@@ -12,7 +13,17 @@ public class SlotManager : MonoBehaviour
     [SerializeField]
     private bool m_IsEmpty = true;
 
-    private InventoryItemManager m_InventoryItemManager = null;
+    private InventoryItemManager m_InventoryItemManager = null; // Not in use yet...
+    private GameObject m_inventory;
+
+    public enum Property { usable, displayable };
+    public Property ItemProperty { get; private set; }
+    private string m_displayImage; // For displayable objects - the more informative image for the zoomIn window.
+
+    void Start()
+    {
+        m_inventory = GameObject.Find("Inventory");
+    }
 
     public bool IsEmpty
     {
@@ -35,23 +46,33 @@ public class SlotManager : MonoBehaviour
 
     public void OnClickMagnifierGlass()
     {
-        Image imageToDisplay = null;
-
-        if (m_SlotItemImage != null)
+        if(m_IsEmpty == false)
         {
-            imageToDisplay = m_SlotItemImage.GetComponent<Image>();
-            Debug.Log("Zoo, window");
-
-        }
-
-        if (imageToDisplay == null)
-        {
-            Debug.LogError("Could not find the image to zoom in.");
-        }
-        else if(m_IsEmpty == false)
-        {
+            if(ItemProperty == Property.usable)
+            {
+                m_ZoomInWindow.transform.Find("Item").GetComponent<Image>().sprite = m_SlotItemImage.GetComponent<Image>().sprite;
+            }
+            else
+            {
+                m_ZoomInWindow.transform.Find("Item").GetComponent<Image>().sprite = Resources.Load<Sprite>("Sprites/Displayables/" + m_displayImage);
+            }
             m_ZoomInWindow.SetActive(true);
-            m_ZoomInWindow.transform.Find("Item").GetComponent<Image>().sprite = imageToDisplay.sprite;
         }
     }
+
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        if(m_IsEmpty == false)
+        {
+           m_inventory.GetComponent<InventoryManager>().m_previouslySelectedSlot = m_inventory.GetComponent<InventoryManager>().m_currentSelectedSlot;
+           m_inventory.GetComponent<InventoryManager>().m_currentSelectedSlot = this.gameObject;
+        }
+    }
+
+    public void AssignPtoperty(int i_ordrNumber, string i_displayImage)
+    {
+        ItemProperty = (Property)i_ordrNumber;
+        this.m_displayImage = i_displayImage;
+    }
+
 }

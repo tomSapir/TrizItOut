@@ -5,6 +5,9 @@ using UnityEngine.UI;
 
 public class InventoryItemManager : MonoBehaviour
 {
+    // TODO:
+    // Ithink this is the same as pick up item
+
     [SerializeField]
     private string m_Name = string.Empty;
     [SerializeField]

@@ -15,9 +15,10 @@ public class SlotManager : MonoBehaviour, IPointerClickHandler
 
     private InventoryItemManager m_InventoryItemManager = null; // Not in use yet...
     private GameObject m_inventory;
+    public string m_CombinationItem { get; private set; }
 
-    public enum Property { usable, displayable };
-    public Property ItemProperty { get; private set; }
+    public enum Property { usable, displayable, empty };
+    public Property ItemProperty { get;  set; }
     private string m_displayImage; // For displayable objects - the more informative image for the zoomIn window.
 
     void Start()
@@ -62,17 +63,44 @@ public class SlotManager : MonoBehaviour, IPointerClickHandler
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        if(m_IsEmpty == false)
+        if(this.gameObject == m_inventory.GetComponent<InventoryManager>().m_currentSelectedSlot)
+        {
+            m_inventory.GetComponent<InventoryManager>().m_currentSelectedSlot = null;
+        }
+        else if(m_IsEmpty == false)
         {
            m_inventory.GetComponent<InventoryManager>().m_previouslySelectedSlot = m_inventory.GetComponent<InventoryManager>().m_currentSelectedSlot;
            m_inventory.GetComponent<InventoryManager>().m_currentSelectedSlot = this.gameObject;
+            Combine();
         }
     }
 
-    public void AssignPtoperty(int i_ordrNumber, string i_displayImage)
+    public void AssignPtoperty(int i_ordrNumber, string i_displayImage, string i_combinationItem)
     {
         ItemProperty = (Property)i_ordrNumber;
         this.m_displayImage = i_displayImage;
+        this.m_CombinationItem = i_combinationItem;
     }
 
+    public void Combine()
+    {
+        if(m_inventory.GetComponent<InventoryManager>().m_previouslySelectedSlot.GetComponent<SlotManager>().m_CombinationItem == this.gameObject.GetComponent<SlotManager>().m_CombinationItem && this.gameObject.GetComponent<SlotManager>().m_CombinationItem != string.Empty)
+        {
+            Debug.Log("Now we need to calculate the result of the combination");
+            //var combinedItem = Instantiate(Resources.Load<GameObject>("Sprites/Item" + m_CombinationItem));
+            //combinedItem.GetComponent<PickUpItem>().Interact(null);
+
+            m_inventory.GetComponent<InventoryManager>().m_previouslySelectedSlot.GetComponent<SlotManager>().ClearSlot();
+            ClearSlot();
+        }
+    }
+
+    public void ClearSlot()
+    {
+        ItemProperty = SlotManager.Property.empty;
+        m_displayImage = string.Empty;
+        m_CombinationItem = string.Empty;
+
+        transform.GetChild(0).GetComponent<Image>().sprite = Resources.Load<Sprite>("Sprites/Inventory/empty_item");
+    }
 }

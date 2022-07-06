@@ -24,18 +24,10 @@ public class InventoryManager : MonoBehaviour
 
     void InitializeInventory()
     {
-        //var slots = GameObject.Find("Items_Parent");
-        
         foreach(GameObject slot in m_Slots)
         {
             slot.transform.GetChild(0).GetComponent<Image>().sprite = Resources.Load<Sprite>("Sprites/Inventory/empty_item");
         }
-
-       /*foreach(Transform slot in slots.transform) ---> we already had the member 'slot' so i changed it
-        //{
-        //    slot.transform.GetChild(0).GetComponent<Image>().sprite = Resources.Load<Sprite>("Sprites/Inventory/empty_item");
-        //}
-       */
     }
 
     private void SelectedSlot()

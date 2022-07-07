@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class Drawer : MonoBehaviour, IInteractable
 {
-
     [SerializeField]
     private string m_UnlockItem;
     private GameObject m_inventory;

@@ -14,7 +14,7 @@ public class ZoomInObject : MonoBehaviour, IInteractable
         gameObject.layer = 2;
         currDisplay.CurrentState = DisplayManagerLevel1.State.zoom;
 
-        //ConstrainCamera();
+        ConstrainCamera();
     }
 
     void ConstrainCamera()

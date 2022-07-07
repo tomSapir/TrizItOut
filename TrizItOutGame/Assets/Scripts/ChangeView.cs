@@ -6,7 +6,6 @@ public class ChangeView : MonoBehaviour, IInteractable
 {
     [SerializeField]
     private string SpriteName;
-
     private const string ChangeViewSpritesPath = "Sprites/Level1/";
 
     public void Interact(DisplayManagerLevel1 currDisplay)

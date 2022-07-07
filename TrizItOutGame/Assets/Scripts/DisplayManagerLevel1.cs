@@ -9,14 +9,12 @@ public class DisplayManagerLevel1 : MonoBehaviour
     private int m_CurrentWall;
     private int m_PreviousWall;
 
-    private const string k_BackgroundsSpritesPath = "Sprites/Level1/Background";
-
     [SerializeField]
-    private GameObject m_Furnitures1;
+    private GameObject m_furniture1;
 
     public enum State
     {
-        normal, zoom, ChangedView
+        normal, zoom
     };
 
     public State CurrentState { get; set; }
@@ -49,12 +47,13 @@ public class DisplayManagerLevel1 : MonoBehaviour
 
     void Update()
     {
-        if(m_CurrentWall != m_PreviousWall)
+        if (m_CurrentWall != m_PreviousWall)
         {
-            GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>(k_BackgroundsSpritesPath + CurrentWall.ToString());
+            GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Sprites/Level1/Background" + CurrentWall.ToString());
         }
 
         m_PreviousWall = CurrentWall;
+
         showRelevantPickUpItems();
     }
 
@@ -62,11 +61,11 @@ public class DisplayManagerLevel1 : MonoBehaviour
     {
         if(m_CurrentWall == 1)
         {
-            m_Furnitures1.SetActive(true);
+            m_furniture1.SetActive(true);
         }
         else if(m_CurrentWall == 2)
         {
-            m_Furnitures1.SetActive(false);
+            m_furniture1.SetActive(false);
         }
     }
 }

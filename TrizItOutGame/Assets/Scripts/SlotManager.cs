@@ -71,7 +71,7 @@ public class SlotManager : MonoBehaviour, IPointerClickHandler
         {
            m_inventory.GetComponent<InventoryManager>().m_previouslySelectedSlot = m_inventory.GetComponent<InventoryManager>().m_currentSelectedSlot;
            m_inventory.GetComponent<InventoryManager>().m_currentSelectedSlot = this.gameObject;
-            Combine();
+           Combine();
         }
     }
 
@@ -84,7 +84,7 @@ public class SlotManager : MonoBehaviour, IPointerClickHandler
 
     public void Combine()
     {
-        if(m_inventory.GetComponent<InventoryManager>().m_previouslySelectedSlot.GetComponent<SlotManager>().m_CombinationItem == this.gameObject.GetComponent<SlotManager>().m_CombinationItem && this.gameObject.GetComponent<SlotManager>().m_CombinationItem != string.Empty)
+        if(m_inventory.GetComponent<InventoryManager>().m_previouslySelectedSlot != null && m_inventory.GetComponent<InventoryManager>().m_previouslySelectedSlot.GetComponent<SlotManager>().m_CombinationItem == this.gameObject.GetComponent<SlotManager>().m_CombinationItem && this.gameObject.GetComponent<SlotManager>().m_CombinationItem != string.Empty)
         {
             Debug.Log("Now we need to calculate the result of the combination");
             //var combinedItem = Instantiate(Resources.Load<GameObject>("Sprites/Item" + m_CombinationItem));

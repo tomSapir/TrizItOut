@@ -6,11 +6,15 @@ using UnityEngine;
 public class DisplayManagerLevel1 : MonoBehaviour
 {
     // index for the current background displayed (from 1 to 2 in this case)
+   
     private int m_CurrentWall;
+
     private int m_PreviousWall;
 
     [SerializeField]
     private GameObject m_furniture1;
+    [SerializeField]
+    private GameObject m_interactables1;
 
     public enum State
     {
@@ -43,6 +47,7 @@ public class DisplayManagerLevel1 : MonoBehaviour
     {
         m_PreviousWall = 0;
         m_CurrentWall = 1;
+        CurrentState = State.normal;
     }
 
     void Update()
@@ -55,15 +60,28 @@ public class DisplayManagerLevel1 : MonoBehaviour
         m_PreviousWall = CurrentWall;
 
         showRelevantPickUpItems();
+        showRelevantInteractableItems();
+    }
+
+    private void showRelevantInteractableItems()
+    {
+        if (m_CurrentWall == 1 && CurrentState == State.normal)
+        {
+            m_interactables1.SetActive(true);
+        }
+        else if (m_CurrentWall == 2 || CurrentState == State.zoom)
+        {
+            m_interactables1.SetActive(false);
+        }
     }
 
     private void showRelevantPickUpItems()
     {
-        if(m_CurrentWall == 1)
+        if(m_CurrentWall == 1 && CurrentState == State.normal)
         {
             m_furniture1.SetActive(true);
         }
-        else if(m_CurrentWall == 2)
+        else if(m_CurrentWall == 2 || CurrentState == State.zoom)
         {
             m_furniture1.SetActive(false);
         }

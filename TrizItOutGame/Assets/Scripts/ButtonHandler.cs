@@ -60,13 +60,6 @@ public class ButtonHandler : MonoBehaviour
         
         m_CurrentDisplay = GameObject.Find("DisplayImage").GetComponent<DisplayManagerLevel1>();
         m_CurrentDisplay.CurrentState = DisplayManagerLevel1.State.normal;
-        var changeViewrs = FindObjectsOfType<ChangeView>();
-
-        foreach(var changeViewr in changeViewrs)
-        {
-           changeViewr.gameObject.layer = 0;
-            changeViewr.gameObject.SetActive(true);
-        }
 
         m_CurrentDisplay.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Sprites/Level1/Background" + m_CurrentDisplay.CurrentWall.ToString());
 

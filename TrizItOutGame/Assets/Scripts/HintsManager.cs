@@ -12,7 +12,7 @@ public class HintsManager : MonoBehaviour
     [SerializeField]
     private GameObject m_HintBtn;
     [SerializeField]
-    private TMPro.TextMeshPro m_HintText;
+    private GameObject m_HintText;
 
     // Start is called before the first frame update
     void Start()
@@ -39,12 +39,7 @@ public class HintsManager : MonoBehaviour
 
             // get the current hint from Hints map
             string currentHint = m_HintsMap[m_CurrentHintIndex];
-
-            // TODO: put inside the text
-            m_HintText.text = currentHint;
-           
-
-           
+            m_HintText.GetComponent<TMPro.TextMeshProUGUI>().text = currentHint;
         }
         else
         {

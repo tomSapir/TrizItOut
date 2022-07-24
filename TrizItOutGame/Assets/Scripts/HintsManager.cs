@@ -4,42 +4,40 @@ using UnityEngine;
 
 public class HintsManager : MonoBehaviour
 {
-    private Dictionary<int, string> m_HintsMap;
+    private Dictionary<int, string> m_HintsByIndex;
     private int m_CurrentHintIndex;
 
     [SerializeField]
     private GameObject m_HintWindow;
     [SerializeField]
-    private GameObject m_HintBtn;
+    private GameObject m_ShowHintBtn;
     [SerializeField]
-    private GameObject m_HintText;
+    private GameObject m_HintWindowText;
 
     // Start is called before the first frame update
     void Start()
     {
-        m_HintsMap = new Dictionary<int, string>();
+        m_HintsByIndex = new Dictionary<int, string>();
         m_CurrentHintIndex = 0;
         setHintsMapData();
-
-        // TODO: add all the hints to "Hints"
     }
 
+    // This method will fill the map with the hints and there indexes
     private void setHintsMapData()
     {
-        // TODO: this method will fill the map with the hints and there indexes
-        m_HintsMap.Add(0, "test for checking.");
+        m_HintsByIndex.Add(0, "test for checking.");
     }
 
-    public void OnClickHintBtn()
+    public void OnClickShowHintBtn()
     {
-        if (m_HintsMap.ContainsKey(m_CurrentHintIndex))
+        if (m_HintsByIndex.ContainsKey(m_CurrentHintIndex))
         {
             m_HintWindow.SetActive(true);
-            m_HintBtn.SetActive(false);
+            m_ShowHintBtn.SetActive(false);
 
-            // get the current hint from Hints map
-            string currentHint = m_HintsMap[m_CurrentHintIndex];
-            m_HintText.GetComponent<TMPro.TextMeshProUGUI>().text = currentHint;
+            // get the current hint from the hints map
+            string currentHint = m_HintsByIndex[m_CurrentHintIndex];
+            m_HintWindowText.GetComponent<TMPro.TextMeshProUGUI>().text = currentHint;
         }
         else
         {
@@ -50,6 +48,11 @@ public class HintsManager : MonoBehaviour
     public void OnClickCloseHintWindow()
     {
         m_HintWindow.SetActive(false);
-        m_HintBtn.SetActive(true);
+        m_ShowHintBtn.SetActive(true);
+    }
+
+    public void IncreaseHintIndex()
+    {
+        m_CurrentHintIndex++;
     }
 }

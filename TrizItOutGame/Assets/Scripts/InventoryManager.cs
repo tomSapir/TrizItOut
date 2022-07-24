@@ -36,12 +36,13 @@ public class InventoryManager : MonoBehaviour
         {
             if(slot == m_currentSelectedSlot && slot.GetComponent<SlotManager>().ItemProperty == SlotManager.Property.usable && slot.GetComponent<SlotManager>().IsEmpty == false)
             {
-                slot.GetComponent<Image>().color = new Color(0, .55f, .75f, 1);
+                slot.GetComponent<Image>().color = new Color(0, .55f, .75f, 0.5f);
             }
             else
             {
-                slot.GetComponent<Image>().color = new Color(1, 1, 1, 1);
+                slot.GetComponent<Image>().color = new Color(1, 1, 1, 0.5f);
             }
+            
         }
     }
 

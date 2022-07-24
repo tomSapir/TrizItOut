@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class Kattle : MonoBehaviour, IInteractable
 {
-
-    bool m_isConnected;
+    [SerializeField]
+    public bool m_isConnected { get; set; } // Maybe we should start unattached?
 
     void Start()
     {
-        
+        m_isConnected = true;
     }
 
     
@@ -21,6 +21,11 @@ public class Kattle : MonoBehaviour, IInteractable
 
     public void Interact(DisplayManagerLevel1 currDisplay)
     {
-        
+        if(m_isConnected)
+        {
+            Debug.Log("Show password.");
+        }
+        else
+            Debug.Log("The koomkoom is dixconnected.");
     }
 }

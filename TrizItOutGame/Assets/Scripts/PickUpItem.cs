@@ -15,6 +15,8 @@ public class PickUpItem : MonoBehaviour, IInteractable
     private string m_DisplayImage; // The more informative image of an object.
     [SerializeField]
     private string m_combinationItem; // is needs to combine with another item to perform an action - like the spray and the straw.
+    [SerializeField]
+    private int m_AmountOfUsage; // will be transferd to the slot when get picked up to know when it should be ot of the inventory.
 
     private GameObject m_InventorySlots;
     void Start()
@@ -43,7 +45,7 @@ public class PickUpItem : MonoBehaviour, IInteractable
             {
                 slot.transform.GetChild(0).GetComponent<Image>().sprite = Resources.Load<Sprite>("Sprites/Inventory/" + m_DisplaySprite);
                 slot.GetComponent<SlotManager>().IsEmpty = false;
-                slot.GetComponent<SlotManager>().AssignPtoperty((int)m_itemProperty, m_DisplayImage, m_combinationItem);
+                slot.GetComponent<SlotManager>().AssignPtoperty((int)m_itemProperty, m_DisplayImage, m_combinationItem, m_AmountOfUsage);
                 Destroy(gameObject);
                 break;
             }

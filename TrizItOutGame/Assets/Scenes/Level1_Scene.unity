@@ -304,17 +304,17 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 98262540}
   m_LocalRotation: {x: 0.038781457, y: 0.022774758, z: 0.7003236, w: 0.7124074}
-  m_LocalPosition: {x: 0, y: 0, z: 2.4415}
+  m_LocalPosition: {x: 0, y: 0, z: 4.29}
   m_LocalScale: {x: -0.77903, y: 0.75955427, z: 0.77903}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 981481711}
-  m_RootOrder: 4
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 1.338, y: 4.979, z: 89.078}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 692.05, y: 66.755005}
-  m_SizeDelta: {x: -734.29, y: -398.15}
+  m_AnchoredPosition: {x: 649.92, y: 59.330017}
+  m_SizeDelta: {x: -738.79, y: -400.69}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &98262542
 MonoBehaviour:
@@ -1135,15 +1135,15 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 1971307848}
+    m_TransformParent: {fileID: 852679344}
     m_Modifications:
     - target: {fileID: 4093783439070656257, guid: 03e41704f6967f647bd26e2f7c316b4f, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4093783439070656257, guid: 03e41704f6967f647bd26e2f7c316b4f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.97
+      value: -3.9700003
       objectReference: {fileID: 0}
     - target: {fileID: 4093783439070656257, guid: 03e41704f6967f647bd26e2f7c316b4f, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1290,7 +1290,7 @@ RectTransform:
   m_Children:
   - {fileID: 750825278}
   m_Father: {fileID: 981481711}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -1584,7 +1584,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &852679344
 Transform:
   m_ObjectHideFlags: 0
@@ -1599,6 +1599,7 @@ Transform:
   m_Children:
   - {fileID: 28838804}
   - {fileID: 19766431}
+  - {fileID: 383664103}
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1777,11 +1778,11 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1299494711}
+  - {fileID: 98262541}
   - {fileID: 2009688112}
+  - {fileID: 1299494711}
   - {fileID: 480434674}
   - {fileID: 1771480499}
-  - {fileID: 98262541}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1938,7 +1939,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1236549894
 Transform:
   m_ObjectHideFlags: 0
@@ -1966,7 +1967,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4632123118535085592, guid: 5c942a4ee5d7c5842804a9f127edf6b0, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4632123118535085592, guid: 5c942a4ee5d7c5842804a9f127edf6b0, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2261,7 +2262,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 981481711}
-  m_RootOrder: 0
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 5, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -2922,7 +2923,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1971307848}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1755200961
 MonoBehaviour:
@@ -3000,7 +3001,7 @@ RectTransform:
   - {fileID: 509387967}
   - {fileID: 1661184668}
   m_Father: {fileID: 981481711}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -3294,7 +3295,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 847080633}
-  - {fileID: 383664103}
   - {fileID: 442290988}
   - {fileID: 1755200960}
   m_Father: {fileID: 0}
@@ -3359,7 +3359,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 52b54a8b09e4c7e44818e28107b23709, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 4e7638d11cdc892448a47745c53d850e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

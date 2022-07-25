@@ -37,19 +37,24 @@ public class PickUpItem : MonoBehaviour, IInteractable
 
     private void ItemPickUp()
     {
-        m_InventorySlots = GameObject.Find("Items_Parent"); // To loop up for the available slot.
-
-        foreach (Transform slot in m_InventorySlots.transform)
+        if(m_AmountOfUsage != 0)
         {
-            if(slot.transform.GetChild(0).GetComponent<Image>().sprite.name == "empty_item")
+             m_InventorySlots = GameObject.Find("Items_Parent"); // To loop up for the available slot.
+
+            foreach (Transform slot in m_InventorySlots.transform)
             {
-                slot.transform.GetChild(0).GetComponent<Image>().sprite = Resources.Load<Sprite>("Sprites/Inventory/" + m_DisplaySprite);
-                slot.GetComponent<SlotManager>().IsEmpty = false;
-                slot.GetComponent<SlotManager>().AssignPtoperty((int)m_itemProperty, m_DisplayImage, m_combinationItem, m_AmountOfUsage);
-                Destroy(gameObject);
-                break;
+                if(slot.transform.GetChild(0).GetComponent<Image>().sprite.name == "empty_item")
+                {
+                    slot.transform.GetChild(0).GetComponent<Image>().sprite = Resources.Load<Sprite>("Sprites/Inventory/" + m_DisplaySprite);
+                    slot.GetComponent<SlotManager>().IsEmpty = false;
+                    slot.GetComponent<SlotManager>().AssignPtoperty((int)m_itemProperty, m_DisplayImage, m_combinationItem, m_AmountOfUsage);
+                    break;
+                }
             }
         }
+        Destroy(gameObject);
+
+
     }
 
 }

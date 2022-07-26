@@ -46,35 +46,26 @@ public class InventoryManager : MonoBehaviour
 
     public void AddItemToInventory(PickUpItem i_Item)
     {
-        Debug.Log(i_Item.m_DisplaySprite);
-        //Debug.Log(i_Item.m_DisplaySprite);
-        //Debug.Log(i_Item.m_DisplaySprite);
-
-        foreach (GameObject slot in m_Slots)
+       
+        if (i_Item.m_AmountOfUsage != 0)
         {
-            if (slot.transform.GetChild(0).GetComponent<Image>().sprite.name == "empty_item")
+            foreach (GameObject slot in m_Slots)
             {
-                slot.transform.GetChild(0).GetComponent<Image>().sprite = Resources.Load<Sprite>("Sprites/Inventory/" + i_Item.m_DisplaySprite);
-                slot.GetComponent<SlotManager>().IsEmpty = false;
-                slot.GetComponent<SlotManager>().AssignPtoperty((int)i_Item.m_ItemProperty, i_Item.m_DisplayImage, i_Item.m_ResultOfCombinationItemName, i_Item.m_AmountOfUsage);
-                Destroy(i_Item.gameObject);
-                break;
+                if (slot.transform.GetChild(0).GetComponent<Image>().sprite.name == "empty_item")
+                {
+                    slot.transform.GetChild(0).GetComponent<Image>().sprite = Resources.Load<Sprite>("Sprites/Inventory/" + i_Item.m_DisplaySprite);
+                    slot.GetComponent<SlotManager>().IsEmpty = false;
+                    slot.GetComponent<SlotManager>().AssignPtoperty((int)i_Item.m_ItemProperty, i_Item.m_DisplayImage, i_Item.m_ResultOfCombinationItemName, i_Item.m_AmountOfUsage);
+                    Destroy(i_Item.gameObject);
+                    break;
+                }
             }
         }
+
+        Destroy(i_Item.gameObject);
     }    
 
-    /*
-    public void AddItemToTheInventory(InventoryItemManager i_InventoryItemManager)
-    {
-        foreach(GameObject slot in m_Slots)
-        {
-            if(slot.GetComponent<SlotManager>().IsEmpty == true)
-            {
-                slot.GetComponent<SlotManager>().InventoryItemManager = i_InventoryItemManager;
-            }
-        }
-    }
-    */
+
 
 
 }

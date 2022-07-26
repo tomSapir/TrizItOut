@@ -21,6 +21,9 @@ public class DisplayManagerLevel1 : MonoBehaviour
     [SerializeField]
     private GameObject m_interactables2;
 
+    [SerializeField]
+    private GameObject m_Missions;
+
     public enum State
     {
         normal, zoom
@@ -66,6 +69,17 @@ public class DisplayManagerLevel1 : MonoBehaviour
 
         showRelevantPickUpItems();
         showRelevantInteractableItems();
+
+        if(CurrentState == State.normal)
+        {
+            m_Missions.SetActive(false);
+        }
+        else
+        {
+            m_Missions.SetActive(true);
+            String missionName = GetComponent<SpriteRenderer>().sprite.name;
+            m_Missions.GetComponent<MissionsManager>().ActiveRelevantMission(missionName);
+        }
     }
 
     private void showRelevantInteractableItems()

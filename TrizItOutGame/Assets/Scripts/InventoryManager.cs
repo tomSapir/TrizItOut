@@ -7,7 +7,6 @@ public class InventoryManager : MonoBehaviour
 {
     [SerializeField]
     private GameObject[] m_Slots = new GameObject[6]; 
-
     public GameObject m_currentSelectedSlot { get; set; }
     public GameObject m_previouslySelectedSlot { get; set; }
 
@@ -45,6 +44,26 @@ public class InventoryManager : MonoBehaviour
         }
     }
 
+    public void AddItemToInventory(PickUpItem i_Item)
+    {
+        Debug.Log(i_Item.m_DisplaySprite);
+        //Debug.Log(i_Item.m_DisplaySprite);
+        //Debug.Log(i_Item.m_DisplaySprite);
+
+        foreach (GameObject slot in m_Slots)
+        {
+            if (slot.transform.GetChild(0).GetComponent<Image>().sprite.name == "empty_item")
+            {
+                slot.transform.GetChild(0).GetComponent<Image>().sprite = Resources.Load<Sprite>("Sprites/Inventory/" + i_Item.m_DisplaySprite);
+                slot.GetComponent<SlotManager>().IsEmpty = false;
+                slot.GetComponent<SlotManager>().AssignPtoperty((int)i_Item.m_ItemProperty, i_Item.m_DisplayImage, i_Item.m_ResultOfCombinationItemName, i_Item.m_AmountOfUsage);
+                Destroy(i_Item.gameObject);
+                break;
+            }
+        }
+    }    
+
+    /*
     public void AddItemToTheInventory(InventoryItemManager i_InventoryItemManager)
     {
         foreach(GameObject slot in m_Slots)
@@ -55,4 +74,7 @@ public class InventoryManager : MonoBehaviour
             }
         }
     }
+    */
+
+
 }

@@ -24,8 +24,7 @@ public class DisplayManagerLevel1 : MonoBehaviour
     [SerializeField]
     private GameObject m_interactables2;
 
-    [SerializeField]
-    private GameObject m_Missions;
+    public GameObject[] UiRenderObject;
 
     public enum State
     {

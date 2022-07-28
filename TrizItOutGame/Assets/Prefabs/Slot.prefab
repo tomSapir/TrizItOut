@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5259828532725135554}
   - component: {fileID: 5259828532725135552}
   - component: {fileID: 5259828532725135553}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Slot_Item_Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27,7 +27,7 @@ RectTransform:
   m_GameObject: {fileID: 5259828532725135555}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.4, y: 1.4, z: 1}
+  m_LocalScale: {x: 0.7059069, y: 0.69679433, z: 1.0354}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5259828532728258728}
@@ -35,7 +35,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0.39999962, y: -0.19999695}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5259828532725135552
@@ -89,7 +89,7 @@ GameObject:
   - component: {fileID: 5259828532728258743}
   - component: {fileID: 2644311308185438534}
   - component: {fileID: 7419476165770219189}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Slot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -226,7 +226,7 @@ GameObject:
   - component: {fileID: 3402879531605867823}
   - component: {fileID: 4789438239943298473}
   - component: {fileID: 4685111052107923303}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: MagnifyingGlassForZoom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -304,7 +304,7 @@ GameObject:
   - component: {fileID: 5904031441545797339}
   - component: {fileID: 7557701562035621669}
   - component: {fileID: 1180744447582792128}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -328,8 +328,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.04, y: 0.39}
-  m_SizeDelta: {x: 18.14, y: 19.91}
+  m_AnchoredPosition: {x: 0.33, y: 0.39}
+  m_SizeDelta: {x: 18.88, y: 19.91}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5904031441545797339
 CanvasRenderer:

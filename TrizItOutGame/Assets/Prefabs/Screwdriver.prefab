@@ -124,4 +124,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd0fbfc446e98034fb1ec9ed7cc39416, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_DisplaySprite: Screwdriver
+  m_DisplaySprite: Screwdriver2
+  m_ItemProperty: 0
+  m_DisplayImage: 
+  m_ResultOfCombinationItemName: 
+  m_AmountOfUsage: 0

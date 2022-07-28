@@ -6,7 +6,7 @@ using UnityEngine;
 public class DisplayManagerLevel1 : MonoBehaviour
 {
     // index for the current background displayed (from 1 to 2 in this case)
-   [SerializeField]
+    [SerializeField]
     private int m_CurrentWall;
 
     private int m_PreviousWall;
@@ -20,6 +20,9 @@ public class DisplayManagerLevel1 : MonoBehaviour
     private GameObject m_furniture2;
     [SerializeField]
     private GameObject m_interactables2;
+
+    public GameObject[] UiRenderObject;
+
 
     public enum State
     {
@@ -35,7 +38,7 @@ public class DisplayManagerLevel1 : MonoBehaviour
         {
             if (value == 3)
             {
-                m_CurrentWall = 1; 
+                m_CurrentWall = 1;
             }
             else if (value == 0)
             {
@@ -53,6 +56,7 @@ public class DisplayManagerLevel1 : MonoBehaviour
         m_PreviousWall = 0;
         m_CurrentWall = 1;
         CurrentState = State.normal;
+        RenderUI();
     }
 
     void Update()
@@ -70,11 +74,11 @@ public class DisplayManagerLevel1 : MonoBehaviour
 
     private void showRelevantInteractableItems()
     {
-        if(m_CurrentWall == 1)
+        if (m_CurrentWall == 1)
         {
             m_interactables2.SetActive(false);
 
-            if(CurrentState == State.normal)
+            if (CurrentState == State.normal)
             {
                 m_interactables1.SetActive(true);
             }
@@ -84,7 +88,7 @@ public class DisplayManagerLevel1 : MonoBehaviour
             }
         }
 
-        else if(m_CurrentWall == 2)
+        else if (m_CurrentWall == 2)
         {
             m_interactables1.SetActive(false);
 
@@ -97,7 +101,7 @@ public class DisplayManagerLevel1 : MonoBehaviour
                 m_interactables2.SetActive(false);
             }
         }
-    
+
     }
 
     private void showRelevantPickUpItems()
@@ -131,5 +135,13 @@ public class DisplayManagerLevel1 : MonoBehaviour
             }
         }
 
+    }
+
+    void RenderUI()
+    {
+        for (int i = 0; i < UiRenderObject.Length; i++)
+        {
+            UiRenderObject[i].SetActive(false);
+        }
     }
 }

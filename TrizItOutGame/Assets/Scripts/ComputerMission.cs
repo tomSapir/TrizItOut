@@ -13,13 +13,13 @@ public class ComputerMission : MonoBehaviour
     private Sprite m_PCSideOpenSprite;
 
     private bool m_CanShowDust = true;
-    
-   
+
+
     void Start()
     {
         m_DisplayManager = GameObject.Find("DisplayImage").GetComponent<DisplayManagerLevel1>();
 
-        if(m_DisplayManager == null)
+        if (m_DisplayManager == null)
         {
             Debug.LogError("DisplayManagerLevel1 in ComputerMission is null!");
         }

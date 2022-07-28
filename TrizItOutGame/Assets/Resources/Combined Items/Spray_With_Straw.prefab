@@ -99,9 +99,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_DisplaySprite: Spray_With_Straw
-  m_itemProperty: 0
+  m_ItemProperty: 0
   m_DisplayImage: 
-  m_combinationItem: 
+  m_ResultOfCombinationItemName: 
   m_AmountOfUsage: 7
 --- !u!61 &3397503220394093489
 BoxCollider2D:

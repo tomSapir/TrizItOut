@@ -6,7 +6,7 @@ public class ObjectsManage : MonoBehaviour
 {
     private DisplayManagerLevel1 currentDisplay;
 
-    public GameObject[] objectsToMange;
+    //public GameObject[] objectsToMange;
 
     // Start is called before the first frame update
     void Start()
@@ -17,9 +17,9 @@ public class ObjectsManage : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        ManageObjects();
+     //   ManageObjects();
     }
-
+/*
     void ManageObjects()
     {
         for (int i = 0; i < objectsToMange.Length; i++)
@@ -33,6 +33,6 @@ public class ObjectsManage : MonoBehaviour
                 objectsToMange[i].SetActive(false);
             }
         }
-    }
+    }*/
 
 }

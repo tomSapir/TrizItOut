@@ -28,18 +28,19 @@ public class MissionsManager : MonoBehaviour
             case "PCSide_ZoomIN_Close":
             case "PCSide_ZoomIn_Open":
                 {
+                    m_SafeBoxMission.SetActive(false);
                     m_ComputerMission.SetActive(true);
                     break;
                 }
             case "SafeBox_Code_Zoom":
             case "SafeBox_Open_ZoomIn":
                 {
+                    GUI.enabled = true;
+                    m_ComputerMission.SetActive(false);
                     m_SafeBoxMission.SetActive(true);
+                    GUI.enabled = false;
                     break;
                 }
-
-
-
         }
     }
 }

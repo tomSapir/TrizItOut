@@ -29,11 +29,16 @@ public class KattleCabelSlot : MonoBehaviour, IInteractable
         if (Cable != null)
         {
             gameObject.layer = 2;
-            if(m_Kattle != null)
+            if (m_Kattle != null)
             {
                 m_Kattle.GetComponent<Kattle>().m_isConnected = true;
             }
-            
+            else
+            {
+                Debug.LogError("Kattle is null!");    
+            }
+
+
         }
         else
         {

@@ -42,10 +42,13 @@ public class SafeBoxMission : MonoBehaviour
 
     public void CodeFunction(string Number)
     {
+        Debug.Log("HI");
         if (m_IndexOfDigitOnScreen < 4)
         {
             m_IndexOfDigitOnScreen++;
             m_CurrentPassCode = m_CurrentPassCode + Number;
+
+            Debug.Log("Current Password: " + m_CurrentPassCode);
             uiText.text = m_CurrentPassCode;
         }
     }

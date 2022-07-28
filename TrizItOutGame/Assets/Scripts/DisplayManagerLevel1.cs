@@ -73,6 +73,17 @@ public class DisplayManagerLevel1 : MonoBehaviour
 
         showRelevantPickUpItems();
         showRelevantInteractableItems();
+
+        if(CurrentState == State.normal)
+        {
+            m_Missions.SetActive(false);
+        }
+        else
+        {
+            m_Missions.SetActive(true);
+            string missionName = GetComponent<SpriteRenderer>().sprite.name;
+            m_Missions.GetComponent<MissionsManager>().ActiveRelevantMission(missionName);
+        }
     }
 
     private void showRelevantInteractableItems()

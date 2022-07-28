@@ -4174,7 +4174,7 @@ MonoBehaviour:
   m_itemProperty: 1
   m_DisplayImage: Laptop_Below
   m_combinationItem: 
-  m_AmountOfUsage: 0
+  m_AmountOfUsage: 1
 --- !u!61 &1755200962
 BoxCollider2D:
   m_ObjectHideFlags: 0

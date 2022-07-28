@@ -57,7 +57,6 @@ public class ButtonHandler : MonoBehaviour
 
     public void OnClickZoomReturn()
     {
-        
         m_CurrentDisplay = GameObject.Find("DisplayImage").GetComponent<DisplayManagerLevel1>();
         m_CurrentDisplay.CurrentState = DisplayManagerLevel1.State.normal;
 

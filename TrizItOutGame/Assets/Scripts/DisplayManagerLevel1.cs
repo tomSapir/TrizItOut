@@ -24,6 +24,7 @@ public class DisplayManagerLevel1 : MonoBehaviour
     [SerializeField]
     private GameObject m_interactables2;
 
+
     public GameObject[] UiRenderObject;
 
 
@@ -81,7 +82,9 @@ public class DisplayManagerLevel1 : MonoBehaviour
         else
         {
             m_Missions.SetActive(true);
+
             string missionName = GetComponent<SpriteRenderer>().sprite.name;
+
             m_Missions.GetComponent<MissionsManager>().ActiveRelevantMission(missionName);
         }
     }

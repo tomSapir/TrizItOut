@@ -1,53 +1,40 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class PickUpItem : MonoBehaviour, IInteractable
 {
-    private enum property { usable, displayable };
+    public enum eProperty { usable, displayable };
 
     [SerializeField]
-    private string m_DisplaySprite; // We need to know wich sprite it should active with.  
+    public string m_DisplaySprite;    // We need to know which sprite it should active with (On Inventory)
     [SerializeField]
-    private property m_itemProperty;
+    public eProperty m_ItemProperty;
     [SerializeField]
-    private string m_DisplayImage; // The more informative image of an object.
+    public string m_DisplayImage; // The more informative image of an object (In case property is displyable)
     [SerializeField]
-    private string m_combinationItem; // is needs to combine with another item to perform an action - like the spray and the straw.
+    public string m_ResultOfCombinationItemName; // is needs to combine with another item to perform an action - like the spray and the straw.
+    [SerializeField]
+    public int m_AmountOfUsage; // will be transferd to the slot when get picked up to know when it should be ot of the inventory.
 
-    private GameObject m_InventorySlots;
+    private InventoryManager m_InventoryManager;
+    //private GameObject m_InventorySlots;
+
     void Start()
     {
-        m_InventorySlots = GameObject.Find("Items_Parent"); // To loop up for the available slot.
-    }
-
- 
-    void Update()
-    {
-        
+        m_InventoryManager = GameObject.Find("Inventory").GetComponent<InventoryManager>();
+        //m_InventorySlots = GameObject.Find("Items_Parent"); // To loop up for the available slot.
     }
 
     public void Interact(DisplayManagerLevel1 currDisplay)
     {
-        ItemPickUp();
+        itemPickUp();
     }
 
-    private void ItemPickUp()
+    private void itemPickUp()
     {
-        m_InventorySlots = GameObject.Find("Items_Parent"); // To loop up for the available slot.
-
-        foreach (Transform slot in m_InventorySlots.transform)
-        {
-            if(slot.transform.GetChild(0).GetComponent<Image>().sprite.name == "empty_item")
-            {
-                slot.transform.GetChild(0).GetComponent<Image>().sprite = Resources.Load<Sprite>("Sprites/Inventory/" + m_DisplaySprite);
-                slot.GetComponent<SlotManager>().IsEmpty = false;
-                slot.GetComponent<SlotManager>().AssignPtoperty((int)m_itemProperty, m_DisplayImage, m_combinationItem);
-                Destroy(gameObject);
-                break;
-            }
-        }
+        Debug.Log("PickUpItem: " + m_DisplaySprite);
+        m_InventoryManager = GameObject.Find("Inventory").GetComponent<InventoryManager>();
+        m_InventoryManager.AddItemToInventory(this);
     }
 
 }

@@ -49,6 +49,7 @@ public class ButtonBehaviour : MonoBehaviour
     {
         if (currDisplay.CurrentState == DisplayManagerLevel1.State.zoom && m_myID == ButtonId.zoomOut)
         {
+
             GetComponent<Image>().color = new Color(GetComponent<Image>().color.r, GetComponent<Image>().color.g,
                 GetComponent<Image>().color.b, 1);
 

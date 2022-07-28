@@ -5,6 +5,9 @@ using UnityEngine;
 
 public class DisplayManagerLevel1 : MonoBehaviour
 {
+    [SerializeField]
+    private GameObject m_Missions;
+
     // index for the current background displayed (from 1 to 2 in this case)
     [SerializeField]
     private int m_CurrentWall;

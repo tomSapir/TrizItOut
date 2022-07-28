@@ -7,6 +7,7 @@ public class ObjectsManage : MonoBehaviour
     private DisplayManagerLevel1 currentDisplay;
 
     public GameObject[] objectsToMange;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -33,4 +34,5 @@ public class ObjectsManage : MonoBehaviour
             }
         }
     }
+
 }

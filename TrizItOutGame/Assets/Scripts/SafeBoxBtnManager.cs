@@ -26,15 +26,34 @@ public class SafeBoxBtnManager : MonoBehaviour
         
     }
 
-    public void onclick(string Number)
+    public void OnClickSafeBoxNumberBtn(string Number)
     {
         if (m_Index < 4)
         {
             m_Index++;
             CurrentPassCode = CurrentPassCode + Number;
             m_screenText.text = CurrentPassCode;
-            Debug.LogError("lfmklf");
         }
     }
-        
+
+    public void OnClickClearBtn()
+    {
+        m_Index = 0;
+        CurrentPassCode = null;
+        m_screenText.text = CurrentPassCode;
+    }
+
+    public void OnClickOkBtn()
+    {
+        if (CurrentPassCode == PassCode)
+        {
+            Debug.Log("yay! good for you!");
+        }
+        else
+        {
+            Debug.Log("try again!");
+            OnClickClearBtn();
+        }
+    }
+
 }

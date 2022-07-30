@@ -12,18 +12,21 @@ public class SafeBoxBtnManager : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI m_screenText;
 
+    [SerializeField]
+    private GameObject m_SafeBoxMission;
+
     string PassCode = "1234";
     string CurrentPassCode = null;
     private int m_Index = 0;
 
     void Start()
     {
-        
+
     }
 
     void Update()
     {
-        
+
     }
 
     public void OnClickSafeBoxNumberBtn(string Number)
@@ -45,15 +48,26 @@ public class SafeBoxBtnManager : MonoBehaviour
 
     public void OnClickOkBtn()
     {
-        if (CurrentPassCode == PassCode)
+        SafeBoxMission safeBoxMissionScript = m_SafeBoxMission.GetComponent<SafeBoxMission>();
+
+        if (safeBoxMissionScript == null)
         {
-            Debug.Log("yay! good for you!");
+            Debug.LogError("safeBoxMissionScript is null on SafeBoxBtnManager.");
         }
         else
         {
-            Debug.Log("try again!");
-            OnClickClearBtn();
+            if (CurrentPassCode == PassCode)
+            {
+                Debug.Log("yay! good for you!");
+                safeBoxMissionScript.ApplyPasswordCorrect();
+            }
+            else
+            {
+                Debug.Log("try again!");
+                OnClickClearBtn();
+                safeBoxMissionScript.ApplyPasswrodInCorrect();
+               // OnClickClearBtn();
+            }
         }
     }
-
 }

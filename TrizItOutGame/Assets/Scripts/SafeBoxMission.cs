@@ -12,7 +12,7 @@ public class SafeBoxMission : MonoBehaviour
     private Sprite m_SafeBoxOpenZoomSprite;
 
     [SerializeField]
-    private GameObject m_ScrewDriver;
+    private GameObject m_ScrewDriver; 
 
     private int m_IndexOfDigitOnScreen = 0;
 
@@ -21,6 +21,13 @@ public class SafeBoxMission : MonoBehaviour
 
     private DisplayManagerLevel1 m_DisplayManager;
     private string m_CurrentPassCode = null;
+    private bool m_SafeBoxOpend = false;
+
+    [SerializeField]
+    public GameObject m_CanvasOfButtons;
+
+    public GameObject m_SafeBox_Closed;
+    public GameObject m_SafeBox_Open;
 
     void Start()
     {
@@ -32,53 +39,53 @@ public class SafeBoxMission : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
+        changeImage();
     }
 
-
-
-    public void CodeFunction(string Number)
+    IEnumerator WaitIfPasswordCorrect(int sec)
     {
-        Debug.Log("HI");
-        if (m_IndexOfDigitOnScreen < 4)
-        {
-            m_IndexOfDigitOnScreen++;
-            m_CurrentPassCode = m_CurrentPassCode + Number;
-
-            Debug.Log("Current Password: " + m_CurrentPassCode);
-            uiText.text = m_CurrentPassCode;
-        }
-    }
-
-    public void CheckPassCode()
-    {
-        if(m_CurrentPassCode == m_Password)
-        {
-            uiText.text = "Correct!!";
-            StartCoroutine(waiter(5));
-            m_DisplayManager.GetComponent<SpriteRenderer>().sprite = m_SafeBoxOpenZoomSprite;
-            m_ScrewDriver.SetActive(true);
-        }
-        else
-        {
-            Debug.Log("try again!");
-            ResetPassCode();
-        }
-    }
-
-    IEnumerator waiter(int sec)
-    {
+        uiText.color = Color.green;
+        uiText.text = "Correct Password";
         yield return new WaitForSeconds(sec);
+        //m_DisplayManager.GetComponent<SpriteRenderer>().sprite = m_SafeBoxOpenZoomSprite;
+        m_ScrewDriver.SetActive(true);
+        //uiText.text = "";
+        m_SafeBoxOpend = true;
+        //uiText.color = Color.black;
+
+        Destroy(m_SafeBox_Closed);
+        m_SafeBox_Open.SetActive(true);
+
+        m_DisplayManager.ChangeToNormalBackgroundAfterReturnFromZoom();
     }
 
-    public void ResetPassCode()
+    IEnumerator WaitIfPasswordInCorrect(int sec)
     {
-        m_IndexOfDigitOnScreen = 0;
-        m_CurrentPassCode = null;
-        uiText.text = m_CurrentPassCode;
+        uiText.color = Color.red;
+        uiText.text = "Wrong Password";
+        yield return new WaitForSeconds(sec);
+        uiText.text = "";
+        uiText.color = Color.black;
     }
 
+    public void ApplyPasswordCorrect()
+    {
+        StartCoroutine(WaitIfPasswordCorrect(2));
+    }
+
+    public void ApplyPasswrodInCorrect()
+    {
+        StartCoroutine(WaitIfPasswordInCorrect(2));
+    }
+
+    private void changeImage()
+    {
+        if(m_SafeBoxOpend)
+        {
+            m_CanvasOfButtons.SetActive(false);
+            m_DisplayManager.GetComponent<SpriteRenderer>().sprite = m_SafeBoxOpenZoomSprite;
+        }
+    }
 }

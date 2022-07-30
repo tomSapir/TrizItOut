@@ -11,7 +11,6 @@ public class DisplayManagerLevel1 : MonoBehaviour
     // index for the current background displayed (from 1 to 2 in this case)
     [SerializeField]
     private int m_CurrentWall;
-
     private int m_PreviousWall;
 
     [SerializeField]
@@ -25,6 +24,8 @@ public class DisplayManagerLevel1 : MonoBehaviour
     private GameObject m_interactables2;
 
     public GameObject[] UiRenderObject;
+
+    private const string k_BackgroundPath = "Sprites/Level1/Main_Backgrounds/Background";
 
     public enum State
     {
@@ -65,7 +66,7 @@ public class DisplayManagerLevel1 : MonoBehaviour
     {
         if (m_CurrentWall != m_PreviousWall)
         {
-            GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Sprites/Level1/Background" + CurrentWall.ToString());
+            GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>(k_BackgroundPath + CurrentWall.ToString());
         }
 
         m_PreviousWall = CurrentWall;
@@ -119,7 +120,6 @@ public class DisplayManagerLevel1 : MonoBehaviour
 
     private void showRelevantPickUpItems()
     {
-
         if (m_CurrentWall == 1)
         {
             m_furniture2.SetActive(false);
@@ -156,5 +156,11 @@ public class DisplayManagerLevel1 : MonoBehaviour
         {
             UiRenderObject[i].SetActive(false);
         }
+    }
+
+    public void ChangeToNormalBackgroundAfterReturnFromZoom()
+    {
+        CurrentState = DisplayManagerLevel1.State.normal;
+        GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>(k_BackgroundPath + CurrentWall.ToString());
     }
 }

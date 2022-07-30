@@ -9,19 +9,6 @@ public class MissionsManager : MonoBehaviour
     [SerializeField]
     private GameObject m_SafeBoxMission;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
-
     public void ActiveRelevantMission(string i_Mission)
     {
         switch (i_Mission)
@@ -30,7 +17,7 @@ public class MissionsManager : MonoBehaviour
             case "PCSide_ZoomIn_Open":
                 {
                     m_SafeBoxMission.SetActive(false);
-                    m_ComputerMission.SetActive(true);
+                    m_ComputerMission.SetActive(true);  
                     break;
                 }
             case "SafeBox_Code_Zoom":

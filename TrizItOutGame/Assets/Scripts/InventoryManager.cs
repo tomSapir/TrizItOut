@@ -10,6 +10,8 @@ public class InventoryManager : MonoBehaviour
     public GameObject m_currentSelectedSlot { get; set; }
     public GameObject m_previouslySelectedSlot { get; set; }
 
+    private const string k_EmptyItemName = "Empty_Item";
+    private const string k_InventoryItemSpritePath = "Sprites/Inventory/";
 
     private void Start()
     {
@@ -25,7 +27,7 @@ public class InventoryManager : MonoBehaviour
     {
         foreach(GameObject slot in m_Slots)
         {
-            slot.transform.GetChild(0).GetComponent<Image>().sprite = Resources.Load<Sprite>("Sprites/Inventory/empty_item");
+            slot.transform.GetChild(0).GetComponent<Image>().sprite = Resources.Load<Sprite>("Sprites/Inventory/" + k_EmptyItemName);
         }
     }
 
@@ -46,14 +48,13 @@ public class InventoryManager : MonoBehaviour
 
     public void AddItemToInventory(PickUpItem i_Item)
     {
-       
         if (i_Item.m_AmountOfUsage != 0)
         {
             foreach (GameObject slot in m_Slots)
             {
-                if (slot.transform.GetChild(0).GetComponent<Image>().sprite.name == "empty_item")
+                if (slot.transform.GetChild(0).GetComponent<Image>().sprite.name == k_EmptyItemName)
                 {
-                    slot.transform.GetChild(0).GetComponent<Image>().sprite = Resources.Load<Sprite>("Sprites/Inventory/" + i_Item.m_DisplaySprite);
+                    slot.transform.GetChild(0).GetComponent<Image>().sprite = Resources.Load<Sprite>(k_InventoryItemSpritePath + i_Item.m_DisplaySprite);
                     slot.GetComponent<SlotManager>().IsEmpty = false;
                     slot.GetComponent<SlotManager>().AssignPtoperty((int)i_Item.m_ItemProperty, i_Item.m_DisplayImage, i_Item.m_ResultOfCombinationItemName, i_Item.m_AmountOfUsage);
                     Destroy(i_Item.gameObject);

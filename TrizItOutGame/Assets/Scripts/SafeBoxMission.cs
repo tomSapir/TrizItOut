@@ -49,16 +49,16 @@ public class SafeBoxMission : MonoBehaviour
         uiText.color = Color.green;
         uiText.text = "Correct Password";
         yield return new WaitForSeconds(sec);
-        //m_DisplayManager.GetComponent<SpriteRenderer>().sprite = m_SafeBoxOpenZoomSprite;
+        m_DisplayManager.GetComponent<SpriteRenderer>().sprite = m_SafeBoxOpenZoomSprite;
         m_ScrewDriver.SetActive(true);
-        //uiText.text = "";
+        uiText.text = "";
         m_SafeBoxOpend = true;
-        //uiText.color = Color.black;
+        uiText.color = Color.black;
 
         Destroy(m_SafeBox_Closed);
         m_SafeBox_Open.SetActive(true);
 
-        m_DisplayManager.ChangeToNormalBackgroundAfterReturnFromZoom();
+        //m_DisplayManager.ChangeToNormalBackgroundAfterReturnFromZoom();
     }
 
     IEnumerator WaitIfPasswordInCorrect(int sec)

@@ -66,7 +66,6 @@ public class SafeBoxBtnManager : MonoBehaviour
                 Debug.Log("try again!");
                 OnClickClearBtn();
                 safeBoxMissionScript.ApplyPasswrodInCorrect();
-               // OnClickClearBtn();
             }
         }
     }

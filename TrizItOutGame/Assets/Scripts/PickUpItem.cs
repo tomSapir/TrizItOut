@@ -3,6 +3,8 @@ using UnityEngine.UI;
 
 public class PickUpItem : MonoBehaviour, IInteractable
 {
+    public delegate void PickUpAction();
+
     public enum eProperty { usable, displayable };
 
     [SerializeField]
@@ -16,8 +18,9 @@ public class PickUpItem : MonoBehaviour, IInteractable
     [SerializeField]
     public int m_AmountOfUsage; // will be transferd to the slot when get picked up to know when it should be ot of the inventory.
 
+    public event PickUpAction OnPickUp;
+
     private InventoryManager m_InventoryManager;
-    //private GameObject m_InventorySlots;
 
     void Start()
     {
@@ -35,6 +38,11 @@ public class PickUpItem : MonoBehaviour, IInteractable
         Debug.Log("PickUpItem: " + m_DisplaySprite);
         m_InventoryManager = GameObject.Find("Inventory").GetComponent<InventoryManager>();
         m_InventoryManager.AddItemToInventory(this);
+
+        if(OnPickUp != null)
+        {
+            OnPickUp();
+        }
     }
 
 }

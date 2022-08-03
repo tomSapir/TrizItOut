@@ -82,6 +82,7 @@ public class DisplayManagerLevel1 : MonoBehaviour
         {
             m_Missions.SetActive(true);
             string missionName = GetComponent<SpriteRenderer>().sprite.name;
+            Debug.Log("Mission name: " + missionName);
             m_Missions.GetComponent<MissionsManager>().ActiveRelevantMission(missionName);
         }
     }

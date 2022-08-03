@@ -73,6 +73,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SpriteName: MiddleDrawer_open
+  m_Sprite: {fileID: 21300000, guid: 470bc7abcba39b049b356ad07fbdc1fd, type: 3}
 --- !u!212 &1086602651597202496
 SpriteRenderer:
   m_ObjectHideFlags: 0

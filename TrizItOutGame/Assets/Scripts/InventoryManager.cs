@@ -10,7 +10,7 @@ public class InventoryManager : MonoBehaviour
     public GameObject m_currentSelectedSlot { get; set; }
     public GameObject m_previouslySelectedSlot { get; set; }
 
-    private const string k_EmptyItemName = "Empty_Item";
+    private const string k_EmptyItemName = "empty_item";
     private const string k_InventoryItemSpritePath = "Sprites/Inventory/";
 
     private void Start()

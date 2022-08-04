@@ -88,6 +88,7 @@ public class SlotManager : MonoBehaviour, IPointerClickHandler
 
     public void Combine()
     {
+        Debug.Log("combine for " + m_CombinationItem);
         if(m_inventory.GetComponent<InventoryManager>().m_previouslySelectedSlot != null && 
             m_inventory.GetComponent<InventoryManager>().m_previouslySelectedSlot.GetComponent<SlotManager>().m_CombinationItem == this.gameObject.GetComponent<SlotManager>().m_CombinationItem 
             && this.gameObject.GetComponent<SlotManager>().m_CombinationItem != string.Empty)

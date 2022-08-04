@@ -5,8 +5,13 @@ using UnityEngine.UI;
 
 public class Dust : MonoBehaviour, IInteractable
 {
+    public delegate void CleanDustAction();
+
     private string m_UnlockItem = "Spray_With_Straw";
     private GameObject m_inventory;
+
+    public event CleanDustAction OnCleanUp;
+
 
     // Start is called before the first frame update
     void Start()
@@ -26,6 +31,7 @@ public class Dust : MonoBehaviour, IInteractable
         if (m_inventory.GetComponent<InventoryManager>().m_currentSelectedSlot.gameObject.transform.GetChild(0).GetComponent<Image>().sprite.name == m_UnlockItem)
         {
             Destroy(gameObject);
+            OnCleanUp?.Invoke();
             m_inventory.GetComponent<InventoryManager>().m_currentSelectedSlot.GetComponent<SlotManager>().ClearSlot();
         }
     }

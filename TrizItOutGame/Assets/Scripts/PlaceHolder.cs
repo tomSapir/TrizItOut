@@ -17,6 +17,8 @@ public class PlaceHolder : MonoBehaviour, IInteractable
     private string m_WhereToSpawn;
     [SerializeField]
     private bool m_ActivatedByEvent;
+    [SerializeField]
+    private bool m_IsReusable;
       
 
     // Start is called before the first frame update
@@ -51,8 +53,15 @@ public class PlaceHolder : MonoBehaviour, IInteractable
         {
             var newCable = Instantiate(m_MyPrefab, GameObject.Find(m_WhereToSpawn).transform);
             newCable.name = m_MyPrefab.name;
+            
+            
             m_Inventory.GetComponent<InventoryManager>().m_currentSelectedSlot.GetComponent<SlotManager>().ClearSlot();
             m_Inventory.GetComponent<InventoryManager>().m_currentSelectedSlot = null;
+
+            if(m_IsReusable == false)
+            {
+                newCable.layer = 2;
+            }
         }
     }
 }

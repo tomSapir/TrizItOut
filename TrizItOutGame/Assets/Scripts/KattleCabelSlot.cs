@@ -13,7 +13,6 @@ public class KattleCabelSlot : MonoBehaviour, IInteractable
     private GameObject m_Kattle;
     [SerializeField]
     private GameObject m_Cable;
-    // Start is called before the first frame update
 
     void Start()
     {

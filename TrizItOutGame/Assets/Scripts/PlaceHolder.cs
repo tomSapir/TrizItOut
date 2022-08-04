@@ -7,30 +7,30 @@ using UnityEngine.UI;
 public class PlaceHolder : MonoBehaviour, IInteractable
 {
     [SerializeField]
-    private GameObject m_myPrefab;
+    private GameObject m_MyPrefab;
     [SerializeField]
-    private string m_placeFor;
+    private string m_PlaceFor;
     [SerializeField]
-    private string m_activeBy;
-    private GameObject m_inventory;
+    private string m_ActiveBy;
+    private GameObject m_Inventory;
     [SerializeField]
-    private string m_whereToSpawn;
+    private string m_WhereToSpawn;
     [SerializeField]
-    private bool m_activatedByEvent;
+    private bool m_ActivatedByEvent;
       
 
     // Start is called before the first frame update
     void Start()
     {
-        m_inventory = GameObject.Find("Inventory");
+        m_Inventory = GameObject.Find("Inventory");
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(m_activatedByEvent == true)
+        if(m_ActivatedByEvent == true)
         {
-           GameObject PlaceFor = GameObject.Find(m_placeFor);
+           GameObject PlaceFor = GameObject.Find(m_PlaceFor);
 
             if (PlaceFor != null)
             {
@@ -46,13 +46,13 @@ public class PlaceHolder : MonoBehaviour, IInteractable
 
     public void Interact(DisplayManagerLevel1 currDisplay)
     {
-        if (m_inventory.GetComponent<InventoryManager>().m_currentSelectedSlot != null &&
-           m_inventory.GetComponent<InventoryManager>().m_currentSelectedSlot.gameObject.transform.GetChild(0).GetComponent<Image>().sprite.name == m_activeBy)
+        if (m_Inventory.GetComponent<InventoryManager>().m_currentSelectedSlot != null &&
+           m_Inventory.GetComponent<InventoryManager>().m_currentSelectedSlot.gameObject.transform.GetChild(0).GetComponent<Image>().sprite.name == m_ActiveBy)
         {
-            var newCable = Instantiate(m_myPrefab, GameObject.Find(m_whereToSpawn).transform);
-            newCable.name = m_myPrefab.name;
-            m_inventory.GetComponent<InventoryManager>().m_currentSelectedSlot.GetComponent<SlotManager>().ClearSlot();
-            m_inventory.GetComponent<InventoryManager>().m_currentSelectedSlot = null;
+            var newCable = Instantiate(m_MyPrefab, GameObject.Find(m_WhereToSpawn).transform);
+            newCable.name = m_MyPrefab.name;
+            m_Inventory.GetComponent<InventoryManager>().m_currentSelectedSlot.GetComponent<SlotManager>().ClearSlot();
+            m_Inventory.GetComponent<InventoryManager>().m_currentSelectedSlot = null;
         }
     }
 }

@@ -6,9 +6,13 @@ public class SwitchManager : MonoBehaviour, IInteractable
 {
     [SerializeField]
     private Sprite m_SwitchOnSprite;
+    [SerializeField]
+    private Sprite m_SwitchOffSprite;
 
     [SerializeField]
     private GameObject m_Dark;
+
+    private bool m_IsLightOn = false;
 
     // Start is called before the first frame update
     void Start()
@@ -24,7 +28,17 @@ public class SwitchManager : MonoBehaviour, IInteractable
 
     public void Interact(DisplayManagerLevel1 currDisplay)
     {
-        GetComponent<SpriteRenderer>().sprite = m_SwitchOnSprite;
-        m_Dark.SetActive(false);
+        if(m_IsLightOn)
+        {
+            GetComponent<SpriteRenderer>().sprite = m_SwitchOffSprite;
+            m_Dark.SetActive(true);
+        }
+        else
+        {
+            GetComponent<SpriteRenderer>().sprite = m_SwitchOnSprite;
+            m_Dark.SetActive(false);
+        }
+
+        m_IsLightOn = !m_IsLightOn;
     }
 }

@@ -24,10 +24,13 @@ public class DisplayManagerLevel1 : MonoBehaviour
 
     public GameObject[] UiRenderObject;
 
-
     [SerializeField]
     private GameObject m_DarkMode;
 
+    [SerializeField]
+    private GameObject m_ComputerCable;
+    [SerializeField]
+    private Sprite m_TornComputerCableSprite;
 
     private const string k_BackgroundPath = "Sprites/Level1/Main_Backgrounds/Background";
 
@@ -174,6 +177,9 @@ public class DisplayManagerLevel1 : MonoBehaviour
     IEnumerator WaitBeforeDarkMode(int sec)
     {
         yield return new WaitForSeconds(sec);
+
+        m_ComputerCable.GetComponent<SpriteRenderer>().sprite = m_TornComputerCableSprite;
+
         m_DarkMode.SetActive(true);
     }
 }

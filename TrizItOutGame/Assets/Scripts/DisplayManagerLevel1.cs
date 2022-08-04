@@ -8,7 +8,6 @@ public class DisplayManagerLevel1 : MonoBehaviour
     [SerializeField]
     private GameObject m_Missions;
 
-    // index for the current background displayed (from 1 to 2 in this case)
     [SerializeField]
     private int m_CurrentWall;
     private int m_PreviousWall;
@@ -24,6 +23,11 @@ public class DisplayManagerLevel1 : MonoBehaviour
     private GameObject m_interactables2;
 
     public GameObject[] UiRenderObject;
+
+
+    [SerializeField]
+    private GameObject m_DarkMode;
+
 
     private const string k_BackgroundPath = "Sprites/Level1/Main_Backgrounds/Background";
 
@@ -59,7 +63,9 @@ public class DisplayManagerLevel1 : MonoBehaviour
         m_PreviousWall = 0;
         m_CurrentWall = 1;
         CurrentState = State.normal;
+        m_DarkMode.SetActive(false);
         RenderUI();
+        StartCoroutine(WaitBeforeDarkMode(2));
     }
 
     void Update()
@@ -74,7 +80,7 @@ public class DisplayManagerLevel1 : MonoBehaviour
         showRelevantPickUpItems();
         showRelevantInteractableItems();
 
-        if(CurrentState == State.normal)
+        if (CurrentState == State.normal)
         {
             m_Missions.SetActive(false);
         }
@@ -163,5 +169,11 @@ public class DisplayManagerLevel1 : MonoBehaviour
     {
         CurrentState = DisplayManagerLevel1.State.normal;
         GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>(k_BackgroundPath + CurrentWall.ToString());
+    }
+
+    IEnumerator WaitBeforeDarkMode(int sec)
+    {
+        yield return new WaitForSeconds(sec);
+        m_DarkMode.SetActive(true);
     }
 }

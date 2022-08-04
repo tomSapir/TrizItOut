@@ -7,7 +7,7 @@ public class RotateObject : MonoBehaviour, IInteractable
     [SerializeField]
     private float m_SpeedRotation;
     [SerializeField]
-    private Vector3 m_EndPoint;
+    private float m_EndZ;
 
     // Start is called before the first frame update
     void Start()
@@ -28,9 +28,8 @@ public class RotateObject : MonoBehaviour, IInteractable
 
     private void RotateSprite()
     {
-        while (transform.position != m_EndPoint)
-        {
-            transform.Rotate(Vector3.forward * m_SpeedRotation * Time.deltaTime);
-        }
+        var rotationVector = transform.rotation.eulerAngles;
+        rotationVector.z = 32;  //this number is the degree of rotation around Z Axis
+        transform.rotation = Quaternion.Euler(rotationVector);
     }
 }

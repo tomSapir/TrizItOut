@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Screwdriver : MonoBehaviour
 {
-
     [SerializeField]
     private GameObject m_SafeBoxOpen;
 
@@ -19,22 +18,10 @@ public class Screwdriver : MonoBehaviour
     {
         m_PickUpItem = GetComponent<PickUpItem>();
         m_PickUpItem.OnPickUp += OnScrewdriverPickedUp;
-
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 
     public void OnScrewdriverPickedUp()
     {
-        Debug.Log("Event works!");
-
         m_SafeBoxOpen.GetComponent<SpriteRenderer>().sprite = m_OpenSafeBoxZoomOutWithoutScrew;
     }
-
-
 }

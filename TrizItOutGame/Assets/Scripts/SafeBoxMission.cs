@@ -49,6 +49,7 @@ public class SafeBoxMission : MonoBehaviour
         uiText.color = Color.green;
         uiText.text = "Correct Password";
         yield return new WaitForSeconds(sec);
+        SoundManager.PlaySound(SoundManager.k_DoorOpenSoundName);
         m_DisplayManager.GetComponent<SpriteRenderer>().sprite = m_SafeBoxOpenZoomSprite;
         m_ScrewDriver.SetActive(true);
         uiText.text = "";

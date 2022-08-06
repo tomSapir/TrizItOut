@@ -6,7 +6,7 @@ public class SoundManager : MonoBehaviour
 {
     [SerializeField]
     public static AudioClip s_ButtonSound, s_WorngPasswordSound, s_CorrectPasswordSound;
-    public static AudioClip s_SwitchSound, s_SpraySound;
+    public static AudioClip s_SwitchSound, s_SpraySound, s_DoorOpenSound;
     public static AudioSource audioSource;
 
     public const string k_ButtonSoundName = "buttonSound";
@@ -14,6 +14,7 @@ public class SoundManager : MonoBehaviour
     public const string k_CorrectPasswordSoundName = "correctPasswordSound";
     public const string k_SwitchSoundName = "switchSound";
     public const string k_SpraySoundName = "spraySound";
+    public const string k_DoorOpenSoundName = "doorOpenSound";
 
     public static readonly string sr_SoundPath = "Sounds/";
 
@@ -24,6 +25,7 @@ public class SoundManager : MonoBehaviour
         s_CorrectPasswordSound = Resources.Load<AudioClip>(sr_SoundPath + k_CorrectPasswordSoundName);
         s_SwitchSound = Resources.Load<AudioClip>(sr_SoundPath + k_SwitchSoundName);
         s_SpraySound = Resources.Load<AudioClip>(sr_SoundPath + k_SpraySoundName);
+        s_DoorOpenSound = Resources.Load<AudioClip>(sr_SoundPath + k_DoorOpenSoundName);
 
         audioSource = GetComponent<AudioSource>();
     }
@@ -56,6 +58,11 @@ public class SoundManager : MonoBehaviour
             case k_SpraySoundName:
                 {
                     audioSource.PlayOneShot(s_SpraySound);
+                    break;
+                }
+            case k_DoorOpenSoundName:
+                {
+                    audioSource.PlayOneShot(s_DoorOpenSound);
                     break;
                 }
         }

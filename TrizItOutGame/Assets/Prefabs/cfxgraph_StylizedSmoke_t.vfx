@@ -154,7 +154,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
           PublicKeyToken=b77a5c561934e089
-      m_SerializableObject: 50
+      m_SerializableObject: 100
     m_Space: 2147483647
   m_Property:
     name: Rate
@@ -528,7 +528,7 @@ MonoBehaviour:
   - {fileID: 8926484042661614583}
   - {fileID: 8926484042661614600}
   dataType: 0
-  capacity: 2500
+  capacity: 5000
   stripCapacity: 16
   particlePerStripCount: 16
   needsComputeBounds: 0
@@ -989,7 +989,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
           PublicKeyToken=b77a5c561934e089
-      m_SerializableObject: 3
+      m_SerializableObject: 4
     m_Space: 2147483647
   m_Property:
     name: B
@@ -1517,7 +1517,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
           PublicKeyToken=b77a5c561934e089
-      m_SerializableObject: 0.07
+      m_SerializableObject: 0.04
     m_Space: 2147483647
   m_Property:
     name: _FresnelPower
@@ -1551,7 +1551,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
           PublicKeyToken=b77a5c561934e089
-      m_SerializableObject: 6
+      m_SerializableObject: 8
     m_Space: 2147483647
   m_Property:
     name: VoronoiScale
@@ -1620,7 +1620,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
           PublicKeyToken=b77a5c561934e089
-      m_SerializableObject: 1
+      m_SerializableObject: 10
     m_Space: 2147483647
   m_Property:
     name: VoroniSpeed
@@ -1866,7 +1866,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
           PublicKeyToken=b77a5c561934e089
-      m_SerializableObject: 0.2
+      m_SerializableObject: 0.1
     m_Space: 2147483647
   m_Property:
     name: A
@@ -1963,7 +1963,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEngine.AnimationCurve, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"frames":[{"time":-0.004703521728515625,"value":0.28302001953125,"inTangent":0.7111299633979797,"outTangent":0.7111299633979797,"tangentMode":0,"leftTangentMode":1,"rightTangentMode":1,"broken":false},{"time":0.99688720703125,"value":0.9952812194824219,"inTangent":-0.01461801864206791,"outTangent":-0.01461801864206791,"tangentMode":0,"leftTangentMode":0,"rightTangentMode":0,"broken":false}],"preWrapMode":8,"postWrapMode":8,"version":1}'
+      m_SerializableObject: '{"frames":[{"time":0.003131866455078125,"value":0.153289794921875,"inTangent":0.8472824096679688,"outTangent":0.8472824096679688,"tangentMode":0,"leftTangentMode":1,"rightTangentMode":1,"broken":false},{"time":0.99688720703125,"value":0.9952812194824219,"inTangent":-0.01461801864206791,"outTangent":-0.01461801864206791,"tangentMode":0,"leftTangentMode":0,"rightTangentMode":0,"broken":false}],"preWrapMode":8,"postWrapMode":8,"version":1}'
     m_Space: 2147483647
   m_Property:
     name: Size
@@ -2291,7 +2291,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEngine.Vector3, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"x":360.0,"y":360.0,"z":360.0}'
+      m_SerializableObject: '{"x":10.0,"y":10.0,"z":10.0}'
     m_Space: 2147483647
   m_Property:
     name: A
@@ -2427,7 +2427,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEngine.Vector3, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"x":-360.0,"y":-360.0,"z":-360.0}'
+      m_SerializableObject: '{"x":-10.0,"y":-10.0,"z":-10.0}'
     m_Space: 2147483647
   m_Property:
     name: B

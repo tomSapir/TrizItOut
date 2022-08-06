@@ -14,20 +14,9 @@ public class SwitchManager : MonoBehaviour, IInteractable
 
     private bool m_IsLightOn = false;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void Interact(DisplayManagerLevel1 currDisplay)
     {
+        SoundManager.PlaySound(SoundManager.k_SwitchSoundName);
         if(m_IsLightOn)
         {
             GetComponent<SpriteRenderer>().sprite = m_SwitchOffSprite;

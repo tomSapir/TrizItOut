@@ -54,11 +54,8 @@ public class SafeBoxMission : MonoBehaviour
         uiText.text = "";
         m_SafeBoxOpend = true;
         uiText.color = Color.black;
-
         Destroy(m_SafeBox_Closed);
         m_SafeBox_Open.SetActive(true);
-
-        //m_DisplayManager.ChangeToNormalBackgroundAfterReturnFromZoom();
     }
 
     IEnumerator WaitIfPasswordInCorrect(int sec)

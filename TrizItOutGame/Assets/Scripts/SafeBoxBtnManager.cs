@@ -15,22 +15,15 @@ public class SafeBoxBtnManager : MonoBehaviour
     [SerializeField]
     private GameObject m_SafeBoxMission;
 
+    private 
+
     string PassCode = "1234";
     string CurrentPassCode = null;
     private int m_Index = 0;
 
-    void Start()
-    {
-
-    }
-
-    void Update()
-    {
-
-    }
-
     public void OnClickSafeBoxNumberBtn(string Number)
     {
+        SoundManager.PlaySound(SoundManager.k_ButtonSoundName);
         if (m_Index < 4)
         {
             m_Index++;
@@ -58,12 +51,12 @@ public class SafeBoxBtnManager : MonoBehaviour
         {
             if (CurrentPassCode == PassCode)
             {
-                Debug.Log("yay! good for you!");
+                SoundManager.PlaySound(SoundManager.k_CorrectPasswordSoundName);
                 safeBoxMissionScript.ApplyPasswordCorrect();
             }
             else
             {
-                Debug.Log("try again!");
+                SoundManager.PlaySound(SoundManager.k_WorngPasswordSoundName);
                 OnClickClearBtn();
                 safeBoxMissionScript.ApplyPasswrodInCorrect();
             }

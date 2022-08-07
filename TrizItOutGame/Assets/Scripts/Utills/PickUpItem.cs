@@ -25,7 +25,6 @@ public class PickUpItem : MonoBehaviour, IInteractable
     void Start()
     {
         m_InventoryManager = GameObject.Find("Inventory").GetComponent<InventoryManager>();
-        //m_InventorySlots = GameObject.Find("Items_Parent"); // To loop up for the available slot.
     }
 
     public void Interact(DisplayManagerLevel1 currDisplay)

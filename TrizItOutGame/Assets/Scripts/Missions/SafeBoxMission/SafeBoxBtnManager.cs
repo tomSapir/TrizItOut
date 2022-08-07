@@ -15,11 +15,15 @@ public class SafeBoxBtnManager : MonoBehaviour
     [SerializeField]
     private GameObject m_SafeBoxMission;
 
-    private 
-
     string PassCode = "7135";
     string CurrentPassCode = null;
     private int m_Index = 0;
+
+    public void Start()
+    {
+        SwitchManager switchManager = GameObject.Find("/interactables2/Switch").GetComponent<SwitchManager>();
+        switchManager.OnSwitch += OnSwitchChanged;
+    }
 
     public void OnClickSafeBoxNumberBtn(string Number)
     {
@@ -60,6 +64,14 @@ public class SafeBoxBtnManager : MonoBehaviour
                 OnClickClearBtn();
                 safeBoxMissionScript.ApplyPasswrodInCorrect();
             }
+        }
+    }
+
+    public void OnSwitchChanged(bool i_IsOn)
+    {
+        for(int i = 0; i < transform.childCount; i++)
+        {
+            transform.GetChild(i).gameObject.GetComponent<Button>().enabled = i_IsOn;
         }
     }
 }

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SafeBoxMission : MonoBehaviour
 {
@@ -29,6 +30,9 @@ public class SafeBoxMission : MonoBehaviour
     public GameObject m_SafeBox_Closed;
     public GameObject m_SafeBox_Open;
 
+    [SerializeField]
+    private GameObject m_BackButton;
+
     void Start()
     {
         m_DisplayManager = GameObject.Find("DisplayImage").GetComponent<DisplayManagerLevel1>();
@@ -46,6 +50,7 @@ public class SafeBoxMission : MonoBehaviour
 
     IEnumerator WaitIfPasswordCorrect(int sec)
     {
+        m_DisplayManager.CurrentState = DisplayManagerLevel1.State.busy;
         uiText.color = Color.green;
         uiText.text = "Correct Password";
         yield return new WaitForSeconds(sec);
@@ -57,15 +62,18 @@ public class SafeBoxMission : MonoBehaviour
         uiText.color = Color.black;
         Destroy(m_SafeBox_Closed);
         m_SafeBox_Open.SetActive(true);
+        m_DisplayManager.CurrentState = DisplayManagerLevel1.State.zoom;
     }
 
     IEnumerator WaitIfPasswordInCorrect(int sec)
     {
+        m_DisplayManager.CurrentState = DisplayManagerLevel1.State.busy;
         uiText.color = Color.red;
         uiText.text = "Wrong Password";
         yield return new WaitForSeconds(sec);
         uiText.text = "";
         uiText.color = Color.black;
+        m_DisplayManager.CurrentState = DisplayManagerLevel1.State.zoom;
     }
 
     public void ApplyPasswordCorrect()

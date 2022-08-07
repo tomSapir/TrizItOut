@@ -32,11 +32,14 @@ public class DisplayManagerLevel1 : MonoBehaviour
     [SerializeField]
     private Sprite m_TornComputerCableSprite;
 
+    private GameObject m_Kattle;
+    private GameObject m_CanvasOfSafeBoxCode;
+
     private const string k_BackgroundPath = "Sprites/Level1/Main_Backgrounds/Background";
 
     public enum State
     {
-        normal, zoom
+        normal, zoom, busy
     };
 
     public State CurrentState { get; set; }
@@ -69,6 +72,8 @@ public class DisplayManagerLevel1 : MonoBehaviour
         m_DarkMode.SetActive(false);
         RenderUI();
         StartCoroutine(WaitBeforeDarkMode(2));
+
+
     }
 
     void Update()
@@ -177,9 +182,12 @@ public class DisplayManagerLevel1 : MonoBehaviour
     IEnumerator WaitBeforeDarkMode(int sec)
     {
         yield return new WaitForSeconds(sec);
-
         m_ComputerCable.GetComponent<SpriteRenderer>().sprite = m_TornComputerCableSprite;
-
         m_DarkMode.SetActive(true);
+
+        /*
+         * code 
+         * kattle ^
+         */
     }
 }

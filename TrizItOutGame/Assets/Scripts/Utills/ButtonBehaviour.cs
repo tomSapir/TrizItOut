@@ -65,6 +65,11 @@ public class ButtonBehaviour : MonoBehaviour
             GetComponent<Button>().enabled = true;
             this.transform.SetSiblingIndex(0);
         }
+
+        if(currDisplay.CurrentState == DisplayManagerLevel1.State.busy && m_myID == ButtonId.zoomOut)
+        {
+            GetComponent<Button>().enabled = false;
+        }
     }
 
 

@@ -30,8 +30,6 @@ public class ButtonHandler : MonoBehaviour
         }
     }
 
-
-
     public void OnClickRightArrow()
     {
         // increase the current display index by one (automaticly change the display at update method in DisplayManagerLevel1)

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Kattle : MonoBehaviour, IInteractable
 {
+
     [SerializeField]
     public bool m_isConnected { get; set; } // Maybe we should start unattached?
 
@@ -18,6 +19,9 @@ public class Kattle : MonoBehaviour, IInteractable
     void Start()
     {
         m_isConnected = true;
+
+        SwitchManager switchManager = GameObject.Find("/interactables2/Switch").GetComponent<SwitchManager>();
+        switchManager.OnSwitch += OnSwitchChanged;
     }
 
     public void Interact(DisplayManagerLevel1 currDisplay)
@@ -50,5 +54,17 @@ public class Kattle : MonoBehaviour, IInteractable
 
         yield return new WaitForSeconds(3);
         m_KattleSmoke.SetActive(false);
+    }
+
+    public void OnSwitchChanged(bool i_IsOn)
+    {
+        if (i_IsOn)
+        {
+            gameObject.layer = 0;
+        }
+        else
+        {
+            gameObject.layer = 2;
+        }
     }
 }

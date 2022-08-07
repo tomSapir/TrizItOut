@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class SwitchManager : MonoBehaviour, IInteractable
 {
+    public delegate void OnSwitchAction(bool i_IsOn);
+
     [SerializeField]
     private Sprite m_SwitchOnSprite;
     [SerializeField]
@@ -13,6 +15,8 @@ public class SwitchManager : MonoBehaviour, IInteractable
     private GameObject m_Dark;
 
     private bool m_IsLightOn = false;
+
+    public event OnSwitchAction OnSwitch;
 
     public void Interact(DisplayManagerLevel1 currDisplay)
     {
@@ -29,5 +33,7 @@ public class SwitchManager : MonoBehaviour, IInteractable
         }
 
         m_IsLightOn = !m_IsLightOn;
+
+        OnSwitch?.Invoke(m_IsLightOn);
     }
 }

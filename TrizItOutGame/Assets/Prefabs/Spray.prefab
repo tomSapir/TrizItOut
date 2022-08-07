@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4632123118535085592}
   - component: {fileID: 4632123118535085595}
   - component: {fileID: 2767146344907069664}
-  - component: {fileID: 5160697664469210119}
+  - component: {fileID: 458443624328618099}
   m_Layer: 0
   m_Name: Spray
   m_TagString: Interactable
@@ -112,7 +112,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 7.54, y: 16.71}
   m_EdgeRadius: 0
---- !u!114 &5160697664469210119
+--- !u!114 &458443624328618099
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -121,10 +121,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 4632123118535085594}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fd0fbfc446e98034fb1ec9ed7cc39416, type: 3}
+  m_Script: {fileID: 11500000, guid: 27edd0d0b838ed645975497ba7a5f1ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_DisplaySprite: Spray
-  m_itemProperty: 0
+  m_DisplaySprite: 
+  m_ItemProperty: 0
   m_DisplayImage: 
-  m_combinationItem: Spray_With_Straw
+  m_ResultOfCombinationItemName: Spray_With_Straw
+  m_AmountOfUsage: 0

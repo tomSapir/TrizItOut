@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 5758148070569271178}
   - component: {fileID: 5234926693426994256}
-  - component: {fileID: 2707496459960440236}
   - component: {fileID: 3397503220394093489}
+  - component: {fileID: 7677805828158784042}
   m_Layer: 0
   m_Name: Spray_With_Straw
   m_TagString: Untagged
@@ -86,23 +86,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &2707496459960440236
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5014028726709886250}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fd0fbfc446e98034fb1ec9ed7cc39416, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_DisplaySprite: Spray_With_Straw
-  m_ItemProperty: 0
-  m_DisplayImage: 
-  m_ResultOfCombinationItemName: 
-  m_AmountOfUsage: 7
 --- !u!61 &3397503220394093489
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -129,3 +112,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 13.85, y: 16.71}
   m_EdgeRadius: 0
+--- !u!114 &7677805828158784042
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5014028726709886250}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27edd0d0b838ed645975497ba7a5f1ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_DisplaySprite: Spray_With_Straw
+  m_ItemProperty: 0
+  m_DisplayImage: 
+  m_ResultOfCombinationItemName: 
+  m_AmountOfUsage: 7

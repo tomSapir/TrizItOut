@@ -88,7 +88,7 @@ GameObject:
   - component: {fileID: 5259828532728258742}
   - component: {fileID: 5259828532728258743}
   - component: {fileID: 2644311308185438534}
-  - component: {fileID: 7419476165770219189}
+  - component: {fileID: 6681419857254851175}
   m_Layer: 0
   m_Name: Slot
   m_TagString: Untagged
@@ -200,7 +200,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &7419476165770219189
+--- !u!114 &6681419857254851175
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -209,7 +209,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5259828532728258729}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: edc1b426f98383a4b9e4d06ec7bb41e4, type: 3}
+  m_Script: {fileID: 11500000, guid: 51b7e6daf84745e4d94d1b33ec18d593, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_SlotItemImage: {fileID: 5259828532725135555}
@@ -413,7 +413,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7419476165770219189}
+      - m_Target: {fileID: 6681419857254851175}
         m_TargetAssemblyTypeName: SlotManager, Assembly-CSharp
         m_MethodName: OnClickMagnifierGlass
         m_Mode: 1

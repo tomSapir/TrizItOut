@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 5168913525730113502}
   - component: {fileID: 5168913525730113441}
-  - component: {fileID: 5168913525730113503}
   - component: {fileID: 5168913525730113500}
+  - component: {fileID: 6506515125634725093}
   m_Layer: 0
   m_Name: Computer_Cable
   m_TagString: Interactable
@@ -86,23 +86,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &5168913525730113503
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5168913525730113440}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fd0fbfc446e98034fb1ec9ed7cc39416, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_DisplaySprite: Cable_Inventory
-  m_itemProperty: 0
-  m_DisplayImage: 
-  m_combinationItem: 
-  m_AmountOfUsage: 1
 --- !u!61 &5168913525730113500
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -129,3 +112,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 3.15, y: 9.18}
   m_EdgeRadius: 0
+--- !u!114 &6506515125634725093
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5168913525730113440}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27edd0d0b838ed645975497ba7a5f1ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_DisplaySprite: Cable_Inventory
+  m_ItemProperty: 0
+  m_DisplayImage: 
+  m_ResultOfCombinationItemName: 
+  m_AmountOfUsage: 1

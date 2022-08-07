@@ -11,14 +11,15 @@ GameObject:
   - component: {fileID: 4093783439070656257}
   - component: {fileID: 4093783439070656510}
   - component: {fileID: 4093783439070656511}
-  - component: {fileID: 4093783439070656256}
+  - component: {fileID: 1688603985}
+  - component: {fileID: 1688603986}
   m_Layer: 0
   m_Name: Screwdriver
   m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4093783439070656257
 Transform:
   m_ObjectHideFlags: 0
@@ -26,9 +27,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4093783439070656258}
-  m_LocalRotation: {x: -0.0005325319, y: 0.0005099303, z: -0.6916132, w: 0.7222678}
+  m_LocalRotation: {x: -0.00053211156, y: 0.00050533644, z: -0.69161373, w: 0.7222672}
   m_LocalPosition: {x: -0.69, y: -2.45, z: -220.76}
-  m_LocalScale: {x: 0.67, y: 0.63, z: 1}
+  m_LocalScale: {x: 1.5904576, y: 1.495505, z: 2.3738182}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -112,7 +113,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.46, y: 2.68}
   m_EdgeRadius: 0
---- !u!114 &4093783439070656256
+--- !u!114 &1688603985
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -121,11 +122,26 @@ MonoBehaviour:
   m_GameObject: {fileID: 4093783439070656258}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fd0fbfc446e98034fb1ec9ed7cc39416, type: 3}
+  m_Script: {fileID: 11500000, guid: 8f82515fe1761e74c89ccaaca4d5ddcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_DisplaySprite: Screwdriver2
+  m_SafeBoxOpen: {fileID: 0}
+  m_OpenSafeBoxZoomOutWithoutScrew: {fileID: 21300000, guid: e8e885ec8ed423b47b7af31b7d5e4f20, type: 3}
+  m_PickUpItem: {fileID: 0}
+--- !u!114 &1688603986
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4093783439070656258}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27edd0d0b838ed645975497ba7a5f1ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_DisplaySprite: Screwdriver
   m_ItemProperty: 0
   m_DisplayImage: 
-  m_ResultOfCombinationItemName: 
-  m_AmountOfUsage: 0
+  m_ResultOfCombinationItemName: Power_Fuze
+  m_AmountOfUsage: 5

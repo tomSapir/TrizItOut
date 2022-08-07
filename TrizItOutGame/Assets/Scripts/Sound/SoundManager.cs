@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class SoundManager : MonoBehaviour
 {
-    [SerializeField]
     public static AudioClip s_ButtonSound, s_WorngPasswordSound, s_CorrectPasswordSound;
     public static AudioClip s_SwitchSound, s_SpraySound, s_DoorOpenSound, s_TakeItemSound;
     public static AudioClip s_DrawerSound;
@@ -84,3 +83,7 @@ public class SoundManager : MonoBehaviour
         }
     }
 }
+
+// TODO:
+// - how to add drawer sound?
+

@@ -10,6 +10,11 @@ public class Kattle : MonoBehaviour, IInteractable
     [SerializeField]
     private GameObject m_KattleSmoke;
 
+    [SerializeField]
+    private GameObject m_Mirror;
+    [SerializeField]
+    private Sprite m_MirrorWithCodeSprite;
+
     void Start()
     {
         m_isConnected = true;
@@ -41,14 +46,9 @@ public class Kattle : MonoBehaviour, IInteractable
 
         yield return new WaitForSeconds(3);
 
-        // TODO: show password
-
-        Debug.Log("Password showed");
+        m_Mirror.GetComponent<SpriteRenderer>().sprite = m_MirrorWithCodeSprite;
 
         yield return new WaitForSeconds(3);
-
         m_KattleSmoke.SetActive(false);
-
-        // keep password there
     }
 }

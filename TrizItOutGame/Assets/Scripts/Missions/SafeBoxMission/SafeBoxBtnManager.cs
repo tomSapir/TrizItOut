@@ -17,7 +17,7 @@ public class SafeBoxBtnManager : MonoBehaviour
 
     private 
 
-    string PassCode = "1234";
+    string PassCode = "7135";
     string CurrentPassCode = null;
     private int m_Index = 0;
 

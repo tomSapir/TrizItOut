@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7570979632987866718}
   - component: {fileID: 3438792166204546412}
-  - component: {fileID: 5813965721191349084}
+  - component: {fileID: 1409379404831497584}
   m_Layer: 0
   m_Name: Power_Fuze
   m_TagString: Untagged
@@ -85,7 +85,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &5813965721191349084
+--- !u!114 &1409379404831497584
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -94,7 +94,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7212618463837168184}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fd0fbfc446e98034fb1ec9ed7cc39416, type: 3}
+  m_Script: {fileID: 11500000, guid: 27edd0d0b838ed645975497ba7a5f1ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_DisplaySprite: Power_Fuze

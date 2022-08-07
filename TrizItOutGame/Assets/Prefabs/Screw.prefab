@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 340020382285900080}
   - component: {fileID: 16632375530962347}
-  - component: {fileID: 3543613605370013586}
   - component: {fileID: 1637114081057510757}
+  - component: {fileID: 2435644703541768327}
   m_Layer: 0
   m_Name: Screw
   m_TagString: Interactable
@@ -86,19 +86,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &3543613605370013586
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7184013921530782171}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6548cc28e0ddd8d4488556acc765ce4f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_UnlockItem: Screwdriver
 --- !u!61 &1637114081057510757
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -125,3 +112,16 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.03, y: 1.03}
   m_EdgeRadius: 0
+--- !u!114 &2435644703541768327
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7184013921530782171}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 934a46851cc57c74ca3c84928b9add0f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_UnlockItem: Screwdriver

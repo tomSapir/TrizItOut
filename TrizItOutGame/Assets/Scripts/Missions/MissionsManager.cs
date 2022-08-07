@@ -8,6 +8,8 @@ public class MissionsManager : MonoBehaviour
     private GameObject m_ComputerMission;
     [SerializeField]
     private GameObject m_SafeBoxMission;
+    [SerializeField]
+    private GameObject m_CommunicationInterface;
 
     public void ActiveRelevantMission(string i_Mission)
     {

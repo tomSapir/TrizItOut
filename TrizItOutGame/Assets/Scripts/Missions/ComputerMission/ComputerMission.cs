@@ -17,6 +17,8 @@ public class ComputerMission : MonoBehaviour
 
     [SerializeField]
     private GameObject m_PowerFuzeContainer;
+    [SerializeField]
+    private GameObject m_CommunicationInterface;
 
     private bool m_CanShowDust = true;
     private int m_AmountOfDust;
@@ -51,7 +53,6 @@ public class ComputerMission : MonoBehaviour
     void Update()
     {
         ChangeImage();
-
     }
 
     private void ChangeImage()

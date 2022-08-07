@@ -65,5 +65,18 @@ public class InventoryManager : MonoBehaviour
         }
 
         Destroy(i_Item.gameObject);
-    }    
+    }
+    
+    public bool DoesItemInInventory(string i_ItemName)
+    {
+        foreach(GameObject slot in m_Slots)
+        {
+            if(slot.GetComponent<SlotManager>().GetItemName() == i_ItemName)
+            {
+                return true;
+            }
+        }
+
+        return false;
+    }
 }

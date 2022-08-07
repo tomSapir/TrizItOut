@@ -15,6 +15,8 @@ public class Kattle : MonoBehaviour, IInteractable
     private GameObject m_Mirror;
     [SerializeField]
     private Sprite m_MirrorWithCodeSprite;
+    [SerializeField]
+    private GameObject m_CommunicationInterface;
 
     void Start()
     {
@@ -30,11 +32,10 @@ public class Kattle : MonoBehaviour, IInteractable
         {
             Debug.Log("Start");
             StartCoroutine(ApplyKattleSmokeAndPassword());
-         
         }
         else
         {
-            Debug.Log("The koomkoom is dixconnected.");
+            m_CommunicationInterface.GetComponent<CommunicationManager>().ShowMsg("It seems you need to plug in the kettle first.");
         }
     }
 

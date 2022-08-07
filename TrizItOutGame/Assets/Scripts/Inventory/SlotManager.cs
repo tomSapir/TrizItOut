@@ -113,6 +113,12 @@ public class SlotManager : MonoBehaviour, IPointerClickHandler
 
             transform.GetChild(0).GetComponent<Image>().sprite = Resources.Load<Sprite>("Sprites/Inventory/empty_item");
         }
-     
+    }
+
+    public string GetItemName()
+    {
+        string name = m_SlotItemImage.GetComponent<Image>().sprite.name;
+        Debug.Log(name);
+        return name;
     }
 }

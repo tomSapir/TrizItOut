@@ -9,7 +9,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7212618463837168184, guid: bcf52f9f01dc04443ab44be473ff7045, type: 3}
       propertyPath: m_Name
-      value: Power_Fuze
+      value: Power_Fuze Variant
       objectReference: {fileID: 0}
     - target: {fileID: 7570979632987866718, guid: bcf52f9f01dc04443ab44be473ff7045, type: 3}
       propertyPath: m_RootOrder
@@ -25,7 +25,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7570979632987866718, guid: bcf52f9f01dc04443ab44be473ff7045, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -3006.288
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7570979632987866718, guid: bcf52f9f01dc04443ab44be473ff7045, type: 3}
       propertyPath: m_LocalRotation.w

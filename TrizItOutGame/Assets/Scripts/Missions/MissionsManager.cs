@@ -31,4 +31,14 @@ public class MissionsManager : MonoBehaviour
                 }
         }
     }
+
+    public void TurnOff()
+    {
+        for(int i = 0; i < transform.childCount; i++)
+        {
+            transform.GetChild(i).gameObject.SetActive(false);
+        }
+
+        gameObject.SetActive(false);
+    }
 }

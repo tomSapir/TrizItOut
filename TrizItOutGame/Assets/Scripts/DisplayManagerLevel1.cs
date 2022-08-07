@@ -42,7 +42,20 @@ public class DisplayManagerLevel1 : MonoBehaviour
         normal, zoom, busy
     };
 
-    public State CurrentState { get; set; }
+    [SerializeField]
+    private State m_CurrentState;
+    
+    public State CurrentState
+    {
+        get
+        {
+            return m_CurrentState;
+        }
+        set
+        {
+            m_CurrentState = value;
+        }
+    }
 
     public int CurrentWall
     {
@@ -90,12 +103,13 @@ public class DisplayManagerLevel1 : MonoBehaviour
 
         if (CurrentState == State.normal)
         {
-            m_Missions.SetActive(false);
+            m_Missions.GetComponent<MissionsManager>().TurnOff();
         }
         else
         {
             m_Missions.SetActive(true);
             string missionName = GetComponent<SpriteRenderer>().sprite.name;
+            
             Debug.Log("Mission name: " + missionName);
             m_Missions.GetComponent<MissionsManager>().ActiveRelevantMission(missionName);
         }
@@ -184,10 +198,6 @@ public class DisplayManagerLevel1 : MonoBehaviour
         yield return new WaitForSeconds(sec);
         m_ComputerCable.GetComponent<SpriteRenderer>().sprite = m_TornComputerCableSprite;
         m_DarkMode.SetActive(true);
-
-        /*
-         * code 
-         * kattle ^
-         */
     }
+
 }

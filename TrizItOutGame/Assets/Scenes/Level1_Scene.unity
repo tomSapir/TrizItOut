@@ -2589,6 +2589,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 5168913525730113503, guid: e30483616ebc89b4cbaace19b85d030e, type: 3}
+    - {fileID: 6506515125634725093, guid: e30483616ebc89b4cbaace19b85d030e, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: e30483616ebc89b4cbaace19b85d030e, type: 3}
 --- !u!4 &442290988 stripped
 Transform:
@@ -8224,7 +8225,7 @@ MonoBehaviour:
   m_ItemProperty: 0
   m_DisplayImage: 
   m_ResultOfCombinationItemName: 
-  m_AmountOfUsage: 1
+  m_AmountOfUsage: 0
 --- !u!4 &1717953663 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4968285457929860284, guid: 9026907e815ce3749b80e7bd1da6a315, type: 3}

@@ -15,8 +15,6 @@ public class SafeBoxMission : MonoBehaviour
     [SerializeField]
     private GameObject m_ScrewDriver; 
 
-    private int m_IndexOfDigitOnScreen = 0;
-
     [SerializeField]
     public TextMeshProUGUI uiText;
 

@@ -6,6 +6,7 @@ public class PictureWall : MonoBehaviour
 {
     private RotateObject m_RotateObject;
     private Animation m_Animation;
+    private bool m_AnimationWasPlayed = false;
 
     void Start()
     {
@@ -16,6 +17,10 @@ public class PictureWall : MonoBehaviour
 
     public void OnPictureWallRotate()
     {
-        m_Animation.Play();
+        if(!m_AnimationWasPlayed)
+        {
+            m_Animation.Play();
+            m_AnimationWasPlayed = true;
+        }
     }
 }

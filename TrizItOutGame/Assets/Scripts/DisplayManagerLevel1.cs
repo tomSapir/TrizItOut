@@ -85,8 +85,6 @@ public class DisplayManagerLevel1 : MonoBehaviour
         m_DarkMode.SetActive(false);
         RenderUI();
         StartCoroutine(WaitBeforeDarkMode(2));
-
-
     }
 
     void Update()
@@ -109,8 +107,7 @@ public class DisplayManagerLevel1 : MonoBehaviour
         {
             m_Missions.SetActive(true);
             string missionName = GetComponent<SpriteRenderer>().sprite.name;
-            
-            Debug.Log("Mission name: " + missionName);
+           
             m_Missions.GetComponent<MissionsManager>().ActiveRelevantMission(missionName);
         }
     }
@@ -196,6 +193,7 @@ public class DisplayManagerLevel1 : MonoBehaviour
     IEnumerator WaitBeforeDarkMode(int sec)
     {
         yield return new WaitForSeconds(sec);
+        SoundManager.PlaySound(SoundManager.k_ElectricFallSoundName);
         m_ComputerCable.GetComponent<SpriteRenderer>().sprite = m_TornComputerCableSprite;
         m_DarkMode.SetActive(true);
     }

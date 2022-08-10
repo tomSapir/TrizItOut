@@ -34,6 +34,10 @@ public class SwitchManager : MonoBehaviour, IInteractable
 
         m_IsLightOn = !m_IsLightOn;
 
-        OnSwitch?.Invoke(m_IsLightOn);
+        if(OnSwitch != null)
+        {
+            Debug.Log("Added to event");
+            OnSwitch(m_IsLightOn);
+        }
     }
 }

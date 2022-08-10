@@ -4,7 +4,6 @@ using UnityEngine.UI;
 public class PickUpItem : MonoBehaviour, IInteractable
 {
     public delegate void PickUpAction();
-
     public enum eProperty { usable, displayable };
 
     [SerializeField]

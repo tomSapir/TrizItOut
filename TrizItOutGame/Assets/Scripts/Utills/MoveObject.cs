@@ -12,10 +12,14 @@ public class MoveObject : MonoBehaviour, IInteractable
         down
     }
 
+    public delegate void ObjectMovedAction(eMovementType eMovementType);
+
     [SerializeField]
     private float m_Steps;
     [SerializeField]
     private eMovementType m_MovmentType;
+
+    public event ObjectMovedAction OnObjectMoved;
 
     public eMovementType MovementType
     {
@@ -31,17 +35,20 @@ public class MoveObject : MonoBehaviour, IInteractable
 
     public void Interact(DisplayManagerLevel1 currDisplay)
     {
+        if(OnObjectMoved != null)
+        {
+            OnObjectMoved(m_MovmentType);
+        }    
+
         switch(m_MovmentType)
         {
             case eMovementType.right:
                 {
-                    transform.position = new Vector3(transform.position.x + m_Steps, transform.position.y, transform.position.z);
                     m_MovmentType = eMovementType.left;
                     break;
                 }
             case eMovementType.left:
                 {
-                    transform.position = new Vector3(transform.position.x - m_Steps, transform.position.y, transform.position.z);
                     m_MovmentType = eMovementType.right;
                     break;
                 }

@@ -6,7 +6,7 @@ public class SoundManager : MonoBehaviour
 {
     public static AudioClip s_ButtonSound, s_WorngPasswordSound, s_CorrectPasswordSound;
     public static AudioClip s_SwitchSound, s_SpraySound, s_DoorOpenSound, s_TakeItemSound;
-    public static AudioClip s_DrawerSound;
+    public static AudioClip s_DrawerSound, s_KattleBoilSound, s_MoveBigPotSound;
 
     public static AudioSource audioSource;
 
@@ -17,7 +17,9 @@ public class SoundManager : MonoBehaviour
     public const string k_SpraySoundName = "spraySound";
     public const string k_DoorOpenSoundName = "doorOpenSound";
     public const string k_TakeItemSoundName = "takeItemSound";
-    public const string k_DrawerSound = "drawerSound";
+    public const string k_DrawerSoundName = "drawerSound";
+    public const string k_KattleBoilSoundName = "kattleBoilSound";
+    public const string k_MoveBigPotSoundName = "moveBigPotSound";
 
     public static readonly string sr_SoundPath = "Sounds/";
 
@@ -30,11 +32,12 @@ public class SoundManager : MonoBehaviour
         s_SpraySound = Resources.Load<AudioClip>(sr_SoundPath + k_SpraySoundName);
         s_DoorOpenSound = Resources.Load<AudioClip>(sr_SoundPath + k_DoorOpenSoundName);
         s_TakeItemSound = Resources.Load<AudioClip>(sr_SoundPath + k_TakeItemSoundName);
-        s_DrawerSound = Resources.Load<AudioClip>(sr_SoundPath + k_DrawerSound);
+        s_DrawerSound = Resources.Load<AudioClip>(sr_SoundPath + k_DrawerSoundName);
+        s_KattleBoilSound = Resources.Load<AudioClip>(sr_SoundPath + k_KattleBoilSoundName);
+        s_MoveBigPotSound = Resources.Load<AudioClip>(sr_SoundPath + k_MoveBigPotSoundName);
 
         audioSource = GetComponent<AudioSource>();
     }
-
 
     public static void PlaySound(string i_Clip)
     {
@@ -75,15 +78,22 @@ public class SoundManager : MonoBehaviour
                     audioSource.PlayOneShot(s_TakeItemSound);
                     break;
                 }
-            case k_DrawerSound:
+            case k_DrawerSoundName:
                 {
                     audioSource.PlayOneShot(s_DrawerSound);
+                    break;
+                }
+            case k_KattleBoilSoundName:
+                {
+                    audioSource.PlayOneShot(s_KattleBoilSound);
+                    break;
+                }
+            case k_MoveBigPotSoundName:
+                {
+                    audioSource.PlayOneShot(s_MoveBigPotSound);
                     break;
                 }
         }
     }
 }
-
-// TODO:
-// - how to add drawer sound?
 

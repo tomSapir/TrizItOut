@@ -38,6 +38,7 @@ public class SafeBoxBtnManager : MonoBehaviour
 
     public void OnClickClearBtn()
     {
+        SoundManager.PlaySound(SoundManager.k_ButtonSoundName);
         m_Index = 0;
         CurrentPassCode = null;
         m_screenText.text = CurrentPassCode;

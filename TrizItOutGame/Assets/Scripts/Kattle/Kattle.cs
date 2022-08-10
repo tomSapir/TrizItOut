@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Kattle : MonoBehaviour, IInteractable
 {
-
     [SerializeField]
     public bool m_isConnected { get; set; } // Maybe we should start unattached?
 
@@ -43,17 +42,12 @@ public class Kattle : MonoBehaviour, IInteractable
     {
         SoundManager.PlaySound(SoundManager.k_SwitchSoundName);
         yield return new WaitForSeconds(2);
-
-        // TODO: put water boiling sound
-        yield return new WaitForSeconds(2);
-
+        SoundManager.PlaySound(SoundManager.k_KattleBoilSoundName);
+        yield return new WaitForSeconds(4);
         m_KattleSmoke.SetActive(true);
-
         yield return new WaitForSeconds(3);
-
         m_Mirror.GetComponent<SpriteRenderer>().sprite = m_MirrorWithCodeSprite;
-
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(6);
         m_KattleSmoke.SetActive(false);
     }
 

@@ -4,14 +4,23 @@ using UnityEngine;
 
 public class RotateObject : MonoBehaviour, IInteractable
 {
+    public delegate void RotateObjectAction();
+
     [SerializeField]
     private float m_SpeedRotation;
     [SerializeField]
     private float m_EndZ;
 
+    public event RotateObjectAction OnRotateObject;
+
     public void Interact(DisplayManagerLevel1 currDisplay)
     {
         RotateSprite();
+
+        if(OnRotateObject != null)
+        {
+            OnRotateObject();
+        }
     }
 
     private void RotateSprite()

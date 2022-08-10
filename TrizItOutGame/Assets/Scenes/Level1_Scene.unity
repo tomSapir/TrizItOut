@@ -4365,6 +4365,9 @@ GameObject:
   - component: {fileID: 794808055}
   - component: {fileID: 794808054}
   - component: {fileID: 794808056}
+  - component: {fileID: 794808057}
+  - component: {fileID: 794808059}
+  - component: {fileID: 794808058}
   m_Layer: 0
   m_Name: BigPot
   m_TagString: Interactable
@@ -4380,8 +4383,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 794808052}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.10977, y: -0.7313674, z: -220.76044}
-  m_LocalScale: {x: 0.27735314, y: 0.2773532, z: 0.27735317}
+  m_LocalPosition: {x: 6.5, y: -0.7313674, z: -220.7604}
+  m_LocalScale: {x: 0.27735314, y: 0.2773532, z: 0.2773532}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 852679344}
@@ -4479,6 +4482,55 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Steps: 1.77
   m_MovmentType: 1
+--- !u!114 &794808057
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 794808052}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0cee72d2553047489a8dbda6f2f88e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!111 &794808058
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 794808052}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 649245103911a2f46a01dd839e447121, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: 649245103911a2f46a01dd839e447121, type: 2}
+  - {fileID: 7400000, guid: 4408ff62523b31a419c5931bbb69d326, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 0
+  m_AnimatePhysics: 0
+  m_CullingType: 0
+--- !u!95 &794808059
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 794808052}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 3958ab2c195585c4d8dbd9428b899deb, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &849633179
 GameObject:
   m_ObjectHideFlags: 0

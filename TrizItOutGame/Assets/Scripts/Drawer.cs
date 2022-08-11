@@ -15,12 +15,6 @@ public class Drawer : MonoBehaviour, IInteractable
         m_inventory = GameObject.Find("Inventory");
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void Interact(DisplayManagerLevel1 currDisplay)
     {
         // suppose we have a key that unlocks this drawer, the sprites name of the kwy would be m_unlocks.

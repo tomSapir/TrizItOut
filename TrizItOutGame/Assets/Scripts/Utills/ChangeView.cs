@@ -5,9 +5,9 @@ using UnityEngine;
 public class ChangeView : MonoBehaviour, IInteractable
 {
     [SerializeField]
-    private string SpriteName;
+    public string SpriteName;
     [SerializeField]
-    private Sprite m_Sprite;
+    public Sprite m_Sprite;
     private const string ChangeViewSpritesPath = "Sprites/Level1/";
     [SerializeField]
     private GameObject m_CommunicationInterface;

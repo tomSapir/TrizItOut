@@ -8,7 +8,6 @@ public class ComputerMission : MonoBehaviour
     private DisplayManagerLevel1 m_DisplayManager;
     public delegate void OnComputeOpen();
 
-
     [SerializeField]
     private GameObject[] m_Dusts;
 
@@ -22,13 +21,14 @@ public class ComputerMission : MonoBehaviour
     [SerializeField]
     private GameObject m_CommunicationInterface;
 
+    [SerializeField]
+    private GameObject m_Computer;
+
     private bool m_CanShowDust = true;
     private int m_AmountOfDust;
     private bool m_AlredyOn = false;
 
     public event OnComputeOpen OnComputer;
-
-
 
     void Start()
     {
@@ -66,12 +66,15 @@ public class ComputerMission : MonoBehaviour
     {
         if (GameObject.Find("/Missions/Computer_Mission/Screw") == null)
         {
+            m_Computer.GetComponent<ChangeView>().SpriteName = "PCSide_ZoomIn_Open";
+            m_Computer.GetComponent<ChangeView>().m_Sprite = m_PCSideOpenSprite;
             m_DisplayManager.GetComponent<SpriteRenderer>().sprite = m_PCSideOpenSprite;
             if (OnComputer != null && !m_AlredyOn)
             {
                 OnComputer();
                 m_AlredyOn = true;
             }
+
             if (m_CanShowDust)
             {
                 foreach (GameObject dust in m_Dusts)

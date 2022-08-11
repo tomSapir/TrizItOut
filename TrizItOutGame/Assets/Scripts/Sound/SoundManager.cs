@@ -24,6 +24,8 @@ public class SoundManager : MonoBehaviour
 
     public static readonly string sr_SoundPath = "Sounds/";
 
+    public static bool s_IsMuted = false;
+
     void Start()
     {
         s_ButtonSound = Resources.Load<AudioClip>(sr_SoundPath + k_ButtonSoundName);
@@ -43,63 +45,66 @@ public class SoundManager : MonoBehaviour
 
     public static void PlaySound(string i_Clip)
     {
-        switch(i_Clip)
+        if(!s_IsMuted)
         {
-            case k_ButtonSoundName:
-                {
-                    audioSource.PlayOneShot(s_ButtonSound);
-                    break;
-                }
-            case k_WorngPasswordSoundName:
-                {
-                    audioSource.PlayOneShot(s_WorngPasswordSound);
-                    break;
-                }
-            case k_CorrectPasswordSoundName:
-                {
-                    audioSource.PlayOneShot(s_CorrectPasswordSound);
-                    break;
-                }
-            case k_SwitchSoundName:
-                {
-                    audioSource.PlayOneShot(s_SwitchSound);
-                    break;
-                }
-            case k_SpraySoundName:
-                {
-                    audioSource.PlayOneShot(s_SpraySound);
-                    break;
-                }
-            case k_DoorOpenSoundName:
-                {
-                    audioSource.PlayOneShot(s_DoorOpenSound);
-                    break;
-                }
-            case k_TakeItemSoundName:
-                {
-                    audioSource.PlayOneShot(s_TakeItemSound);
-                    break;
-                }
-            case k_DrawerSoundName:
-                {
-                    audioSource.PlayOneShot(s_DrawerSound);
-                    break;
-                }
-            case k_KattleBoilSoundName:
-                {
-                    audioSource.PlayOneShot(s_KattleBoilSound);
-                    break;
-                }
-            case k_MoveBigPotSoundName:
-                {
-                    audioSource.PlayOneShot(s_MoveBigPotSound);
-                    break;
-                }
-            case k_ElectricFallSoundName:
-                {
-                    audioSource.PlayOneShot(s_ElectricFallSound);
-                    break;
-                }
+            switch (i_Clip)
+            {
+                case k_ButtonSoundName:
+                    {
+                        audioSource.PlayOneShot(s_ButtonSound);
+                        break;
+                    }
+                case k_WorngPasswordSoundName:
+                    {
+                        audioSource.PlayOneShot(s_WorngPasswordSound);
+                        break;
+                    }
+                case k_CorrectPasswordSoundName:
+                    {
+                        audioSource.PlayOneShot(s_CorrectPasswordSound);
+                        break;
+                    }
+                case k_SwitchSoundName:
+                    {
+                        audioSource.PlayOneShot(s_SwitchSound);
+                        break;
+                    }
+                case k_SpraySoundName:
+                    {
+                        audioSource.PlayOneShot(s_SpraySound);
+                        break;
+                    }
+                case k_DoorOpenSoundName:
+                    {
+                        audioSource.PlayOneShot(s_DoorOpenSound);
+                        break;
+                    }
+                case k_TakeItemSoundName:
+                    {
+                        audioSource.PlayOneShot(s_TakeItemSound);
+                        break;
+                    }
+                case k_DrawerSoundName:
+                    {
+                        audioSource.PlayOneShot(s_DrawerSound);
+                        break;
+                    }
+                case k_KattleBoilSoundName:
+                    {
+                        audioSource.PlayOneShot(s_KattleBoilSound);
+                        break;
+                    }
+                case k_MoveBigPotSoundName:
+                    {
+                        audioSource.PlayOneShot(s_MoveBigPotSound);
+                        break;
+                    }
+                case k_ElectricFallSoundName:
+                    {
+                        audioSource.PlayOneShot(s_ElectricFallSound);
+                        break;
+                    }
+            }
         }
     }
 }

@@ -7,9 +7,6 @@ using UnityEngine.UI;
 public class SafeBoxMission : MonoBehaviour
 {
     [SerializeField]
-    private string m_Password = "1234";
-
-    [SerializeField]
     private Sprite m_SafeBoxOpenZoomSprite;
 
     [SerializeField]
@@ -19,7 +16,6 @@ public class SafeBoxMission : MonoBehaviour
     public TextMeshProUGUI uiText;
 
     private DisplayManagerLevel1 m_DisplayManager;
-    private string m_CurrentPassCode = null;
     private bool m_SafeBoxOpend = false;
 
     [SerializeField]

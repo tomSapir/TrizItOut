@@ -16,14 +16,14 @@ public class ChangeView : MonoBehaviour, IInteractable
     {
         currDisplay.GetComponent<SpriteRenderer>().sprite = m_Sprite;
         currDisplay.CurrentState = DisplayManagerLevel1.State.zoom;
-        ShowMsg();
+        ShowMsg(m_Sprite.name);
     }
 
-    private void ShowMsg()
+    private void ShowMsg(string i_NameSprite)
     {
-        switch(SpriteName)
+        switch (i_NameSprite)
         {
-            case "PCSide_ZoomIn_Close":
+            case "PCSide_ZoomIN_Close":
                 {
                     m_CommunicationInterface.GetComponent<CommunicationManager>().ShowMsg("Mmmm... The computer is closed.");
                     break;

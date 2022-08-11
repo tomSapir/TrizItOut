@@ -72,14 +72,8 @@ public class SafeBoxBtnManager : MonoBehaviour
 
     public void OnSwitchChanged(bool i_IsOn)
     {
-        Debug.Log("YES");
         for(int i = 0; i < transform.childCount; i++)
         {
-           //if(transform.GetChild(i).GetComponent<Button>() == null)
-            //{
-                //Debug.Log("transform.GetChild(i).gameObject.GetComponent<Button>() is null");
-            //}
-
             transform.GetChild(i).gameObject.GetComponent<Button>().enabled = i_IsOn;
         }
     }

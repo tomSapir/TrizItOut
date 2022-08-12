@@ -111,7 +111,7 @@ public class SlotManager : MonoBehaviour, IPointerClickHandler
             m_displayImage = string.Empty;
             m_CombinationItem = string.Empty;
 
-            transform.GetChild(0).GetComponent<Image>().sprite = Resources.Load<Sprite>("Sprites/Inventory/empty_item");
+            transform.GetChild(0).GetComponent<Image>().sprite = Resources.Load<Sprite>("Sprites/AllLevels/Inventory/Empty_Item");
         }
     }
 

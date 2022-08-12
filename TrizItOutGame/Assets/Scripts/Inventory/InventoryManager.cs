@@ -11,7 +11,7 @@ public class InventoryManager : MonoBehaviour
     public GameObject m_previouslySelectedSlot { get; set; }
 
     private const string k_EmptyItemName = "Empty_Item";
-    private const string k_InventoryItemSpritePath = "Sprites/Inventory/";
+    private const string k_InventoryItemSpritePath = "Sprites/AllLevels/Items/";
 
     private void Start()
     {
@@ -27,7 +27,7 @@ public class InventoryManager : MonoBehaviour
     {
         foreach(GameObject slot in m_Slots)
         {
-            slot.transform.GetChild(0).GetComponent<Image>().sprite = Resources.Load<Sprite>("Sprites/Inventory/" + k_EmptyItemName);
+            slot.transform.GetChild(0).GetComponent<Image>().sprite = Resources.Load<Sprite>("Sprites/AllLevels/Inventory/" + k_EmptyItemName);
         }
     }
 

@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class MainCameraManager : MonoBehaviour
 {
-
     private int m_CurrentWallIndex = 1;
     private int m_PreviousWallIndex = 1;
     private float m_DistanceToMoveXOfCamera = 17.8f;
@@ -34,34 +33,32 @@ public class MainCameraManager : MonoBehaviour
         }
     }
 
-    void Start()
+    void Update()
     {
-        
+        manageCameraPosition();
+        manageLeftAndRightsBtnsActivation();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void manageCameraPosition()
     {
         Vector3 currentPosition = gameObject.transform.position;
 
         if (m_CurrentWallIndex != m_PreviousWallIndex)
         {
-            if(m_PreviousWallIndex == m_CurrentWallIndex - 1)
+            if (m_PreviousWallIndex == m_CurrentWallIndex - 1)
             {
                 gameObject.transform.position = new Vector3(currentPosition.x + m_DistanceToMoveXOfCamera, currentPosition.y, currentPosition.z);
             }
-            else 
+            else
             {
                 gameObject.transform.position = new Vector3(currentPosition.x - m_DistanceToMoveXOfCamera, currentPosition.y, currentPosition.z);
             }
 
             m_PreviousWallIndex = m_CurrentWallIndex;
         }
-
-        ManageLeftAndRightsBtnsActivation();
     }
 
-    private void ManageLeftAndRightsBtnsActivation()
+    private void manageLeftAndRightsBtnsActivation()
     {
         if(m_CurrentWallIndex > 1 && m_CurrentWallIndex < sr_MostRightWallIndex)
         {

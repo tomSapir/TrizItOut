@@ -48,3 +48,6 @@ TagManager:
   - name: UI
     uniqueID: 885664955
     locked: 0
+  - name: Fan
+    uniqueID: 33182475
+    locked: 0

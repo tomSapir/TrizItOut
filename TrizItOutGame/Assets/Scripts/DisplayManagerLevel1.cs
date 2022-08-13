@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class DisplayManagerLevel1 : MonoBehaviour
 {
@@ -240,11 +241,9 @@ public class DisplayManagerLevel1 : MonoBehaviour
 
     public void CheckIfFinishedLevel()
     {
-
         if(m_FuzeIsSpawned && m_ComputerCableIsSpawned)
         {
-            Debug.Log("Move to level 2!");
-            Debug.Break();
+            SceneManager.LoadScene("Level2_Scene");
         }
     }
 }

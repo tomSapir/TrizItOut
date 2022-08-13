@@ -136,7 +136,7 @@ PrefabInstance:
       objectReference: {fileID: 32176501}
     - target: {fileID: 1688603986, guid: f59b4ceb08192304993e0c405b0459a0, type: 3}
       propertyPath: m_AmountOfUsage
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4093783439070656257, guid: f59b4ceb08192304993e0c405b0459a0, type: 3}
       propertyPath: m_RootOrder
@@ -1831,7 +1831,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!73398921 &278710266
 VFXRenderer:
   serializedVersion: 1
@@ -1840,7 +1840,7 @@ VFXRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 278710265}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -8768,8 +8768,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_MyPrefab: {fileID: 5168913525730113440, guid: e30483616ebc89b4cbaace19b85d030e, type: 3}
-  m_PlaceFor: Kattle_Cable
-  m_ActiveBy: Cable_Iventory
+  m_PlaceFor: Cable_On_Floor
+  m_ActiveBy: Cable_Inventory
   m_WhereToSpawn: furniture1
   m_ActivatedByEvent: 1
   m_IsReusable: 1

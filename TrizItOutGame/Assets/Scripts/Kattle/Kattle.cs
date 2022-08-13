@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 public class Kattle : MonoBehaviour, IInteractable
 {
     [SerializeField]
@@ -16,11 +16,13 @@ public class Kattle : MonoBehaviour, IInteractable
     private Sprite m_MirrorWithCodeSprite;
     [SerializeField]
     private GameObject m_CommunicationInterface;
+    private GameObject m_ButtonRightArrow;
+
 
     void Start()
     {
         m_isConnected = true;
-
+        m_ButtonRightArrow = GameObject.Find("/Canvas/Arrow_Right_Btn");
         SwitchManager switchManager = GameObject.Find("/interactables2/Switch").GetComponent<SwitchManager>();
         switchManager.OnSwitch += OnSwitchChanged;
     }
@@ -30,7 +32,7 @@ public class Kattle : MonoBehaviour, IInteractable
         if(m_isConnected)
         {
             Debug.Log("Start");
-            StartCoroutine(ApplyKattleSmokeAndPassword());
+            StartCoroutine(ApplyKattleSmokeAndPassword(currDisplay));
         }
         else
         {
@@ -38,8 +40,10 @@ public class Kattle : MonoBehaviour, IInteractable
         }
     }
 
-    IEnumerator ApplyKattleSmokeAndPassword()
+    IEnumerator ApplyKattleSmokeAndPassword(DisplayManagerLevel1 currDisplay)
     {
+        m_ButtonRightArrow.GetComponent<Button>().enabled = false;
+        //Debug.break
         SoundManager.PlaySound(SoundManager.k_SwitchSoundName);
         yield return new WaitForSeconds(2);
         SoundManager.PlaySound(SoundManager.k_KattleBoilSoundName);
@@ -49,6 +53,8 @@ public class Kattle : MonoBehaviour, IInteractable
         m_Mirror.GetComponent<SpriteRenderer>().sprite = m_MirrorWithCodeSprite;
         yield return new WaitForSeconds(6);
         m_KattleSmoke.SetActive(false);
+        m_ButtonRightArrow.GetComponent<Button>().enabled = true;
+
     }
 
     public void OnSwitchChanged(bool i_IsOn)

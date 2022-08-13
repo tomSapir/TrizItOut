@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class PlaceHolder : MonoBehaviour, IInteractable
 {
     [SerializeField]
-    private GameObject m_MyPrefab;
+    private GameObject m_MyPrefab; //the prefab we Instantiate
     [SerializeField]
     private string m_PlaceFor;
     [SerializeField]
@@ -53,14 +53,16 @@ public class PlaceHolder : MonoBehaviour, IInteractable
         {
             var newCable = Instantiate(m_MyPrefab, GameObject.Find(m_WhereToSpawn).transform);
             newCable.name = m_MyPrefab.name;
-            
-            
+            Debug.Log("create new cable");
+
+
             m_Inventory.GetComponent<InventoryManager>().m_currentSelectedSlot.GetComponent<SlotManager>().ClearSlot();
             m_Inventory.GetComponent<InventoryManager>().m_currentSelectedSlot = null;
 
             if(m_IsReusable == false)
             {
                 newCable.layer = 2;
+                Debug.Log("new cable is there");
             }
         }
     }

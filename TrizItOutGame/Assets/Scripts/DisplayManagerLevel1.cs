@@ -35,6 +35,14 @@ public class DisplayManagerLevel1 : MonoBehaviour
     private GameObject m_Kattle;
     private GameObject m_CanvasOfSafeBoxCode;
 
+    [SerializeField]
+    private GameObject m_ComputerCableHolder;
+    [SerializeField]
+    private GameObject m_FuzeHolder;
+
+    private bool m_FuzeIsSpawned = false;
+    private bool m_ComputerCableIsSpawned = false;
+
     private const string k_BackgroundPath = "Sprites/Level1/Main_Backgrounds/Background";
 
     public enum State
@@ -85,6 +93,36 @@ public class DisplayManagerLevel1 : MonoBehaviour
         m_DarkMode.SetActive(false);
         RenderUI();
         StartCoroutine(WaitBeforeDarkMode(2));
+
+
+        m_ComputerCableHolder.GetComponent<PlaceHolder>().OnPrefabSpawned += OnComputerCableSpawned;
+        m_FuzeHolder.GetComponent<PlaceHolder>().OnPrefabSpawned += OnFuzeSpawned;
+    }
+
+    public void OnFuzeSpawned()
+    {
+        m_FuzeIsSpawned = true;
+    }
+
+    public void OnComputerCableSpawned()
+    {
+        m_ComputerCableIsSpawned = true;
+
+        GameObject computerCable = GameObject.Find("/furniture1/Computer_Cable");
+
+        if(computerCable == null)
+        {
+            Debug.Log("computerCable is null.");
+        }
+        else
+        {
+            computerCable.GetComponent<PickUpItem>().OnPickUp += OnComputerCablePickedUp;
+        }
+    }
+
+    private void OnComputerCablePickedUp()
+    {
+        m_ComputerCableIsSpawned = false;
     }
 
     void Update()
@@ -110,6 +148,8 @@ public class DisplayManagerLevel1 : MonoBehaviour
            
             m_Missions.GetComponent<MissionsManager>().ActiveRelevantMission(missionName);
         }
+
+        CheckIfFinishedLevel();
     }
 
     private void showRelevantInteractableItems()
@@ -198,4 +238,13 @@ public class DisplayManagerLevel1 : MonoBehaviour
         m_DarkMode.SetActive(true);
     }
 
+    public void CheckIfFinishedLevel()
+    {
+
+        if(m_FuzeIsSpawned && m_ComputerCableIsSpawned)
+        {
+            Debug.Log("Move to level 2!");
+            Debug.Break();
+        }
+    }
 }

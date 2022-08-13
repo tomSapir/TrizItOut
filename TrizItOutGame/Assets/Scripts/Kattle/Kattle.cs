@@ -5,24 +5,25 @@ using UnityEngine.UI;
 public class Kattle : MonoBehaviour, IInteractable
 {
     [SerializeField]
-    public bool m_isConnected { get; set; } // Maybe we should start unattached?
+    public bool m_isConnected { get; set; }
 
     [SerializeField]
     private GameObject m_KattleSmoke;
-
     [SerializeField]
     private GameObject m_Mirror;
     [SerializeField]
     private Sprite m_MirrorWithCodeSprite;
     [SerializeField]
     private GameObject m_CommunicationInterface;
-    private GameObject m_ButtonRightArrow;
 
+    private GameObject m_ButtonRightArrow;
+    private GameObject m_SafeBoxClosed;
 
     void Start()
     {
         m_isConnected = true;
         m_ButtonRightArrow = GameObject.Find("/Canvas/Arrow_Right_Btn");
+        m_SafeBoxClosed = GameObject.Find("/interactables2/SafeBox/SafeBox_Closed");
         SwitchManager switchManager = GameObject.Find("/interactables2/Switch").GetComponent<SwitchManager>();
         switchManager.OnSwitch += OnSwitchChanged;
     }
@@ -42,8 +43,9 @@ public class Kattle : MonoBehaviour, IInteractable
 
     IEnumerator ApplyKattleSmokeAndPassword(DisplayManagerLevel1 currDisplay)
     {
-        m_ButtonRightArrow.GetComponent<Button>().enabled = false;
-        //Debug.break
+        m_ButtonRightArrow.GetComponent<Button>().interactable = false;
+        m_SafeBoxClosed.layer = 2;
+
         SoundManager.PlaySound(SoundManager.k_SwitchSoundName);
         yield return new WaitForSeconds(2);
         SoundManager.PlaySound(SoundManager.k_KattleBoilSoundName);
@@ -53,7 +55,9 @@ public class Kattle : MonoBehaviour, IInteractable
         m_Mirror.GetComponent<SpriteRenderer>().sprite = m_MirrorWithCodeSprite;
         yield return new WaitForSeconds(6);
         m_KattleSmoke.SetActive(false);
-        m_ButtonRightArrow.GetComponent<Button>().enabled = true;
+
+        m_ButtonRightArrow.GetComponent<Button>().interactable = true;
+        m_SafeBoxClosed.layer = 0;
 
     }
 

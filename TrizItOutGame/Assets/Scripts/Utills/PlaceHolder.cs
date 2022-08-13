@@ -6,6 +6,8 @@ using UnityEngine.UI;
 
 public class PlaceHolder : MonoBehaviour, IInteractable
 {
+    public delegate void PrefabSpawnedAction();
+
     [SerializeField]
     private GameObject m_MyPrefab; //the prefab we Instantiate
     [SerializeField]
@@ -19,15 +21,14 @@ public class PlaceHolder : MonoBehaviour, IInteractable
     private bool m_ActivatedByEvent;
     [SerializeField]
     private bool m_IsReusable;
-      
 
-    // Start is called before the first frame update
+    public event PrefabSpawnedAction OnPrefabSpawned;
+
     void Start()
     {
         m_Inventory = GameObject.Find("Inventory");
     }
 
-    // Update is called once per frame
     void Update()
     {
         if(m_ActivatedByEvent == true)
@@ -53,8 +54,11 @@ public class PlaceHolder : MonoBehaviour, IInteractable
         {
             var newCable = Instantiate(m_MyPrefab, GameObject.Find(m_WhereToSpawn).transform);
             newCable.name = m_MyPrefab.name;
-            Debug.Log("create new cable");
-
+            
+            if(OnPrefabSpawned != null)
+            {
+                OnPrefabSpawned();
+            }
 
             m_Inventory.GetComponent<InventoryManager>().m_currentSelectedSlot.GetComponent<SlotManager>().ClearSlot();
             m_Inventory.GetComponent<InventoryManager>().m_currentSelectedSlot = null;

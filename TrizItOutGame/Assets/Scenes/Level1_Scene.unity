@@ -9031,6 +9031,8 @@ MonoBehaviour:
   m_DarkMode: {fileID: 1133039744}
   m_ComputerCable: {fileID: 1698635728}
   m_TornComputerCableSprite: {fileID: 21300000, guid: e3246cf692e882f44b4e37269344b9a1, type: 3}
+  m_ComputerCableHolder: {fileID: 1799059464}
+  m_FuzeHolder: {fileID: 224735707}
   m_CurrentState: 0
 --- !u!1 &2009688111
 GameObject:
@@ -9908,6 +9910,7 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 4968285457929860163, guid: 9026907e815ce3749b80e7bd1da6a315, type: 3}
     - {fileID: 4968285458189577277, guid: 9026907e815ce3749b80e7bd1da6a315, type: 3}
+    - {fileID: 3544827280389242071, guid: 9026907e815ce3749b80e7bd1da6a315, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 9026907e815ce3749b80e7bd1da6a315, type: 3}
 --- !u!1001 &5202302177552935614
 PrefabInstance:

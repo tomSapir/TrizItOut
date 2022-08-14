@@ -48,6 +48,7 @@ public class InventoryManager : MonoBehaviour
 
     public void AddItemToInventory(PickUpItem i_Item)
     {
+        Debug.Log("inside");
         SoundManager.PlaySound(SoundManager.k_TakeItemSoundName);
         if (i_Item.m_AmountOfUsage != 0)
         {

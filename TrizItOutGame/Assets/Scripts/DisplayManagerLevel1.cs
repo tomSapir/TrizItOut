@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class DisplayManagerLevel1 : MonoBehaviour
+public class DisplayManagerLevel1 : MonoBehaviour, IManager
 {
     [SerializeField]
     private GameObject m_Missions;

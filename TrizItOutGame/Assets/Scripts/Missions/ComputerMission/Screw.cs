@@ -7,6 +7,7 @@ public class Screw : MonoBehaviour, IInteractable
 {
     [SerializeField]
     private string m_UnlockItem;
+    private string m_UnlockItem2 = "trizCoin";
     private GameObject m_inventory;
 
     // Start is called before the first frame update
@@ -23,11 +24,13 @@ public class Screw : MonoBehaviour, IInteractable
 
     public void Interact(DisplayManagerLevel1 currDisplay)
     {
-        // suppose we have a key that unlocks this drawer, the sprites name of the kwy would be m_unlocks.
-        if (m_inventory.GetComponent<InventoryManager>().m_currentSelectedSlot.gameObject.transform.GetChild(0).GetComponent<Image>().sprite.name == m_UnlockItem)
+        string name = m_inventory.GetComponent<InventoryManager>().m_currentSelectedSlot.gameObject.transform.GetChild(0).GetComponent<Image>().sprite.name;
+
+        if (name == m_UnlockItem || name == m_UnlockItem2)
         {
             Destroy(gameObject);
             m_inventory.GetComponent<InventoryManager>().m_currentSelectedSlot.GetComponent<SlotManager>().ClearSlot();
         }
+
     }
 }

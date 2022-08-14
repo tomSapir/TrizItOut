@@ -43,7 +43,7 @@ public class FanRazersManager : MonoBehaviour, IInteractable
         GameObject currSelectedSlot = inventoryManager.m_currentSelectedSlot;
 
         if (currSelectedSlot != null &&
-            currSelectedSlot.gameObject.transform.GetChild(0).GetComponent<Image>().sprite.name == "PaperClip")
+            currSelectedSlot.gameObject.transform.GetChild(0).GetComponent<Image>().sprite.name == "paperclips")
         {
             m_NeedToSpin = false;
             m_PaperClip.SetActive(true);

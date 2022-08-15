@@ -4,9 +4,12 @@ using UnityEngine;
 
 public class SoundManager : MonoBehaviour
 {
-    public static AudioClip s_ButtonSound, s_WorngPasswordSound, s_CorrectPasswordSound;
-    public static AudioClip s_SwitchSound, s_SpraySound, s_DoorOpenSound, s_TakeItemSound;
-    public static AudioClip s_DrawerSound, s_KattleBoilSound, s_MoveBigPotSound, s_ElectricFallSound;
+    public static AudioClip s_ButtonSound, s_WorngPasswordSound,
+                            s_CorrectPasswordSound, s_SwitchSound,
+                            s_SpraySound, s_DoorOpenSound,
+                            s_TakeItemSound, s_DrawerSound,
+                            s_KattleBoilSound, s_MoveBigPotSound,
+                            s_ElectricFallSound, s_PiggyBankBreakSound;
 
     public static AudioSource audioSource;
 
@@ -21,6 +24,7 @@ public class SoundManager : MonoBehaviour
     public const string k_KattleBoilSoundName = "kattleBoilSound";
     public const string k_MoveBigPotSoundName = "moveBigPotSound";
     public const string k_ElectricFallSoundName = "electricFallSound";
+    public const string k_PiggyBankBreakSoundName = "piggyBankBreakSound";
 
     public static readonly string sr_SoundPath = "Sounds/";
 
@@ -39,6 +43,7 @@ public class SoundManager : MonoBehaviour
         s_KattleBoilSound = Resources.Load<AudioClip>(sr_SoundPath + k_KattleBoilSoundName);
         s_MoveBigPotSound = Resources.Load<AudioClip>(sr_SoundPath + k_MoveBigPotSoundName);
         s_ElectricFallSound = Resources.Load<AudioClip>(sr_SoundPath + k_ElectricFallSoundName);
+        s_PiggyBankBreakSound = Resources.Load<AudioClip>(sr_SoundPath + k_PiggyBankBreakSoundName);
 
         audioSource = GetComponent<AudioSource>();
     }
@@ -102,6 +107,11 @@ public class SoundManager : MonoBehaviour
                 case k_ElectricFallSoundName:
                     {
                         audioSource.PlayOneShot(s_ElectricFallSound);
+                        break;
+                    }
+                case k_PiggyBankBreakSoundName:
+                    {
+                        audioSource.PlayOneShot(s_PiggyBankBreakSound);
                         break;
                     }
             }

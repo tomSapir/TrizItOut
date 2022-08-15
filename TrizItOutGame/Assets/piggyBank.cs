@@ -9,7 +9,7 @@ public class piggyBank : MonoBehaviour, IInteractable
     private Sprite m_PiggyBankBroken;
     [SerializeField]
     private GameObject m_TrizCoin;
-    int AmoutOfTaps { get; }
+    public int AmoutOfTaps { get; }
 
     void Start()
     {
@@ -27,6 +27,7 @@ public class piggyBank : MonoBehaviour, IInteractable
         if(s_AmountOfTaps == 3)
         {
             GetComponent<SpriteRenderer>().sprite = m_PiggyBankBroken;
+            SoundManager.PlaySound(SoundManager.k_PiggyBankBreakSoundName);
         }
         else if(s_AmountOfTaps == 4)
         {

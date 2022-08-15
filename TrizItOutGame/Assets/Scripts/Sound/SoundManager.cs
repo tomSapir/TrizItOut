@@ -9,7 +9,8 @@ public class SoundManager : MonoBehaviour
                             s_SpraySound, s_DoorOpenSound,
                             s_TakeItemSound, s_DrawerSound,
                             s_KattleBoilSound, s_MoveBigPotSound,
-                            s_ElectricFallSound, s_PiggyBankBreakSound;
+                            s_ElectricFallSound, s_PiggyBankBreakSound,
+                            s_ScrewOpenSound;
 
     public static AudioSource audioSource;
 
@@ -25,6 +26,7 @@ public class SoundManager : MonoBehaviour
     public const string k_MoveBigPotSoundName = "moveBigPotSound";
     public const string k_ElectricFallSoundName = "electricFallSound";
     public const string k_PiggyBankBreakSoundName = "piggyBankBreakSound";
+    public const string k_ScrewOpenSoundName = "screwOpenSound";
 
     public static readonly string sr_SoundPath = "Sounds/";
 
@@ -44,6 +46,7 @@ public class SoundManager : MonoBehaviour
         s_MoveBigPotSound = Resources.Load<AudioClip>(sr_SoundPath + k_MoveBigPotSoundName);
         s_ElectricFallSound = Resources.Load<AudioClip>(sr_SoundPath + k_ElectricFallSoundName);
         s_PiggyBankBreakSound = Resources.Load<AudioClip>(sr_SoundPath + k_PiggyBankBreakSoundName);
+        s_ScrewOpenSound = Resources.Load<AudioClip>(sr_SoundPath + k_ScrewOpenSoundName);
 
         audioSource = GetComponent<AudioSource>();
     }
@@ -112,6 +115,11 @@ public class SoundManager : MonoBehaviour
                 case k_PiggyBankBreakSoundName:
                     {
                         audioSource.PlayOneShot(s_PiggyBankBreakSound);
+                        break;
+                    }
+                case k_ScrewOpenSoundName:
+                    {
+                        audioSource.PlayOneShot(s_ScrewOpenSound);
                         break;
                     }
             }

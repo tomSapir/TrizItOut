@@ -58,7 +58,7 @@ public class SlotManager : MonoBehaviour, IPointerClickHandler
             }
             else
             {
-                m_ZoomInWindow.transform.Find("Item").GetComponent<Image>().sprite = Resources.Load<Sprite>("Sprites/Displayables/" + m_displayImage);
+                m_ZoomInWindow.transform.Find("Item").GetComponent<Image>().sprite = Resources.Load<Sprite>("Sprites/Level1/Displayables/" + m_displayImage);
             }
             m_ZoomInWindow.SetActive(true);
         }

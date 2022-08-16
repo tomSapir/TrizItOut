@@ -5,7 +5,8 @@ using UnityEngine.UI;
 
 public class FanRazersManager : MonoBehaviour, IInteractable
 {
-   
+    public delegate void FanStoppedDelegate();
+    
     private bool m_NeedToSpin = true;
     private GameObject m_Inventory;
 
@@ -13,6 +14,10 @@ public class FanRazersManager : MonoBehaviour, IInteractable
     private GameObject m_PaperClip;
     [SerializeField]
     private GameObject m_Note;
+
+    private string m_UnlockItem = "Box_Of_PaperClips";
+
+    public event FanStoppedDelegate FanStopped;
 
     void Start()
     {
@@ -41,15 +46,25 @@ public class FanRazersManager : MonoBehaviour, IInteractable
     {
         InventoryManager inventoryManager = m_Inventory.GetComponent<InventoryManager>();
         GameObject currSelectedSlot = inventoryManager.m_currentSelectedSlot;
-
+ 
         if (currSelectedSlot != null &&
-            currSelectedSlot.gameObject.transform.GetChild(0).GetComponent<Image>().sprite.name == "paperclips")
+            currSelectedSlot.gameObject.transform.GetChild(0).GetComponent<Image>().sprite.name == m_UnlockItem)
         {
-            m_NeedToSpin = false;
-            m_PaperClip.SetActive(true);
-            m_Note.layer = 0;
-            currSelectedSlot.GetComponent<SlotManager>().ClearSlot();
-            inventoryManager.m_currentSelectedSlot = null;
+            handleFanStopped(inventoryManager);
+        }
+    }
+
+    private void handleFanStopped(InventoryManager i_InventoryManager)
+    {
+        m_NeedToSpin = false;
+        m_PaperClip.SetActive(true);
+        m_Note.layer = 0;
+        //currSelectedSlot.GetComponent<SlotManager>().ClearSlot();
+        i_InventoryManager.m_currentSelectedSlot = null;
+
+        if(FanStopped != null)
+        {
+            FanStopped();
         }
     }
 }

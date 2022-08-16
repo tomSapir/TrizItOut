@@ -80,4 +80,20 @@ public class InventoryManager : MonoBehaviour
 
         return false;
     }
+
+    public bool RemoveFromInventory(string i_ItemName)
+    {
+        bool res = false;
+        foreach (GameObject slot in m_Slots)
+        {
+            if (slot.GetComponent<SlotManager>().GetItemName() == i_ItemName)
+            {
+                res = true;
+                slot.GetComponent<SlotManager>().m_AmountOfUsage = 1;
+                slot.GetComponent<SlotManager>().ClearSlot();
+            }
+        }
+
+        return res;
+    }
 }

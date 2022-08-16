@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class DisplayManagerLevel1 : MonoBehaviour, IManager
+public class DisplayManagerLevel1 : MonoBehaviour
 {
     [SerializeField]
     private GameObject m_Missions;
@@ -94,7 +94,6 @@ public class DisplayManagerLevel1 : MonoBehaviour, IManager
         m_DarkMode.SetActive(false);
         RenderUI();
         StartCoroutine(WaitBeforeDarkMode(2));
-
 
         m_ComputerCableHolder.GetComponent<PlaceHolder>().OnPrefabSpawned += OnComputerCableSpawned;
         m_FuzeHolder.GetComponent<PlaceHolder>().OnPrefabSpawned += OnFuzeSpawned;

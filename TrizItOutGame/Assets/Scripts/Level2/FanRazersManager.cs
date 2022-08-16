@@ -59,6 +59,8 @@ public class FanRazersManager : MonoBehaviour, IInteractable
         m_NeedToSpin = false;
         m_PaperClip.SetActive(true);
         m_Note.layer = 0;
+        gameObject.layer = 2;
+        transform.parent.gameObject.layer = 0;
         //currSelectedSlot.GetComponent<SlotManager>().ClearSlot();
         i_InventoryManager.m_currentSelectedSlot = null;
 

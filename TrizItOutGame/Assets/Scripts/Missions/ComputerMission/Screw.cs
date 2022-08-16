@@ -10,6 +10,9 @@ public class Screw : MonoBehaviour, IInteractable
     private string m_UnlockItem2 = "trizCoin";
     private GameObject m_Inventory;
 
+    //TODO: delegte of was removed, and Fan Mission Manager would listen to it. Then, when is is removed is would instantiate a screw in the inventory to use.
+    // how would it know that it is a fan screw...? ask who is the parent, or where it is located? 
+
     // Start is called before the first frame update
     void Start()
     {

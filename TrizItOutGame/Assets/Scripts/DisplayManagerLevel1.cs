@@ -6,44 +6,24 @@ using UnityEngine.SceneManagement;
 
 public class DisplayManagerLevel1 : MonoBehaviour
 {
-    [SerializeField]
-    private GameObject m_Missions;
-
-    [SerializeField]
-    private int m_CurrentWall;
-    private int m_PreviousWall;
-
-    [SerializeField]
-    private GameObject m_furniture1;
-    [SerializeField]
-    private GameObject m_interactables1;
-
-    [SerializeField]
-    private GameObject m_furniture2;
-    [SerializeField]
-    private GameObject m_interactables2;
-
+    public GameObject m_Missions;
+    public int m_CurrentWall;
+    public int m_PreviousWall;
+    public GameObject m_furniture1;
+    public GameObject m_interactables1;
+    public GameObject m_furniture2;
+    public GameObject m_interactables2;
     public GameObject[] UiRenderObject;
-
-    [SerializeField]
-    private GameObject m_DarkMode;
-
-    [SerializeField]
-    private GameObject m_ComputerCable;
-    [SerializeField]
-    private Sprite m_TornComputerCableSprite;
-
+    public GameObject m_DarkMode;
+    public GameObject m_ComputerCable;
+    public Sprite m_TornComputerCableSprite;
     private GameObject m_Kattle;
     private GameObject m_CanvasOfSafeBoxCode;
-
-    [SerializeField]
-    private GameObject m_ComputerCableHolder;
-    [SerializeField]
-    private GameObject m_FuzeHolder;
-
+    public GameObject m_ComputerCableHolder;
+    public GameObject m_FuzeHolder;
+    public GameObject m_MonitorScreenSaver;
     private bool m_FuzeIsSpawned = false;
     private bool m_ComputerCableIsSpawned = false;
-
     private const string k_BackgroundPath = "Sprites/Level1/Main_Backgrounds/Background";
 
     public enum State
@@ -235,6 +215,7 @@ public class DisplayManagerLevel1 : MonoBehaviour
         yield return new WaitForSeconds(sec);
         SoundManager.PlaySound(SoundManager.k_ElectricFallSoundName);
         m_ComputerCable.GetComponent<SpriteRenderer>().sprite = m_TornComputerCableSprite;
+        m_MonitorScreenSaver.SetActive(false);
         m_DarkMode.SetActive(true);
     }
 

@@ -4,18 +4,11 @@ using UnityEngine;
 using UnityEngine.UI;
 public class Kattle : MonoBehaviour, IInteractable
 {
-    [SerializeField]
     public bool m_isConnected { get; set; }
-
-    [SerializeField]
-    private GameObject m_KattleSmoke;
-    [SerializeField]
-    private GameObject m_Mirror;
-    [SerializeField]
-    private Sprite m_MirrorWithCodeSprite;
-    [SerializeField]
-    private GameObject m_CommunicationInterface;
-
+    public GameObject m_KattleSmoke;
+    public GameObject m_Mirror;
+    public Sprite m_MirrorWithCodeSprite;
+    public GameObject m_CommunicationInterface;
     private GameObject m_ButtonRightArrow;
     private GameObject m_SafeBoxClosed;
 
@@ -32,7 +25,6 @@ public class Kattle : MonoBehaviour, IInteractable
     {
         if(m_isConnected)
         {
-            Debug.Log("Start");
             StartCoroutine(ApplyKattleSmokeAndPassword(currDisplay));
         }
         else

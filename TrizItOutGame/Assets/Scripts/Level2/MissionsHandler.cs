@@ -45,6 +45,4 @@ public class MissionsHandler : MonoBehaviour
             m_Inventory.GetComponent<InventoryManager>().RemoveFromInventory("Box_Of_PaperClips");
         }
     }
-
-
 }

@@ -6,14 +6,10 @@ public class SwitchManager : MonoBehaviour, IInteractable
 {
     public delegate void OnSwitchAction(bool i_IsOn);
 
-    [SerializeField]
-    private Sprite m_SwitchOnSprite;
-    [SerializeField]
-    private Sprite m_SwitchOffSprite;
-
-    [SerializeField]
-    private GameObject m_Dark;
-
+    public Sprite m_SwitchOnSprite;
+    public Sprite m_SwitchOffSprite;
+    public GameObject m_MonitorScreenSaver;
+    public GameObject m_Dark;
     private bool m_IsLightOn = false;
 
     public event OnSwitchAction OnSwitch;
@@ -25,11 +21,13 @@ public class SwitchManager : MonoBehaviour, IInteractable
         {
             GetComponent<SpriteRenderer>().sprite = m_SwitchOffSprite;
             m_Dark.SetActive(true);
+            m_MonitorScreenSaver.SetActive(false);
         }
         else
         {
             GetComponent<SpriteRenderer>().sprite = m_SwitchOnSprite;
             m_Dark.SetActive(false);
+            m_MonitorScreenSaver.SetActive(true);
         }
 
         m_IsLightOn = !m_IsLightOn;

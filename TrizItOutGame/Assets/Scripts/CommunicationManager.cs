@@ -5,12 +5,9 @@ using TMPro;
 
 public class CommunicationManager : MonoBehaviour
 {
-    [SerializeField]
-    private GameObject m_CommunicationWindow;
-    [SerializeField]
-    private GameObject m_CommunicationText;
+    public GameObject m_CommunicationWindow;
+    public GameObject m_CommunicationText;
 
-    // Start is called before the first frame update
     void Start()
     {
         ComputerMission computerMission = GameObject.Find("/Missions/Computer_Mission").GetComponent<ComputerMission>();

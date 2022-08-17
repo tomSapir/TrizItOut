@@ -4,11 +4,9 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class MuteButtonManager : MonoBehaviour
-{
-    [SerializeField]
-    private Sprite m_MutedSprite;
-    [SerializeField]
-    private Sprite m_NotMutedSprite;
+{ 
+    public Sprite m_MutedSprite;
+    public Sprite m_NotMutedSprite;
 
     public void OnClickMuteButton()
     {

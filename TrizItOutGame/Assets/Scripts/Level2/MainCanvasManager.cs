@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class MainCanvasManager : MonoBehaviour
 {
-    [SerializeField]
-    private GameObject m_ZoomInWindow;
+    public GameObject m_ZoomInWindow;
 
     // Start is called before the first frame update
     void Start()

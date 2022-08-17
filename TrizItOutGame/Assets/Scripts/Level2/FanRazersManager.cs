@@ -7,7 +7,7 @@ public class FanRazersManager : MonoBehaviour, IInteractable
 {
     public delegate void FanStoppedDelegate();
     
-    private bool m_NeedToSpin = true;
+    private static bool m_NeedToSpin = true;
     private GameObject m_Inventory;
 
     [SerializeField]

@@ -11,16 +11,6 @@ public class piggyBank : MonoBehaviour, IInteractable
     private GameObject m_TrizCoin;
     public int AmoutOfTaps { get; }
 
-    void Start()
-    {
-        
-    }
-
-    void Update()
-    {
-        
-    }
-
     public void Interact(DisplayManagerLevel1 currDisplay)
     {
         s_AmountOfTaps++;

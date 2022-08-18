@@ -9,17 +9,6 @@ public class ChangeToMission : MonoBehaviour, IInteractable
 
     public delegate void MissionPickedDelegate(int i_MissionWallNumber);
     public event MissionPickedDelegate MissionWasChosen;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     public void Interact(DisplayManagerLevel1 currDisplay)
     {

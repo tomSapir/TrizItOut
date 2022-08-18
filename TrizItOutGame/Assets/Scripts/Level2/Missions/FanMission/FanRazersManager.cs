@@ -7,14 +7,10 @@ public class FanRazersManager : MonoBehaviour, IInteractable
 {
     public delegate void FanStoppedDelegate();
     
-    private static bool m_NeedToSpin = true;
+    public static bool m_NeedToSpin = true;
     private GameObject m_Inventory;
-
-    [SerializeField]
-    private GameObject m_PaperClip;
-    [SerializeField]
-    private GameObject m_Note;
-
+    public GameObject m_PaperClip;
+    public GameObject m_Note;
     private string m_UnlockItem = "Box_Of_PaperClips";
 
     public event FanStoppedDelegate FanStopped;
@@ -27,7 +23,6 @@ public class FanRazersManager : MonoBehaviour, IInteractable
             Debug.LogError("m_Inventory is null.");
         }
     }
-
 
     void Update()
     {
@@ -57,16 +52,11 @@ public class FanRazersManager : MonoBehaviour, IInteractable
     private void handleFanStopped(InventoryManager i_InventoryManager)
     {
         m_NeedToSpin = false;
-        m_PaperClip.SetActive(true);
-        m_Note.layer = 0;
+        //m_PaperClip.SetActive(true);
+        //m_Note.layer = 0;
         gameObject.layer = 2;
-        transform.parent.gameObject.layer = 0;
-        //currSelectedSlot.GetComponent<SlotManager>().ClearSlot();
+        //transform.parent.gameObject.layer = 0;
         i_InventoryManager.m_currentSelectedSlot = null;
-
-        if(FanStopped != null)
-        {
-            FanStopped();
-        }
+        FanStopped?.Invoke();
     }
 }

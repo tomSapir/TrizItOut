@@ -10,7 +10,6 @@ public class MainCameraManager : MonoBehaviour
     private int m_WallBeforeMission = 0;
     private float m_DistanceToMoveXOfCamera = 17.8f;
 
-
     [SerializeField]
     private GameObject m_LeftBtn, m_RightBtn, m_GoBackBtn;
 
@@ -46,6 +45,11 @@ public class MainCameraManager : MonoBehaviour
     {
         ChangeToMission fanMission = GameObject.Find("Static_Fan").GetComponent<ChangeToMission>();
         fanMission.MissionWasChosen += Mission_Interact;
+
+        GameObject.Find("Peep_Hole1").GetComponent<ChangeToMission>().MissionWasChosen += Mission_Interact;
+        GameObject.Find("Peep_Hole2").GetComponent<ChangeToMission>().MissionWasChosen += Mission_Interact;
+        GameObject.Find("Peep_Hole3").GetComponent<ChangeToMission>().MissionWasChosen += Mission_Interact;
+        GameObject.Find("Peep_Hole4").GetComponent<ChangeToMission>().MissionWasChosen += Mission_Interact;
     }
 
     private void manageCameraPosition()
@@ -61,33 +65,13 @@ public class MainCameraManager : MonoBehaviour
 
     private void manageLeftAndRightsBtnsActivation()
     {
-        if(m_CurrentWallIndex > 1 && m_CurrentWallIndex < sr_MostRightWallIndex)
-        {
-            m_LeftBtn.SetActive(true);
-            m_RightBtn.SetActive(true);
-            m_GoBackBtn.SetActive(false);
+        bool leftBtnShouldAppear = m_CurrentWallIndex > 1;
+        bool rightBtnShouldApper = m_CurrentWallIndex >= 1 && m_CurrentWallIndex < sr_MostRightWallIndex;
+        bool backBtnShouldAppear = m_CurrentWallIndex < 1;
 
-        }
-        else if(m_CurrentWallIndex == sr_MostRightWallIndex)
-        {
-            m_GoBackBtn.SetActive(false);
-            m_LeftBtn.SetActive(true);
-            m_RightBtn.SetActive(false);
-        }
-        else
-        {
-            m_GoBackBtn.SetActive(false);
-            m_LeftBtn.SetActive(false);
-            m_RightBtn.SetActive(true);
-        }
-
-        // TEST - I want just the "Go Back button will appear
-        if (m_CurrentWallIndex < 1 || m_CurrentWallIndex > sr_MostRightWallIndex)
-        {
-            m_GoBackBtn.SetActive(true);
-            m_LeftBtn.SetActive(false);
-            m_RightBtn.SetActive(false);
-        }
+        m_LeftBtn.SetActive(leftBtnShouldAppear);
+        m_RightBtn.SetActive(rightBtnShouldApper);
+        m_GoBackBtn.SetActive(backBtnShouldAppear);
     }
 
     public void OnClickRightChangeBackgroundBtn()
@@ -108,7 +92,6 @@ public class MainCameraManager : MonoBehaviour
     public void Mission_Interact(int i_MissionWall)
     {
         m_WallBeforeMission = m_CurrentWallIndex;
-
         while (m_CurrentWallIndex != i_MissionWall)
         {
             m_LeftBtn.GetComponent<Button>().onClick.Invoke();

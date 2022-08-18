@@ -36,6 +36,7 @@ public class MissionsHandler : MonoBehaviour
     public void OnPsuSolved()
     {
         m_PsuSolved = true;
+        Debug.Log("PSU Solved!");
     }
 
     private void checkIfFanAndPsuSolved()

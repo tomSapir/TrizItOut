@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class FanManager : MonoBehaviour, IInteractable
+public class BrokenFanManager : MonoBehaviour, IInteractable
 {
     private GameObject m_Inventory;
+
+    public GameObject m_Screw1, m_Screw2;
 
     void Start()
     {
@@ -16,29 +18,22 @@ public class FanManager : MonoBehaviour, IInteractable
         }
     }
 
-
-    void Update()
-    {
-        
-    }
-
     public void Interact(DisplayManagerLevel1 currDisplay)
     {
         InventoryManager inventoryManager = m_Inventory.GetComponent<InventoryManager>();
         GameObject currSelectedSlot = inventoryManager.m_currentSelectedSlot;
 
         if (currSelectedSlot != null &&
-            currSelectedSlot.gameObject.transform.GetChild(0).GetComponent<Image>().sprite.name == "TwoScrews")
+            currSelectedSlot.gameObject.transform.GetChild(0).GetComponent<Image>().sprite.name == "Two_Screws")
         {
-            // move fan to the right position
             gameObject.transform.position = new Vector3(-0.029f, 2.096f, 0);
             gameObject.transform.rotation = new Quaternion(0, 0, 0, 0);
-            // TODO: put screws
 
-            // clear slot
+            m_Screw1.SetActive(true);
+            m_Screw2.SetActive(true);
+
             currSelectedSlot.GetComponent<SlotManager>().ClearSlot();
             inventoryManager.m_currentSelectedSlot = null;
-
         }
     }
 }

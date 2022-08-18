@@ -14,7 +14,7 @@ public class Kattle : MonoBehaviour, IInteractable
 
     void Start()
     {
-        m_isConnected = true;
+        m_isConnected = false;
         m_ButtonRightArrow = GameObject.Find("/Canvas/Arrow_Right_Btn");
         m_SafeBoxClosed = GameObject.Find("/interactables2/SafeBox/SafeBox_Closed");
         SwitchManager switchManager = GameObject.Find("/interactables2/Switch").GetComponent<SwitchManager>();
@@ -50,7 +50,6 @@ public class Kattle : MonoBehaviour, IInteractable
 
         m_ButtonRightArrow.GetComponent<Button>().interactable = true;
         m_SafeBoxClosed.layer = 0;
-
     }
 
     public void OnSwitchChanged(bool i_IsOn)

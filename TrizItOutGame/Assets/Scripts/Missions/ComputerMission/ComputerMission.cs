@@ -8,22 +8,13 @@ public class ComputerMission : MonoBehaviour
     private DisplayManagerLevel1 m_DisplayManager;
     public delegate void OnComputeOpen();
 
-    [SerializeField]
-    private GameObject[] m_Dusts;
-
-    [SerializeField]
-    private Sprite m_PCSideOpenSprite;
-    [SerializeField]
-    private GameObject m_TornFuze;
-
-    [SerializeField]
-    private GameObject m_PowerFuzeContainer;
-    [SerializeField]
-    private GameObject m_CommunicationInterface;
-
-    [SerializeField]
-    private GameObject m_Computer;
-
+    public GameObject[] m_Dusts;
+    public Sprite m_PCSideOpenSprite;
+    public GameObject m_TornFuze;
+    public GameObject m_PowerFuzeContainer;
+    public GameObject m_CommunicationInterface;
+    public GameObject m_Computer;
+    //public bool m_IsConnected = false;
     private bool m_CanShowDust = true;
     private int m_AmountOfDust;
     private bool m_AlredyOn = false;

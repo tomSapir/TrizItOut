@@ -17,13 +17,11 @@ public class DisplayManagerLevel1 : MonoBehaviour
     public GameObject m_DarkMode;
     public GameObject m_ComputerCable;
     public Sprite m_TornComputerCableSprite;
-    private GameObject m_Kattle;
     private GameObject m_CanvasOfSafeBoxCode;
     public GameObject m_ComputerCableHolder;
     public GameObject m_FuzeHolder;
-    public GameObject m_MonitorScreenSaver;
     private bool m_FuzeIsSpawned = false;
-    private bool m_ComputerCableIsSpawned = false;
+    public bool m_ComputerCableIsSpawned = false;
     private const string k_BackgroundPath = "Sprites/Level1/Main_Backgrounds/Background";
 
     public enum State
@@ -31,8 +29,7 @@ public class DisplayManagerLevel1 : MonoBehaviour
         normal, zoom, busy
     };
 
-    [SerializeField]
-    private State m_CurrentState;
+    public State m_CurrentState { get; set; }
     
     public State CurrentState
     {
@@ -137,7 +134,6 @@ public class DisplayManagerLevel1 : MonoBehaviour
         if (m_CurrentWall == 1)
         {
             m_interactables2.SetActive(false);
-
             if (CurrentState == State.normal)
             {
                 m_interactables1.SetActive(true);
@@ -147,11 +143,9 @@ public class DisplayManagerLevel1 : MonoBehaviour
                 m_interactables1.SetActive(false);
             }
         }
-
         else if (m_CurrentWall == 2)
         {
             m_interactables1.SetActive(false);
-
             if (CurrentState == State.normal)
             {
                 m_interactables2.SetActive(true);
@@ -169,7 +163,6 @@ public class DisplayManagerLevel1 : MonoBehaviour
         if (m_CurrentWall == 1)
         {
             m_furniture2.SetActive(false);
-
             if (CurrentState == State.normal)
             {
                 m_furniture1.SetActive(true);
@@ -183,7 +176,6 @@ public class DisplayManagerLevel1 : MonoBehaviour
         else if (m_CurrentWall == 2)
         {
             m_furniture1.SetActive(false);
-
             if (CurrentState == State.normal)
             {
                 m_furniture2.SetActive(true);
@@ -193,7 +185,6 @@ public class DisplayManagerLevel1 : MonoBehaviour
                 m_furniture2.SetActive(false);
             }
         }
-
     }
 
     void RenderUI()
@@ -215,7 +206,6 @@ public class DisplayManagerLevel1 : MonoBehaviour
         yield return new WaitForSeconds(sec);
         SoundManager.PlaySound(SoundManager.k_ElectricFallSoundName);
         m_ComputerCable.GetComponent<SpriteRenderer>().sprite = m_TornComputerCableSprite;
-        m_MonitorScreenSaver.SetActive(false);
         m_DarkMode.SetActive(true);
     }
 

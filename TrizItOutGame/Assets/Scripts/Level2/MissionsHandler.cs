@@ -8,6 +8,9 @@ public class MissionsHandler : MonoBehaviour
     private bool m_FanSolved = false;
     private GameObject m_Inventory;
 
+    public GameObject m_TvScreen1;
+    public GameObject m_TvScreen2;
+
     void Start()
     {
         m_Inventory = GameObject.Find("Inventory");
@@ -36,7 +39,8 @@ public class MissionsHandler : MonoBehaviour
     public void OnPsuSolved()
     {
         m_PsuSolved = true;
-        Debug.Log("PSU Solved!");
+        m_TvScreen1.SetActive(true);
+        m_TvScreen2.SetActive(true);
     }
 
     private void checkIfFanAndPsuSolved()

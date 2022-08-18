@@ -4,12 +4,9 @@ using UnityEngine;
 
 public class MissionsManager : MonoBehaviour
 {
-    [SerializeField]
-    private GameObject m_ComputerMission;
-    [SerializeField]
-    private GameObject m_SafeBoxMission;
-    [SerializeField]
-    private GameObject m_CommunicationInterface;
+    public GameObject m_ComputerMission;
+    public GameObject m_SafeBoxMission;
+    public GameObject m_CommunicationInterface;
 
     public void ActiveRelevantMission(string i_Mission)
     {

@@ -6,13 +6,10 @@ using UnityEngine.UI;
 
 public class KattleCabelSlot : MonoBehaviour, IInteractable
 {
-    [SerializeField]
-    private string m_UnlockItem;
+    public string m_UnlockItem;
     private GameObject m_inventory;
-
     private GameObject m_Kattle;
-    [SerializeField]
-    private GameObject m_Cable;
+    public GameObject m_Cable;
 
     void Start()
     {
@@ -20,7 +17,6 @@ public class KattleCabelSlot : MonoBehaviour, IInteractable
         m_Kattle = GameObject.Find("Kattle");
     }
 
-    // Update is called once per frame
     void Update()
     {
         GameObject Cable = GameObject.Find("furniture2/Kettle_Cable");
@@ -36,8 +32,6 @@ public class KattleCabelSlot : MonoBehaviour, IInteractable
             {
                 Debug.LogError("Kattle is null!");    
             }
-
-
         }
         else
         {
@@ -47,7 +41,9 @@ public class KattleCabelSlot : MonoBehaviour, IInteractable
                 m_Kattle.GetComponent<Kattle>().m_isConnected = false;
             }
             else
+            {
                 Debug.Log("Kattle is null.");
+            }
         }
     }
 

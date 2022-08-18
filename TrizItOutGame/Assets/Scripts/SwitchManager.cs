@@ -27,7 +27,6 @@ public class SwitchManager : MonoBehaviour, IInteractable
         {
             GetComponent<SpriteRenderer>().sprite = m_SwitchOnSprite;
             m_Dark.SetActive(false);
-            m_MonitorScreenSaver.SetActive(true);
         }
 
         m_IsLightOn = !m_IsLightOn;

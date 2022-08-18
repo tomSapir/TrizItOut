@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using System;
 using UnityEngine.UI;
 
 public class HintsManagerLevel2 : MonoBehaviour
@@ -22,7 +23,13 @@ public class HintsManagerLevel2 : MonoBehaviour
 
     private void fillHintsData()
     {
-
+        m_Hints.Add("Reduction",
+            string.Format("Triz Tip:Reduction {0}Try to remove objects if it turns out that they are not required",
+            Environment.NewLine));
+        m_Hints.Add("Universality",
+             string.Format("Maybe the Universality princple is relvent here as well.");
+        //m_Hints.Add("Universality",
+          //string.Format(".");
     }
 
     public void OnClickShowHintBtn()

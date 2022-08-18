@@ -174,10 +174,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e2f0c7d4c5826c44b4607558ca90081, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_HintWindow: {fileID: 0}
-  m_ShowHintBtn: {fileID: 0}
-  m_HintWindowText: {fileID: 0}
-  m_Inventory: {fileID: 0}
+  m_HintWindow: {fileID: 1884625325}
+  m_ShowHintBtn: {fileID: 1568825099}
+  m_HintWindowText: {fileID: 237358461}
+  m_Inventory: {fileID: 838954}
 --- !u!1 &838954
 GameObject:
   m_ObjectHideFlags: 0
@@ -3564,7 +3564,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 517580220}
-  - component: {fileID: 517580221}
   m_Layer: 0
   m_Name: Communication_Iterface
   m_TagString: Untagged
@@ -3594,20 +3593,6 @@ RectTransform:
   m_AnchoredPosition: {x: -290.18875, y: 139.13998}
   m_SizeDelta: {x: 181.61, y: 78.76}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &517580221
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 517580219}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0a58f306e3025754daafa53575a1b1ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_CommunicationWindow: {fileID: 1091053250}
-  m_CommunicationText: {fileID: 1530634927}
 --- !u!1 &520469977
 GameObject:
   m_ObjectHideFlags: 0
@@ -8282,7 +8267,7 @@ SpriteRenderer:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
-  m_DrawMode: 0
+  m_DrawMode: 1
   m_Size: {x: 240.45001, y: 69.03545}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
@@ -8298,7 +8283,7 @@ Transform:
   m_GameObject: {fileID: 1244538586}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -35.96, y: -0.59, z: 0}
-  m_LocalScale: {x: 0.44988433, y: 0.44988433, z: 0.44988433}
+  m_LocalScale: {x: 0.22494216, y: 0.22494216, z: 0.44988433}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}

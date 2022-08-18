@@ -27,7 +27,7 @@ public class HintsManagerLevel2 : MonoBehaviour
             string.Format("Triz Tip:Reduction {0}Try to remove objects if it turns out that they are not required",
             Environment.NewLine));
         m_Hints.Add("Universality",
-             string.Format("Maybe the Universality princple is relvent here as well.");
+             string.Format("Maybe the Universality princple is relvent here as well."));
         //m_Hints.Add("Universality",
           //string.Format(".");
     }

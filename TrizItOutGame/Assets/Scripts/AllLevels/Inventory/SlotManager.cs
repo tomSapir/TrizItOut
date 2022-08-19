@@ -88,12 +88,10 @@ public class SlotManager : MonoBehaviour, IPointerClickHandler
 
     public void Combine()
     {
-        Debug.Log("combine for " + m_CombinationItem);
         if(m_inventory.GetComponent<InventoryManager>().m_previouslySelectedSlot != null && 
             m_inventory.GetComponent<InventoryManager>().m_previouslySelectedSlot.GetComponent<SlotManager>().m_CombinationItem == this.gameObject.GetComponent<SlotManager>().m_CombinationItem 
             && this.gameObject.GetComponent<SlotManager>().m_CombinationItem != string.Empty)
         {
-            Debug.Log("Combination item: " + m_CombinationItem);
             var combinedItem = Instantiate(Resources.Load<GameObject>("Combined Items/" + m_CombinationItem));
             
             m_inventory.GetComponent<InventoryManager>().m_previouslySelectedSlot.GetComponent<SlotManager>().ClearSlot();
@@ -118,7 +116,6 @@ public class SlotManager : MonoBehaviour, IPointerClickHandler
     public string GetItemName()
     {
         string name = m_SlotItemImage.GetComponent<Image>().sprite.name;
-        Debug.Log(name);
         return name;
     }
 }

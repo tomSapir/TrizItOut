@@ -9,13 +9,12 @@ public class Kattle : MonoBehaviour, IInteractable
     public GameObject m_Mirror;
     public Sprite m_MirrorWithCodeSprite;
     public GameObject m_CommunicationInterface;
-    private GameObject m_ButtonRightArrow;
+    public GameObject m_ButtonRightArrow;
     private GameObject m_SafeBoxClosed;
 
     void Start()
     {
         m_isConnected = false;
-        m_ButtonRightArrow = GameObject.Find("/Canvas/Arrow_Right_Btn");
         m_SafeBoxClosed = GameObject.Find("/interactables2/SafeBox/SafeBox_Closed");
         SwitchManager switchManager = GameObject.Find("/interactables2/Switch").GetComponent<SwitchManager>();
         switchManager.OnSwitch += OnSwitchChanged;
@@ -37,7 +36,6 @@ public class Kattle : MonoBehaviour, IInteractable
     {
         m_ButtonRightArrow.GetComponent<Button>().interactable = false;
         m_SafeBoxClosed.layer = 2;
-
         SoundManager.PlaySound(SoundManager.k_SwitchSoundName);
         yield return new WaitForSeconds(2);
         SoundManager.PlaySound(SoundManager.k_KattleBoilSoundName);

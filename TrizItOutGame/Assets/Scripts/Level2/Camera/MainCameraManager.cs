@@ -13,6 +13,8 @@ public class MainCameraManager : MonoBehaviour
     [SerializeField]
     private GameObject m_LeftBtn, m_RightBtn, m_GoBackBtn;
 
+    public ChangeToMission m_QuizScreen;
+
     private static readonly int sr_MostRightWallIndex = 3;
 
     public int CurrentWallIndex
@@ -50,6 +52,8 @@ public class MainCameraManager : MonoBehaviour
         GameObject.Find("Peep_Hole2").GetComponent<ChangeToMission>().MissionWasChosen += Mission_Interact;
         GameObject.Find("Peep_Hole3").GetComponent<ChangeToMission>().MissionWasChosen += Mission_Interact;
         GameObject.Find("Peep_Hole4").GetComponent<ChangeToMission>().MissionWasChosen += Mission_Interact;
+
+        m_QuizScreen.MissionWasChosen += Mission_Interact;
     }
 
     private void manageCameraPosition()

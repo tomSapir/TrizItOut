@@ -14,10 +14,17 @@ public class HintsManagerLevel2 : MonoBehaviour
     public GameObject m_HintWindowText;
     public GameObject m_Inventory;
 
+    private InventoryManager m_InventoryManager;
+    private MainCameraManager m_MainCameraManager;
+    private FanMissionHandler m_FanMissionHandler;
+
     private Dictionary<string, string> m_Hints = new Dictionary<string, string>();
 
     void Start()
     {
+        m_InventoryManager = m_Inventory.GetComponent<InventoryManager>();
+        m_MainCameraManager = GameObject.Find("Main Camera").GetComponent<MainCameraManager>();
+        m_FanMissionHandler = GameObject.Find("Fan_Mission").GetComponent<FanMissionHandler>();
         fillHintsData();
     }
 
@@ -28,8 +35,6 @@ public class HintsManagerLevel2 : MonoBehaviour
             Environment.NewLine));
         m_Hints.Add("Universality",
              string.Format("Maybe the Universality princple is relvent here as well."));
-        //m_Hints.Add("Universality",
-          //string.Format(".");
     }
 
     public void OnClickShowHintBtn()
@@ -44,11 +49,15 @@ public class HintsManagerLevel2 : MonoBehaviour
 
     private void findHint()
     {
-        InventoryManager inventoryManager = m_Inventory.GetComponent<InventoryManager>();
+        bool trizCoinInInventory = m_InventoryManager.DoesItemInInventory("trizCoin");
 
-        if(true)
+        if (m_MainCameraManager.CurrentWallIndex == -2 && FanMissionHandler.s_AmountOfScrewsRemoved < 2)
         {
-
+            m_CurrentHintKey = "Reduction";
+        }
+        else if(trizCoinInInventory && m_MainCameraManager.CurrentWallIndex == 3)
+        {
+            m_CurrentHintKey = "Universality";
         }
         else
         {

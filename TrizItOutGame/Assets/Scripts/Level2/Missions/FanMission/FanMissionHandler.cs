@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class FanMissionHandler : MonoBehaviour
 {
-    private static int s_AmountOfScrewsRemoved = 0;
+    public static int s_AmountOfScrewsRemoved { get; set; } = 0;
 
     public GameObject m_PaperClip;
     public GameObject m_ZoomPaperClip;
@@ -48,6 +48,7 @@ public class FanMissionHandler : MonoBehaviour
 
     private void OnFanStopped()
     {
+        print("OnFanStopped");
         m_PaperClip.SetActive(true);
         m_ZoomPaperClip.SetActive(true);
 

@@ -10,7 +10,7 @@ public class SoundManager : MonoBehaviour
                             s_TakeItemSound, s_DrawerSound,
                             s_KattleBoilSound, s_MoveBigPotSound,
                             s_ElectricFallSound, s_PiggyBankBreakSound,
-                            s_ScrewOpenSound;
+                            s_ScrewOpenSound, s_QuizCorrectAnswerSound, s_QuizWrongAnswerSound;
 
     public static AudioSource audioSource;
 
@@ -27,6 +27,8 @@ public class SoundManager : MonoBehaviour
     public const string k_ElectricFallSoundName = "electricFallSound";
     public const string k_PiggyBankBreakSoundName = "piggyBankBreakSound";
     public const string k_ScrewOpenSoundName = "screwOpenSound";
+    public const string k_QuizCorrectAnswerSoundName = "quizCorrectAnswerSound";
+    public const string k_QuizWrongAnswerSoundName = "quizWrongAnswerSound";
 
     public static readonly string sr_SoundPath = "Sounds/";
 
@@ -47,6 +49,9 @@ public class SoundManager : MonoBehaviour
         s_ElectricFallSound = Resources.Load<AudioClip>(sr_SoundPath + k_ElectricFallSoundName);
         s_PiggyBankBreakSound = Resources.Load<AudioClip>(sr_SoundPath + k_PiggyBankBreakSoundName);
         s_ScrewOpenSound = Resources.Load<AudioClip>(sr_SoundPath + k_ScrewOpenSoundName);
+
+        s_QuizCorrectAnswerSound = Resources.Load<AudioClip>(sr_SoundPath + k_QuizCorrectAnswerSoundName);
+        s_QuizWrongAnswerSound = Resources.Load<AudioClip>(sr_SoundPath + k_QuizWrongAnswerSoundName);
 
         audioSource = GetComponent<AudioSource>();
     }
@@ -120,6 +125,16 @@ public class SoundManager : MonoBehaviour
                 case k_ScrewOpenSoundName:
                     {
                         audioSource.PlayOneShot(s_ScrewOpenSound);
+                        break;
+                    }
+                case k_QuizCorrectAnswerSoundName:
+                    {
+                        audioSource.PlayOneShot(s_QuizCorrectAnswerSound);
+                        break;
+                    }
+                case k_QuizWrongAnswerSoundName:
+                    {
+                        audioSource.PlayOneShot(s_QuizWrongAnswerSound);
                         break;
                     }
             }

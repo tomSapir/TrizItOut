@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class QuizMissionHandler : MonoBehaviour
 {
@@ -10,7 +11,10 @@ public class QuizMissionHandler : MonoBehaviour
     public GameObject[] m_Options;
     public int m_CurrentQuestion;
 
-    public TextMeshProUGUI m_QuestionText;
+    public Text m_QuestionText;
+
+    public GameObject m_TrizGame;
+    public GameObject m_TrizStartMenu;
 
     private void Start()
     {
@@ -22,11 +26,13 @@ public class QuizMissionHandler : MonoBehaviour
     {
         m_QnA.RemoveAt(m_CurrentQuestion);
         generateQuestion();
+        SoundManager.PlaySound(SoundManager.k_QuizCorrectAnswerSoundName);
     }
 
     public void Wrong()
     {
         Debug.Log("Wrong Answer");
+        SoundManager.PlaySound(SoundManager.k_QuizWrongAnswerSoundName);
     }
 
     private void setAnswers()
@@ -34,7 +40,7 @@ public class QuizMissionHandler : MonoBehaviour
         for(int i = 0; i < m_Options.Length; i++)
         {
             m_Options[i].GetComponent<AnswerScript>().m_IsCorrect = false;
-            m_Options[i].transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = m_QnA[m_CurrentQuestion].m_Answers[i];
+            m_Options[i].transform.GetChild(0).GetComponent<Text>().text = m_QnA[m_CurrentQuestion].m_Answers[i];
 
             if(m_QnA[m_CurrentQuestion].m_CurrectAnswer == i + 1)
             {
@@ -55,5 +61,11 @@ public class QuizMissionHandler : MonoBehaviour
         {
             Debug.Log("You won! going to level 3...");
         }
+    }
+
+    public void OnClickStartBtn()
+    {
+        m_TrizGame.SetActive(true);
+        m_TrizStartMenu.SetActive(false);
     }
 }

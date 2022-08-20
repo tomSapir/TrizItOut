@@ -13,7 +13,6 @@ public class SlotManager : MonoBehaviour, IPointerClickHandler
     [SerializeField]
     private bool m_IsEmpty = true;
 
-    private InventoryItemManager m_InventoryItemManager = null; // Not in use yet...
     private GameObject m_inventory;
     
     [SerializeField]
@@ -33,19 +32,6 @@ public class SlotManager : MonoBehaviour, IPointerClickHandler
     {
         set { m_IsEmpty = value; }
         get { return m_IsEmpty; }
-    }
-
-    public InventoryItemManager InventoryItemManager
-    {
-        get { return m_InventoryItemManager; }
-        set
-        {
-            m_InventoryItemManager = value;
-            IsEmpty = false;
-            m_SlotItemImage.GetComponent<Image>().sprite = m_InventoryItemManager.Image;
-            m_InventoryItemManager.InInventory = true;
-            m_InventoryItemManager.gameObject.SetActive(false);
-        }
     }
 
     public void OnClickMagnifierGlass()

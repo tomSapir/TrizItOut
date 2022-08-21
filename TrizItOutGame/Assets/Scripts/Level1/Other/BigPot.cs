@@ -20,11 +20,11 @@ public class BigPot : MonoBehaviour
 
         if(eMovementType == MoveObject.eMovementType.right)
         {
-            m_Animation.Play("BigPot_Right_Anim");
+            m_Animation.Play("BigPot_Right");
         }   
         else if(eMovementType == MoveObject.eMovementType.left)
         {
-            m_Animation.Play("BigPot_Left_Anim");
+            m_Animation.Play("BigPot_Left");
         }
     }
 }

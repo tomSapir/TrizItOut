@@ -30,6 +30,7 @@ public class CommunicationManager : MonoBehaviour
         yield return new WaitForSeconds(4);
         m_CommunicationWindow.SetActive(false);
         m_CommunicationText.SetActive(false);
+        m_CommunicationText.GetComponent<TextMeshProUGUI>().text = string.Empty;
     }
 
     public void onComputerChanged()

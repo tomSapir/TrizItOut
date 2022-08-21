@@ -22,6 +22,8 @@ public class DisplayManagerLevel1 : MonoBehaviour
     public GameObject m_FuzeHolder;
     private bool m_FuzeIsSpawned = false;
     public bool m_ComputerCableIsSpawned = false;
+    public GameObject m_ComputerScreen;
+    public NextLevelLoader nextLevelLoader;
     private const string k_BackgroundPath = "Sprites/Level1/Main_Backgrounds/Background";
 
     public enum State
@@ -205,6 +207,7 @@ public class DisplayManagerLevel1 : MonoBehaviour
     {
         yield return new WaitForSeconds(sec);
         SoundManager.PlaySound(SoundManager.k_ElectricFallSoundName);
+        m_ComputerScreen.SetActive(false);
         m_ComputerCable.GetComponent<SpriteRenderer>().sprite = m_TornComputerCableSprite;
         m_DarkMode.SetActive(true);
     }
@@ -213,7 +216,7 @@ public class DisplayManagerLevel1 : MonoBehaviour
     {
         if(m_FuzeIsSpawned && m_ComputerCableIsSpawned)
         {
-            SceneManager.LoadScene("Level2_Scene");
+            nextLevelLoader.LoadNextLevel();
         }
     }
 }

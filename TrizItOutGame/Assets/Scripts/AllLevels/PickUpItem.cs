@@ -33,14 +33,9 @@ public class PickUpItem : MonoBehaviour, IInteractable
 
     private void itemPickUp()
     {
-        Debug.Log("PickUpItem: " + m_DisplaySprite);
         m_InventoryManager = GameObject.Find("Inventory").GetComponent<InventoryManager>();
         m_InventoryManager.AddItemToInventory(this);
-
-        if(OnPickUp != null)
-        {
-            OnPickUp();
-        }
+        OnPickUp?.Invoke();
     }
 
 }

@@ -30,8 +30,6 @@ public class TextWriter : MonoBehaviour
                 m_Timer += m_TimePerCharacter;
                 m_CharacterIndex++;
                 m_WhereToWrite.text = m_TextToWrite.Substring(0, m_CharacterIndex);
-
-
             }
         }
     }

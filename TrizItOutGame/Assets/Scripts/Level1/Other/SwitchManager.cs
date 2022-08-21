@@ -10,6 +10,7 @@ public class SwitchManager : MonoBehaviour, IInteractable
     public Sprite m_SwitchOffSprite;
     public GameObject m_MonitorScreenSaver;
     public GameObject m_Dark;
+    public GameObject m_ComputerScreen;
     private bool m_IsLightOn = false;
 
     public event OnSwitchAction OnSwitch;
@@ -21,19 +22,17 @@ public class SwitchManager : MonoBehaviour, IInteractable
         {
             GetComponent<SpriteRenderer>().sprite = m_SwitchOffSprite;
             m_Dark.SetActive(true);
-            m_MonitorScreenSaver.SetActive(false);
+            m_ComputerScreen.SetActive(false);
         }
         else
         {
             GetComponent<SpriteRenderer>().sprite = m_SwitchOnSprite;
+            m_ComputerScreen.SetActive(true);
             m_Dark.SetActive(false);
         }
 
         m_IsLightOn = !m_IsLightOn;
 
-        if(OnSwitch != null)
-        {
-            OnSwitch(m_IsLightOn);
-        }
+        OnSwitch?.Invoke(m_IsLightOn);
     }
 }

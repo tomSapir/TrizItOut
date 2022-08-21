@@ -3,18 +3,18 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class QuizMissionHandler : MonoBehaviour
 {
-    public List<QuestionAndAnswer> m_QnA;
-    public GameObject[] m_Options;
+    public List<QuestionAndAnswer> m_QuestionsAndAnswers;
+    public GameObject[] m_AnswersOptions;
     public int m_CurrentQuestion;
-
     public Text m_QuestionText;
-
-    public GameObject m_TrizGame;
-    public GameObject m_TrizStartMenu;
+    public GameObject m_QuizStartMenu;
+    public GameObject m_QuizGame;
+    public GameObject m_QuizEndOfGame;
 
     private void Start()
     {
@@ -24,48 +24,59 @@ public class QuizMissionHandler : MonoBehaviour
 
     public void Correct()
     {
-        m_QnA.RemoveAt(m_CurrentQuestion);
+        m_QuestionsAndAnswers.RemoveAt(m_CurrentQuestion);
         generateQuestion();
         SoundManager.PlaySound(SoundManager.k_QuizCorrectAnswerSoundName);
     }
 
     public void Wrong()
     {
-        Debug.Log("Wrong Answer");
         SoundManager.PlaySound(SoundManager.k_QuizWrongAnswerSoundName);
     }
 
     private void setAnswers()
     {
-        for(int i = 0; i < m_Options.Length; i++)
+        for(int i = 0; i < m_AnswersOptions.Length; i++)
         {
-            m_Options[i].GetComponent<AnswerScript>().m_IsCorrect = false;
-            m_Options[i].transform.GetChild(0).GetComponent<Text>().text = m_QnA[m_CurrentQuestion].m_Answers[i];
-
-            if(m_QnA[m_CurrentQuestion].m_CurrectAnswer == i + 1)
+            m_AnswersOptions[i].GetComponent<AnswerScript>().m_IsCorrect = false;
+            m_AnswersOptions[i].transform.GetChild(0).GetComponent<Text>().text = m_QuestionsAndAnswers[m_CurrentQuestion].m_Answers[i];
+            if(m_QuestionsAndAnswers[m_CurrentQuestion].m_CurrectAnswer == i + 1)
             {
-                m_Options[i].GetComponent<AnswerScript>().m_IsCorrect = true;
+                m_AnswersOptions[i].GetComponent<AnswerScript>().m_IsCorrect = true;
             }
         }
     }
 
     private void generateQuestion()
     {
-        if(m_QnA.Count != 0)
+        if(m_QuestionsAndAnswers.Count != 0)
         {
-            m_CurrentQuestion = UnityEngine.Random.Range(0, m_QnA.Count);
-            m_QuestionText.text = m_QnA[m_CurrentQuestion].m_Qustion;
+            m_CurrentQuestion = UnityEngine.Random.Range(0, m_QuestionsAndAnswers.Count);
+            m_QuestionText.text = m_QuestionsAndAnswers[m_CurrentQuestion].m_Qustion;
             setAnswers();
         }
         else
         {
-            Debug.Log("You won! going to level 3...");
+            Debug.Log("Going to enter WIN");
+            handleWin();
         }
     }
 
     public void OnClickStartBtn()
     {
-        m_TrizGame.SetActive(true);
-        m_TrizStartMenu.SetActive(false);
+        m_QuizGame.SetActive(true);
+        m_QuizStartMenu.SetActive(false);
+    }
+
+    private void handleWin()
+    {
+        Debug.Log("WIN");     
+        m_QuizGame.SetActive(false);
+        m_QuizEndOfGame.SetActive(true);
+    }
+
+    public void OnClickContinueBtn()
+    {
+        SceneManager.LoadScene(4);
     }
 }

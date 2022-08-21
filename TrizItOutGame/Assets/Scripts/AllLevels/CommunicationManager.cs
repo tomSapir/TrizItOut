@@ -8,6 +8,9 @@ public class CommunicationManager : MonoBehaviour
     public GameObject m_CommunicationWindow;
     public GameObject m_CommunicationText;
 
+    [SerializeField]
+    private TextWriter m_TextWriter;
+
     void Start()
     {
         ComputerMission computerMission = GameObject.Find("/Missions/Computer_Mission").GetComponent<ComputerMission>();
@@ -23,7 +26,7 @@ public class CommunicationManager : MonoBehaviour
     {
         m_CommunicationWindow.SetActive(true);
         m_CommunicationText.SetActive(true);
-        m_CommunicationText.GetComponent<TextMeshProUGUI>().text = i_Msg;
+        m_TextWriter.AddWriter(m_CommunicationText.GetComponent<TextMeshProUGUI>(), i_Msg, 0.05f);
         yield return new WaitForSeconds(4);
         m_CommunicationWindow.SetActive(false);
         m_CommunicationText.SetActive(false);

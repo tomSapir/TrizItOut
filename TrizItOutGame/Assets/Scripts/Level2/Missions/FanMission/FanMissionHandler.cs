@@ -22,8 +22,11 @@ public class FanMissionHandler : MonoBehaviour
 
     public GameObject m_TwoScrewsPrefab;
 
+    private float m_Timer;
+
     void Start()
     {
+        SoundManager.PlaySound(SoundManager.k_FanSoundName);
         m_ZoomFanRazers.GetComponent<FanRazersManager>().FanStopped += OnFanStopped;
         m_ZoomNote.GetComponent<PickUpItem>().OnPickUp += OnNotePickedUp;
 
@@ -32,8 +35,23 @@ public class FanMissionHandler : MonoBehaviour
         m_TopLeftScrew.GetComponent<Screw>().ScrewRemovedHandler += OnScrewRemoved;
     }
 
+    void Update()
+    {
+        if(FanRazersManager.m_NeedToSpin)
+        {
+            m_Timer = m_Timer + Time.deltaTime;
+
+            if (m_Timer >= 4.5f)
+            {
+                SoundManager.PlaySound(SoundManager.k_FanSoundName);
+                m_Timer = 0;
+            }
+        }
+    }
+
     private void OnScrewRemoved()
     {
+
         s_AmountOfScrewsRemoved++;
         if (s_AmountOfScrewsRemoved == 2)
         {

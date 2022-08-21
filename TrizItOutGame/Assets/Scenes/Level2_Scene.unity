@@ -297,6 +297,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Id: 0
+  m_CommunicationManagerLevel2: {fileID: 0}
 --- !u!212 &18471139
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2291,6 +2292,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Id: 0
+  m_CommunicationManagerLevel2: {fileID: 0}
 --- !u!212 &260619273
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2506,6 +2508,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Id: 0
+  m_CommunicationManagerLevel2: {fileID: 0}
 --- !u!212 &289323514
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3307,6 +3310,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Id: 0
+  m_CommunicationManagerLevel2: {fileID: 0}
 --- !u!212 &370101037
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3438,6 +3442,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Id: 0
+  m_CommunicationManagerLevel2: {fileID: 0}
 --- !u!212 &370329389
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3654,6 +3659,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Id: 0
+  m_CommunicationManagerLevel2: {fileID: 0}
 --- !u!212 &398824278
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3949,6 +3955,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Id: 0
+  m_CommunicationManagerLevel2: {fileID: 0}
 --- !u!212 &432398062
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4174,6 +4181,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Id: 0
+  m_CommunicationManagerLevel2: {fileID: 0}
 --- !u!212 &483174771
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4345,6 +4353,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 517580220}
+  - component: {fileID: 517580221}
   m_Layer: 0
   m_Name: Communication_Iterface
   m_TagString: Untagged
@@ -4373,6 +4382,21 @@ RectTransform:
   m_AnchoredPosition: {x: -290.18875, y: 139.13998}
   m_SizeDelta: {x: 181.61, y: 78.76}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &517580221
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 517580219}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bfd3b9ac72f511441b9defe68049404b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_CommunicationWindow: {fileID: 1091053250}
+  m_CommunicationText: {fileID: 1530634927}
+  m_TextWriter: {fileID: 1542776110}
 --- !u!1 &520469977
 GameObject:
   m_ObjectHideFlags: 0
@@ -5122,6 +5146,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Id: 0
+  m_CommunicationManagerLevel2: {fileID: 0}
 --- !u!212 &634454625
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5745,6 +5770,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Id: 0
+  m_CommunicationManagerLevel2: {fileID: 0}
 --- !u!212 &682995825
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5876,6 +5902,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Id: 0
+  m_CommunicationManagerLevel2: {fileID: 0}
 --- !u!212 &697239142
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -7532,6 +7559,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Id: 0
+  m_CommunicationManagerLevel2: {fileID: 0}
 --- !u!212 &988956459
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -7812,6 +7840,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Id: 0
+  m_CommunicationManagerLevel2: {fileID: 0}
 --- !u!212 &992619985
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -8080,6 +8109,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Id: 0
+  m_CommunicationManagerLevel2: {fileID: 0}
 --- !u!212 &1036451678
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -8301,6 +8331,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Id: 0
+  m_CommunicationManagerLevel2: {fileID: 0}
 --- !u!212 &1072190635
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -8708,6 +8739,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Id: 0
+  m_CommunicationManagerLevel2: {fileID: 0}
 --- !u!212 &1103409052
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -9338,6 +9370,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Id: 0
+  m_CommunicationManagerLevel2: {fileID: 0}
 --- !u!212 &1155700995
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -10305,6 +10338,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Id: 0
+  m_CommunicationManagerLevel2: {fileID: 0}
 --- !u!212 &1267087862
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -10661,6 +10695,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Id: 0
+  m_CommunicationManagerLevel2: {fileID: 0}
 --- !u!212 &1297154891
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -11302,6 +11337,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Id: 0
+  m_CommunicationManagerLevel2: {fileID: 0}
 --- !u!212 &1359087520
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -12276,6 +12312,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Id: 0
+  m_CommunicationManagerLevel2: {fileID: 0}
 --- !u!212 &1465455147
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -13866,6 +13903,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Id: 0
+  m_CommunicationManagerLevel2: {fileID: 0}
 --- !u!212 &1635778974
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -13997,6 +14035,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Id: 0
+  m_CommunicationManagerLevel2: {fileID: 0}
 --- !u!212 &1671972356
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -14296,6 +14335,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Id: 0
+  m_CommunicationManagerLevel2: {fileID: 0}
 --- !u!212 &1695693948
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -14427,6 +14467,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Id: 0
+  m_CommunicationManagerLevel2: {fileID: 0}
 --- !u!212 &1705591841
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -14895,6 +14936,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Id: 0
+  m_CommunicationManagerLevel2: {fileID: 0}
 --- !u!212 &1829685174
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -15339,6 +15381,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Id: 0
+  m_CommunicationManagerLevel2: {fileID: 0}
 --- !u!212 &1852386583
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -15470,6 +15513,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Id: 0
+  m_CommunicationManagerLevel2: {fileID: 0}
 --- !u!212 &1857632670
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -16218,6 +16262,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Id: 0
+  m_CommunicationManagerLevel2: {fileID: 0}
 --- !u!212 &1943353795
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -16438,6 +16483,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Id: 0
+  m_CommunicationManagerLevel2: {fileID: 0}
 --- !u!212 &2000980681
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -17058,6 +17104,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Id: 0
+  m_CommunicationManagerLevel2: {fileID: 0}
 --- !u!212 &2127599538
 SpriteRenderer:
   m_ObjectHideFlags: 0

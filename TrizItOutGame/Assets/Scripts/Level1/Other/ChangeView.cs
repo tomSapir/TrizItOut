@@ -25,7 +25,7 @@ public class ChangeView : MonoBehaviour, IInteractable
         {
             case "PCSide_ZoomIN_Close":
                 {
-                    m_CommunicationInterface.GetComponent<CommunicationManager>().ShowMsg("Mmmm... The computer is closed.");
+                    m_CommunicationInterface.GetComponent<CommunicationManagerLevel1>().ShowMsg("Mmmm... The computer is closed.");
                     break;
                 }
         }

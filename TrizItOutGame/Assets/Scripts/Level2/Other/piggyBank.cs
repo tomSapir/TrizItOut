@@ -14,7 +14,12 @@ public class piggyBank : MonoBehaviour, IInteractable
     public void Interact(DisplayManagerLevel1 currDisplay)
     {
         s_AmountOfTaps++;
-        if(s_AmountOfTaps == 3)
+
+        if(s_AmountOfTaps < 3)
+        {
+            SoundManager.PlaySound(SoundManager.k_PiggyBankKnockSoundName);
+        }
+        else if(s_AmountOfTaps == 3)
         {
             GetComponent<SpriteRenderer>().sprite = m_PiggyBankBroken;
             SoundManager.PlaySound(SoundManager.k_PiggyBankBreakSoundName);
@@ -27,7 +32,6 @@ public class piggyBank : MonoBehaviour, IInteractable
             {
                 GameObject trizCoin = Instantiate(m_TrizCoin);
                 trizCoin.GetComponent<PickUpItem>().Interact(currDisplay);
-
             }
         }
     }

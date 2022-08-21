@@ -8,12 +8,12 @@ public class PaperClipPlaceholderManager : MonoBehaviour, IInteractable
     public delegate void PaperClipPressedDelegate(int i_Id);
 
     public int m_Id;
-
+    public CommunicationManagerLevel2 m_CommunicationManagerLevel2;
     public event PaperClipPressedDelegate PaperClipPressed;
-
     private string m_UnlockItem = "Box_Of_PaperClips";
     private GameObject m_Inventory;
     private SpriteRenderer m_ChildSpriteRenderer;
+    private static bool m_PaperClipConnectedOnce = false;
 
     public void Start()
     {
@@ -29,6 +29,8 @@ public class PaperClipPlaceholderManager : MonoBehaviour, IInteractable
             Debug.LogError("m_ChildSpriteRenderer is null.");
         }
         m_ChildSpriteRenderer.enabled = false;
+
+        m_CommunicationManagerLevel2 = GameObject.Find("Communication_Iterface").GetComponent<CommunicationManagerLevel2>();
     }
 
     public void Interact(DisplayManagerLevel1 currDisplay)
@@ -36,7 +38,7 @@ public class PaperClipPlaceholderManager : MonoBehaviour, IInteractable
         InventoryManager inventoryManager = m_Inventory.GetComponent<InventoryManager>();
         GameObject currSelectedSlot = inventoryManager.m_currentSelectedSlot;
 
-        if(m_ChildSpriteRenderer.enabled == true)
+        if (m_ChildSpriteRenderer.enabled == true)
         {
             togglePaperClipSpriteAndNotify();
         }
@@ -46,16 +48,19 @@ public class PaperClipPlaceholderManager : MonoBehaviour, IInteractable
         {
             inventoryManager.m_currentSelectedSlot = null;
             togglePaperClipSpriteAndNotify();
+            m_PaperClipConnectedOnce = true;
         }
+
+        if(!m_PaperClipConnectedOnce)
+        {
+            m_CommunicationManagerLevel2.ShowMsg("You need something to conduct electricity.");
+        }
+   
     }
 
     private void togglePaperClipSpriteAndNotify()
     {
         m_ChildSpriteRenderer.enabled = !m_ChildSpriteRenderer.enabled;
-
-        if (PaperClipPressed != null)
-        {
-            PaperClipPressed(m_Id);
-        }
+        PaperClipPressed?.Invoke(m_Id);
     }
 }

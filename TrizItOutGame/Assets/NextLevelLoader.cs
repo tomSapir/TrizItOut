@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class NextLevelLoader : MonoBehaviour
 {
     public Animator m_Transition;
-    public float m_TransitionTime = 2.5f;
+    public float m_TransitionTime = 1f;
     public Text m_Text;
 
     public void LoadNextLevel()

@@ -28,7 +28,7 @@ public class Kattle : MonoBehaviour, IInteractable
         }
         else
         {
-            m_CommunicationInterface.GetComponent<CommunicationManager>().ShowMsg("It seems you need to plug in the kettle first.");
+            m_CommunicationInterface.GetComponent<CommunicationManagerLevel1>().ShowMsg("It seems you need to plug in the kettle first.");
         }
     }
 

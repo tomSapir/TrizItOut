@@ -1,20 +1,29 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 using TMPro;
+using UnityEngine;
 
-public class CommunicationManager : MonoBehaviour
+public class CommunicationManagerLevel2 : MonoBehaviour
 {
     public GameObject m_CommunicationWindow;
     public GameObject m_CommunicationText;
-
-    [SerializeField]
-    private TextWriter m_TextWriter;
+    public TextWriter m_TextWriter;
 
     void Start()
     {
-        ComputerMission computerMission = GameObject.Find("/Missions/Computer_Mission").GetComponent<ComputerMission>();
-        computerMission.OnComputer += onComputerChanged;
+        GameObject.Find("Razers_Zoom").GetComponent<FanRazersManager>().RazersClickedAndStillSpinning += OnRazersClickedAndStillSpinning;
+        GameObject.Find("Broken_Fan").GetComponent<BrokenFanManager>().BrokenFanClickedWithoutScrews += OnBrokenFanClickedWithoutScrews;
+    }
+
+    private void OnBrokenFanClickedWithoutScrews()
+    {
+        ShowMsg("You need screws to hang the fan.");
+    }
+
+    private void OnRazersClickedAndStillSpinning()
+    {
+        ShowMsg("You can't take the note without stopping the fan.");
     }
 
     public void ShowMsg(string i_Msg)
@@ -31,10 +40,5 @@ public class CommunicationManager : MonoBehaviour
         m_CommunicationWindow.SetActive(false);
         m_CommunicationText.SetActive(false);
         m_CommunicationText.GetComponent<TextMeshProUGUI>().text = string.Empty;
-    }
-
-    public void onComputerChanged()
-    {
-        ShowMsg("well,it's seems like it is open now, nice one!");
     }
 }

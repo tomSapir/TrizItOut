@@ -5,9 +5,12 @@ using UnityEngine.UI;
 
 public class BrokenFanManager : MonoBehaviour, IInteractable
 {
-    private GameObject m_Inventory;
+    public delegate void BrokenFanClickedWithoutScrewsDelegate();
 
+    private GameObject m_Inventory;
     public GameObject m_Screw1, m_Screw2;
+
+    public event BrokenFanClickedWithoutScrewsDelegate BrokenFanClickedWithoutScrews;
 
     void Start()
     {
@@ -28,12 +31,14 @@ public class BrokenFanManager : MonoBehaviour, IInteractable
         {
             gameObject.transform.position = new Vector3(-0.029f, 2.096f, 0);
             gameObject.transform.rotation = new Quaternion(0, 0, 0, 0);
-
             m_Screw1.SetActive(true);
             m_Screw2.SetActive(true);
-
             currSelectedSlot.GetComponent<SlotManager>().ClearSlot();
             inventoryManager.m_currentSelectedSlot = null;
+        }
+        else
+        {
+            BrokenFanClickedWithoutScrews?.Invoke();
         }
     }
 }

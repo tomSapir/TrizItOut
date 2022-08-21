@@ -6,7 +6,9 @@ using UnityEngine.UI;
 public class FanRazersManager : MonoBehaviour, IInteractable
 {
     public delegate void FanStoppedDelegate();
-    
+    public delegate void RazersClickedAndStillSpinningDelegate();
+
+
     public static bool m_NeedToSpin = true;
     private GameObject m_Inventory;
     public GameObject m_PaperClip;
@@ -14,6 +16,7 @@ public class FanRazersManager : MonoBehaviour, IInteractable
     private string m_UnlockItem = "Box_Of_PaperClips";
 
     public event FanStoppedDelegate FanStopped;
+    public event RazersClickedAndStillSpinningDelegate RazersClickedAndStillSpinning;
 
     void Start()
     {
@@ -47,15 +50,17 @@ public class FanRazersManager : MonoBehaviour, IInteractable
         {
             handleFanStopped(inventoryManager);
         }
+        else
+        {
+            RazersClickedAndStillSpinning?.Invoke();
+        }
     }
 
     private void handleFanStopped(InventoryManager i_InventoryManager)
     {
+        SoundManager.StopSound();
         m_NeedToSpin = false;
-        //m_PaperClip.SetActive(true);
-        //m_Note.layer = 0;
         gameObject.layer = 2;
-        //transform.parent.gameObject.layer = 0;
         i_InventoryManager.m_currentSelectedSlot = null;
         FanStopped?.Invoke();
     }

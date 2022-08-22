@@ -16,6 +16,10 @@ public class Kattle : MonoBehaviour, IInteractable
     {
         m_isConnected = false;
         m_SafeBoxClosed = GameObject.Find("/interactables2/SafeBox/SafeBox_Closed");
+        if(m_SafeBoxClosed == null)
+        {
+            Debug.LogError("m_SafeBoxClosed is null");
+        }
         SwitchManager switchManager = GameObject.Find("/interactables2/Switch").GetComponent<SwitchManager>();
         switchManager.OnSwitch += OnSwitchChanged;
     }
@@ -35,7 +39,11 @@ public class Kattle : MonoBehaviour, IInteractable
     IEnumerator ApplyKattleSmokeAndPassword(DisplayManagerLevel1 currDisplay)
     {
         m_ButtonRightArrow.GetComponent<Button>().interactable = false;
-        m_SafeBoxClosed.layer = 2;
+        if(m_SafeBoxClosed != null)
+        {
+            m_SafeBoxClosed.layer = 2;
+        }
+        
         SoundManager.PlaySound(SoundManager.k_SwitchSoundName);
         yield return new WaitForSeconds(2);
         SoundManager.PlaySound(SoundManager.k_KattleBoilSoundName);
@@ -47,7 +55,10 @@ public class Kattle : MonoBehaviour, IInteractable
         m_KattleSmoke.SetActive(false);
 
         m_ButtonRightArrow.GetComponent<Button>().interactable = true;
-        m_SafeBoxClosed.layer = 0;
+        if (m_SafeBoxClosed != null)
+        {
+            m_SafeBoxClosed.layer = 0;
+        }
     }
 
     public void OnSwitchChanged(bool i_IsOn)

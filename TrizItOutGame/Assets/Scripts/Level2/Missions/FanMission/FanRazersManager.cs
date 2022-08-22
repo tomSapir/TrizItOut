@@ -8,7 +8,6 @@ public class FanRazersManager : MonoBehaviour, IInteractable
     public delegate void FanStoppedDelegate();
     public delegate void RazersClickedAndStillSpinningDelegate();
 
-
     public static bool m_NeedToSpin = true;
     private GameObject m_Inventory;
     public GameObject m_PaperClip;
@@ -36,7 +35,7 @@ public class FanRazersManager : MonoBehaviour, IInteractable
     {
         if(m_NeedToSpin)
         {
-            transform.Rotate(0f, 0f, -250 * Time.deltaTime, Space.Self);
+            transform.Rotate(0f, 0f, -400 * Time.deltaTime, Space.Self);
         }
     }
 

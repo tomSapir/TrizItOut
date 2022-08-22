@@ -52,8 +52,12 @@ public class PlaceHolder : MonoBehaviour, IInteractable
         if (m_Inventory.GetComponent<InventoryManager>().m_currentSelectedSlot != null &&
            m_Inventory.GetComponent<InventoryManager>().m_currentSelectedSlot.gameObject.transform.GetChild(0).GetComponent<Image>().sprite.name == m_ActiveBy)
         {
-            var newCable = Instantiate(m_MyPrefab, GameObject.Find(m_WhereToSpawn).transform);
+            GameObject newCable = Instantiate(m_MyPrefab, GameObject.Find(m_WhereToSpawn).transform);
+
             newCable.name = m_MyPrefab.name;
+
+            newCable.transform.position = new Vector3(3.48f, -3.0f, 0f);
+            newCable.GetComponent<SpriteRenderer>().sortingOrder = 2;
             
             if(OnPrefabSpawned != null)
             {

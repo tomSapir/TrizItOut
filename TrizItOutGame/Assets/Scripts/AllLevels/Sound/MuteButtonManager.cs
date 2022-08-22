@@ -11,6 +11,7 @@ public class MuteButtonManager : MonoBehaviour
     public void OnClickMuteButton()
     {
         SoundManager.s_IsMuted = !SoundManager.s_IsMuted;
+        SoundManager.StopSound();
 
         if(SoundManager.s_IsMuted)
         {

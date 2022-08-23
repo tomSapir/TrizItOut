@@ -528,6 +528,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed634a7497de6d547b3702eefdc0d920, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_LeftBtn: {fileID: 491873326}
+  m_RightBtn: {fileID: 2102816142}
+  m_GoBackBtn: {fileID: 782750047}
 --- !u!114 &230224426
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -688,8 +691,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: HintsManagerLevel2, Assembly-CSharp
+      - m_Target: {fileID: 1760257474}
+        m_TargetAssemblyTypeName: HintsManagerLevel3, Assembly-CSharp
         m_MethodName: OnClickShowHintBtn
         m_Mode: 1
         m_Arguments:
@@ -1565,8 +1568,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: MainCameraManager, Assembly-CSharp
+      - m_Target: {fileID: 230224425}
+        m_TargetAssemblyTypeName: MainCameraManagerLevel3, Assembly-CSharp
         m_MethodName: OnClickLeftChangeBackgroundBtn
         m_Mode: 1
         m_Arguments:
@@ -1764,6 +1767,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: beed63fe17e5db444bfdcd1cc7b26b19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_CommunicationWindow: {fileID: 1768059506}
+  m_CommunicationText: {fileID: 573282711}
+  m_TextWriter: {fileID: 756145010}
 --- !u!1 &756145008
 GameObject:
   m_ObjectHideFlags: 0
@@ -2065,8 +2071,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: MainCameraManager, Assembly-CSharp
+      - m_Target: {fileID: 230224425}
+        m_TargetAssemblyTypeName: MainCameraManagerLevel3, Assembly-CSharp
         m_MethodName: OnClickBackBtn
         m_Mode: 1
         m_Arguments:
@@ -3359,6 +3365,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f54c8df5fa6e8949bca550fb2e71e7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_HintWindow: {fileID: 448608269}
+  m_ShowHintBtn: {fileID: 245442338}
+  m_HintWindowText: {fileID: 376378574}
+  m_Inventory: {fileID: 1959785328}
 --- !u!1 &1768059506
 GameObject:
   m_ObjectHideFlags: 0
@@ -3557,8 +3567,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: HintsManagerLevel2, Assembly-CSharp
+      - m_Target: {fileID: 1760257474}
+        m_TargetAssemblyTypeName: HintsManagerLevel3, Assembly-CSharp
         m_MethodName: OnClickCloseHintWindow
         m_Mode: 1
         m_Arguments:
@@ -4001,8 +4011,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: MainCameraManager, Assembly-CSharp
+      - m_Target: {fileID: 230224425}
+        m_TargetAssemblyTypeName: MainCameraManagerLevel3, Assembly-CSharp
         m_MethodName: OnClickRightChangeBackgroundBtn
         m_Mode: 1
         m_Arguments:

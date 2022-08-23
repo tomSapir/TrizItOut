@@ -72,7 +72,6 @@ public class HintsManagerLevel2 : MonoBehaviour
         else
         {
             m_ShowHintBtn.GetComponent<Image>().color = new Color32(56, 56, 56, 152);
-
         }
     }
 

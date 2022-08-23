@@ -5,7 +5,7 @@ using UnityEngine;
 public class Interact : MonoBehaviour
 {
     private DisplayManagerLevel1 m_currDisplay;
-    private MainCameraManager m_Level2;
+    private MainCameraManagerLevel2 m_Level2;
 
     void Start()
     {
@@ -18,7 +18,7 @@ public class Interact : MonoBehaviour
         tmp = GameObject.Find("Main Camera");
         if (tmp != null)
         {
-            m_Level2 = tmp.GetComponent<MainCameraManager>();
+            m_Level2 = tmp.GetComponent<MainCameraManagerLevel2>();
         }
     }
 

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class MainCameraManager : MonoBehaviour
+public class MainCameraManagerLevel2 : MonoBehaviour
 {
     private int m_CurrentWallIndex = 1;
     private int m_PreviousWallIndex = 1;

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System;
 
 public class SafeBoxBtnManager : MonoBehaviour
 {
@@ -25,6 +26,29 @@ public class SafeBoxBtnManager : MonoBehaviour
     public void Start()
     {
         m_SwitchManager.GetComponent<SwitchManager>().OnSwitch += OnSwitchChanged;
+    }
+
+    private void Update()
+    {
+        manageKeyboardNumbersInput();
+    }
+
+    private void manageKeyboardNumbersInput()
+    {
+        if (Input.inputString != "")
+        {
+            int number;
+            bool isANumber = Int32.TryParse(Input.inputString, out number);
+            if (isANumber && number >= 0 && number < 10)
+            {
+                OnClickSafeBoxNumberBtn(number.ToString());
+            }
+        }
+
+        if (Input.GetKeyDown(KeyCode.Return))
+        {
+            OnClickOkBtn();
+        }
     }
 
     public void OnClickSafeBoxNumberBtn(string Number)

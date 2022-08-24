@@ -7,11 +7,6 @@ public class CraneHandHandler : MonoBehaviour
 {
     private float m_MovementSpeed = 1.5f;
 
-    void Start()
-    {
-        
-    }
-
     void Update()
     {
         manageMovement();

@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class MainCameraManagerLevel3 : MonoBehaviour
 {
-    private int m_CurrentWallIndex = 1;
+    public static int m_CurrentWallIndex = 1;
     private int m_PreviousWallIndex = 1;
     private int m_WallBeforeMission = 0;
     private float m_DistanceToMoveXOfCamera = 17.8f;
@@ -13,7 +13,7 @@ public class MainCameraManagerLevel3 : MonoBehaviour
     [SerializeField]
     private GameObject m_LeftBtn, m_RightBtn, m_GoBackBtn;
 
-    private static readonly int sr_MostRightWallIndex = 3;
+    private static readonly int sr_MostRightWallIndex = 4;
 
     public int CurrentWallIndex
     {

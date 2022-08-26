@@ -53,7 +53,7 @@ public class SafeBoxMission : MonoBehaviour
         m_ScrewDriver.SetActive(true);
         uiText.text = "";
         m_SafeBoxOpend = true;
-        uiText.color = Color.black;
+        uiText.color = new Color(0.5f, 0.5f, 0.517f);
         Destroy(m_SafeBox_Closed);
         m_SafeBox_Open.SetActive(true);
         m_DisplayManager.CurrentState = DisplayManagerLevel1.State.zoom;
@@ -66,7 +66,7 @@ public class SafeBoxMission : MonoBehaviour
         uiText.text = "Wrong Password";
         yield return new WaitForSeconds(sec);
         uiText.text = "";
-        uiText.color = Color.black;
+        uiText.color = new Color(0.5f, 0.5f, 0.517f);
         m_DisplayManager.CurrentState = DisplayManagerLevel1.State.zoom;
     }
 

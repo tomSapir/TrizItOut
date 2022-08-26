@@ -7394,26 +7394,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_QuestionsAndAnswers:
-  - m_Qustion: whats your name?
+  - m_Qustion: Usage of paper clips in this level is an example for
     m_Answers:
-    - tom
-    - eden
-    - tomer
-    - yagil
-    m_CurrectAnswer: 1
-  - m_Qustion: whats your dog name?
+    - Segmantation
+    - Universality
+    - Merging
+    - Recursion
+    m_CurrectAnswer: 2
+  - m_Qustion: 'Choose the option that could represent the Merging principle:'
     m_Answers:
-    - ema
-    - kim
-    - mami
-    - ema and kim
-    m_CurrectAnswer: 4
-  - m_Qustion: 2 + 2 = ?
+    - Using a hose to tie a lamp to a pole
+    - Using a hose to water plants
+    - Using a hose to make a turbine spin
+    - All of the options are correct
+    m_CurrectAnswer: 3
+  - m_Qustion: What principle helped us to clean the computer?
     m_Answers:
-    - 1
-    - 2
-    - 3
-    - 4
+    - Universality
+    - Segmantation
+    - Binding
+    - Merging
     m_CurrectAnswer: 4
   m_AnswersOptions:
   - {fileID: 331306375}

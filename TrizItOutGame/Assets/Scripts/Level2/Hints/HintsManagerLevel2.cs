@@ -15,7 +15,7 @@ public class HintsManagerLevel2 : MonoBehaviour
     public GameObject m_Inventory;
 
     private InventoryManager m_InventoryManager;
-    private MainCameraManager m_MainCameraManager;
+    private MainCameraManagerLevel2 m_MainCameraManager;
     private FanMissionHandler m_FanMissionHandler;
 
     private Dictionary<string, string> m_Hints = new Dictionary<string, string>();
@@ -23,7 +23,7 @@ public class HintsManagerLevel2 : MonoBehaviour
     void Start()
     {
         m_InventoryManager = m_Inventory.GetComponent<InventoryManager>();
-        m_MainCameraManager = GameObject.Find("Main Camera").GetComponent<MainCameraManager>();
+        m_MainCameraManager = GameObject.Find("Main Camera").GetComponent<MainCameraManagerLevel2>();
         m_FanMissionHandler = GameObject.Find("Fan_Mission").GetComponent<FanMissionHandler>();
         fillHintsData();
     }
@@ -72,7 +72,6 @@ public class HintsManagerLevel2 : MonoBehaviour
         else
         {
             m_ShowHintBtn.GetComponent<Image>().color = new Color32(56, 56, 56, 152);
-
         }
     }
 

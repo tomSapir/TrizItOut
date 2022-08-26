@@ -13,5 +13,7 @@ public class ChangeToMission : MonoBehaviour, IInteractable
     public void Interact(DisplayManagerLevel1 currDisplay)
     {
         MissionWasChosen?.Invoke(m_MissionWallNumber);
+
+        Debug.Log("Pressed");
     }
 }

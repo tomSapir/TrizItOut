@@ -41,6 +41,11 @@ public class MainCameraManagerLevel3 : MonoBehaviour
         manageLeftAndRightsBtnsActivation();
     }
 
+    private void Start()
+    {
+        GameObject.Find("Door_Lock").GetComponent<ChangeToMission>().MissionWasChosen += Mission_Interact;
+    }
+
     private void manageCameraPosition()
     {
         Vector3 currentPosition = gameObject.transform.position;
@@ -80,6 +85,7 @@ public class MainCameraManagerLevel3 : MonoBehaviour
 
     public void Mission_Interact(int i_MissionWall)
     {
+        Debug.Log("In mission_Interact");
         m_WallBeforeMission = m_CurrentWallIndex;
         while (m_CurrentWallIndex != i_MissionWall)
         {

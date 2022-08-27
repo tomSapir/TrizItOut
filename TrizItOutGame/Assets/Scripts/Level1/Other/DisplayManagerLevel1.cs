@@ -25,6 +25,7 @@ public class DisplayManagerLevel1 : MonoBehaviour
     public   GameObject m_ComputerScreen;
     public   CommunicationManagerLevel1 m_CommunicationManager;
     public   NextLevelLoader m_NextLevelLoader;
+    private bool m_ComputerCablePickedUpBeforeElectricFall = false;
 
     public GameObject m_Lightning1, m_Lightning2;
     private const string k_BackgroundPath = "Sprites/Level1/Main_Backgrounds/Background";
@@ -214,6 +215,7 @@ public class DisplayManagerLevel1 : MonoBehaviour
         m_CommunicationManager.ShowMsg("Looks like the power went out..");
         m_ComputerScreen.SetActive(false);
         m_ComputerCable.GetComponent<SpriteRenderer>().sprite = m_TornComputerCableSprite;
+        m_ComputerCable.layer = 0;
         m_DarkMode.SetActive(true);
     }
 

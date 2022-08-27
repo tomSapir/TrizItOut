@@ -14,7 +14,6 @@ public class InventoryManager : MonoBehaviour
     public static readonly string sr_EmptyItemName = "Empty_Item";
     public static readonly string sr_InventoryItemSpritePath = "Sprites/AllLevels/Items/";
     public static readonly string sr_EmptyItemSpritePath = "Sprites/AllLevels/Inventory/";
-
     private void Start()
     {
         m_EmptyItemSprite = Resources.Load<Sprite>(sr_EmptyItemSpritePath + sr_EmptyItemName);

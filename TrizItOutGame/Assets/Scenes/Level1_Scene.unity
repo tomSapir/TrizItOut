@@ -2678,6 +2678,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Computer_Cable
       objectReference: {fileID: 0}
+    - target: {fileID: 5168913525730113440, guid: e30483616ebc89b4cbaace19b85d030e, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 5168913525730113500, guid: e30483616ebc89b4cbaace19b85d030e, type: 3}
       propertyPath: m_Size.x
       value: 4.55766
@@ -9383,7 +9387,7 @@ MonoBehaviour:
   m_MyPrefab: {fileID: 5168913525730113440, guid: e30483616ebc89b4cbaace19b85d030e, type: 3}
   m_PlaceFor: Cable_On_Floor
   m_ActiveBy: Cable_Inventory
-  m_WhereToSpawn: furniture1
+  m_WhereToSpawn: Furniture_1
   m_ActivatedByEvent: 1
   m_IsReusable: 1
 --- !u!1 &1846997604

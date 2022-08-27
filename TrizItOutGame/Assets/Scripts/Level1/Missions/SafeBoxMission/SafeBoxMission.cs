@@ -59,7 +59,7 @@ public class SafeBoxMission : MonoBehaviour
         m_DisplayManager.CurrentState = DisplayManagerLevel1.State.zoom;
     }
 
-    IEnumerator WaitIfPasswordInCorrect(int sec)
+    IEnumerator WaitIfPasswordIncorrect(int sec)
     {
         m_DisplayManager.CurrentState = DisplayManagerLevel1.State.busy;
         uiText.color = Color.red;
@@ -72,12 +72,12 @@ public class SafeBoxMission : MonoBehaviour
 
     public void ApplyPasswordCorrect()
     {
-        StartCoroutine(WaitIfPasswordCorrect(2));
+        StartCoroutine(WaitIfPasswordCorrect(1));
     }
 
     public void ApplyPasswrodInCorrect()
     {
-        StartCoroutine(WaitIfPasswordInCorrect(2));
+        StartCoroutine(WaitIfPasswordIncorrect(1));
     }
 
     private void changeImage()

@@ -11,11 +11,12 @@ public class Screw : MonoBehaviour, IInteractable
     private string m_UnlockItem;
     private string m_UnlockItem2 = "trizCoin";
     private GameObject m_Inventory;
-
+    private Animation m_Animation;
     public event ScrewRemovedDelegate ScrewRemovedHandler;
 
     void Start()
     {
+        m_Animation = gameObject.GetComponent<Animation>();
         m_Inventory = GameObject.Find("Inventory");
     }
 
@@ -31,12 +32,19 @@ public class Screw : MonoBehaviour, IInteractable
                 {
                     m_Inventory.GetComponent<InventoryManager>().RemoveFromInventory("Note");
                 }
-                SoundManager.PlaySound(SoundManager.k_ScrewOpenSoundName);
-                Destroy(gameObject);
-                m_Inventory.GetComponent<InventoryManager>().m_currentSelectedSlot.GetComponent<SlotManager>().ClearSlot();
 
-                ScrewRemovedHandler?.Invoke();
+                StartCoroutine(ScrewPickedUpEnumerator());
             }
         }
+    }
+
+    IEnumerator ScrewPickedUpEnumerator()
+    {
+        SoundManager.PlaySound(SoundManager.k_ScrewOpenSoundName);
+        m_Animation.Play("Screw");
+        yield return new WaitForSeconds(1);
+        Destroy(gameObject);
+        m_Inventory.GetComponent<InventoryManager>().m_currentSelectedSlot.GetComponent<SlotManager>().ClearSlot();
+        ScrewRemovedHandler?.Invoke();
     }
 }

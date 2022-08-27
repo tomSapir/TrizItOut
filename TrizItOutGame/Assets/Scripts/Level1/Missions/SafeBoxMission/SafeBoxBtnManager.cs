@@ -8,9 +8,6 @@ using System;
 public class SafeBoxBtnManager : MonoBehaviour
 {
     [SerializeField]
-    private Button[] m_NumButtons;
-
-    [SerializeField]
     private TextMeshProUGUI m_screenText;
 
     [SerializeField]

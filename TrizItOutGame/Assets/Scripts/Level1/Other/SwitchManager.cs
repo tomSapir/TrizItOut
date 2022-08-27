@@ -11,6 +11,7 @@ public class SwitchManager : MonoBehaviour, IInteractable
     public GameObject m_MonitorScreenSaver;
     public GameObject m_Dark;
     public GameObject m_ComputerScreen;
+    public GameObject m_SafeBoxCanvas;
     private bool m_IsLightOn = false;
 
     public event OnSwitchAction OnSwitch;
@@ -33,6 +34,7 @@ public class SwitchManager : MonoBehaviour, IInteractable
 
         m_IsLightOn = !m_IsLightOn;
 
+        m_SafeBoxCanvas.GetComponent<SafeBoxBtnManager>().OnSwitchChanged(m_IsLightOn);
         OnSwitch?.Invoke(m_IsLightOn);
     }
 }

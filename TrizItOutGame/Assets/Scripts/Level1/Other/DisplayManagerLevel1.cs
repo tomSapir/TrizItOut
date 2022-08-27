@@ -24,6 +24,8 @@ public class DisplayManagerLevel1 : MonoBehaviour
     public bool m_ComputerCableIsSpawned = false;
     public GameObject m_ComputerScreen;
     public NextLevelLoader nextLevelLoader;
+
+    public GameObject m_Lightning1, m_Lightning2;
     private const string k_BackgroundPath = "Sprites/Level1/Main_Backgrounds/Background";
 
     public enum State
@@ -207,6 +209,8 @@ public class DisplayManagerLevel1 : MonoBehaviour
     {
         yield return new WaitForSeconds(sec);
         SoundManager.PlaySound(SoundManager.k_ElectricFallSoundName);
+        m_Lightning1.SetActive(true);
+        m_Lightning2.SetActive(true);
         m_ComputerScreen.SetActive(false);
         m_ComputerCable.GetComponent<SpriteRenderer>().sprite = m_TornComputerCableSprite;
         m_DarkMode.SetActive(true);

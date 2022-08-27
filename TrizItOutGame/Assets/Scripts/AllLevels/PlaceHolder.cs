@@ -56,14 +56,12 @@ public class PlaceHolder : MonoBehaviour, IInteractable
 
             newCable.name = m_MyPrefab.name;
 
-           // newCable.transform.position = new Vector3(3.48f, -3.0f, 0f);
             newCable.GetComponent<SpriteRenderer>().sortingOrder = 2;
             
             if(OnPrefabSpawned != null)
             {
                 OnPrefabSpawned();
             }
-           // newCable.gameObject.transform.position = new Vector3(0, 0, 0);
 
             m_Inventory.GetComponent<InventoryManager>().m_currentSelectedSlot.GetComponent<SlotManager>().ClearSlot();
             m_Inventory.GetComponent<InventoryManager>().m_currentSelectedSlot = null;

@@ -24,7 +24,7 @@ public class BrokenFanManager : MonoBehaviour, IInteractable
     public void Interact(DisplayManagerLevel1 currDisplay)
     {
         InventoryManager inventoryManager = m_Inventory.GetComponent<InventoryManager>();
-        GameObject currSelectedSlot = inventoryManager.m_currentSelectedSlot;
+        GameObject currSelectedSlot = inventoryManager.m_CurrentSelectedSlot;
 
         if (currSelectedSlot != null &&
             currSelectedSlot.gameObject.transform.GetChild(0).GetComponent<Image>().sprite.name == "Two_Screws")
@@ -34,7 +34,7 @@ public class BrokenFanManager : MonoBehaviour, IInteractable
             m_Screw1.SetActive(true);
             m_Screw2.SetActive(true);
             currSelectedSlot.GetComponent<SlotManager>().ClearSlot();
-            inventoryManager.m_currentSelectedSlot = null;
+            inventoryManager.m_CurrentSelectedSlot = null;
         }
         else
         {

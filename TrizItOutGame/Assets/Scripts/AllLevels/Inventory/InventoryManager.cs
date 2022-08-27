@@ -5,17 +5,20 @@ using UnityEngine.UI;
 
 public class InventoryManager : MonoBehaviour
 {
-    [SerializeField]
-    private GameObject[] m_Slots = new GameObject[6]; 
-    public GameObject m_currentSelectedSlot { get; set; }
-    public GameObject m_previouslySelectedSlot { get; set; }
+    public GameObject[] m_Slots = new GameObject[6]; 
+    public GameObject m_CurrentSelectedSlot { get; set; }
+    public GameObject m_PreviouslySelectedSlot { get; set; }
 
-    private const string k_EmptyItemName = "Empty_Item";
-    private const string k_InventoryItemSpritePath = "Sprites/AllLevels/Items/";
+    private Sprite m_EmptyItemSprite = null;
+
+    public static readonly string sr_EmptyItemName = "Empty_Item";
+    public static readonly string sr_InventoryItemSpritePath = "Sprites/AllLevels/Items/";
+    public static readonly string sr_EmptyItemSpritePath = "Sprites/AllLevels/Inventory/";
 
     private void Start()
     {
-        InitializeInventory();
+        m_EmptyItemSprite = Resources.Load<Sprite>(sr_EmptyItemSpritePath + sr_EmptyItemName);
+        initializeInventory();
     }
 
     private void Update()
@@ -23,11 +26,11 @@ public class InventoryManager : MonoBehaviour
         SelectedSlot();
     }
 
-    void InitializeInventory()
+    private void initializeInventory()
     {
         foreach(GameObject slot in m_Slots)
         {
-            slot.transform.GetChild(0).GetComponent<Image>().sprite = Resources.Load<Sprite>("Sprites/AllLevels/Inventory/" + k_EmptyItemName);
+            slot.transform.GetChild(0).GetComponent<Image>().sprite = m_EmptyItemSprite;
         }
     }
 
@@ -35,7 +38,7 @@ public class InventoryManager : MonoBehaviour
     {
         foreach(GameObject slot in m_Slots)
         {
-            if(slot == m_currentSelectedSlot && slot.GetComponent<SlotManager>().ItemProperty == SlotManager.Property.usable && slot.GetComponent<SlotManager>().IsEmpty == false)
+            if(slot == m_CurrentSelectedSlot && slot.GetComponent<SlotManager>().ItemProperty == SlotManager.Property.usable && slot.GetComponent<SlotManager>().IsEmpty == false)
             {
                 slot.GetComponent<Image>().color = new Color(0, .55f, .75f, 1);
             }
@@ -53,9 +56,9 @@ public class InventoryManager : MonoBehaviour
         {
             foreach (GameObject slot in m_Slots)
             {
-                if (slot.transform.GetChild(0).GetComponent<Image>().sprite.name == k_EmptyItemName)
+                if(slot.GetComponent<SlotManager>().IsEmpty)
                 {
-                    slot.transform.GetChild(0).GetComponent<Image>().sprite = Resources.Load<Sprite>(k_InventoryItemSpritePath + i_Item.m_DisplaySprite);
+                    slot.transform.GetChild(0).GetComponent<Image>().sprite = Resources.Load<Sprite>(sr_InventoryItemSpritePath + i_Item.m_DisplaySprite);
                     slot.GetComponent<SlotManager>().IsEmpty = false;
                     slot.GetComponent<SlotManager>().AssignPtoperty((int)i_Item.m_ItemProperty, i_Item.m_DisplayImage, i_Item.m_ResultOfCombinationItemName, i_Item.m_AmountOfUsage);
                     Destroy(i_Item.gameObject);
@@ -88,7 +91,7 @@ public class InventoryManager : MonoBehaviour
             if (slot.GetComponent<SlotManager>().GetItemName() == i_ItemName)
             {
                 res = true;
-                slot.GetComponent<SlotManager>().m_AmountOfUsage = 1;
+                slot.GetComponent<SlotManager>().AmountOfUsage = 1;
                 slot.GetComponent<SlotManager>().ClearSlot();
             }
         }

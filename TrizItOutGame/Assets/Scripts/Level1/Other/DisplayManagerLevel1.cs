@@ -6,24 +6,25 @@ using UnityEngine.SceneManagement;
 
 public class DisplayManagerLevel1 : MonoBehaviour
 {
-    public GameObject m_Missions;
-    public int m_CurrentWall;
-    public int m_PreviousWall;
-    public GameObject m_furniture1;
-    public GameObject m_interactables1;
-    public GameObject m_furniture2;
-    public GameObject m_interactables2;
-    public GameObject[] UiRenderObject;
-    public GameObject m_DarkMode;
-    public GameObject m_ComputerCable;
-    public Sprite m_TornComputerCableSprite;
-    private GameObject m_CanvasOfSafeBoxCode;
-    public GameObject m_ComputerCableHolder;
-    public GameObject m_FuzeHolder;
-    private bool m_FuzeIsSpawned = false;
-    public bool m_ComputerCableIsSpawned = false;
-    public GameObject m_ComputerScreen;
-    public NextLevelLoader nextLevelLoader;
+    public   GameObject m_Missions;
+    public   int m_CurrentWall;
+    public   int m_PreviousWall;
+    public   GameObject m_Furniture1;
+    public   GameObject m_Interactables1;
+    public   GameObject m_Furniture2;
+    public   GameObject m_Interactables2;
+    public   GameObject[] m_UiRenderObject;
+    public   GameObject m_DarkMode;
+    public   GameObject m_ComputerCable;
+    public   Sprite m_TornComputerCableSprite;
+    private  GameObject m_CanvasOfSafeBoxCode;
+    public   GameObject m_ComputerCableHolder;
+    public   GameObject m_FuzeHolder;
+    private  bool m_FuzeIsSpawned = false;
+    public   bool m_ComputerCableIsSpawned = false;
+    public   GameObject m_ComputerScreen;
+    public   CommunicationManagerLevel1 m_CommunicationManager;
+    public   NextLevelLoader m_NextLevelLoader;
 
     public GameObject m_Lightning1, m_Lightning2;
     private const string k_BackgroundPath = "Sprites/Level1/Main_Backgrounds/Background";
@@ -89,7 +90,7 @@ public class DisplayManagerLevel1 : MonoBehaviour
     {
         m_ComputerCableIsSpawned = true;
 
-        GameObject computerCable = GameObject.Find("/furniture1/Computer_Cable");
+        GameObject computerCable = GameObject.Find("/Furniture_1/Computer_Cable");
 
         if(computerCable == null)
         {
@@ -137,65 +138,64 @@ public class DisplayManagerLevel1 : MonoBehaviour
     {
         if (m_CurrentWall == 1)
         {
-            m_interactables2.SetActive(false);
+            m_Interactables2.SetActive(false);
             if (CurrentState == State.normal)
             {
-                m_interactables1.SetActive(true);
+                m_Interactables1.SetActive(true);
             }
             else
             {
-                m_interactables1.SetActive(false);
+                m_Interactables1.SetActive(false);
             }
         }
         else if (m_CurrentWall == 2)
         {
-            m_interactables1.SetActive(false);
+            m_Interactables1.SetActive(false);
             if (CurrentState == State.normal)
             {
-                m_interactables2.SetActive(true);
+                m_Interactables2.SetActive(true);
             }
             else
             {
-                m_interactables2.SetActive(false);
+                m_Interactables2.SetActive(false);
             }
         }
-
     }
 
     private void showRelevantPickUpItems()
     {
         if (m_CurrentWall == 1)
         {
-            m_furniture2.SetActive(false);
+            m_Furniture2.SetActive(false);
             if (CurrentState == State.normal)
             {
-                m_furniture1.SetActive(true);
+                m_Furniture1.SetActive(true);
             }
             else
             {
-                m_furniture1.SetActive(false);
+                m_Furniture1.SetActive(false);
             }
         }
 
         else if (m_CurrentWall == 2)
         {
-            m_furniture1.SetActive(false);
+            m_Furniture1.SetActive(false);
             if (CurrentState == State.normal)
             {
-                m_furniture2.SetActive(true);
+                m_Furniture2.SetActive(true);
             }
             else
             {
-                m_furniture2.SetActive(false);
+                m_Furniture2.SetActive(false);
             }
         }
     }
 
     void RenderUI()
     {
-        for (int i = 0; i < UiRenderObject.Length; i++)
+        for (int i = 0; i < m_UiRenderObject.Length; i++)
         {
-            UiRenderObject[i].SetActive(false);
+            m_UiRenderObject[i].SetActive(false);
         }
     }
 
@@ -211,6 +211,7 @@ public class DisplayManagerLevel1 : MonoBehaviour
         SoundManager.PlaySound(SoundManager.k_ElectricFallSoundName);
         m_Lightning1.SetActive(true);
         m_Lightning2.SetActive(true);
+        m_CommunicationManager.ShowMsg("Looks like the power went out..");
         m_ComputerScreen.SetActive(false);
         m_ComputerCable.GetComponent<SpriteRenderer>().sprite = m_TornComputerCableSprite;
         m_DarkMode.SetActive(true);
@@ -220,7 +221,7 @@ public class DisplayManagerLevel1 : MonoBehaviour
     {
         if(m_FuzeIsSpawned && m_ComputerCableIsSpawned)
         {
-            nextLevelLoader.LoadNextLevel();
+            m_NextLevelLoader.LoadNextLevel();
         }
     }
 }

@@ -58,4 +58,9 @@ public class ButtonHandler : MonoBehaviour
         m_CurrentDisplay = GameObject.Find("DisplayImage").GetComponent<DisplayManagerLevel1>();
         m_CurrentDisplay.ChangeToNormalBackgroundAfterReturnFromZoom();
     }
+
+    public void OnClickQuitBtn()
+    {
+        Application.Quit();
+    }
 }

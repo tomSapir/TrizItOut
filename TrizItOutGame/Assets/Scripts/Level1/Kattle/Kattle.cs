@@ -4,23 +4,22 @@ using UnityEngine;
 using UnityEngine.UI;
 public class Kattle : MonoBehaviour, IInteractable
 {
-    public bool m_isConnected { get; set; }
-    public GameObject m_KattleSmoke;
-    public GameObject m_Mirror;
-    public Sprite m_MirrorWithCodeSprite;
-    public GameObject m_CommunicationInterface;
-    public GameObject m_ButtonRightArrow;
+    public bool m_isConnected { get; set; } = false;
+    public  GameObject m_KattleSmoke;
+    public  GameObject m_Mirror;
+    public  Sprite m_MirrorWithCodeSprite;
+    public  CommunicationManagerLevel1 m_CommunicationManager;
+    public  GameObject m_ButtonRightArrow;
     private GameObject m_SafeBoxClosed;
 
     void Start()
     {
-        m_isConnected = false;
-        m_SafeBoxClosed = GameObject.Find("/interactables2/SafeBox/SafeBox_Closed");
+        m_SafeBoxClosed = GameObject.Find("/Interactables_2/SafeBox/SafeBox_Closed");
         if(m_SafeBoxClosed == null)
         {
             Debug.LogError("m_SafeBoxClosed is null");
         }
-        SwitchManager switchManager = GameObject.Find("/interactables2/Switch").GetComponent<SwitchManager>();
+        SwitchManager switchManager = GameObject.Find("/Interactables_2/Switch").GetComponent<SwitchManager>();
         switchManager.OnSwitch += OnSwitchChanged;
     }
 
@@ -32,7 +31,7 @@ public class Kattle : MonoBehaviour, IInteractable
         }
         else
         {
-            m_CommunicationInterface.GetComponent<CommunicationManagerLevel1>().ShowMsg("It seems you need to plug in the kettle first.");
+            m_CommunicationManager.ShowMsg("It seems you need to plug in the kettle first.");
         }
     }
 

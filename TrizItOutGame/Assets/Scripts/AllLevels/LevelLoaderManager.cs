@@ -8,25 +8,19 @@ public class LevelLoaderManager : MonoBehaviour
 {
     public Slider m_Slider;
     public GameObject m_SliderText;
-
     public GameObject[] m_LevelsBtns;
-
 
     public void LoadLevel(int i_SceneIndex)
     {
-        StartCoroutine(LoadAsynchronously(i_SceneIndex));
-
-        
+        StartCoroutine(LoadAsynchronously(i_SceneIndex)); 
     }
 
     IEnumerator LoadAsynchronously(int i_SceneIndex)
     {
-    
         foreach(GameObject levelBtn in m_LevelsBtns)
         {
             levelBtn.SetActive(false);
         }
-
 
         m_Slider.gameObject.SetActive(true);
         m_Slider.value = 0;

@@ -40,7 +40,7 @@ public class HintsManagerLevel1 : MonoBehaviour
         showHint();
     }
 
-    private void Update()
+    void Update()
     {
         findHint();
     }

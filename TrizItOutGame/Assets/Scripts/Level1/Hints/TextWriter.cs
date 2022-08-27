@@ -24,7 +24,6 @@ public class TextWriter : MonoBehaviour
         if (m_WhereToWrite != null && m_CharacterIndex < m_TextToWrite.Length)
         {
             m_Timer -= Time.deltaTime;
-
             if(m_Timer <= 0f)
             {
                 m_Timer += m_TimePerCharacter;

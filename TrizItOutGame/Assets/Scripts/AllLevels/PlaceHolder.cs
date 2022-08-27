@@ -49,8 +49,8 @@ public class PlaceHolder : MonoBehaviour, IInteractable
 
     public void Interact(DisplayManagerLevel1 currDisplay)
     {
-        if (m_Inventory.GetComponent<InventoryManager>().m_currentSelectedSlot != null &&
-           m_Inventory.GetComponent<InventoryManager>().m_currentSelectedSlot.gameObject.transform.GetChild(0).GetComponent<Image>().sprite.name == m_ActiveBy)
+        if (m_Inventory.GetComponent<InventoryManager>().m_CurrentSelectedSlot != null &&
+           m_Inventory.GetComponent<InventoryManager>().m_CurrentSelectedSlot.gameObject.transform.GetChild(0).GetComponent<Image>().sprite.name == m_ActiveBy)
         {
             GameObject newCable = Instantiate(m_MyPrefab, GameObject.Find(m_WhereToSpawn).transform);
 
@@ -63,8 +63,8 @@ public class PlaceHolder : MonoBehaviour, IInteractable
                 OnPrefabSpawned();
             }
 
-            m_Inventory.GetComponent<InventoryManager>().m_currentSelectedSlot.GetComponent<SlotManager>().ClearSlot();
-            m_Inventory.GetComponent<InventoryManager>().m_currentSelectedSlot = null;
+            m_Inventory.GetComponent<InventoryManager>().m_CurrentSelectedSlot.GetComponent<SlotManager>().ClearSlot();
+            m_Inventory.GetComponent<InventoryManager>().m_CurrentSelectedSlot = null;
 
             if(m_IsReusable == false)
             {

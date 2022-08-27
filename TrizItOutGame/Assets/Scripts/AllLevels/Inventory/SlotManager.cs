@@ -6,37 +6,24 @@ using UnityEngine.EventSystems;
 
 public class SlotManager : MonoBehaviour, IPointerClickHandler
 {
-    [SerializeField]
-    private GameObject m_SlotItemImage;
-    [SerializeField]
-    private GameObject m_ZoomInWindow;
-    [SerializeField]
-    private bool m_IsEmpty = true;
-
-    private GameObject m_inventory;
-    
-    [SerializeField]
-    public string m_CombinationItem { get; private set; }
-
+    public GameObject m_SlotItemImage;
+    public GameObject m_ZoomInWindow;
+    public bool IsEmpty { get; set; } = true;
+    private InventoryManager m_InventoryManager;
+    public string CombinationItem { get; private set; }
     public enum Property { usable, displayable, empty };
     public Property ItemProperty { get;  set; }
-    public int m_AmountOfUsage { get; set; }
+    public int AmountOfUsage { get; set; }
     private string m_displayImage; // For displayable objects - the more informative image for the zoomIn window.
 
     void Start()
     {
-        m_inventory = GameObject.Find("Inventory");
-    }
-
-    public bool IsEmpty
-    {
-        set { m_IsEmpty = value; }
-        get { return m_IsEmpty; }
+        m_InventoryManager = GameObject.Find("Inventory").GetComponent<InventoryManager>();
     }
 
     public void OnClickMagnifierGlass()
     {
-        if(m_IsEmpty == false)
+        if(IsEmpty == false)
         {
             if(ItemProperty == Property.usable)
             {
@@ -52,14 +39,14 @@ public class SlotManager : MonoBehaviour, IPointerClickHandler
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        if(this.gameObject == m_inventory.GetComponent<InventoryManager>().m_currentSelectedSlot)
+        if(this.gameObject == m_InventoryManager.m_CurrentSelectedSlot)
         {
-            m_inventory.GetComponent<InventoryManager>().m_currentSelectedSlot = null;
+            m_InventoryManager.m_CurrentSelectedSlot = null;
         }
-        else if(m_IsEmpty == false)
+        else if(IsEmpty == false)
         {
-           m_inventory.GetComponent<InventoryManager>().m_previouslySelectedSlot = m_inventory.GetComponent<InventoryManager>().m_currentSelectedSlot;
-           m_inventory.GetComponent<InventoryManager>().m_currentSelectedSlot = this.gameObject;
+           m_InventoryManager.m_PreviouslySelectedSlot = m_InventoryManager.m_CurrentSelectedSlot;
+           m_InventoryManager.m_CurrentSelectedSlot = this.gameObject;
            Combine();
         }
     }
@@ -68,19 +55,19 @@ public class SlotManager : MonoBehaviour, IPointerClickHandler
     {
         ItemProperty = (Property)i_ordrNumber;
         this.m_displayImage = i_displayImage;
-        this.m_CombinationItem = i_combinationItem;
-        this.m_AmountOfUsage = i_amountOfUsage;
+        this.CombinationItem = i_combinationItem;
+        this.AmountOfUsage = i_amountOfUsage;
     }
 
     public void Combine()
     {
-        if(m_inventory.GetComponent<InventoryManager>().m_previouslySelectedSlot != null && 
-            m_inventory.GetComponent<InventoryManager>().m_previouslySelectedSlot.GetComponent<SlotManager>().m_CombinationItem == this.gameObject.GetComponent<SlotManager>().m_CombinationItem 
-            && this.gameObject.GetComponent<SlotManager>().m_CombinationItem != string.Empty)
+        if(m_InventoryManager.m_PreviouslySelectedSlot != null &&
+            m_InventoryManager.m_PreviouslySelectedSlot.GetComponent<SlotManager>().CombinationItem == this.gameObject.GetComponent<SlotManager>().CombinationItem 
+            && this.gameObject.GetComponent<SlotManager>().CombinationItem != string.Empty)
         {
-            var combinedItem = Instantiate(Resources.Load<GameObject>("Combined Items/" + m_CombinationItem));
-            
-            m_inventory.GetComponent<InventoryManager>().m_previouslySelectedSlot.GetComponent<SlotManager>().ClearSlot();
+            var combinedItem = Instantiate(Resources.Load<GameObject>("Combined Items/" + CombinationItem));
+
+            m_InventoryManager.m_PreviouslySelectedSlot.GetComponent<SlotManager>().ClearSlot();
             ClearSlot();
             combinedItem.GetComponent<PickUpItem>().Interact(null);
         }
@@ -88,12 +75,12 @@ public class SlotManager : MonoBehaviour, IPointerClickHandler
 
     public void ClearSlot()
     {
-        m_AmountOfUsage--;
-        if(m_AmountOfUsage == 0)
+        AmountOfUsage--;
+        if(AmountOfUsage == 0)
         {
             ItemProperty = SlotManager.Property.empty;
             m_displayImage = string.Empty;
-            m_CombinationItem = string.Empty;
+            CombinationItem = string.Empty;
 
             transform.GetChild(0).GetComponent<Image>().sprite = Resources.Load<Sprite>("Sprites/AllLevels/Inventory/Empty_Item");
         }
@@ -101,7 +88,6 @@ public class SlotManager : MonoBehaviour, IPointerClickHandler
 
     public string GetItemName()
     {
-        string name = m_SlotItemImage.GetComponent<Image>().sprite.name;
-        return name;
+        return m_SlotItemImage.GetComponent<Image>().sprite.name;
     }
 }

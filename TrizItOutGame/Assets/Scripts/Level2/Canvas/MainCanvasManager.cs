@@ -10,4 +10,9 @@ public class MainCanvasManager : MonoBehaviour
     {
         m_ZoomInWindow.SetActive(false);
     }
+
+    public void OnClickQuitBtn()
+    {
+        Application.Quit();
+    }
 }

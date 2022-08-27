@@ -19,7 +19,7 @@ public class KattleCabelSlot : MonoBehaviour, IInteractable
 
     void Update()
     {
-        GameObject Cable = GameObject.Find("furniture2/Kettle_Cable");
+        GameObject Cable = GameObject.Find("Furniture_2/Kettle_Cable");
         
         if (Cable != null)
         {
@@ -49,13 +49,13 @@ public class KattleCabelSlot : MonoBehaviour, IInteractable
 
     public void Interact(DisplayManagerLevel1 currDisplay)
     {
-        if (m_inventory.GetComponent<InventoryManager>().m_currentSelectedSlot != null &&
-            m_inventory.GetComponent<InventoryManager>().m_currentSelectedSlot.gameObject.transform.GetChild(0).GetComponent<Image>().sprite.name == m_UnlockItem)
+        if (m_inventory.GetComponent<InventoryManager>().m_CurrentSelectedSlot != null &&
+            m_inventory.GetComponent<InventoryManager>().m_CurrentSelectedSlot.gameObject.transform.GetChild(0).GetComponent<Image>().sprite.name == m_UnlockItem)
         {
-            var newCable = Instantiate(m_Cable, GameObject.Find("furniture2").transform);
+            var newCable = Instantiate(m_Cable, GameObject.Find("Furniture_2").transform);
             newCable.name = "Kettle_Cable";
-            m_inventory.GetComponent<InventoryManager>().m_currentSelectedSlot.GetComponent<SlotManager>().ClearSlot();
-            m_inventory.GetComponent<InventoryManager>().m_currentSelectedSlot = null;
+            m_inventory.GetComponent<InventoryManager>().m_CurrentSelectedSlot.GetComponent<SlotManager>().ClearSlot();
+            m_inventory.GetComponent<InventoryManager>().m_CurrentSelectedSlot = null;
         }
     }
 }

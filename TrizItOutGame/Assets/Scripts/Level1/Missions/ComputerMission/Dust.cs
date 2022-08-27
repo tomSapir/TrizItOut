@@ -28,12 +28,12 @@ public class Dust : MonoBehaviour, IInteractable
     public void Interact(DisplayManagerLevel1 currDisplay)
     {
         // suppose we have a key that unlocks this drawer, the sprites name of the kwy would be m_unlocks.
-        if (m_inventory.GetComponent<InventoryManager>().m_currentSelectedSlot.gameObject.transform.GetChild(0).GetComponent<Image>().sprite.name == m_UnlockItem)
+        if (m_inventory.GetComponent<InventoryManager>().m_CurrentSelectedSlot.gameObject.transform.GetChild(0).GetComponent<Image>().sprite.name == m_UnlockItem)
         {
             SoundManager.PlaySound(SoundManager.k_SpraySoundName);
             Destroy(gameObject);
             OnCleanUp?.Invoke();
-            m_inventory.GetComponent<InventoryManager>().m_currentSelectedSlot.GetComponent<SlotManager>().ClearSlot();
+            m_inventory.GetComponent<InventoryManager>().m_CurrentSelectedSlot.GetComponent<SlotManager>().ClearSlot();
         }
     }
 }

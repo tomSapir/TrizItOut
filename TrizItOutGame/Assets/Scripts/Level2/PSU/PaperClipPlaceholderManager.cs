@@ -36,7 +36,7 @@ public class PaperClipPlaceholderManager : MonoBehaviour, IInteractable
     public void Interact(DisplayManagerLevel1 currDisplay)
     {
         InventoryManager inventoryManager = m_Inventory.GetComponent<InventoryManager>();
-        GameObject currSelectedSlot = inventoryManager.m_currentSelectedSlot;
+        GameObject currSelectedSlot = inventoryManager.m_CurrentSelectedSlot;
 
         if (m_ChildSpriteRenderer.enabled == true)
         {
@@ -46,7 +46,7 @@ public class PaperClipPlaceholderManager : MonoBehaviour, IInteractable
         if (currSelectedSlot != null &&
             currSelectedSlot.gameObject.transform.GetChild(0).GetComponent<Image>().sprite.name == m_UnlockItem)
         {
-            inventoryManager.m_currentSelectedSlot = null;
+            inventoryManager.m_CurrentSelectedSlot = null;
             togglePaperClipSpriteAndNotify();
             m_PaperClipConnectedOnce = true;
         }

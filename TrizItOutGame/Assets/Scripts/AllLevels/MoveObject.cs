@@ -13,12 +13,8 @@ public class MoveObject : MonoBehaviour, IInteractable
     }
 
     public delegate void ObjectMovedAction(eMovementType eMovementType);
-
-    [SerializeField]
-    private float m_Steps;
-    [SerializeField]
-    private eMovementType m_MovmentType;
-
+    public float m_Steps;
+    public eMovementType m_MovmentType;
     public event ObjectMovedAction OnObjectMoved;
 
     public eMovementType MovementType

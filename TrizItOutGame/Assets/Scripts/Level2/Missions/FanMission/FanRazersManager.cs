@@ -42,7 +42,7 @@ public class FanRazersManager : MonoBehaviour, IInteractable
     public void Interact(DisplayManagerLevel1 currDisplay)
     {
         InventoryManager inventoryManager = m_Inventory.GetComponent<InventoryManager>();
-        GameObject currSelectedSlot = inventoryManager.m_currentSelectedSlot;
+        GameObject currSelectedSlot = inventoryManager.m_CurrentSelectedSlot;
  
         if (currSelectedSlot != null &&
             currSelectedSlot.gameObject.transform.GetChild(0).GetComponent<Image>().sprite.name == m_UnlockItem)
@@ -60,7 +60,7 @@ public class FanRazersManager : MonoBehaviour, IInteractable
         SoundManager.StopSound();
         m_NeedToSpin = false;
         gameObject.layer = 2;
-        i_InventoryManager.m_currentSelectedSlot = null;
+        i_InventoryManager.m_CurrentSelectedSlot = null;
         FanStopped?.Invoke();
     }
 }

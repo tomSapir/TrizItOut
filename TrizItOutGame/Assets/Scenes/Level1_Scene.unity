@@ -9801,7 +9801,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70cf1df05d54d0d4f8a5cfb3e90225e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_screenText: {fileID: 237723351}
+  m_ScreenText: {fileID: 237723351}
   m_SafeBoxMission: {fileID: 1133411435}
   m_SwitchManager: {fileID: 677818194}
 --- !u!114 &2021954512

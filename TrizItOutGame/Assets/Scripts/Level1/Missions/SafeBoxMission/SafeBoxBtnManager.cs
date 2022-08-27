@@ -8,7 +8,7 @@ using System;
 public class SafeBoxBtnManager : MonoBehaviour
 {
     [SerializeField]
-    private TextMeshProUGUI m_screenText;
+    private TextMeshProUGUI m_ScreenText;
 
     [SerializeField]
     private GameObject m_SafeBoxMission;
@@ -16,8 +16,8 @@ public class SafeBoxBtnManager : MonoBehaviour
     [SerializeField]
     private GameObject m_SwitchManager;
 
-    string PassCode = "7135";
-    string CurrentPassCode = null;
+    private readonly string m_CorrectCode = "7135";
+    private string m_CurrentPassCode = string.Empty;
     private int m_Index = 0;
 
     public void Start()
@@ -54,8 +54,8 @@ public class SafeBoxBtnManager : MonoBehaviour
         if (m_Index < 4)
         {
             m_Index++;
-            CurrentPassCode = CurrentPassCode + Number;
-            m_screenText.text = CurrentPassCode;
+            m_CurrentPassCode = m_CurrentPassCode + Number;
+            m_ScreenText.text = m_CurrentPassCode;
         }
     }
 
@@ -63,8 +63,8 @@ public class SafeBoxBtnManager : MonoBehaviour
     {
         SoundManager.PlaySound(SoundManager.k_ButtonSoundName);
         m_Index = 0;
-        CurrentPassCode = null;
-        m_screenText.text = CurrentPassCode;
+        m_CurrentPassCode = null;
+        m_ScreenText.text = m_CurrentPassCode;
     }
 
     public void OnClickOkBtn()
@@ -77,7 +77,7 @@ public class SafeBoxBtnManager : MonoBehaviour
         }
         else
         {
-            if (CurrentPassCode == PassCode)
+            if (m_CurrentPassCode == m_CorrectCode)
             {
                 SoundManager.PlaySound(SoundManager.k_CorrectPasswordSoundName);
                 safeBoxMissionScript.ApplyPasswordCorrect();
@@ -97,5 +97,9 @@ public class SafeBoxBtnManager : MonoBehaviour
         {
             transform.GetChild(i).gameObject.GetComponent<Button>().enabled = i_IsOn;
         }
+
+        m_ScreenText.text = string.Empty;
+        m_CurrentPassCode = string.Empty;
+        m_Index = 0;
     }
 }

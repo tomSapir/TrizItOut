@@ -50,24 +50,11 @@ public class SafeBoxMissionHandler : MonoBehaviour
 
         if (m_currentSolution.SetEquals(m_ExpectedSolution))
         {
-            SoundManager.PlaySound(SoundManager.k_CorrectPasswordSoundName);
-            m_Indicator.GetComponent<Image>().color = new Color32(12, 255, 0, 255);
-            //Todo: corotine - wait 5 sec beffore opened
-            enabeledSafeBox();
-            enabledFlyTicket();
-            m_Canvas.GetComponent<Canvas>().enabled = false;
+            ApplyPasswordCorrect();
         }
         else
         {
-            SoundManager.PlaySound(SoundManager.k_WorngPasswordSoundName);
-            m_Indicator.GetComponent<Image>().color = new Color32(255, 0, 71, 255);
-            m_currentSolution.Clear();
-            for (int i = 0; i < m_Canvas.transform.childCount - 1; i++)
-            {
-                m_Canvas.transform.GetChild(i).gameObject.GetComponent<Button>().image.color = new Color32(255, 255, 255, 255);
-                //TODO: need to find a way to do this more clean
-            }
-
+            ApplyPasswrodInCorrect();
         }
     }
 
@@ -83,4 +70,40 @@ public class SafeBoxMissionHandler : MonoBehaviour
         m_FlyTicket_Zoom.layer = 0;
         m_FlyTicket.GetComponent<SpriteRenderer>().enabled = true;
     }
+
+    IEnumerator WaitIfSolutionIncorrect(int sec)
+    {
+        SoundManager.PlaySound(SoundManager.k_WorngPasswordSoundName);
+        m_Indicator.GetComponent<Image>().color = new Color32(255, 0, 71, 255);
+        yield return new WaitForSeconds(sec);
+        m_currentSolution.Clear();
+        for (int i = 0; i < m_Canvas.transform.childCount - 1; i++)
+        {
+            m_Canvas.transform.GetChild(i).gameObject.GetComponent<Button>().image.color = new Color32(255, 255, 255, 255);
+            //TODO: need to find a way to do this more clean
+        }
+        m_Indicator.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+    }
+
+    IEnumerator WaitIfSolutionCorrect(int sec)
+    {
+        SoundManager.PlaySound(SoundManager.k_CorrectPasswordSoundName);
+        m_Indicator.GetComponent<Image>().color = new Color32(12, 255, 0, 255);
+        yield return new WaitForSeconds(sec);
+        enabeledSafeBox();
+        enabledFlyTicket();
+        m_Canvas.GetComponent<Canvas>().enabled = false;
+
+    }
+
+    public void ApplyPasswordCorrect()
+    {
+        StartCoroutine(WaitIfSolutionCorrect(1));
+    }
+
+    public void ApplyPasswrodInCorrect()
+    {
+        StartCoroutine(WaitIfSolutionIncorrect(1));
+    }
+
 }

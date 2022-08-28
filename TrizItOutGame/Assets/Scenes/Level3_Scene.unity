@@ -4526,10 +4526,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_DisplaySprite: Picture_Calendar_Date_Of_London
-  m_ItemProperty: 0
+  m_ItemProperty: 1
   m_DisplayImage: Picture_Calendar_Date_Of_London
   m_ResultOfCombinationItemName: 
-  m_AmountOfUsage: 0
+  m_AmountOfUsage: 1
 --- !u!212 &858037497
 SpriteRenderer:
   m_ObjectHideFlags: 0

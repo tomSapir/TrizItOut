@@ -1,10 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class SafeBoxMissionHandler : MonoBehaviour
+using UnityEngine.UI;
+using UnityEngine.EventSystems;
+    public class SafeBoxMissionHandler : MonoBehaviour
 {
-    // Start is called before the first frame update
+    private HashSet<int> m_currentSolution = new HashSet<int>();
+    private readonly HashSet<int> m_Solution = new HashSet<int>() { };
+
+    public GameObject indicator;
     void Start()
     {
         
@@ -14,5 +18,25 @@ public class SafeBoxMissionHandler : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void OnClick()
+    {
+        GameObject button = EventSystem.current.currentSelectedGameObject;
+        Image image = button.GetComponent<Button>().image;
+        image.color = new Color32(217, 91, 255,152);
+        m_currentSolution.Add(int.Parse(button.name));
+    }
+
+    private void submitSolution()
+    {
+        if(m_currentSolution == m_Solution)
+        {
+            indicator.GetComponent<Image>().color = new Color32(26, 97, 0, 255);
+        }
+        else
+        {
+            indicator.GetComponent<Image>().color = new Color32(203, 0, 0, 163);
+        }
     }
 }

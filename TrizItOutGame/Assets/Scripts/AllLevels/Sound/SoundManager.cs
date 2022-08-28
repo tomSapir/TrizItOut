@@ -11,7 +11,7 @@ public class SoundManager : MonoBehaviour
                             s_KattleBoilSound, s_MoveBigPotSound,
                             s_ElectricFallSound, s_PiggyBankBreakSound,
                             s_ScrewOpenSound, s_QuizCorrectAnswerSound, s_QuizWrongAnswerSound,
-                            s_PiggyBankKnockSound, s_FanSound;
+                            s_PiggyBankKnockSound, s_FanSound, s_ElectricitySound;
 
     public static AudioSource m_AudioSource;
 
@@ -32,6 +32,7 @@ public class SoundManager : MonoBehaviour
     public const string k_QuizWrongAnswerSoundName = "quizWrongAnswerSound";
     public const string k_PiggyBankKnockSoundName = "piggyBankKnockSound";
     public const string k_FanSoundName = "fanSound";
+    public const string k_ElectricitySoundName = "electricitySound";
 
     public static readonly string sr_SoundPath = "Sounds/";
 
@@ -56,6 +57,7 @@ public class SoundManager : MonoBehaviour
         s_QuizWrongAnswerSound = Resources.Load<AudioClip>(sr_SoundPath + k_QuizWrongAnswerSoundName);
         s_PiggyBankKnockSound = Resources.Load<AudioClip>(sr_SoundPath + k_PiggyBankKnockSoundName);
         s_FanSound = Resources.Load<AudioClip>(sr_SoundPath + k_FanSoundName);
+        s_ElectricitySound = Resources.Load<AudioClip>(sr_SoundPath + k_ElectricitySoundName);
 
         m_AudioSource = GetComponent<AudioSource>();
     }
@@ -149,6 +151,11 @@ public class SoundManager : MonoBehaviour
                 case k_FanSoundName:
                     {
                         m_AudioSource.PlayOneShot(s_FanSound);
+                        break;
+                    }
+                case k_ElectricitySoundName:
+                    {
+                        m_AudioSource.PlayOneShot(s_ElectricitySound);
                         break;
                     }
             }

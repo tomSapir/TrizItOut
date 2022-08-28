@@ -4,13 +4,10 @@ using UnityEngine;
 
 public class ChangeView : MonoBehaviour, IInteractable
 {
-    [SerializeField]
-    public string SpriteName;
-    [SerializeField]
+    public string m_SpriteName;
     public Sprite m_Sprite;
-    private const string ChangeViewSpritesPath = "Sprites/Level1/";
-    [SerializeField]
-    private GameObject m_CommunicationInterface;
+    private const string k_ChangeViewSpritesPath = "Sprites/Level1/";
+    public GameObject m_CommunicationInterface;
 
     public void Interact(DisplayManagerLevel1 currDisplay)
     {
@@ -27,6 +24,11 @@ public class ChangeView : MonoBehaviour, IInteractable
                 {
                     m_CommunicationInterface.GetComponent<CommunicationManagerLevel1>().ShowMsg("Mmmm... The computer is closed.");
                     break;
+                }
+            case "MiddleDrawer_Open":
+                {
+                    m_CommunicationInterface.GetComponent<CommunicationManagerLevel1>().ShowMsg("Looks like a regular drawer without anything special needed...");
+                        break;
                 }
         }
     }

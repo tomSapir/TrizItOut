@@ -51,7 +51,6 @@ public class FanMissionHandler : MonoBehaviour
 
     private void OnScrewRemoved()
     {
-
         s_AmountOfScrewsRemoved++;
         if (s_AmountOfScrewsRemoved == 2)
         {

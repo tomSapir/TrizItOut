@@ -6,12 +6,14 @@ using UnityEngine.SceneManagement;
 
 public class DisplayManagerLevel1 : MonoBehaviour
 {
+    public delegate void PowerFellOffDelegate();
+
     public   GameObject m_Missions;
     public   int m_CurrentWall;
     public   int m_PreviousWall;
     public   GameObject m_Furniture1;
-    public   GameObject m_Interactables1;
     public   GameObject m_Furniture2;
+    public   GameObject m_Interactables1;
     public   GameObject m_Interactables2;
     public   GameObject[] m_UiRenderObject;
     public   GameObject m_DarkMode;
@@ -25,11 +27,11 @@ public class DisplayManagerLevel1 : MonoBehaviour
     public   GameObject m_ComputerScreen;
     public   CommunicationManagerLevel1 m_CommunicationManager;
     public   NextLevelLoader m_NextLevelLoader;
-    private bool m_ComputerCablePickedUpBeforeElectricFall = false;
 
     public GameObject m_Lightning1, m_Lightning2;
     private const string k_BackgroundPath = "Sprites/Level1/Main_Backgrounds/Background";
 
+    public event PowerFellOffDelegate PowerFellOff;
     public enum State
     {
         normal, zoom, busy
@@ -217,6 +219,8 @@ public class DisplayManagerLevel1 : MonoBehaviour
         m_ComputerCable.GetComponent<SpriteRenderer>().sprite = m_TornComputerCableSprite;
         m_ComputerCable.layer = 0;
         m_DarkMode.SetActive(true);
+
+        PowerFellOff?.Invoke();
     }
 
     public void CheckIfFinishedLevel()

@@ -57,7 +57,7 @@ public class ComputerMission : MonoBehaviour
     {
         if (GameObject.Find("/Missions/Computer_Mission/Screw") == null)
         {
-            m_Computer.GetComponent<ChangeView>().SpriteName = "PCSide_ZoomIn_Open";
+            m_Computer.GetComponent<ChangeView>().m_SpriteName = "PCSide_ZoomIn_Open";
             m_Computer.GetComponent<ChangeView>().m_Sprite = m_PCSideOpenSprite;
             m_DisplayManager.GetComponent<SpriteRenderer>().sprite = m_PCSideOpenSprite;
             if (OnComputer != null && !m_AlredyOn)

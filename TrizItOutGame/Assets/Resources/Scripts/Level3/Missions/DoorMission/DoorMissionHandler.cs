@@ -8,7 +8,8 @@ public class DoorMissionHandler : MonoBehaviour
     [SerializeField]
     private TMPro.TextMeshProUGUI m_ScreenText;
 
-    private string m_CorrectCode = "7135";
+
+    private string m_CorrectCode = "2468";
     private string m_CurrentCode = null;
     private int m_CurrentIndex = 0;
 

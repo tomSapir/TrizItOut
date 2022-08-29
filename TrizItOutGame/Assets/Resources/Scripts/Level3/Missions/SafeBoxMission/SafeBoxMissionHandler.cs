@@ -17,18 +17,24 @@ public class SafeBoxMissionHandler : MonoBehaviour
     public GameObject m_FlyTicket_Zoom;
     public GameObject m_FlyTicket;
 
+    public GameObject m_Key_Zoom;
+    public GameObject m_Key;
+
     public GameObject m_Indicator;
 
     void Start()
     {
         m_Canvas = GameObject.Find("/MissionHandler/SafeBoxMission/Canvas");
         m_FlyTicket_Zoom.GetComponent<PickUpItem>().OnPickUp += OnTicketPickedUp;
+        m_Key_Zoom.GetComponent<PickUpItem>().OnPickUp += OnTicketPickedUp;
 
     }
 
     private void OnTicketPickedUp()
     {
         Destroy(m_FlyTicket);
+        Destroy(m_Key);
+
     }
 
     void Update()
@@ -71,6 +77,13 @@ public class SafeBoxMissionHandler : MonoBehaviour
         m_FlyTicket.GetComponent<SpriteRenderer>().enabled = true;
     }
 
+    private void enabledKey()
+    {
+        m_Key_Zoom.GetComponent<SpriteRenderer>().enabled = true;
+        m_Key_Zoom.layer = 0;
+        m_Key.GetComponent<SpriteRenderer>().enabled = true;
+    }
+
     IEnumerator WaitIfSolutionIncorrect(int sec)
     {
         SoundManager.PlaySound(SoundManager.k_WorngPasswordSoundName);
@@ -92,6 +105,7 @@ public class SafeBoxMissionHandler : MonoBehaviour
         yield return new WaitForSeconds(sec);
         enabeledSafeBox();
         enabledFlyTicket();
+        enabledKey();
         m_Canvas.GetComponent<Canvas>().enabled = false;
 
     }

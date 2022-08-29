@@ -17,7 +17,7 @@ public class UltraLightSwitch : MonoBehaviour, IInteractable
         GetComponent<SpriteRenderer>().sprite = m_IsSwitchOn is true ? m_SwitchOnSprite : m_SwitchOffSprite;
         m_UltraVioletLighting.GetComponent<SpriteRenderer>().enabled = m_IsSwitchOn;
 
-        for(int i = 0; i < m_UltraVioletLighting.transform.childCount; i++)
+        for(int i = 0; i < m_UltraVioletLighting.transform.childCount - 1; i++)
         {
             m_UltraVioletLighting.transform.GetChild(i).gameObject.GetComponent<SpriteRenderer>().enabled = m_IsSwitchOn;
         }

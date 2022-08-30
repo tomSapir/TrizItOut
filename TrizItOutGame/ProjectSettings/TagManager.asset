@@ -54,3 +54,6 @@ TagManager:
   - name: PeepHoles
     uniqueID: 3933934917
     locked: 0
+  - name: LightingPanel
+    uniqueID: 1451297567
+    locked: 0

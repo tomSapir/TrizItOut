@@ -20,6 +20,7 @@ public class LightingMissionHandler : MonoBehaviour
     void Start()
     {
         LockedPanel.GetComponent<ClosedPanelManager>().panelOpenedHandler += onUnlockPanel;
+        GameObject.Find("UltraLightSwitch").GetComponent<UltraLightSwitch>().OnInteractedHandler += checkColor;
     }
 
     // Update is called once per frame
@@ -37,22 +38,79 @@ public class LightingMissionHandler : MonoBehaviour
     public void Red_OnClick()
     {
         SoundManager.PlaySound(SoundManager.k_ButtonSoundName);
-        GameObject button = EventSystem.current.currentSelectedGameObject;
+        rotateButton();
 
-        button.transform.Rotate(new Vector3(0, 0, button.transform.rotation.z + 90));
         Color32 color = UltraLighting.GetComponent<SpriteRenderer>().color;
         s_AmountRedPressed = (s_AmountRedPressed + 1) % 4;
         if(s_AmountRedPressed != 0)
         {
-            color.r += 20;
+            color.r += 40;
         }
         else
         {
-            color.r -= 60;
+            color.r -= 120;
         }
 
         UltraLighting.GetComponent<SpriteRenderer>().color = color;
+        checkColor();
+    }
 
+    public void Green_OnClick()
+    {
+        SoundManager.PlaySound(SoundManager.k_ButtonSoundName);
+        rotateButton();
 
+        Color32 color = UltraLighting.GetComponent<SpriteRenderer>().color;
+        s_AmountGreenPressed = (s_AmountGreenPressed + 1) % 4;
+        if (s_AmountGreenPressed != 0)
+        {
+            color.g += 40;
+        }
+        else
+        {
+            color.g -= 120;
+        }
+
+        UltraLighting.GetComponent<SpriteRenderer>().color = color;
+        checkColor();
+    }
+
+    public void Blue_OnClick()
+    {
+        SoundManager.PlaySound(SoundManager.k_ButtonSoundName);
+        rotateButton();
+
+        Color32 color = UltraLighting.GetComponent<SpriteRenderer>().color;
+        s_AmountBluePressed = (s_AmountBluePressed + 1) % 4;
+        if (s_AmountBluePressed != 0)
+        {
+            color.b -= 40;
+        }
+        else
+        {
+            color.b += 120;
+        }
+
+        UltraLighting.GetComponent<SpriteRenderer>().color = color;
+        checkColor();
+    }
+
+    private void rotateButton()
+    {
+        GameObject button = EventSystem.current.currentSelectedGameObject;
+
+        button.transform.Rotate(new Vector3(0, 0, button.transform.rotation.z - 90));
+    }
+
+    private void checkColor()
+    {
+        if(s_AmountBluePressed == 1 && s_AmountGreenPressed == 2 && s_AmountRedPressed == 3 && UltraLighting.GetComponent<SpriteRenderer>().enabled == true)
+        {
+            HidingHint.GetComponent<TextMeshPro>().enabled = true;
+        }
+        else
+        {
+            HidingHint.GetComponent<TextMeshPro>().enabled = false;
+        }
     }
 }

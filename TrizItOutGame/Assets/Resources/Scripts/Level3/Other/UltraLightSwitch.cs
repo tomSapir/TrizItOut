@@ -9,6 +9,10 @@ public class UltraLightSwitch : MonoBehaviour, IInteractable
     public GameObject m_UltraVioletLighting;
 
     private bool m_IsSwitchOn = false;
+    public delegate void SwitchIntercatedDelegate();
+    public SwitchIntercatedDelegate OnInteractedHandler;
+
+
 
     public void Interact(DisplayManagerLevel1 currDisplay)
     {
@@ -21,5 +25,7 @@ public class UltraLightSwitch : MonoBehaviour, IInteractable
         {
             m_UltraVioletLighting.transform.GetChild(i).gameObject.GetComponent<SpriteRenderer>().enabled = m_IsSwitchOn;
         }
+
+        OnInteractedHandler?.Invoke();
     }
 }

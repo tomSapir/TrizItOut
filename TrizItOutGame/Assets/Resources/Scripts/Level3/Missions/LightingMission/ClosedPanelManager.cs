@@ -29,10 +29,12 @@ public class ClosedPanelManager : MonoBehaviour, IInteractable
         if (m_Inventory.GetComponent<InventoryManager>().m_CurrentSelectedSlot != null)
         {
             string name = m_Inventory.GetComponent<InventoryManager>().m_CurrentSelectedSlot.gameObject.transform.GetChild(0).GetComponent<Image>().sprite.name;
+            
 
             if (name == m_UnlockItem )
             {
                 panelOpenedHandler?.Invoke();
+                m_Inventory.GetComponent<InventoryManager>().m_CurrentSelectedSlot.GetComponent<SlotManager>().ClearSlot();
             }
         }
     }

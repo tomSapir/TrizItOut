@@ -26,15 +26,18 @@ public class SafeBoxMissionHandler : MonoBehaviour
     {
         m_Canvas = GameObject.Find("/MissionHandler/SafeBoxMission/Canvas");
         m_FlyTicket_Zoom.GetComponent<PickUpItem>().OnPickUp += OnTicketPickedUp;
-        m_Key_Zoom.GetComponent<PickUpItem>().OnPickUp += OnTicketPickedUp;
+        m_Key_Zoom.GetComponent<PickUpItem>().OnPickUp += onKeyPickedUp;
 
     }
 
     private void OnTicketPickedUp()
     {
         Destroy(m_FlyTicket);
-        Destroy(m_Key);
+    }
 
+    private void onKeyPickedUp()
+    {
+        Destroy(m_Key);
     }
 
     void Update()

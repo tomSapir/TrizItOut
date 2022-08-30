@@ -2,15 +2,23 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PauseMenuManager : MonoBehaviour
 {
     public static bool s_GameIsPaused = false;
     public GameObject m_PauseMenuUI;
+
+    public Toggle m_BackgroundMusicToggle;
+    public BackgroundMusicManager m_BackgroundMusicManager;
    
     void Start()
     {
-        
+        GameObject backgroundMusic = GameObject.Find("Background_Music_Manager");
+        if(backgroundMusic != null)
+        {
+            m_BackgroundMusicManager = backgroundMusic.GetComponent<BackgroundMusicManager>();
+        }
     }
 
     void Update()
@@ -44,5 +52,10 @@ public class PauseMenuManager : MonoBehaviour
     public void OnClickQuitBtn()
     {
         Application.Quit();
+    }
+
+    public void OnBackgroundMusicToggleChanged()
+    {
+        m_BackgroundMusicManager.OnToggleChanged();
     }
 }

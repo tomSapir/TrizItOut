@@ -31,16 +31,15 @@ public class BackgroundMusicManager : MonoBehaviour
 
         if(currentSceneIndex != m_PrevSceneIndex)
         {
-            if (currentSceneIndex >= 2)
-            {
-                Destroy(this.gameObject);
-            }
+           // if (currentSceneIndex >= 2)
+          //  {
+          //      Destroy(this.gameObject);
+          //  }
             /*
             switch(currentSceneIndex)
             {
                 case 2:
                     {
-                        // TODO: change this
                         m_AudioSource.volume = 0;
                         break;
                     }
@@ -57,9 +56,15 @@ public class BackgroundMusicManager : MonoBehaviour
                         break;
                     }
             }
-            */
+            
+    */
 
             m_PrevSceneIndex = currentSceneIndex;
         }
+    }
+
+    public void OnToggleChanged()
+    {
+        m_AudioSource.mute = !m_AudioSource.mute;
     }
 }

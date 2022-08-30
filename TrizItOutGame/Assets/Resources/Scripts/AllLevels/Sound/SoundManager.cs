@@ -173,5 +173,10 @@ public class SoundManager : MonoBehaviour
     {
         m_AudioSource.Stop();
     }
+
+    public void OnToggleChanged()
+    {
+        m_AudioSource.mute = !m_AudioSource.mute;
+    }
 }
 

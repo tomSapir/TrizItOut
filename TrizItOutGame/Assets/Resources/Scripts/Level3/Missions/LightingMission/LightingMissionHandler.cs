@@ -106,11 +106,11 @@ public class LightingMissionHandler : MonoBehaviour
     {
         if(s_AmountBluePressed == 1 && s_AmountGreenPressed == 2 && s_AmountRedPressed == 3 && UltraLighting.GetComponent<SpriteRenderer>().enabled == true)
         {
-            HidingHint.GetComponent<TextMeshPro>().enabled = true;
+            HidingHint.enabled = true;
         }
         else
         {
-            HidingHint.GetComponent<TextMeshPro>().enabled = false;
+            HidingHint.enabled = false;
         }
     }
 }

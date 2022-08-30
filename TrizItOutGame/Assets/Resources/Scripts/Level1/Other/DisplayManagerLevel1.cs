@@ -254,10 +254,10 @@ public class DisplayManagerLevel1 : MonoBehaviour
         SoundManager.PlaySound(SoundManager.k_WindowsStartupSoundName);
         m_ComputerDesktopPicture.SetActive(false);
         m_ComputerWindowsLogo.SetActive(true);
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(3);
         m_ComputerWindowsLogo.SetActive(false);
         m_ComputerDesktopPicture.SetActive(true);
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(3);
         m_NextLevelLoader.LoadNextLevel();
     }
 }

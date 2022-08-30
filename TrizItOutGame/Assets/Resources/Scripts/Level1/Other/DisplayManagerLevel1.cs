@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class DisplayManagerLevel1 : MonoBehaviour
 {
@@ -24,18 +25,25 @@ public class DisplayManagerLevel1 : MonoBehaviour
     public   GameObject m_FuzeHolder;
     private  bool m_FuzeIsSpawned = false;
     public   bool m_ComputerCableIsSpawned = false;
-    public   GameObject m_ComputerScreen;
     public   CommunicationManagerLevel1 m_CommunicationManager;
     public   NextLevelLoader m_NextLevelLoader;
+    public GameObject m_ComputerScreen;
+    public GameObject m_ComputerWindowsLogo;
+    public GameObject m_ComputerDesktopPicture;
 
     public GameObject m_Lightning1, m_Lightning2;
     private const string k_BackgroundPath = "Sprites/Level1/Main_Backgrounds/Background";
 
     public event PowerFellOffDelegate PowerFellOff;
+
+    public GameObject m_ReturnBtn;
+
     public enum State
     {
         normal, zoom, busy
     };
+
+    public static bool m_AlreadyLoadingNextLevel = false;
 
     public State m_CurrentState { get; set; }
     
@@ -204,7 +212,7 @@ public class DisplayManagerLevel1 : MonoBehaviour
 
     public void ChangeToNormalBackgroundAfterReturnFromZoom()
     {
-        CurrentState = DisplayManagerLevel1.State.normal;
+        CurrentState = State.normal;
         GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>(k_BackgroundPath + CurrentWall.ToString());
     }
 
@@ -216,18 +224,40 @@ public class DisplayManagerLevel1 : MonoBehaviour
         m_Lightning2.SetActive(true);
         m_CommunicationManager.ShowMsg("Looks like the power went out..");
         m_ComputerScreen.SetActive(false);
+        m_ComputerDesktopPicture.SetActive(false);
         m_ComputerCable.GetComponent<SpriteRenderer>().sprite = m_TornComputerCableSprite;
         m_ComputerCable.layer = 0;
         m_DarkMode.SetActive(true);
-
         PowerFellOff?.Invoke();
     }
 
     public void CheckIfFinishedLevel()
     {
-        if(m_FuzeIsSpawned && m_ComputerCableIsSpawned)
+        if(m_FuzeIsSpawned && m_ComputerCableIsSpawned && !m_AlreadyLoadingNextLevel)
         {
-            m_NextLevelLoader.LoadNextLevel();
+            m_AlreadyLoadingNextLevel = true;
+
+            if (CurrentState == State.zoom)
+            {
+                m_ReturnBtn.GetComponent<Button>().onClick.Invoke();
+            }
+
+            StartCoroutine(WaitBeforeLoadLevel2());
         }
+    }
+
+    
+    IEnumerator WaitBeforeLoadLevel2()
+    {
+        yield return new WaitForSeconds(1);
+        m_ComputerScreen.SetActive(true);
+        SoundManager.PlaySound(SoundManager.k_WindowsStartupSoundName);
+        m_ComputerDesktopPicture.SetActive(false);
+        m_ComputerWindowsLogo.SetActive(true);
+        yield return new WaitForSeconds(2);
+        m_ComputerWindowsLogo.SetActive(false);
+        m_ComputerDesktopPicture.SetActive(true);
+        yield return new WaitForSeconds(2);
+        m_NextLevelLoader.LoadNextLevel();
     }
 }

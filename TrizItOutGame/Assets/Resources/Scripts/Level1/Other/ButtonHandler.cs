@@ -19,7 +19,6 @@ public class ButtonHandler : MonoBehaviour
 
     private const string k_BackgroundPath = "Sprites/Level1/Main_Backgrounds/Background";
 
-    // Start is called before the first frame update
     void Start()
     {
         m_CurrentDisplay = GameObject.Find("DisplayImage").GetComponent<DisplayManagerLevel1>();

@@ -14,7 +14,6 @@ public class ComputerMission : MonoBehaviour
     public GameObject m_PowerFuzeContainer;
     public GameObject m_CommunicationInterface;
     public GameObject m_Computer;
-    //public bool m_IsConnected = false;
     private bool m_CanShowDust = true;
     private int m_AmountOfDust;
     private bool m_AlredyOn = false;
@@ -50,7 +49,10 @@ public class ComputerMission : MonoBehaviour
 
     void Update()
     {
-        ChangeImage();
+        if(!DisplayManagerLevel1.m_AlreadyLoadingNextLevel)
+        {
+            ChangeImage();
+        }
     }
 
     private void ChangeImage()

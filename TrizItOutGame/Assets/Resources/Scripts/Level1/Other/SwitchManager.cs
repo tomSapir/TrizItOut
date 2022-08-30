@@ -23,12 +23,10 @@ public class SwitchManager : MonoBehaviour, IInteractable
         {
             GetComponent<SpriteRenderer>().sprite = m_SwitchOffSprite;
             m_Dark.SetActive(true);
-            m_ComputerScreen.SetActive(false);
         }
         else
         {
             GetComponent<SpriteRenderer>().sprite = m_SwitchOnSprite;
-            m_ComputerScreen.SetActive(true);
             m_Dark.SetActive(false);
         }
 

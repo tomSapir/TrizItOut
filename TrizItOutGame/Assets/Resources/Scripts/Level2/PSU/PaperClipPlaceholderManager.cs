@@ -9,27 +9,19 @@ public class PaperClipPlaceholderManager : MonoBehaviour, IInteractable
 
     public int m_Id;
     public CommunicationManagerLevel2 m_CommunicationManagerLevel2;
-    public event PaperClipPressedDelegate PaperClipPressed;
     private string m_UnlockItem = "Box_Of_PaperClips";
     private GameObject m_Inventory;
     private SpriteRenderer m_ChildSpriteRenderer;
+
     private static bool m_PaperClipConnectedOnce = false;
+
+    public event PaperClipPressedDelegate PaperClipPressed;
 
     public void Start()
     {
         m_Inventory = GameObject.Find("Inventory");
-        if(m_Inventory == null)
-        {
-            Debug.LogError("m_Inventory is null.");
-        }
-
         m_ChildSpriteRenderer = transform.GetChild(0).GetComponent<SpriteRenderer>();
-        if (m_ChildSpriteRenderer == null)
-        {
-            Debug.LogError("m_ChildSpriteRenderer is null.");
-        }
         m_ChildSpriteRenderer.enabled = false;
-
         m_CommunicationManagerLevel2 = GameObject.Find("Communication_Iterface").GetComponent<CommunicationManagerLevel2>();
     }
 

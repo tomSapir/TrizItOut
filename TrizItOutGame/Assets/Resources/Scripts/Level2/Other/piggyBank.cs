@@ -14,7 +14,6 @@ public class piggyBank : MonoBehaviour, IInteractable
     public void Interact(DisplayManagerLevel1 currDisplay)
     {
         s_AmountOfTaps++;
-
         if(s_AmountOfTaps < 3)
         {
             SoundManager.PlaySound(SoundManager.k_PiggyBankKnockSoundName);
@@ -26,7 +25,6 @@ public class piggyBank : MonoBehaviour, IInteractable
         }
         else if(s_AmountOfTaps == 4)
         {
-
             GameObject inventory = GameObject.Find("/Canvas/Inventory");
             if(inventory != null)
             {

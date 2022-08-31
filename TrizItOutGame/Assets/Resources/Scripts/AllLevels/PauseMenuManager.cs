@@ -56,6 +56,9 @@ public class PauseMenuManager : MonoBehaviour
 
     public void OnBackgroundMusicToggleChanged()
     {
-        m_BackgroundMusicManager.OnToggleChanged();
+        if(m_BackgroundMusicManager != null)
+        {
+            m_BackgroundMusicManager.OnToggleChanged();
+        }
     }
 }

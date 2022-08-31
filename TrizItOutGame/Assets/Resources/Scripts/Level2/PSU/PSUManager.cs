@@ -28,10 +28,7 @@ public class PSUManager : MonoBehaviour
             if(m_CurrentPapersClip.SetEquals(m_SolutionPapersClip))
             {
                 turnOffChilds();
-                if (PsuMissionSolved != null)
-                {
-                    PsuMissionSolved();
-                }
+                PsuMissionSolved?.Invoke();
             }
         }
     }

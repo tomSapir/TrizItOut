@@ -8,7 +8,7 @@ using System;
 public class SafeBoxMissionHandler : MonoBehaviour
 {
     private HashSet<int> m_currentSolution = new HashSet<int>();
-    private readonly HashSet<int> m_ExpectedSolution = new HashSet<int>() { 1 };
+    private readonly HashSet<int> m_ExpectedSolution = new HashSet<int>() { 1,6,9,14,16 };
     private GameObject m_Canvas;
 
     public GameObject m_SafeBox_Opened_Zoom;

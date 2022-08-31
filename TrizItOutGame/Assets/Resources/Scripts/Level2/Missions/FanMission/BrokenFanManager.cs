@@ -9,6 +9,7 @@ public class BrokenFanManager : MonoBehaviour, IInteractable
 
     private GameObject m_Inventory;
     public GameObject m_Screw1, m_Screw2;
+    private bool m_IsHanged = false;
 
     public event BrokenFanClickedWithoutScrewsDelegate BrokenFanClickedWithoutScrews;
 
@@ -29,16 +30,20 @@ public class BrokenFanManager : MonoBehaviour, IInteractable
         if (currSelectedSlot != null &&
             currSelectedSlot.gameObject.transform.GetChild(0).GetComponent<Image>().sprite.name == "Two_Screws")
         {
+            m_IsHanged = true;
             gameObject.transform.position = new Vector3(-0.029f, 2.096f, 0);
             gameObject.transform.rotation = new Quaternion(0, 0, 0, 0);
-            m_Screw1.SetActive(true);
-            m_Screw2.SetActive(true);
+            m_Screw1.GetComponent<SpriteRenderer>().enabled = true;
+            m_Screw2.GetComponent<SpriteRenderer>().enabled = true;
             currSelectedSlot.GetComponent<SlotManager>().ClearSlot();
             inventoryManager.m_CurrentSelectedSlot = null;
         }
         else
         {
-            BrokenFanClickedWithoutScrews?.Invoke();
+            if(!m_IsHanged)
+            {
+                BrokenFanClickedWithoutScrews?.Invoke();
+            }
         }
     }
 }

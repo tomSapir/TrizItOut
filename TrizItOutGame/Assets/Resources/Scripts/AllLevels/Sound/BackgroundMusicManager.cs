@@ -35,7 +35,7 @@ public class BackgroundMusicManager : MonoBehaviour
           //  {
           //      Destroy(this.gameObject);
           //  }
-            /*
+            
             switch(currentSceneIndex)
             {
                 case 2:
@@ -57,7 +57,7 @@ public class BackgroundMusicManager : MonoBehaviour
                     }
             }
             
-    */
+    
 
             m_PrevSceneIndex = currentSceneIndex;
         }

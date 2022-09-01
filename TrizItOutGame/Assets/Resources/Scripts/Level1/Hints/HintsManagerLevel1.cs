@@ -98,7 +98,7 @@ public class HintsManagerLevel1 : MonoBehaviour
             m_ShowHintBtn.SetActive(false);
             m_HintWindow.SetActive(true);
             m_HintWindowText.SetActive(true);
-            m_HintWindowText.GetComponent<TextMeshProUGUI>().text = m_Hints[m_CurrentHintKey];
+            m_HintWindowText.GetComponent<Text>().text = m_Hints[m_CurrentHintKey];
         }
     }
 

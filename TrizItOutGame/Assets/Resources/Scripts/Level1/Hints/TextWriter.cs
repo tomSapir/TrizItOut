@@ -1,17 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TextWriter : MonoBehaviour
 {
-    private TextMeshProUGUI m_WhereToWrite;
+    private Text m_WhereToWrite;
     private string m_TextToWrite;
     private float m_TimePerCharacter;
     private float m_Timer;
     private int m_CharacterIndex;
 
-    public void AddWriter(TextMeshProUGUI i_WhereToWrite, string i_Text, float i_TimePerCharacter)
+    public void AddWriter(Text i_WhereToWrite, string i_Text, float i_TimePerCharacter)
     {
         m_WhereToWrite = i_WhereToWrite;
         m_TextToWrite = i_Text;

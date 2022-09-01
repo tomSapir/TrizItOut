@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 5168913525730113502}
   - component: {fileID: 5168913525730113441}
   - component: {fileID: 5168913525730113500}
-  - component: {fileID: 6506515125634725093}
-  m_Layer: 0
+  - component: {fileID: 1698635732}
+  m_Layer: 2
   m_Name: Computer_Cable
   m_TagString: Interactable
   m_Icon: {fileID: 0}
@@ -27,8 +27,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5168913525730113440}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 6.5075693, y: -2.5334675, z: -220.76044}
-  m_LocalScale: {x: 0.21083309, y: 0.16389266, z: 1}
+  m_LocalPosition: {x: 3.556, y: -3.168, z: -220.76044}
+  m_LocalScale: {x: 0.17846806, y: 0.18073265, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -99,7 +99,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.11731851, y: 0.2017417}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -110,9 +110,9 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 3.15, y: 9.18}
+  m_Size: {x: 4.55766, y: 10.295239}
   m_EdgeRadius: 0
---- !u!114 &6506515125634725093
+--- !u!114 &1698635732
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -128,4 +128,4 @@ MonoBehaviour:
   m_ItemProperty: 0
   m_DisplayImage: 
   m_ResultOfCombinationItemName: 
-  m_AmountOfUsage: 1
+  m_AmountOfUsage: 0

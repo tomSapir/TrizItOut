@@ -13,16 +13,9 @@ public class Dust : MonoBehaviour, IInteractable
     public event CleanDustAction OnCleanUp;
 
 
-    // Start is called before the first frame update
     void Start()
     {
         m_inventory = GameObject.Find("Inventory");
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 
     public void Interact(DisplayManagerLevel1 currDisplay)

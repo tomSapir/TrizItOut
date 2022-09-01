@@ -27,7 +27,7 @@ public class LevelLoaderManager : MonoBehaviour
         
         while (m_Slider.value != 1)
         {
-            m_Slider.value += (float)0.002;
+            m_Slider.value += (float)0.004;
             m_SliderText.GetComponent<Text>().text = ((int)(m_Slider.value * 100)).ToString() + "%";
 
             yield return null;

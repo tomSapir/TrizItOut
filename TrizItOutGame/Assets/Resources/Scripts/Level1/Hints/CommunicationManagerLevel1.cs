@@ -8,6 +8,7 @@ public class CommunicationManagerLevel1 : MonoBehaviour
     public GameObject m_CommunicationWindow;
     public GameObject m_CommunicationText;
     public TextWriter m_TextWriter;
+    
 
     void Start()
     {
@@ -25,7 +26,7 @@ public class CommunicationManagerLevel1 : MonoBehaviour
         m_CommunicationWindow.SetActive(true);
         m_CommunicationText.SetActive(true);
         m_TextWriter.AddWriter(m_CommunicationText.GetComponent<TextMeshProUGUI>(), i_Msg, 0.05f);
-        yield return new WaitForSeconds(4);
+        yield return new WaitForSeconds(6);
         m_CommunicationWindow.SetActive(false);
         m_CommunicationText.SetActive(false);
         m_CommunicationText.GetComponent<TextMeshProUGUI>().text = string.Empty;
@@ -33,6 +34,9 @@ public class CommunicationManagerLevel1 : MonoBehaviour
 
     public void onComputerChanged()
     {
-        ShowMsg("well,it's seems like it is open now, nice one!");
+        ShowMsg("well,it's seems like it is open. \n now we need to clean up the dust! but how? ");
     }
+
+    
+
 }

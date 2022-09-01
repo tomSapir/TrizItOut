@@ -46,11 +46,11 @@ public class Kattle : MonoBehaviour, IInteractable
         SoundManager.PlaySound(SoundManager.k_SwitchSoundName);
         yield return new WaitForSeconds(2);
         SoundManager.PlaySound(SoundManager.k_KattleBoilSoundName);
-        yield return new WaitForSeconds(4);
+        yield return new WaitForSeconds(2);
         m_KattleSmoke.SetActive(true);
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(2);
         m_Mirror.GetComponent<SpriteRenderer>().sprite = m_MirrorWithCodeSprite;
-        yield return new WaitForSeconds(6);
+        yield return new WaitForSeconds(2);
         m_KattleSmoke.SetActive(false);
 
         m_ButtonRightArrow.GetComponent<Button>().interactable = true;

@@ -15,7 +15,7 @@ public class CommunicationManagerLevel3 : MonoBehaviour
         m_CommunicationWindow.SetActive(true);
         m_CommunicationText.SetActive(true);
         m_TextWriter.AddWriter(m_CommunicationText.GetComponent<Text>(), i_Msg, 0.05f);
-        yield return new WaitForSeconds(4);
+        yield return new WaitForSeconds(8);
         m_CommunicationWindow.SetActive(false);
         m_CommunicationText.SetActive(false);
         m_CommunicationText.GetComponent<Text>().text = string.Empty;

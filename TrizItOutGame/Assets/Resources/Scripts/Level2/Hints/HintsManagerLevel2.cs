@@ -8,6 +8,7 @@ using UnityEngine.UI;
 public class HintsManagerLevel2 : MonoBehaviour
 {
     private string m_CurrentHintKey = null;
+    private bool m_Played = false;
 
     public GameObject m_HintWindow;
     public GameObject m_ShowHintBtn;
@@ -67,10 +68,17 @@ public class HintsManagerLevel2 : MonoBehaviour
 
         if (m_CurrentHintKey != null)
         {
+            if (!m_Played)
+            {
+                SoundManager.PlaySound(SoundManager.k_HintSound);
+                m_Played = true;
+            }
+
             m_ShowHintBtn.GetComponent<Image>().color = new Color32(207, 94, 40, 152);
         }
         else
         {
+            m_Played = false;
             m_ShowHintBtn.GetComponent<Image>().color = new Color32(56, 56, 56, 152);
         }
     }

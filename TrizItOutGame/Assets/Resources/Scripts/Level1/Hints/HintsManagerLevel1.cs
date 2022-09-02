@@ -82,6 +82,7 @@ public class HintsManagerLevel1 : MonoBehaviour
                 SoundManager.PlaySound(SoundManager.k_HintSound);
                 m_Played = true;
             }
+
             m_ShowHintBtn.GetComponent<Image>().color = new Color32(207, 94, 40, 152);
         }
         else

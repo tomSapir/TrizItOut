@@ -6755,7 +6755,7 @@ GameObject:
   - component: {fileID: 1106434138}
   - component: {fileID: 1106434137}
   m_Layer: 0
-  m_Name: Quit_Btn
+  m_Name: Main_Menu_Btn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6779,8 +6779,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -69, y: -10.3}
-  m_SizeDelta: {x: 59.8228, y: 26.9121}
+  m_AnchoredPosition: {x: -52.3281, y: -10.3}
+  m_SizeDelta: {x: 93.1665, y: 26.9121}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1106434137
 MonoBehaviour:
@@ -6828,7 +6828,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1842099415}
         m_TargetAssemblyTypeName: PauseMenuManager, Assembly-CSharp
-        m_MethodName: OnClickQuitBtn
+        m_MethodName: OnClickMainMenuBtn
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -8215,9 +8215,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'QUIT
-
-'
+  m_Text: Main Menu
 --- !u!222 &1307603951
 CanvasRenderer:
   m_ObjectHideFlags: 0

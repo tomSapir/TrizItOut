@@ -123,12 +123,12 @@ public class SoundManager : MonoBehaviour
                     }
                 case k_ElectricFallSoundName:
                     {
-                        m_AudioSource.PlayOneShot(s_ElectricFallSound);
+                        m_AudioSource.PlayOneShot(s_ElectricFallSound, 0.5f);
                         break;
                     }
                 case k_PiggyBankBreakSoundName:
                     {
-                        m_AudioSource.PlayOneShot(s_PiggyBankBreakSound);
+                        m_AudioSource.PlayOneShot(s_PiggyBankBreakSound, 0.7f);
                         break;
                     }
                 case k_ScrewOpenSoundName:

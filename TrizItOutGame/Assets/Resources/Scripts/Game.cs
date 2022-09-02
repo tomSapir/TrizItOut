@@ -22,7 +22,10 @@ public class Game : MonoBehaviour
 
     public void OnLevelLoading(int i_Level)
     {
-
+        if(i_Level > ReachedLevel)
+        {
+            ReachedLevel++;
+        }
     }
 
  

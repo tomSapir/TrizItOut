@@ -17,7 +17,17 @@ public class LevelLoaderManager : MonoBehaviour
 
         for (int i = 0; i < m_LevelsBtns.Length; i++)
         {
-            Debug.Log(i < reachedLevel);
+            Color c = m_LevelsBtns[i].GetComponent<Image>().color;
+            if(i < reachedLevel)
+            {
+                m_LevelsBtns[i].GetComponent<Image>().color = new Color(c.r, c.g, c.b, 1f);
+            }
+            else
+            {
+                m_LevelsBtns[i].GetComponent<Image>().color = new Color(c.r, c.g, c.b, 0.3f);
+            }
+
+            
             m_LevelsBtns[i].GetComponent<Button>().interactable = i < reachedLevel;
         }
     }

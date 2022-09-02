@@ -11,6 +11,7 @@ public class Kattle : MonoBehaviour, IInteractable
     public  CommunicationManagerLevel1 m_CommunicationManager;
     public  GameObject m_ButtonRightArrow;
     private GameObject m_SafeBoxClosed;
+    public SpriteRenderer m_PasswordOnMirrorSpriteRenderer;
 
     void Start()
     {
@@ -48,11 +49,18 @@ public class Kattle : MonoBehaviour, IInteractable
         SoundManager.PlaySound(SoundManager.k_KattleBoilSoundName);
         yield return new WaitForSeconds(3);
         m_KattleSmoke.SetActive(true);
-        yield return new WaitForSeconds(3);
-        m_Mirror.GetComponent<SpriteRenderer>().sprite = m_MirrorWithCodeSprite;
         yield return new WaitForSeconds(2);
-        m_KattleSmoke.SetActive(false);
 
+        for(float i = 0.05f; i < 1f; i += 0.05f) 
+        {
+            Color c = m_PasswordOnMirrorSpriteRenderer.color;
+            c.a = i;
+            m_PasswordOnMirrorSpriteRenderer.color = c;
+            yield return new WaitForSeconds(0.1f);
+        }
+
+        yield return new WaitForSeconds(3);
+        m_KattleSmoke.SetActive(false);
         m_ButtonRightArrow.GetComponent<Button>().interactable = true;
         if (m_SafeBoxClosed != null)
         {

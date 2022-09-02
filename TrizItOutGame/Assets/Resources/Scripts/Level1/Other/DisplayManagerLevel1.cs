@@ -30,6 +30,7 @@ public class DisplayManagerLevel1 : MonoBehaviour
     public GameObject m_ComputerScreen;
     public GameObject m_ComputerWindowsLogo;
     public GameObject m_ComputerDesktopPicture;
+    public Button m_LeftButton;
 
     public GameObject m_Lightning1, m_Lightning2;
     private const string k_BackgroundPath = "Sprites/Level1/Main_Backgrounds/Background";
@@ -218,6 +219,8 @@ public class DisplayManagerLevel1 : MonoBehaviour
 
     IEnumerator WaitBeforeDarkMode(int sec)
     {
+        m_LeftButton.interactable = false;
+        m_ComputerCable.layer = 2;
         yield return new WaitForSeconds(sec);
         SoundManager.PlaySound(SoundManager.k_ElectricFallSoundName);
         m_Lightning1.SetActive(true);
@@ -226,9 +229,11 @@ public class DisplayManagerLevel1 : MonoBehaviour
         m_ComputerScreen.SetActive(false);
         m_ComputerDesktopPicture.SetActive(false);
         m_ComputerCable.GetComponent<SpriteRenderer>().sprite = m_TornComputerCableSprite;
-        m_ComputerCable.layer = 0;
         m_DarkMode.SetActive(true);
         PowerFellOff?.Invoke();
+        yield return new WaitForSeconds(3);
+        m_LeftButton.interactable = true;
+        m_ComputerCable.layer = 0;
     }
 
     public void CheckIfFinishedLevel()

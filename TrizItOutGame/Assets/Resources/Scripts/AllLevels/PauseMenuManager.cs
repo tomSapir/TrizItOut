@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PauseMenuManager : MonoBehaviour
 {
@@ -49,9 +50,9 @@ public class PauseMenuManager : MonoBehaviour
         s_GameIsPaused = true;
     } 
 
-    public void OnClickQuitBtn()
+    public void OnClickMainMenuBtn()
     {
-        Application.Quit();
+        SceneManager.LoadScene(0);
     }
 
     public void OnBackgroundMusicToggleChanged()

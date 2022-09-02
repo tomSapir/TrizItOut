@@ -12,7 +12,6 @@ public class BackgroundMusicManager : MonoBehaviour
     void Start()
     {
         DontDestroyOnLoad(this.gameObject);
-        
         if(m_Instance == null)
         {
             m_Instance = this;
@@ -31,11 +30,6 @@ public class BackgroundMusicManager : MonoBehaviour
 
         if(currentSceneIndex != m_PrevSceneIndex)
         {
-           // if (currentSceneIndex >= 2)
-          //  {
-          //      Destroy(this.gameObject);
-          //  }
-            
             switch(currentSceneIndex)
             {
                 case 2:

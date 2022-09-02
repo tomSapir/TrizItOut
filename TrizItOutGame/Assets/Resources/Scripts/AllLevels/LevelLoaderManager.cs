@@ -8,7 +8,19 @@ public class LevelLoaderManager : MonoBehaviour
 {
     public Slider m_Slider;
     public GameObject m_SliderText;
-    public GameObject[] m_LevelsBtns; 
+    public GameObject[] m_LevelsBtns;
+
+    void Start()
+    {
+        Game gameManager = GameObject.Find("GameManager").GetComponent<Game>();
+        int reachedLevel = gameManager.ReachedLevel;
+
+        for (int i = 0; i < m_LevelsBtns.Length; i++)
+        {
+            Debug.Log(i < reachedLevel);
+            m_LevelsBtns[i].GetComponent<Button>().interactable = i < reachedLevel;
+        }
+    }
 
     public void LoadLevel(int i_SceneIndex)
     {

@@ -4,21 +4,21 @@ using UnityEngine;
 
 public class KattleSmokeManager : MonoBehaviour
 {
-    private LineRenderer line;
-    private Transform tr;
-    private Vector3[] positions;
-    private Vector3[] directions;
-    private int i;
-    private float timeSinceUpdate = 0f;
-    private Material lineMaterial;
-    private float lineSegment = 0f;
-    private int currentNumberOfPoints = 2;
-    private bool allPointsAdded = false;
-    private int numberOfPoints = 10;
-    private float riseSpeed = 0.25f;
-    private float spread = 0.2f;
-    private float updateSpeed = 0.25f;
-    private Vector3 tempVec;
+    public LineRenderer line;
+    public Transform tr;
+    public Vector3[] positions;
+    public Vector3[] directions;
+    public int i;
+    public float timeSinceUpdate = 0f;
+    public Material lineMaterial;
+    public float lineSegment = 0f;
+    public int currentNumberOfPoints = 2;
+    public bool allPointsAdded = false;
+    public int numberOfPoints = 10;
+    public float riseSpeed = 0.25f;
+    public float spread = 0.2f;
+    public float updateSpeed = 0.25f;
+    public Vector3 tempVec;
 
     void Start()
     {

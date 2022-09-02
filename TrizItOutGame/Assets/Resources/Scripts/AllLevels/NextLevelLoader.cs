@@ -5,9 +5,19 @@ using UnityEngine.UI;
 
 public class NextLevelLoader : MonoBehaviour
 {
+    public delegate void LoadingNextLevelDelegate(int i_Level);
+
     public Animator m_Transition;
     public float m_TransitionTime = 1f;
     public Text m_Text;
+
+    public event LoadingNextLevelDelegate LoadingNextLevel;
+
+    void Start()
+    {
+        Game gameManager = GameObject.Find("GameManager").GetComponent<Game>();
+        LoadingNextLevel += gameManager.OnLevelLoading;
+    }
 
     public void LoadNextLevel()
     {
@@ -22,5 +32,6 @@ public class NextLevelLoader : MonoBehaviour
         yield return new WaitForSeconds(m_TransitionTime);
 
         SceneManager.LoadScene(i_LevelIndex);
+        LoadingNextLevel?.Invoke(i_LevelIndex - 1);
     }
 }

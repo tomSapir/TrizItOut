@@ -11879,14 +11879,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1315602446}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -66.86, y: 0.12, z: -193.20325}
-  m_LocalScale: {x: 0.3739951, y: 0.3739951, z: 0.3739951}
+  m_LocalRotation: {x: -0, y: -0, z: 0.5351009, w: 0.8447882}
+  m_LocalPosition: {x: -66.74, y: -1.19, z: -193.20325}
+  m_LocalScale: {x: 0.27193183, y: 0.27193183, z: 0.27193183}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 782921309}
   m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 64.702}
 --- !u!61 &1315602448
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -11900,18 +11900,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 1.9573139, y: 0.5189028}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 7.01, y: 8.42}
-    newSize: {x: 7.01, y: 8.42}
+    oldSize: {x: 11.96, y: 18.36}
+    newSize: {x: 11.96, y: 18.36}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 7.01, y: 8.42}
+  m_Size: {x: 8.045693, y: 15.7680855}
   m_EdgeRadius: 0
 --- !u!114 &1315602449
 MonoBehaviour:
@@ -11976,7 +11976,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 7.01, y: 8.42}
+  m_Size: {x: 11.96, y: 18.36}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -16742,7 +16742,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 7.01, y: 8.42}
+  m_Size: {x: 11.96, y: 18.36}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -16755,14 +16755,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1887073903}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -11.330956, y: 5.8996987, z: -193.20325}
-  m_LocalScale: {x: 0.12550735, y: 0.12550735, z: 0.12550735}
+  m_LocalRotation: {x: -0, y: -0, z: 0.5504876, w: 0.83484334}
+  m_LocalPosition: {x: -11.263, y: 5.398, z: -193.20325}
+  m_LocalScale: {x: 0.07650928, y: 0.07650928, z: 0.07650928}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 782921309}
   m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 66.801}
 --- !u!1 &1898617073
 GameObject:
   m_ObjectHideFlags: 0

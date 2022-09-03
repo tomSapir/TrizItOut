@@ -43,7 +43,7 @@ public class MainCameraManagerLevel3 : MonoBehaviour
 
     private void Start()
     {
-        GameObject.Find("Door_Lock").GetComponent<ChangeToMission>().MissionWasChosen += Mission_Interact;
+        GameObject.Find("Door").GetComponent<ChangeToMission>().MissionWasChosen += Mission_Interact;
         GameObject.Find("SafeBox_Close").GetComponent<ChangeToMission>().MissionWasChosen += Mission_Interact;
         GameObject.Find("OpenPanel").GetComponent<ChangeToMission>().MissionWasChosen += Mission_Interact;
 

@@ -10,6 +10,7 @@ public class PSUManager : MonoBehaviour
     private readonly HashSet<int> m_SolutionPapersClip = new HashSet<int>() { 0, 3, 5, 8, 10, 19, 27, 28, 30};
 
     public event PsuMissionSolvedDelegate PsuMissionSolved;
+    public GameObject m_QuizSound;
 
     void Start()
     {
@@ -29,6 +30,8 @@ public class PSUManager : MonoBehaviour
             {
                 turnOffChilds();
                 PsuMissionSolved?.Invoke();
+                //check how should we do this with tom - should enable sound here & stop sound when the quiz is over
+                //m_QuizSound.GetComponent<AudioSource>().enable = true;
             }
         }
     }

@@ -70,13 +70,13 @@ public class QuizMissionHandler : MonoBehaviour
 
     private void handleWin()
     {
-        Debug.Log("WIN");     
         m_QuizGame.SetActive(false);
         m_QuizEndOfGame.SetActive(true);
     }
 
     public void OnClickContinueBtn()
     {
-        SceneManager.LoadScene(4);
+        NextLevelLoader nextLevelLoader = GameObject.Find("Next_Level_Loader").GetComponent<NextLevelLoader>();
+        nextLevelLoader.LoadNextLevel();
     }
 }

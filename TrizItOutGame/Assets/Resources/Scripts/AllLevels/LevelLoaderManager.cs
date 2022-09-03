@@ -12,24 +12,29 @@ public class LevelLoaderManager : MonoBehaviour
 
     void Start()
     {
-        Game gameManager = GameObject.Find("GameManager").GetComponent<Game>();
-        int reachedLevel = gameManager.ReachedLevel;
+        GameObject gameManagerObject = GameObject.Find("GameManager");
 
-        for (int i = 0; i < m_LevelsBtns.Length; i++)
+        if(gameManagerObject != null)
         {
-            Color c = m_LevelsBtns[i].GetComponent<Image>().color;
-            if(i < reachedLevel)
-            {
-                m_LevelsBtns[i].GetComponent<Image>().color = new Color(c.r, c.g, c.b, 1f);
-            }
-            else
-            {
-                m_LevelsBtns[i].GetComponent<Image>().color = new Color(c.r, c.g, c.b, 0.3f);
-            }
+            Game gameManager = gameManagerObject.GetComponent<Game>();
+            int reachedLevel = gameManager.ReachedLevel;
 
-            
-            m_LevelsBtns[i].GetComponent<Button>().interactable = i < reachedLevel;
+            for (int i = 0; i < m_LevelsBtns.Length; i++)
+            {
+                Color c = m_LevelsBtns[i].GetComponent<Image>().color;
+                if (i < reachedLevel)
+                {
+                    m_LevelsBtns[i].GetComponent<Image>().color = new Color(c.r, c.g, c.b, 1f);
+                }
+                else
+                {
+                    m_LevelsBtns[i].GetComponent<Image>().color = new Color(c.r, c.g, c.b, 0.3f);
+                }
+
+                m_LevelsBtns[i].GetComponent<Button>().interactable = i < reachedLevel;
+            }
         }
+    
     }
 
     public void LoadLevel(int i_SceneIndex)
@@ -56,7 +61,12 @@ public class LevelLoaderManager : MonoBehaviour
         }
 
         m_SliderText.GetComponent<Text>().text = "100%";
+        Debug.Log("Loading Scene with index " + i_SceneIndex);
         SceneManager.LoadScene(i_SceneIndex);
     }
 
+    public void OnClickBackBtn()
+    {
+        SceneManager.LoadScene(0);
+    }
 }

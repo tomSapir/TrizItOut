@@ -30,7 +30,6 @@ public class ComputerMission : MonoBehaviour
         }
 
         m_AmountOfDust = m_Dusts.Length;
-        Debug.Log("Amount of dust = " + m_AmountOfDust);
         subscribeToDustCleanUp();
         m_TornFuze.GetComponent<PickUpItem>().OnPickUp += activeFuzeContainer;
     }

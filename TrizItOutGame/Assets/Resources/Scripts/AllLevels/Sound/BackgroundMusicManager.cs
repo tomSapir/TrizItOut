@@ -32,6 +32,12 @@ public class BackgroundMusicManager : MonoBehaviour
         {
             switch(currentSceneIndex)
             {
+                case 0:
+                case 1:
+                    {
+                        m_AudioSource.volume = 1;
+                        break;
+                    }
                 case 2:
                     {
                         m_AudioSource.volume = 0;

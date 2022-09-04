@@ -8,6 +8,8 @@ public class BackgroundMusicManager : MonoBehaviour
     public static BackgroundMusicManager m_Instance;
     private AudioSource m_AudioSource;
     private int m_PrevSceneIndex = 0;
+    private bool m_QuizMusicAlreadyStarted = false;
+    public static bool QuizStartWorking { get; set; } = false;
 
     void Start()
     {
@@ -27,8 +29,9 @@ public class BackgroundMusicManager : MonoBehaviour
     void Update()
     {
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
-
-        if(currentSceneIndex != m_PrevSceneIndex)
+        checkIfNeedToPlayQuizMusic(currentSceneIndex);
+       
+        if (currentSceneIndex != m_PrevSceneIndex)
         {
             switch(currentSceneIndex)
             {
@@ -40,26 +43,37 @@ public class BackgroundMusicManager : MonoBehaviour
                     }
                 case 2:
                     {
+                        // TODO: change this
                         m_AudioSource.volume = 0;
                         break;
                     }
                 case 3:
                     {
-                        // TODO: change this
                         m_AudioSource.volume = 0;
                         break;
                     }
                 case 4:
                     {
-                        // TODO: change this
                         m_AudioSource.volume = 0;
                         break;
                     }
             }
             
-    
-
             m_PrevSceneIndex = currentSceneIndex;
+        }
+    }
+
+    private void checkIfNeedToPlayQuizMusic(int i_SceneIndex)
+    {
+        if(i_SceneIndex == 3)
+        {
+            if (QuizStartWorking && !m_QuizMusicAlreadyStarted)
+            {
+                m_AudioSource.clip = SoundManager.FindAudioClip("quizBackgroundMusic");
+                m_AudioSource.volume = 1;
+                m_QuizMusicAlreadyStarted = true;
+                m_AudioSource.Play();
+            }
         }
     }
 

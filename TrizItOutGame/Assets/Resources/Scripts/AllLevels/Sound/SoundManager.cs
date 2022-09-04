@@ -184,5 +184,10 @@ public class SoundManager : MonoBehaviour
     {
         m_AudioSource.mute = !m_AudioSource.mute;
     }
+
+    public static AudioClip FindAudioClip(string i_Name)
+    {
+        return Resources.Load<AudioClip>(sr_SoundPath + i_Name);
+    }
 }
 

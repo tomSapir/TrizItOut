@@ -41,6 +41,7 @@ public class MissionsHandlerLevel2 : MonoBehaviour
         m_PsuSolved = true;
         m_TvScreen1.SetActive(true);
         m_TvScreen2.SetActive(true);
+        BackgroundMusicManager.QuizStartWorking = true;
     }
 
     private void checkIfFanAndPsuSolved()

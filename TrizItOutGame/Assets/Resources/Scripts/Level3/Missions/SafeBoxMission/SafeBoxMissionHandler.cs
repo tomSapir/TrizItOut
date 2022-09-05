@@ -21,23 +21,31 @@ public class SafeBoxMissionHandler : MonoBehaviour
     public GameObject m_Key;
 
     public GameObject m_Indicator;
+    //private GameObject m_Door;
+    private BoxCollider2D m_DoorBoxCollider;
 
     void Start()
     {
         m_Canvas = GameObject.Find("/MissionHandler/SafeBoxMission/Canvas");
         m_FlyTicket_Zoom.GetComponent<PickUpItem>().OnPickUp += OnTicketPickedUp;
         m_Key_Zoom.GetComponent<PickUpItem>().OnPickUp += onKeyPickedUp;
-
+        //m_Door = GameObject.Find("Door");
+        m_DoorBoxCollider  = GameObject.Find("Door").GetComponent<BoxCollider2D>();
     }
 
     private void OnTicketPickedUp()
     {
         Destroy(m_FlyTicket);
+        m_DoorBoxCollider.enabled = false;
+        m_DoorBoxCollider.enabled = true;
+
     }
 
     private void onKeyPickedUp()
     {
         Destroy(m_Key);
+        m_DoorBoxCollider.enabled = false;
+        m_DoorBoxCollider.enabled = true;
     }
 
     void Update()

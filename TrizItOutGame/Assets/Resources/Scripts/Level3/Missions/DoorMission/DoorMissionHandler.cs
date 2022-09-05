@@ -6,6 +6,7 @@ using UnityEngine;
 public class DoorMissionHandler : MonoBehaviour
 {
     public TMPro.TextMeshProUGUI m_ScreenText;
+    public Action doorWasOpendEvent;
 
     private GameObject m_OpenDoor;
     private string m_CorrectCode = "2468";
@@ -38,6 +39,7 @@ public class DoorMissionHandler : MonoBehaviour
             if (m_CurrentCode == m_CorrectCode)
             {
                 Debug.Log("Correct PASS!!!");
+                doorWasOpendEvent?.Invoke();
                 SoundManager.PlaySound(SoundManager.k_CorrectPasswordSoundName);
                 m_OpenDoor.GetComponent<SpriteRenderer>().enabled = true;
             }

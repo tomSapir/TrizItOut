@@ -17,6 +17,7 @@ public class TextWriter : MonoBehaviour
         m_TextToWrite = i_Text;
         m_TimePerCharacter = i_TimePerCharacter;
         m_CharacterIndex = 0;
+        print("In TextWriter. The message is: " + i_Text);
     }
 
     void Update()

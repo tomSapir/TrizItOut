@@ -9,6 +9,7 @@ public class MainCameraManagerLevel3 : MonoBehaviour
     private int m_PreviousWallIndex = 1;
     private int m_WallBeforeMission = 0;
     private float m_DistanceToMoveXOfCamera = 17.8f;
+    private bool m_CanGoRight = false;
 
     [SerializeField]
     private GameObject m_LeftBtn, m_RightBtn, m_GoBackBtn;
@@ -46,6 +47,7 @@ public class MainCameraManagerLevel3 : MonoBehaviour
         GameObject.Find("Door").GetComponent<ChangeToMission>().MissionWasChosen += Mission_Interact;
         GameObject.Find("SafeBox_Close").GetComponent<ChangeToMission>().MissionWasChosen += Mission_Interact;
         GameObject.Find("OpenPanel").GetComponent<ChangeToMission>().MissionWasChosen += Mission_Interact;
+        GameObject.Find("Door_Mission").GetComponent<DoorMissionHandler>().doorWasOpendEvent += onDoorWasOpen;
 
     }
 
@@ -64,6 +66,8 @@ public class MainCameraManagerLevel3 : MonoBehaviour
     {
         bool leftBtnShouldAppear = m_CurrentWallIndex > 1;
         bool rightBtnShouldApper = m_CurrentWallIndex >= 1 && m_CurrentWallIndex < sr_MostRightWallIndex;
+        if (m_CurrentWallIndex == 2 && m_CanGoRight == false)
+            rightBtnShouldApper = false;
         bool backBtnShouldAppear = m_CurrentWallIndex < 1;
 
         m_LeftBtn.SetActive(leftBtnShouldAppear);
@@ -94,5 +98,11 @@ public class MainCameraManagerLevel3 : MonoBehaviour
         {
             m_LeftBtn.GetComponent<Button>().onClick.Invoke();
         }
+    }
+
+    private void onDoorWasOpen()
+    {
+        m_CanGoRight = true;
+
     }
 }

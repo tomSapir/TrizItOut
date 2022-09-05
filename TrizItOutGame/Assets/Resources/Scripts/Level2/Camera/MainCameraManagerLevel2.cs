@@ -36,13 +36,6 @@ public class MainCameraManagerLevel2 : MonoBehaviour
             }
         }
     }
-
-    void Update()
-    {
-        manageCameraPosition();
-        manageLeftAndRightsBtnsActivation();
-    }
-
     private void Start()
     {
         ChangeToMission fanMission = GameObject.Find("Static_Fan").GetComponent<ChangeToMission>();
@@ -54,6 +47,12 @@ public class MainCameraManagerLevel2 : MonoBehaviour
         GameObject.Find("Peep_Hole4").GetComponent<ChangeToMission>().MissionWasChosen += Mission_Interact;
 
         m_QuizScreen.MissionWasChosen += Mission_Interact;
+    }
+
+    void Update()
+    {
+        manageCameraPosition();
+        manageLeftAndRightsBtnsActivation();
     }
 
     private void manageCameraPosition()

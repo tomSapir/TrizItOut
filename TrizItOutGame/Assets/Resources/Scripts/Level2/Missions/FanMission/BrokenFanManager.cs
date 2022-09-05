@@ -6,12 +6,14 @@ using UnityEngine.UI;
 public class BrokenFanManager : MonoBehaviour, IInteractable
 {
     public delegate void BrokenFanClickedWithoutScrewsDelegate();
+    public delegate void BrokenFanSolvedDelegate();
 
     private GameObject m_Inventory;
     public GameObject m_Screw1, m_Screw2;
     private bool m_IsHanged = false;
 
     public event BrokenFanClickedWithoutScrewsDelegate BrokenFanClickedWithoutScrews;
+    public event BrokenFanSolvedDelegate BrokenFanSolved;
 
     void Start()
     {
@@ -37,6 +39,7 @@ public class BrokenFanManager : MonoBehaviour, IInteractable
             m_Screw2.GetComponent<SpriteRenderer>().enabled = true;
             currSelectedSlot.GetComponent<SlotManager>().ClearSlot();
             inventoryManager.m_CurrentSelectedSlot = null;
+            BrokenFanSolved?.Invoke();
         }
         else
         {

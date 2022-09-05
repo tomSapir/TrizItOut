@@ -12026,10 +12026,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 7438353501891550189, guid: f65de8361ae559f44a2b228121daa4ad, type: 3}
-      propertyPath: m_Alpha
-      value: 0
-      objectReference: {fileID: 0}
+    - target: {fileID: 7311128248164540219, guid: f65de8361ae559f44a2b228121daa4ad, type: 3}
+      propertyPath: m_TextWriter
+      value: 
+      objectReference: {fileID: 1143253791}
     - target: {fileID: 7438353502589281475, guid: f65de8361ae559f44a2b228121daa4ad, type: 3}
       propertyPath: m_RootOrder
       value: 11

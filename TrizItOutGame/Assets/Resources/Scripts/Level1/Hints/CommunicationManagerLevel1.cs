@@ -7,7 +7,6 @@ public class CommunicationManagerLevel1 : MonoBehaviour
     public GameObject m_CommunicationWindow;
     public GameObject m_CommunicationText;
     public TextWriter m_TextWriter;
-    private int i = 0;
   
     void Start()
     {
@@ -37,7 +36,4 @@ public class CommunicationManagerLevel1 : MonoBehaviour
     {
         ShowMsg("well,it's seems like it is open. \n now we need to clean up the dust! but how? ");
     }
-
-    
-
 }

@@ -48,12 +48,15 @@ TagManager:
   - name: Fan
     uniqueID: 33182475
     locked: 0
-  - name: UI
-    uniqueID: 885664955
-    locked: 0
   - name: PeepHoles
     uniqueID: 3933934917
     locked: 0
   - name: LightingPanel
     uniqueID: 1451297567
+    locked: 0
+  - name: RecycleBinWall
+    uniqueID: 65782595
+    locked: 0
+  - name: UI
+    uniqueID: 885664955
     locked: 0

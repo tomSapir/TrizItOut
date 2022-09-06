@@ -41,6 +41,7 @@ public class DoorMissionHandler : MonoBehaviour
                 Debug.Log("Correct PASS!!!");
                 doorWasOpendEvent?.Invoke();
                 SoundManager.PlaySound(SoundManager.k_CorrectPasswordSoundName);
+                GameObject.Find("Door").GetComponent<SpriteRenderer>().enabled = false;
                 m_OpenDoor.GetComponent<SpriteRenderer>().enabled = true;
             }
             else

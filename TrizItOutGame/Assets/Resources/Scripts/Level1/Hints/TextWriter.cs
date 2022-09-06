@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -19,6 +20,15 @@ public class TextWriter : MonoBehaviour
         m_CharacterIndex = 0;
         print("In TextWriter. The message is: " + i_Text);
     }
+
+    //public void AddWriter(TextMeshPro i_WhereToWrite, string i_Text, float i_TimePerCharacter)
+    //{
+    //    m_WhereToWrite = i_WhereToWrite;
+    //    m_TextToWrite = i_Text;
+    //    m_TimePerCharacter = i_TimePerCharacter;
+    //    m_CharacterIndex = 0;
+    //    print("In TextWriter. The message is: " + i_Text);
+    //}
 
     void Update()
     {

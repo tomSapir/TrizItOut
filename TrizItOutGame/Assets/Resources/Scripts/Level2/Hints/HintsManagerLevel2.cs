@@ -92,7 +92,7 @@ public class HintsManagerLevel2 : MonoBehaviour
         {
             m_ShowHintBtn.SetActive(false);
             m_HintWindow.SetActive(true);
-            m_HintWindowTitleText.text = m_CurrentHintKey;
+            m_HintWindowTitleText.text = "Triz Tip: " + m_CurrentHintKey;
             m_HintWindowDescriptionText.text = m_Hints[m_CurrentHintKey];
         }
     }

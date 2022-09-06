@@ -73,7 +73,7 @@ public class HintsManagerLevel2 : MonoBehaviour
         {
             if (!m_Played)
             {
-                SoundManager.PlaySound(SoundManager.k_HintSound);
+                SoundManager.PlaySound(SoundManager.k_HintSoundName);
                 m_Played = true;
             }
 

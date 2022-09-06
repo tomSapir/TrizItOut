@@ -11,7 +11,8 @@ public class SoundManager : MonoBehaviour
                             s_KattleBoilSound, s_MoveBigPotSound,
                             s_ElectricFallSound, s_PiggyBankBreakSound,
                             s_ScrewOpenSound, s_QuizCorrectAnswerSound, s_QuizWrongAnswerSound,
-                            s_PiggyBankKnockSound, s_FanSound, s_ElectricitySound, s_WindowsStartupSound, s_HintSound;
+                            s_PiggyBankKnockSound, s_FanSound, s_ElectricitySound, s_WindowsStartupSound,
+                            s_HintSound, s_BroomSound;
 
     public static AudioSource m_AudioSource;
 
@@ -34,7 +35,8 @@ public class SoundManager : MonoBehaviour
     public const string k_FanSoundName = "fanSound";
     public const string k_ElectricitySoundName = "electricitySound";
     public const string k_WindowsStartupSoundName = "windowsStartupSound";
-    public const string k_HintSound = "hintSound";
+    public const string k_HintSoundName = "hintSound";
+    public const string k_BroomSoundName = "broomSound";
 
     public static readonly string sr_SoundPath = "Sounds/";
 
@@ -61,7 +63,9 @@ public class SoundManager : MonoBehaviour
         s_FanSound = Resources.Load<AudioClip>(sr_SoundPath + k_FanSoundName);
         s_ElectricitySound = Resources.Load<AudioClip>(sr_SoundPath + k_ElectricitySoundName);
         s_WindowsStartupSound = Resources.Load<AudioClip>(sr_SoundPath + k_WindowsStartupSoundName);
-        s_HintSound = Resources.Load<AudioClip>(sr_SoundPath + k_HintSound);
+        s_HintSound = Resources.Load<AudioClip>(sr_SoundPath + k_HintSoundName);
+        s_BroomSound = Resources.Load<AudioClip>(sr_SoundPath + k_BroomSoundName);
+
         m_AudioSource = GetComponent<AudioSource>();
     }
 
@@ -166,9 +170,14 @@ public class SoundManager : MonoBehaviour
                         m_AudioSource.PlayOneShot(s_WindowsStartupSound);
                         break;
                     }
-                case k_HintSound:
+                case k_HintSoundName:
                     {
                         m_AudioSource.PlayOneShot(s_HintSound);
+                        break;
+                    }
+                case k_BroomSoundName:
+                    {
+                        m_AudioSource.PlayOneShot(s_BroomSound);
                         break;
                     }
             }

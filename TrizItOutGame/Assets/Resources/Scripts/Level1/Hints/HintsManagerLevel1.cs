@@ -12,8 +12,12 @@ public class HintsManagerLevel1 : MonoBehaviour
 
     public GameObject m_HintWindow;
     public GameObject m_ShowHintBtn;
-    public GameObject m_HintWindowText;
+    public Text m_HintWindowTitleText;
+    public Text m_HintWindowDescriptionText;
     public GameObject m_Inventory;
+
+    public Sprite m_ShowHintBtnNormalSprite;
+    public Sprite m_ShowHintBtnHighlightSprite;
 
     public GameObject m_Kattle;
     private Dictionary<string, string> m_Hints = new Dictionary<string, string>();
@@ -26,13 +30,13 @@ public class HintsManagerLevel1 : MonoBehaviour
     private void fillHintsData()
     {
         m_Hints.Add("Merging", 
-            string.Format("Triz Tip: Merging {0}Make two diffrent objects work together to get a diffrent functionality.", 
+            string.Format("Make two diffrent objects work together to get a diffrent functionality.", 
             Environment.NewLine));
         m_Hints.Add("Universality", 
-            string.Format("Triz Tip: Universality {0}Make a part or object perform multiple functions.", 
+            string.Format("Make a part or object perform multiple functions.", 
             Environment.NewLine));
         m_Hints.Add("Segmentation",
-           string.Format("Triz Tip: Segmentation {0}Divide an object into independent parts.",
+           string.Format("Divide an object into independent parts.",
             Environment.NewLine));
     }
 
@@ -83,12 +87,13 @@ public class HintsManagerLevel1 : MonoBehaviour
                 m_Played = true;
             }
 
-            m_ShowHintBtn.GetComponent<Image>().color = new Color32(207, 94, 40, 152);
+
+            m_ShowHintBtn.GetComponent<Image>().sprite = m_ShowHintBtnHighlightSprite;
         }
         else
         {
             m_Played = false;
-            m_ShowHintBtn.GetComponent<Image>().color = new Color32(56, 56, 56, 152);
+            m_ShowHintBtn.GetComponent<Image>().sprite = m_ShowHintBtnNormalSprite;
         }
     }
 
@@ -98,8 +103,8 @@ public class HintsManagerLevel1 : MonoBehaviour
         {
             m_ShowHintBtn.SetActive(false);
             m_HintWindow.SetActive(true);
-            m_HintWindowText.SetActive(true);
-            m_HintWindowText.GetComponent<Text>().text = m_Hints[m_CurrentHintKey];
+            m_HintWindowTitleText.text = m_CurrentHintKey;
+            m_HintWindowDescriptionText.text = m_Hints[m_CurrentHintKey];
         }
     }
 

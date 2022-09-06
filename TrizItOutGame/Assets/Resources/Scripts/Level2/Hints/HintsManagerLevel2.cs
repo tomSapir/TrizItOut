@@ -12,8 +12,12 @@ public class HintsManagerLevel2 : MonoBehaviour
 
     public GameObject m_HintWindow;
     public GameObject m_ShowHintBtn;
-    public GameObject m_HintWindowText;
+    public Text m_HintWindowTitleText;
+    public Text m_HintWindowDescriptionText;
     public GameObject m_Inventory;
+
+    public Sprite m_ShowHintBtnNormalSprite;
+    public Sprite m_ShowHintBtnHighlightSprite;
 
     private InventoryManager m_InventoryManager;
     private MainCameraManagerLevel2 m_MainCameraManager;
@@ -32,8 +36,7 @@ public class HintsManagerLevel2 : MonoBehaviour
     private void fillHintsData()
     {
         m_Hints.Add("Reduction",
-            string.Format("Triz Tip:Reduction {0}Try to remove objects if it turns out that they are not required",
-            Environment.NewLine));
+            string.Format("Try to remove objects if it turns out that they are not required"));
         m_Hints.Add("Universality",
              string.Format("Maybe the Universality princple is relvent here as well."));
     }
@@ -74,12 +77,12 @@ public class HintsManagerLevel2 : MonoBehaviour
                 m_Played = true;
             }
 
-            m_ShowHintBtn.GetComponent<Image>().color = new Color32(207, 94, 40, 152);
+            m_ShowHintBtn.GetComponent<Image>().sprite = m_ShowHintBtnHighlightSprite;
         }
         else
         {
             m_Played = false;
-            m_ShowHintBtn.GetComponent<Image>().color = new Color32(56, 56, 56, 152);
+            m_ShowHintBtn.GetComponent<Image>().sprite = m_ShowHintBtnNormalSprite;
         }
     }
 
@@ -89,8 +92,8 @@ public class HintsManagerLevel2 : MonoBehaviour
         {
             m_ShowHintBtn.SetActive(false);
             m_HintWindow.SetActive(true);
-            m_HintWindowText.SetActive(true);
-            m_HintWindowText.GetComponent<Text>().text = m_Hints[m_CurrentHintKey];
+            m_HintWindowTitleText.text = m_CurrentHintKey;
+            m_HintWindowDescriptionText.text = m_Hints[m_CurrentHintKey];
         }
     }
 

@@ -12,8 +12,12 @@ public class HintsManagerLevel3 : MonoBehaviour
 
     public GameObject m_HintWindow;
     public GameObject m_ShowHintBtn;
-    public GameObject m_HintWindowText;
+    public Text m_HintWindowTitleText;
+    public Text m_HintWindowDescriptionText;
     public GameObject m_Inventory;
+
+    public Sprite m_ShowHintBtnNormalSprite;
+    public Sprite m_ShowHintBtnHighlightSprite;
 
     private InventoryManager m_InventoryManager;
     private MainCameraManagerLevel3 m_MainCameraManager;
@@ -32,7 +36,6 @@ public class HintsManagerLevel3 : MonoBehaviour
         // TODO: implement
     }
 
-    // Update is called once per frame
     void Update()
     {
         findHint();
@@ -63,12 +66,12 @@ public class HintsManagerLevel3 : MonoBehaviour
                 m_Played = true;
             }
 
-            m_ShowHintBtn.GetComponent<Image>().color = new Color32(207, 94, 40, 152);
+            m_ShowHintBtn.GetComponent<Image>().sprite = m_ShowHintBtnHighlightSprite;
         }
         else
         {
             m_Played = false;
-            m_ShowHintBtn.GetComponent<Image>().color = new Color32(56, 56, 56, 152);
+            m_ShowHintBtn.GetComponent<Image>().sprite = m_ShowHintBtnNormalSprite;
         }
     }
 
@@ -78,8 +81,8 @@ public class HintsManagerLevel3 : MonoBehaviour
         {
             m_ShowHintBtn.SetActive(false);
             m_HintWindow.SetActive(true);
-            m_HintWindowText.SetActive(true);
-            m_HintWindowText.GetComponent<TextMeshProUGUI>().text = m_Hints[m_CurrentHintKey];
+            m_HintWindowTitleText.text = m_CurrentHintKey;
+            m_HintWindowDescriptionText.text = m_Hints[m_CurrentHintKey];
         }
     }
 

@@ -57,11 +57,9 @@ public class PlaceHolder : MonoBehaviour, IInteractable
             newCable.name = m_MyPrefab.name;
 
             newCable.GetComponent<SpriteRenderer>().sortingOrder = 2;
-            
-            if(OnPrefabSpawned != null)
-            {
-                OnPrefabSpawned();
-            }
+            newCable.layer = 0;
+            OnPrefabSpawned?.Invoke();
+
 
             m_Inventory.GetComponent<InventoryManager>().m_CurrentSelectedSlot.GetComponent<SlotManager>().ClearSlot();
             m_Inventory.GetComponent<InventoryManager>().m_CurrentSelectedSlot = null;
@@ -70,6 +68,12 @@ public class PlaceHolder : MonoBehaviour, IInteractable
             {
                 newCable.layer = 2;
                 Debug.Log("new cable is there");
+            }
+
+            if(m_PlaceFor == "Power_Fuze")
+            {
+                newCable.transform.position = new Vector3(newCable.transform.position.x + 0.69f, newCable.transform.position.y - 0.06f, newCable.transform.position.z);
+                newCable.transform.localScale = new Vector3(0.028f, 0.029f, 5.79f);
             }
         }
     }

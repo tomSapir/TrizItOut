@@ -66,11 +66,13 @@ public class HintsManagerLevel3 : MonoBehaviour
                 m_Played = true;
             }
 
+            m_ShowHintBtn.GetComponent<Button>().interactable = true;
             m_ShowHintBtn.GetComponent<Image>().sprite = m_ShowHintBtnHighlightSprite;
         }
         else
         {
             m_Played = false;
+            m_ShowHintBtn.GetComponent<Button>().interactable = false;
             m_ShowHintBtn.GetComponent<Image>().sprite = m_ShowHintBtnNormalSprite;
         }
     }

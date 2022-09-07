@@ -11,6 +11,9 @@ public class InventoryManager : MonoBehaviour
 
     private Sprite m_EmptyItemSprite = null;
 
+    public Sprite m_SlotSelectSprite;
+    public Sprite m_SlotNormalSprite;
+
     public static readonly string sr_EmptyItemName = "Empty_Item";
     public static readonly string sr_InventoryItemSpritePath = "Sprites/AllLevels/Items/";
     public static readonly string sr_EmptyItemSpritePath = "Sprites/AllLevels/Inventory/";
@@ -39,11 +42,15 @@ public class InventoryManager : MonoBehaviour
         {
             if(slot == m_CurrentSelectedSlot && slot.GetComponent<SlotManager>().ItemProperty == SlotManager.Property.usable && slot.GetComponent<SlotManager>().IsEmpty == false)
             {
-                slot.GetComponent<Image>().color = new Color(0, .55f, .75f, 1);
+                // to red
+                slot.GetComponent<Image>().sprite = m_SlotSelectSprite;
+                //slot.GetComponent<Image>().color = new Color(0, .55f, .75f, 1);
             }
             else
             {
-                slot.GetComponent<Image>().color = new Color(1, 1, 1, 1);
+                // to normal
+                slot.GetComponent<Image>().sprite = m_SlotNormalSprite;
+                //slot.GetComponent<Image>().color = new Color(1, 1, 1, 1);
             }
         }
     }

@@ -57,6 +57,9 @@ TagManager:
   - name: RecycleBinWall
     uniqueID: 65782595
     locked: 0
+  - name: HintArea
+    uniqueID: 4081380151
+    locked: 0
   - name: UI
     uniqueID: 885664955
     locked: 0

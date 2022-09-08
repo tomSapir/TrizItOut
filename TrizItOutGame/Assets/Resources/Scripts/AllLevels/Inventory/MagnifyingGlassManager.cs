@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class MagnifyingGlassManager : MonoBehaviour
+public class MagnifyingGlassManager : MonoBehaviour, IInteractable
 {
     public Sprite m_ZoomBtnHighlightSprite;
     public Sprite m_ZoomBtnNormaltSprite;
@@ -14,7 +14,7 @@ public class MagnifyingGlassManager : MonoBehaviour
 
     void Start()
     {
-        ImageWasClickedHandler += gameObject.transform.parent.GetComponent<SlotManager>().OnClickMagnifierGlass;
+       // ImageWasClickedHandler += gameObject.transform.parent.GetComponent<SlotManager>().OnClickMagnifierGlass;
     }
 
 
@@ -35,8 +35,11 @@ public class MagnifyingGlassManager : MonoBehaviour
 
     public void OnClickMagnifierGlass()
     {
-        ImageWasClickedHandler?.Invoke();
+       // ImageWasClickedHandler?.Invoke();
     }
 
-
+    public void Interact(DisplayManagerLevel1 currDisplay)
+    {
+        m_ZoomBtn.GetComponent<Button>().onClick?.Invoke();
+    }
 }

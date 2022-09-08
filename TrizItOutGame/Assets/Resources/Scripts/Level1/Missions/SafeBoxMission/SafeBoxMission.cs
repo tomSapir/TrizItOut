@@ -24,6 +24,8 @@ public class SafeBoxMission : MonoBehaviour
     public GameObject m_SafeBox_Closed;
     public GameObject m_SafeBox_Open;
 
+    public Button[] m_SafeBoxBtns;
+
     [SerializeField]
     private GameObject m_BackButton;
 
@@ -44,6 +46,7 @@ public class SafeBoxMission : MonoBehaviour
 
     IEnumerator WaitIfPasswordCorrect(int sec)
     {
+        changeSafeBoxBtnsInteractable(false);
         m_DisplayManager.CurrentState = DisplayManagerLevel1.State.busy;
         uiText.color = Color.green;
         uiText.text = "Correct Password";
@@ -57,10 +60,12 @@ public class SafeBoxMission : MonoBehaviour
         Destroy(m_SafeBox_Closed);
         m_SafeBox_Open.SetActive(true);
         m_DisplayManager.CurrentState = DisplayManagerLevel1.State.zoom;
+        changeSafeBoxBtnsInteractable(true);
     }
 
     IEnumerator WaitIfPasswordIncorrect(int sec)
     {
+        changeSafeBoxBtnsInteractable(false);
         m_DisplayManager.CurrentState = DisplayManagerLevel1.State.busy;
         uiText.color = Color.red;
         uiText.text = "Wrong Password";
@@ -68,6 +73,7 @@ public class SafeBoxMission : MonoBehaviour
         uiText.text = "";
         uiText.color = new Color(0.5f, 0.5f, 0.517f);
         m_DisplayManager.CurrentState = DisplayManagerLevel1.State.zoom;
+        changeSafeBoxBtnsInteractable(true);
     }
 
     public void ApplyPasswordCorrect()
@@ -86,6 +92,14 @@ public class SafeBoxMission : MonoBehaviour
         {
             m_CanvasOfButtons.SetActive(false);
             m_DisplayManager.GetComponent<SpriteRenderer>().sprite = m_SafeBoxOpenZoomSprite;
+        }
+    }
+
+    private void changeSafeBoxBtnsInteractable(bool i_Interactable)
+    {
+        foreach(Button btn in m_SafeBoxBtns)
+        {
+            btn.interactable = i_Interactable;
         }
     }
 }

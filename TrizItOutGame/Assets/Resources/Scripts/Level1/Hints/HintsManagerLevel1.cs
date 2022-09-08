@@ -79,7 +79,7 @@ public class HintsManagerLevel1 : MonoBehaviour
             m_ShowHintBtn.SetActive(true);
         }
 
-        if(m_CurrentHintKey != null)
+        if (m_CurrentHintKey != null)
         {
             if(!m_Played)
             {
@@ -87,15 +87,21 @@ public class HintsManagerLevel1 : MonoBehaviour
                 m_Played = true;
             }
 
-            m_ShowHintBtn.GetComponent<Button>().interactable = true;
-            m_ShowHintBtn.GetComponent<Image>().sprite = m_ShowHintBtnHighlightSprite;
+            changeShowHintBtnState(1f, true, m_ShowHintBtnHighlightSprite);
         }
         else
         {
             m_Played = false;
-            m_ShowHintBtn.GetComponent<Button>().interactable = false;
-            m_ShowHintBtn.GetComponent<Image>().sprite = m_ShowHintBtnNormalSprite;
+            changeShowHintBtnState(0.2f, false, m_ShowHintBtnNormalSprite);
         }
+    }
+
+    private void changeShowHintBtnState(float i_Transperency, bool i_Interactble, Sprite i_Sprite)
+    {
+        Color currentBtnColor = m_ShowHintBtn.GetComponent<Image>().color;
+        m_ShowHintBtn.GetComponent<Image>().color = new Color(currentBtnColor.r, currentBtnColor.g, currentBtnColor.b, i_Transperency);
+        m_ShowHintBtn.GetComponent<Button>().interactable = i_Interactble;
+        m_ShowHintBtn.GetComponent<Image>().sprite = i_Sprite;
     }
 
     private void showHint()

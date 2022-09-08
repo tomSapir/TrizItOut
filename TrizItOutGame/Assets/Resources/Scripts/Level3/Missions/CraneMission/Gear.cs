@@ -12,7 +12,7 @@ public class Gear : MonoBehaviour
 
     public bool CanSpin;
     public eSpinDirection SpinDirection;
-    public float m_SpinSpeed = 100;
+    public float m_SpinSpeed = 400;
 
 
 
@@ -32,7 +32,13 @@ public class Gear : MonoBehaviour
 
     private void spin()
     {
-        if (CanSpin)
+        //if (CanSpin)
+        //{
+        //    transform.Rotate(0f, 0f, ((int)SpinDirection) * m_SpinSpeed * Time.deltaTime, Space.Self);
+        //}
+
+        if (CanSpin && MainCameraManagerLevel3.m_CurrentWallIndex == 3 &&
+            (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.RightArrow)))
         {
             transform.Rotate(0f, 0f, ((int)SpinDirection) * m_SpinSpeed * Time.deltaTime, Space.Self);
         }
@@ -42,4 +48,6 @@ public class Gear : MonoBehaviour
     {
         CanSpin = true;
     }
+
+    
 }

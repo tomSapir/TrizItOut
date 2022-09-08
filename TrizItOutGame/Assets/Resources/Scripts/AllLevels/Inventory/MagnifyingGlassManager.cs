@@ -9,9 +9,12 @@ public class MagnifyingGlassManager : MonoBehaviour
     public Sprite m_ZoomBtnNormaltSprite;
     public GameObject m_ZoomBtn;
 
+    public delegate void ImageWasClickedDelegate();
+    public event ImageWasClickedDelegate ImageWasClickedHandler;
+
     void Start()
     {
-        
+        ImageWasClickedHandler += gameObject.transform.parent.GetComponent<SlotManager>().OnClickMagnifierGlass;
     }
 
 
@@ -29,4 +32,11 @@ public class MagnifyingGlassManager : MonoBehaviour
     {
         m_ZoomBtn.GetComponent<Image>().sprite = m_ZoomBtnNormaltSprite;
     }
+
+    public void OnClickMagnifierGlass()
+    {
+        ImageWasClickedHandler?.Invoke();
+    }
+
+
 }

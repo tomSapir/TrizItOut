@@ -10390,6 +10390,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7357024447805819987, guid: 6fe5822ebf91b8f4d85a876d7a257a43, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 213451815}
+    - target: {fileID: 7357024447805819987, guid: 6fe5822ebf91b8f4d85a876d7a257a43, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnToggleChanged
+      objectReference: {fileID: 0}
     - target: {fileID: 7357024448898249007, guid: 6fe5822ebf91b8f4d85a876d7a257a43, type: 3}
       propertyPath: m_Name
       value: Pause_Menu_Canvas
@@ -12660,7 +12668,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -23.309998, y: -21.75}
+  m_AnchoredPosition: {x: -23.310059, y: -21.75}
   m_SizeDelta: {x: 106.84, y: 21.51}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!212 &1519612425

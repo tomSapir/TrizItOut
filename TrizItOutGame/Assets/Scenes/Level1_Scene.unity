@@ -5107,7 +5107,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -300.00006, y: 133.79999}
+  m_AnchoredPosition: {x: -299.99988, y: 133.79999}
   m_SizeDelta: {x: -627.82996, y: -389.70676}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &991639131
@@ -10747,7 +10747,7 @@ PrefabInstance:
     - target: {fileID: 7357024447805819987, guid: 6fe5822ebf91b8f4d85a876d7a257a43, type: 3}
       propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 183391190}
+      objectReference: {fileID: 183391191}
     - target: {fileID: 7357024448898249007, guid: 6fe5822ebf91b8f4d85a876d7a257a43, type: 3}
       propertyPath: m_Name
       value: Pause_Menu_Canvas
@@ -10836,8 +10836,31 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7357024449080759772, guid: 6fe5822ebf91b8f4d85a876d7a257a43, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 7357024448636007121}
+    - target: {fileID: 7357024449080759772, guid: 6fe5822ebf91b8f4d85a876d7a257a43, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnBackgroundMusicToggleChanged
+      objectReference: {fileID: 0}
+    - target: {fileID: 7357024449080759772, guid: 6fe5822ebf91b8f4d85a876d7a257a43, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6fe5822ebf91b8f4d85a876d7a257a43, type: 3}
+--- !u!114 &7357024448636007121 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7357024448898250448, guid: 6fe5822ebf91b8f4d85a876d7a257a43, type: 3}
+  m_PrefabInstance: {fileID: 7357024448636007120}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf4276bb42d68e140b839b3da5b39ad4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &7438353501826653015
 PrefabInstance:
   m_ObjectHideFlags: 0

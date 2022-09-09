@@ -254,6 +254,7 @@ public class DisplayManagerLevel1 : MonoBehaviour
     
     IEnumerator WaitBeforeLoadLevel2()
     {
+        HintsManagerLevel1.m_IsLoadingNextLevel = true;
         yield return new WaitForSeconds(1);
         m_ComputerScreen.SetActive(true);
         SoundManager.PlaySound(SoundManager.k_WindowsStartupSoundName);

@@ -35,24 +35,27 @@ public class BackgroundMusicManager : MonoBehaviour
         {
             switch(currentSceneIndex)
             {
-                case 0:
-                case 1:
+                case 0: // MainMenu
+                case 1: // Levels
                     {
-                        m_AudioSource.volume = 1;
+                        m_AudioSource.volume = 0.6f;
                         break;
                     }
-                case 2:
+                case 2: // Level 1
                     {
-                        // TODO: change this
-                        m_AudioSource.volume = 0;
+                        m_AudioSource.clip = SoundManager.FindAudioClip("backgroundMusicLevel1");
+                        m_AudioSource.volume = 0.6f;
+                        m_AudioSource.Play();
                         break;
                     }
-                case 3:
+                case 3: // Level 2
                     {
-                        m_AudioSource.volume = 0;
+                        m_AudioSource.clip = SoundManager.FindAudioClip("backgroundMusicLevel2");
+                        m_AudioSource.volume = 0.6f;
+                        m_AudioSource.Play();
                         break;
                     }
-                case 4:
+                case 4: // Level 3
                     {
                         m_AudioSource.volume = 0;
                         break;

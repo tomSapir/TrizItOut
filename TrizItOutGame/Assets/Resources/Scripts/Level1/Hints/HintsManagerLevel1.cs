@@ -21,10 +21,20 @@ public class HintsManagerLevel1 : MonoBehaviour
 
     public GameObject m_Kattle;
     private Dictionary<string, string> m_Hints = new Dictionary<string, string>();
+    public static bool m_IsLoadingNextLevel = false;
 
     void Start()
     {
         fillHintsData();
+
+        GameObject.Find("Next_Level_Loader").GetComponent<NextLevelLoader>().LoadingNextLevel += OnLoadingNextLevel;
+    }
+
+    private void OnLoadingNextLevel(int i_Level)
+    {
+        Debug.Log("On LoadingNextLevel");
+        Debug.Break();
+        m_IsLoadingNextLevel = true;
     }
 
     private void fillHintsData()
@@ -65,7 +75,7 @@ public class HintsManagerLevel1 : MonoBehaviour
         {
             m_CurrentHintKey = "Merging";
         }
-        else if(computerCableIsConnected || kattleCableIsConnected)
+        else if((computerCableIsConnected || kattleCableIsConnected) && !m_IsLoadingNextLevel)
         {
             m_CurrentHintKey = "Universality";
         }

@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 
 public class PauseMenuManager : MonoBehaviour
 {
+    public static PauseMenuManager m_Instance;
     public static bool s_GameIsPaused = false;
     public GameObject m_PauseMenuUI;
 
@@ -15,6 +16,16 @@ public class PauseMenuManager : MonoBehaviour
    
     void Start()
     {
+        DontDestroyOnLoad(this.gameObject);
+        if (m_Instance == null)
+        {
+            m_Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+
         GameObject backgroundMusic = GameObject.Find("Background_Music_Manager");
         if(backgroundMusic != null)
         {

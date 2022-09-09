@@ -6,15 +6,16 @@ using UnityEngine.EventSystems;
 
 public class SlotManager : MonoBehaviour, IPointerClickHandler
 {
+    public enum Property { usable, displayable, empty };
+
     public GameObject m_SlotItemImage;
     public GameObject m_ZoomInWindow;
     public bool IsEmpty { get; set; } = true;
     private InventoryManager m_InventoryManager;
-    public string CombinationItem { get; private set; }
-    public enum Property { usable, displayable, empty };
+    public string CombinationItem { get; set; }
     public Property ItemProperty { get;  set; }
     public int AmountOfUsage { get; set; }
-    private string m_displayImage; // For displayable objects - the more informative image for the zoomIn window.
+    public string m_displayImage; // For displayable objects - the more informative image for the zoomIn window.
 
     void Start()
     {
@@ -90,5 +91,25 @@ public class SlotManager : MonoBehaviour, IPointerClickHandler
     public string GetItemName()
     {
         return m_SlotItemImage.GetComponent<Image>().sprite.name;
+    }
+
+    public void ResetSlot()
+    {
+        transform.GetChild(0).GetComponent<Image>().sprite = Resources.Load<Sprite>("Sprites/AllLevels/Inventory/Empty_Item");
+        IsEmpty = true;
+        CombinationItem = string.Empty;
+        ItemProperty = SlotManager.Property.empty;
+        AmountOfUsage = 0;
+        m_displayImage = string.Empty;
+    }
+
+    public void SetSlotData(SlotTempData i_SlotData)
+    {
+        m_SlotItemImage.GetComponent<Image>().sprite = i_SlotData.SlotImageSprite;
+        IsEmpty = false;
+        CombinationItem = i_SlotData.CombinationItem;
+        ItemProperty = i_SlotData.Property;
+        AmountOfUsage = i_SlotData.AmountOfUsage;
+        m_displayImage = i_SlotData.DisplayImageName;
     }
 }

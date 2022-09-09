@@ -26,10 +26,13 @@ public class CommunicationManagerLevel1 : MonoBehaviour
         m_TextWriter.AddWriter(m_CommunicationText.GetComponent<Text>(), i_Msg, 0.05f);
      
         yield return new WaitForSeconds(6);
-        m_CommunicationWindow.SetActive(false);
-        m_CommunicationText.SetActive(false);
 
-        m_CommunicationText.GetComponent<Text>().text = string.Empty;
+        if(m_CommunicationText.GetComponent<Text>().text == i_Msg)
+        {
+            m_CommunicationWindow.SetActive(false);
+            m_CommunicationText.SetActive(false);
+            m_CommunicationText.GetComponent<Text>().text = string.Empty;
+        }
     }
 
     public void onComputerChanged()

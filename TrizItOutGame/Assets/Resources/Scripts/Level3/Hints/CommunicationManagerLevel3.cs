@@ -29,21 +29,17 @@ public class CommunicationManagerLevel3 : MonoBehaviour
 
     IEnumerator ShowMsgEnumerator(string i_Msg)
     {
-        print("In co-routine");
         m_CommunicationWindow.SetActive(true);
         m_CommunicationText.SetActive(true);
         m_TextWriter.AddWriter(m_CommunicationText.GetComponent<Text>(), i_Msg, 0.05f);
-        yield return new WaitForSeconds(8);
-        if(m_CommunicationText.GetComponent<Text>() == null)
+
+        yield return new WaitForSeconds(6);
+
+        if (m_CommunicationText.GetComponent<Text>().text == i_Msg)
         {
-            print("its null");
-        }
-        else
-        {
+            m_CommunicationWindow.SetActive(false);
+            m_CommunicationText.SetActive(false);
             m_CommunicationText.GetComponent<Text>().text = string.Empty;
         }
-        
-        m_CommunicationWindow.SetActive(false);
-        m_CommunicationText.SetActive(false);
     }
 }

@@ -38,7 +38,7 @@ public class NextLevelLoader : MonoBehaviour
     private void fillLvlsDescriptions()
     {
         m_LvlsDescriptions.Add(string.Empty);
-        m_LvlsDescriptions.Add("The computer does turn on but it seems as if some of its internal parts were damaged during the power outage.It will probably be easier to fix them from the inside, the question is will you be able to get back out?");
+        m_LvlsDescriptions.Add("The computer does turn on but it seems as if some of its components were damaged during the power outage. It will probably be easier to fix them from the inside, the question is will you be able to get back out?");
         m_LvlsDescriptions.Add(string.Empty);
     }
 
@@ -53,9 +53,7 @@ public class NextLevelLoader : MonoBehaviour
         m_Transition.SetTrigger("Start");
         m_ContinueBtn.SetActive(true);
         m_QuitBtn.SetActive(true);
-        //m_NextLvlDescriptionText.text = m_LvlsDescriptions[m_NextLevelIndex - 2];
         m_TextWriter.AddWriter(m_NextLvlDescriptionText, m_LvlsDescriptions[m_NextLevelIndex - 2], 0.05f);
-
         yield return new WaitForSeconds(m_TransitionTime);
         LoadingNextLevel?.Invoke(m_NextLevelIndex - 1);
     }

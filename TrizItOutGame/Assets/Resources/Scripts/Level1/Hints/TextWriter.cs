@@ -21,15 +21,6 @@ public class TextWriter : MonoBehaviour
         print("In TextWriter. The message is: " + i_Text);
     }
 
-    //public void AddWriter(TextMeshPro i_WhereToWrite, string i_Text, float i_TimePerCharacter)
-    //{
-    //    m_WhereToWrite = i_WhereToWrite;
-    //    m_TextToWrite = i_Text;
-    //    m_TimePerCharacter = i_TimePerCharacter;
-    //    m_CharacterIndex = 0;
-    //    print("In TextWriter. The message is: " + i_Text);
-    //}
-
     void Update()
     {
         if (m_WhereToWrite != null && m_CharacterIndex < m_TextToWrite.Length)

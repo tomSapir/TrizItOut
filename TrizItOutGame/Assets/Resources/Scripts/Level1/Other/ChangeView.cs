@@ -27,7 +27,7 @@ public class ChangeView : MonoBehaviour, IInteractable
                 }
             case "MiddleDrawer_Open":
                 {
-                    m_CommunicationInterface.GetComponent<CommunicationManagerLevel1>().ShowMsg("Looks like a regular drawer without anything special needed...");
+                    m_CommunicationInterface.GetComponent<CommunicationManagerLevel1>().ShowMsg("Looks like a regular drawer, nothing you need here...");
                         break;
                 }
         }

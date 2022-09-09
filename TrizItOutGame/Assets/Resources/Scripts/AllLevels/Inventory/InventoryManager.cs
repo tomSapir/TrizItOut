@@ -17,6 +17,7 @@ public class InventoryManager : MonoBehaviour
     public static readonly string sr_EmptyItemName = "Empty_Item";
     public static readonly string sr_InventoryItemSpritePath = "Sprites/AllLevels/Items/";
     public static readonly string sr_EmptyItemSpritePath = "Sprites/AllLevels/Inventory/";
+
     private void Start()
     {
         m_EmptyItemSprite = Resources.Load<Sprite>(sr_EmptyItemSpritePath + sr_EmptyItemName);
@@ -26,6 +27,7 @@ public class InventoryManager : MonoBehaviour
     private void Update()
     {
         SelectedSlot();
+        arrangeInventory();
     }
 
     private void initializeInventory()
@@ -42,15 +44,11 @@ public class InventoryManager : MonoBehaviour
         {
             if(slot == m_CurrentSelectedSlot && slot.GetComponent<SlotManager>().ItemProperty == SlotManager.Property.usable && slot.GetComponent<SlotManager>().IsEmpty == false)
             {
-                // to red
                 slot.GetComponent<Image>().sprite = m_SlotSelectSprite;
-                //slot.GetComponent<Image>().color = new Color(0, .55f, .75f, 1);
             }
             else
             {
-                // to normal
                 slot.GetComponent<Image>().sprite = m_SlotNormalSprite;
-                //slot.GetComponent<Image>().color = new Color(1, 1, 1, 1);
             }
         }
     }
@@ -103,5 +101,40 @@ public class InventoryManager : MonoBehaviour
         }
 
         return res;
+    }
+
+    private void arrangeInventory()
+    {
+        List<SlotTempData> usedSlotsData = getUsedSlotsData();
+
+        for (int i = 0; i < m_Slots.Length; i++)
+        {
+            SlotManager currentSlotManager = m_Slots[i].GetComponent<SlotManager>();
+            if (i < usedSlotsData.Count)
+            {
+                currentSlotManager.SetSlotData(usedSlotsData[i]);
+            }
+            else
+            {
+                currentSlotManager.ResetSlot();
+            }
+        }
+    }
+
+    private List<SlotTempData> getUsedSlotsData()
+    {
+        List<SlotTempData> usedSlotsData = new List<SlotTempData>();
+
+        foreach (GameObject slot in m_Slots)
+        {
+            SlotManager currentSlotManager = slot.GetComponent<SlotManager>();
+            if (!currentSlotManager.IsEmpty)
+            {
+                usedSlotsData.Add(new SlotTempData(currentSlotManager.m_SlotItemImage.GetComponent<Image>().sprite,
+                    currentSlotManager.CombinationItem, currentSlotManager.ItemProperty, currentSlotManager.AmountOfUsage, currentSlotManager.m_displayImage));
+            }
+        }
+
+        return usedSlotsData;
     }
 }

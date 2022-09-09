@@ -27,6 +27,7 @@ public class HintsManagerLevel2 : MonoBehaviour
 
     void Start()
     {
+        m_Inventory = GameObject.Find("Inventory");
         m_InventoryManager = m_Inventory.GetComponent<InventoryManager>();
         m_MainCameraManager = GameObject.Find("Main Camera").GetComponent<MainCameraManagerLevel2>();
         m_FanMissionHandler = GameObject.Find("Fan_Mission").GetComponent<FanMissionHandler>();

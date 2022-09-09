@@ -22,8 +22,6 @@ public class ZoomInObject : MonoBehaviour, IInteractable
         var height = Camera.main.orthographicSize;
         var width = height * Camera.main.aspect;
 
-        Debug.LogError("Camera zoomIn need to get fixed! object: ZoomInObject");
-
         var cameraBound = GameObject.Find("CameraBounds");
         if (Camera.main.transform.position.x + width > cameraBound.transform.position.x + cameraBound.GetComponent<BoxCollider2D>().size.x /2)
         {

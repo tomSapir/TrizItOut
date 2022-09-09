@@ -38,7 +38,6 @@ public class DoorMissionHandler : MonoBehaviour
         {
             if (m_CurrentCode == m_CorrectCode)
             {
-                Debug.Log("Correct PASS!!!");
                 doorWasOpendEvent?.Invoke();
                 SoundManager.PlaySound(SoundManager.k_CorrectPasswordSoundName);
                 GameObject.Find("Door").GetComponent<SpriteRenderer>().enabled = false;
@@ -47,7 +46,6 @@ public class DoorMissionHandler : MonoBehaviour
             else
             {
                 SoundManager.PlaySound(SoundManager.k_WorngPasswordSoundName);
-                Debug.Log("Wrong PASS!!!");
                 m_ScreenText.text = string.Empty;
                 m_CurrentIndex = 0;
                 m_CurrentCode = string.Empty;

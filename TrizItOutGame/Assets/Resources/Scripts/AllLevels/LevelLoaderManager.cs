@@ -61,7 +61,6 @@ public class LevelLoaderManager : MonoBehaviour
         }
 
         m_SliderText.GetComponent<Text>().text = "100%";
-        Debug.Log("Loading Scene with index " + i_SceneIndex);
         SceneManager.LoadScene(i_SceneIndex);
     }
 

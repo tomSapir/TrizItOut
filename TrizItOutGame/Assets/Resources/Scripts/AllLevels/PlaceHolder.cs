@@ -67,7 +67,6 @@ public class PlaceHolder : MonoBehaviour, IInteractable
             if(m_IsReusable == false)
             {
                 newCable.layer = 2;
-                Debug.Log("new cable is there");
             }
 
             if(m_PlaceFor == "Power_Fuze")

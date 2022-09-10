@@ -15,7 +15,7 @@ public class QuizMissionHandler : MonoBehaviour
     public GameObject m_QuizStartMenu;
     public GameObject m_QuizGame;
     public GameObject m_QuizEndOfGame;
-    //public NextLevelLoader 
+ 
 
     private void Start()
     {
@@ -25,6 +25,7 @@ public class QuizMissionHandler : MonoBehaviour
 
     public void Correct()
     {
+        GameObject.Find("Communication_Iterface").GetComponent<CommunicationManagerLevel2>().ShowMsg("YES! Good job!");
         m_QuestionsAndAnswers.RemoveAt(m_CurrentQuestion);
         generateQuestion();
         SoundManager.PlaySound(SoundManager.k_QuizCorrectAnswerSoundName);
@@ -32,6 +33,7 @@ public class QuizMissionHandler : MonoBehaviour
 
     public void Wrong()
     {
+        GameObject.Find("Communication_Iterface").GetComponent<CommunicationManagerLevel2>().ShowMsg("Wrong answer, try again.");
         SoundManager.PlaySound(SoundManager.k_QuizWrongAnswerSoundName);
     }
 

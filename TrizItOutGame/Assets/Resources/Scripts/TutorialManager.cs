@@ -17,13 +17,10 @@ public class TutorialManager : MonoBehaviour
 
     void Start()
     {
+        m_Slide.GetComponent<SpriteRenderer>().sprite = m_SlidesSprites[0];
         
-    }
-
-
-    void Update()
-    {
         
+
     }
 
     public int CurrentSlideIndex
@@ -74,5 +71,32 @@ public class TutorialManager : MonoBehaviour
     {
         m_SlideNumberText.text = CurrentSlideIndex + "/4";
         m_Slide.GetComponent<SpriteRenderer>().sprite = m_SlidesSprites[CurrentSlideIndex - 1];
+        m_Slide.GetComponent<SpriteRenderer>().drawMode = SpriteDrawMode.Sliced;
+
+        switch(CurrentSlideIndex)
+        {
+            case 1:
+                {
+                    m_Slide.GetComponent<SpriteRenderer>().size = new Vector2(490, 170);
+                    break;
+                }
+
+            case 2:
+                {
+                    m_Slide.GetComponent<SpriteRenderer>().size = new Vector2(515, 170);
+                    break;
+                }
+
+            case 3:
+                {
+                    m_Slide.GetComponent<SpriteRenderer>().size = new Vector2(515, 200);
+                    break;
+                }
+            case 4:
+                {
+                    m_Slide.GetComponent<SpriteRenderer>().size = new Vector2(515, 180);
+                    break;
+                }
+        }
     }
 }

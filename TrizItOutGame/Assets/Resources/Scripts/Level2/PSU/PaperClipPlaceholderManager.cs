@@ -38,7 +38,7 @@ public class PaperClipPlaceholderManager : MonoBehaviour, IInteractable
         if (currSelectedSlot != null &&
             currSelectedSlot.gameObject.transform.GetChild(0).GetComponent<Image>().sprite.name == m_UnlockItem)
         {
-            inventoryManager.m_CurrentSelectedSlot = null;
+            //inventoryManager.m_CurrentSelectedSlot = null;
             togglePaperClipSpriteAndNotify();
             m_PaperClipConnectedOnce = true;
         }

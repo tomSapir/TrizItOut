@@ -7,7 +7,7 @@ public class PSUManager : MonoBehaviour
     public delegate void PsuMissionSolvedDelegate();
 
     private HashSet<int> m_CurrentPapersClip = new HashSet<int>();
-    private readonly HashSet<int> m_SolutionPapersClip = new HashSet<int>() { 0, 3, 5, 8, 10, 19, 27, 28, 30};
+    private readonly HashSet<int> m_SolutionPapersClip = new HashSet<int>() { 0, 5, 6, 7, 8, 13, 14, 15, 17, 27 };
 
     public event PsuMissionSolvedDelegate PsuMissionSolved;
 

@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class SoundManager : MonoBehaviour
 {
-    //public static SoundManager m_Instance;
     public static AudioClip s_ButtonSound, s_WorngPasswordSound,
                             s_CorrectPasswordSound, s_SwitchSound,
                             s_SpraySound, s_DoorOpenSound,

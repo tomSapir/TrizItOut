@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -28,12 +27,19 @@ public class Screw : MonoBehaviour, IInteractable
 
             if (name == m_UnlockItem || name == m_UnlockItem2)
             {
-                if (name == m_UnlockItem2)
+                if (name == m_UnlockItem2 && !FanRazersManager.m_NeedToSpin) // Coin
                 {
+                    StartCoroutine(ScrewPickedUpEnumerator());
                     m_Inventory.GetComponent<InventoryManager>().RemoveFromInventory("Note");
                 }
-
-                StartCoroutine(ScrewPickedUpEnumerator());
+                else if(name == m_UnlockItem2 && FanRazersManager.m_NeedToSpin)
+                {
+                    GameObject.Find("Communication_Iterface").GetComponent<CommunicationManagerLevel2>().ShowMsg("You can't remove the screws while the fan is spinning, too dangerous.");
+                }
+                else
+                {
+                    StartCoroutine(ScrewPickedUpEnumerator());
+                }
             }
         }
     }

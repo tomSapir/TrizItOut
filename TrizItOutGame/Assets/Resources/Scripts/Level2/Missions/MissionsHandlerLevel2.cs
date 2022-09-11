@@ -10,7 +10,7 @@ public class MissionsHandlerLevel2 : MonoBehaviour
     private bool m_BrokenFanSolved = false;
     private GameObject m_Inventory;
 
-    public GameObject m_TvScreen1;
+    public GameObject m_TvScreen2;
 
     void Start()
     {
@@ -40,7 +40,7 @@ public class MissionsHandlerLevel2 : MonoBehaviour
     {
         if(m_BrokenFanSolved && m_PsuSolved)
         {
-            m_TvScreen1.SetActive(true);
+            m_TvScreen2.SetActive(true);
             BackgroundMusicManager.QuizStartWorking = true;
         }
     }

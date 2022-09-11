@@ -33,9 +33,15 @@ public class BackgroundMusicManager : MonoBehaviour
        
         if (currentSceneIndex != m_PrevSceneIndex)
         {
-            switch(currentSceneIndex)
+            switch (currentSceneIndex)
             {
                 case 0: // MainMenu
+                    {
+                        m_AudioSource.clip = SoundManager.FindAudioClip("Zephyr");
+                        m_AudioSource.volume = 0.6f;
+                        m_AudioSource.Play();
+                        break;
+                    }
                 case 1: // Levels
                     {
                         break;

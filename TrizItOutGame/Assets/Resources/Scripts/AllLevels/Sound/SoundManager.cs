@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SoundManager : MonoBehaviour
 {
-    public static SoundManager m_Instance;
+    //public static SoundManager m_Instance;
 
     public static AudioClip s_ButtonSound, s_WorngPasswordSound,
                             s_CorrectPasswordSound, s_SwitchSound,
@@ -50,14 +50,14 @@ public class SoundManager : MonoBehaviour
         
         DontDestroyOnLoad(this.gameObject);
 
-        if (m_Instance == null)
+        /*if (m_Instance == null)
         {
             m_Instance = this;
         }
         else
         {
             Destroy(gameObject);
-        }
+        }*/
 
         s_ButtonSound = Resources.Load<AudioClip>(sr_SoundPath + k_ButtonSoundName);
         s_WorngPasswordSound = Resources.Load<AudioClip>(sr_SoundPath + k_WorngPasswordSoundName);

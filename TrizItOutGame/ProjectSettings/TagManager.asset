@@ -13,8 +13,8 @@ TagManager:
   - 
   - Water
   - UI
-  - usables
-  - 
+  - Text
+  - Window
   - 
   - 
   - 
@@ -66,4 +66,10 @@ TagManager:
     locked: 0
   - name: UI
     uniqueID: 885664955
+    locked: 0
+  - name: Window
+    uniqueID: 2074780141
+    locked: 0
+  - name: Text
+    uniqueID: 1561808367
     locked: 0

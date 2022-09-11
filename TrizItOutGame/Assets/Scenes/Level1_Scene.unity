@@ -780,7 +780,7 @@ GameObject:
   - component: {fileID: 102025021}
   - component: {fileID: 102025023}
   - component: {fileID: 102025022}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Communication_Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1472,7 +1472,7 @@ GameObject:
   - component: {fileID: 237723350}
   - component: {fileID: 237723351}
   - component: {fileID: 237723352}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CodeScreen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4042,8 +4042,7 @@ GameObject:
   - component: {fileID: 746186525}
   - component: {fileID: 746186527}
   - component: {fileID: 746186526}
-  - component: {fileID: 746186528}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Communication_Window
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4109,17 +4108,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 746186524}
   m_CullTransparentMesh: 1
---- !u!210 &746186528
-SortingGroup:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 746186524}
-  m_Enabled: 1
-  m_SortingLayerID: -987014533
-  m_SortingLayer: 7
-  m_SortingOrder: 1
 --- !u!1 &785889875
 GameObject:
   m_ObjectHideFlags: 0
@@ -4490,6 +4478,7 @@ MonoBehaviour:
   m_ComputerMission: {fileID: 567704348}
   m_SafeBoxMission: {fileID: 1133411435}
   m_CommunicationInterface: {fileID: 311238675}
+  m_CommunicationWindow: {fileID: 746186524}
 --- !u!1001 &850637715
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5130,7 +5119,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -299.99997, y: 133.79999}
+  m_AnchoredPosition: {x: -300, y: 133.79999}
   m_SizeDelta: {x: -627.82996, y: -389.70676}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &991639131

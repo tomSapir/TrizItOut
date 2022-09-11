@@ -7,6 +7,7 @@ public class MissionsManager : MonoBehaviour
     public GameObject m_ComputerMission;
     public GameObject m_SafeBoxMission;
     public GameObject m_CommunicationInterface;
+    public GameObject m_CommunicationWindow;
 
     public void ActiveRelevantMission(string i_Mission)
     {
@@ -22,6 +23,7 @@ public class MissionsManager : MonoBehaviour
             case "SafeBox_Code_Zoom":
             case "SafeBox_Open_ZoomIn":
                 {
+                    m_CommunicationWindow.SetActive(false);
                     GUI.enabled = true;
                     m_ComputerMission.SetActive(false);
                     m_SafeBoxMission.SetActive(true);

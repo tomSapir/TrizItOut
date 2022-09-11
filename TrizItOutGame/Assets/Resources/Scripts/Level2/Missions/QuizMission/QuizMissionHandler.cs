@@ -16,7 +16,6 @@ public class QuizMissionHandler : MonoBehaviour
     public GameObject m_QuizGame;
     public GameObject m_QuizEndOfGame;
  
-
     private void Start()
     {
         generateQuestion();

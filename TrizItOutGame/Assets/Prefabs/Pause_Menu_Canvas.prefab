@@ -733,6 +733,9 @@ MonoBehaviour:
   m_PauseMenuUI: {fileID: 7357024448906211960}
   m_BackgroundMusicToggle: {fileID: 7357024449080759772}
   m_BackgroundMusicManager: {fileID: 0}
+  m_BackgroundNoisesToggle: {fileID: 0}
+  m_PauseBtn: {fileID: 2203455189888646601}
+  m_PauseWindow: {fileID: 7357024448906211960}
 --- !u!1 &7357024448906211960
 GameObject:
   m_ObjectHideFlags: 0

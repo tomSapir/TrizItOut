@@ -14,6 +14,9 @@ public class PauseMenuManager : MonoBehaviour
     public Toggle m_BackgroundMusicToggle;
     public BackgroundMusicManager m_BackgroundMusicManager;
     public GameObject m_BackgroundNoisesToggle;
+
+    public GameObject m_PauseBtn;
+    public GameObject m_PauseWindow;
    
     void Start()
     {
@@ -47,6 +50,8 @@ public class PauseMenuManager : MonoBehaviour
                 Pause();
             }
         }
+
+        checkSceneAndDisableOrEnable();
     }
 
     public void Resume()
@@ -74,6 +79,27 @@ public class PauseMenuManager : MonoBehaviour
         if(m_BackgroundMusicManager != null)
         {
             m_BackgroundMusicManager.OnToggleChanged();
+        }
+    }
+
+    private void checkSceneAndDisableOrEnable()
+    {
+        switch(SceneManager.GetActiveScene().buildIndex)
+        {
+            case 0:
+            case 1:
+                {
+                    m_PauseBtn.SetActive(false);
+                    m_PauseWindow.SetActive(false);
+                    break;
+                }
+            case 2:
+            case 3:
+            case 4:
+                {
+                    m_PauseBtn.SetActive(true);
+                    break;
+                }
         }
     }
 }

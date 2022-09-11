@@ -60,10 +60,6 @@ public class HintsManagerLevel2 : MonoBehaviour
         {
             m_CurrentHintKey = "Reduction";
         }
-        else if(trizCoinInInventory && m_MainCameraManager.CurrentWallIndex == 3)
-        {
-            m_CurrentHintKey = "Universality";
-        }
         else
         {
             m_CurrentHintKey = null;

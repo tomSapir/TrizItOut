@@ -13,6 +13,7 @@ public class PauseMenuManager : MonoBehaviour
 
     public Toggle m_BackgroundMusicToggle;
     public BackgroundMusicManager m_BackgroundMusicManager;
+    public GameObject m_BackgroundNoisesToggle;
    
     void Start()
     {
@@ -47,6 +48,7 @@ public class PauseMenuManager : MonoBehaviour
             }
         }
     }
+
     public void Resume()
     {
         m_PauseMenuUI.SetActive(false);

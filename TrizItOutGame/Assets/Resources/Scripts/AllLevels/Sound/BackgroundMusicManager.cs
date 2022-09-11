@@ -38,7 +38,6 @@ public class BackgroundMusicManager : MonoBehaviour
                 case 0: // MainMenu
                 case 1: // Levels
                     {
-                        m_AudioSource.volume = 0.6f;
                         break;
                     }
                 case 2: // Level 1

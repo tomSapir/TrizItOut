@@ -12,6 +12,7 @@ public class PaperClipPlaceholderManager : MonoBehaviour, IInteractable
     private string m_UnlockItem = "Box_Of_PaperClips";
     private GameObject m_Inventory;
     private SpriteRenderer m_ChildSpriteRenderer;
+    public GameObject m_Lightning;
 
     private static bool m_PaperClipConnectedOnce = false;
 
@@ -38,7 +39,6 @@ public class PaperClipPlaceholderManager : MonoBehaviour, IInteractable
         if (currSelectedSlot != null &&
             currSelectedSlot.gameObject.transform.GetChild(0).GetComponent<Image>().sprite.name == m_UnlockItem)
         {
-            //inventoryManager.m_CurrentSelectedSlot = null;
             togglePaperClipSpriteAndNotify();
             m_PaperClipConnectedOnce = true;
         }
@@ -53,6 +53,8 @@ public class PaperClipPlaceholderManager : MonoBehaviour, IInteractable
     private void togglePaperClipSpriteAndNotify()
     {
         m_ChildSpriteRenderer.enabled = !m_ChildSpriteRenderer.enabled;
+        m_Lightning.SetActive(m_ChildSpriteRenderer.enabled);
+        
         PaperClipPressed?.Invoke(m_Id);
     }
 }

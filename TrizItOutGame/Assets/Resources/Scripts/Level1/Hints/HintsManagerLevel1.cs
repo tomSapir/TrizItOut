@@ -33,7 +33,6 @@ public class HintsManagerLevel1 : MonoBehaviour
     private void OnLoadingNextLevel(int i_Level)
     {
         Debug.Log("On LoadingNextLevel");
-        Debug.Break();
         m_IsLoadingNextLevel = true;
     }
 

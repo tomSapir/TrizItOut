@@ -46,18 +46,17 @@ public class SoundManager : MonoBehaviour
 
     void Start()
     {
-        m_AudioSource = GetComponent<AudioSource>();
-        
+        /*GameObject[] objs = GameObject.FindGameObjectsWithTag("SoundManager");
+
+        if(objs.Length > 1)
+        {
+            Destroy(this.gameObject);
+        }*/
+
         DontDestroyOnLoad(this.gameObject);
 
-        /*if (m_Instance == null)
-        {
-            m_Instance = this;
-        }
-        else
-        {
-            Destroy(gameObject);
-        }*/
+        m_AudioSource = GetComponent<AudioSource>();
+       
 
         s_ButtonSound = Resources.Load<AudioClip>(sr_SoundPath + k_ButtonSoundName);
         s_WorngPasswordSound = Resources.Load<AudioClip>(sr_SoundPath + k_WorngPasswordSoundName);
@@ -86,7 +85,7 @@ public class SoundManager : MonoBehaviour
 
     public static void PlaySound(string i_Clip)
     {
-        if(!s_IsMuted)
+        if (!s_IsMuted)
         {
             switch (i_Clip)
             {

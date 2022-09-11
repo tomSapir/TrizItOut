@@ -69,4 +69,8 @@ public class LevelLoaderManager : MonoBehaviour
         SceneManager.LoadScene(0);
     }
 
+    public void onClickLevelOne()
+    {
+        DisplayManagerLevel1.m_AlreadyLoadingNextLevel = false;
+    }
 }

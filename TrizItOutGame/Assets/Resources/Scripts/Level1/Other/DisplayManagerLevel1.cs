@@ -266,4 +266,9 @@ public class DisplayManagerLevel1 : MonoBehaviour
         yield return new WaitForSeconds(3);
         m_NextLevelLoader.LoadNextLevel();
     }
+
+    public static void onClickLevelOne()
+    {
+        m_AlreadyLoadingNextLevel = false;
+    }
 }

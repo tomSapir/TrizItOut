@@ -46,7 +46,6 @@ public class Kattle : MonoBehaviour, IInteractable
         }
 
         soundManager.PlaySound(SoundManager.k_SwitchSoundName);
-        yield return new WaitForSeconds(2);
         soundManager.PlaySound(SoundManager.k_KattleBoilSoundName);
         yield return new WaitForSeconds(3);
         m_KattleSmoke.SetActive(true);

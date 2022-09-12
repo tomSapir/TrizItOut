@@ -43,6 +43,6 @@ public class CommunicationManagerLevel1 : MonoBehaviour
 
     public void onComputerChanged()
     {
-        ShowMsg("well,it's seems like it is open. \n now we need to clean up the dust! but how? ");
+        ShowMsg("well, it's seems like it is open. Now we need to clean up the dust! But how?");
     }
 }

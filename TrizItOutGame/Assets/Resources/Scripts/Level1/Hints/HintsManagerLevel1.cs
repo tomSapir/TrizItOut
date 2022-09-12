@@ -69,6 +69,7 @@ public class HintsManagerLevel1 : MonoBehaviour
         bool kattleCableIsConnected = m_Kattle.GetComponent<Kattle>().m_isConnected;
         bool computerCableIsConnected = displayManagerLevel1.m_ComputerCableIsSpawned;
         bool laptopInInventory = inventoryManager.DoesItemInInventory("Laptop");
+        bool screwdriverInInventory = inventoryManager.DoesItemInInventory("Screwdriver");
 
         if ((sprayInInventory && !strawInIventory) || (!sprayInInventory && strawInIventory))
         {
@@ -78,7 +79,7 @@ public class HintsManagerLevel1 : MonoBehaviour
         {
             m_CurrentHintKey = "Universality";
         }
-        else if(laptopInInventory)
+        else if(laptopInInventory && screwdriverInInventory)
         {
             m_CurrentHintKey = "Segmentation";
         }

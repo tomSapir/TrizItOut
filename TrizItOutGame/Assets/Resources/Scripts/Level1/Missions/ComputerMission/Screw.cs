@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Screw : MonoBehaviour, IInteractable
@@ -32,7 +33,7 @@ public class Screw : MonoBehaviour, IInteractable
                     StartCoroutine(ScrewPickedUpEnumerator());
                     m_Inventory.GetComponent<InventoryManager>().RemoveFromInventory("Note");
                 }
-                else if(name == m_UnlockItem2 && FanRazersManager.m_NeedToSpin)
+                else if (name == m_UnlockItem2 && FanRazersManager.m_NeedToSpin)
                 {
                     GameObject.Find("Communication_Iterface").GetComponent<CommunicationManagerLevel2>().ShowMsg("You can't remove the screws while the fan is spinning, too dangerous.");
                 }
@@ -41,6 +42,14 @@ public class Screw : MonoBehaviour, IInteractable
                     StartCoroutine(ScrewPickedUpEnumerator());
                 }
             }
+            else
+            {
+                findCommunicationManagerAndShowMsg("You can't screw the screw out with this object...");
+            }
+        }
+        else
+        {
+            findCommunicationManagerAndShowMsg("You need an object to help you screw the screw out..");
         }
     }
 
@@ -52,5 +61,21 @@ public class Screw : MonoBehaviour, IInteractable
         Destroy(gameObject);
         m_Inventory.GetComponent<InventoryManager>().m_CurrentSelectedSlot.GetComponent<SlotManager>().ClearSlot();
         ScrewRemovedHandler?.Invoke();
+    }
+
+    private void findCommunicationManagerAndShowMsg(string i_Msg)
+    {
+        if (SceneManager.GetActiveScene().name == "Level1_Scene")
+        {
+            GameObject.Find("Communication_Iterface").GetComponent<CommunicationManagerLevel1>().ShowMsg(i_Msg);
+        }
+        else if (SceneManager.GetActiveScene().name == "Level2_Scene")
+        {
+            GameObject.Find("Communication_Iterface").GetComponent<CommunicationManagerLevel2>().ShowMsg(i_Msg);
+        }
+        else if (SceneManager.GetActiveScene().name == "Level3_Scene")
+        {
+            GameObject.Find("Communication_Iterface").GetComponent<CommunicationManagerLevel3>().ShowMsg(i_Msg);
+        }
     }
 }

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class TutorialManager : MonoBehaviour
@@ -10,18 +11,28 @@ public class TutorialManager : MonoBehaviour
     public GameObject m_TutorialWindow;
     public Text m_SlideNumberText;
     public GameObject m_Slide;
+    public Text m_SlideTitle;
     public Sprite[] m_SlidesSprites;
+    public string[] m_SlidesTitles;
     private int m_SlideIndex = 1;
     private int m_CurrentSlideIndex = 1;
     private int m_PreviousSlideIndex = 0;
+    public GameObject m_ZoomInWindow;
 
     void Start()
     {
         m_Slide.GetComponent<SpriteRenderer>().sprite = m_SlidesSprites[0];
-        
-        
+        m_SlideTitle.text = m_SlidesTitles[0];
 
+        GameObject[] slots = GameObject.FindGameObjectsWithTag("slot");
+
+        foreach(GameObject slot in slots)
+        {
+            slot.GetComponent<SlotManager>().OnClickZoomBtn += OnClickCloseTutorialBtn;
+        }
     }
+
+
 
     public int CurrentSlideIndex
     {
@@ -45,6 +56,7 @@ public class TutorialManager : MonoBehaviour
 
     public void OnClickShowTutorialBtn()
     {
+        m_ZoomInWindow.SetActive(false);
         m_TutorialWindow.SetActive(true);
         Time.timeScale = 0f;
     }
@@ -71,6 +83,7 @@ public class TutorialManager : MonoBehaviour
     {
         m_SlideNumberText.text = CurrentSlideIndex + "/4";
         m_Slide.GetComponent<SpriteRenderer>().sprite = m_SlidesSprites[CurrentSlideIndex - 1];
+        m_SlideTitle.text = m_SlidesTitles[CurrentSlideIndex - 1];
         m_Slide.GetComponent<SpriteRenderer>().drawMode = SpriteDrawMode.Sliced;
 
         switch(CurrentSlideIndex)

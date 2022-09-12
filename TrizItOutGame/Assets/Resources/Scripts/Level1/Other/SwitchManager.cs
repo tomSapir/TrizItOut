@@ -31,7 +31,7 @@ public class SwitchManager : MonoBehaviour, IInteractable
         {
             if(!m_OnForTheFirstTime)
             {
-                m_CommunicationInterface.GetComponent<CommunicationManagerLevel1>().ShowMsg("the light is on but the computer is still off");
+                m_CommunicationInterface.GetComponent<CommunicationManagerLevel1>().ShowMsg("The light is on but the computer is still off...");
                 m_OnForTheFirstTime = true;
             }
             GetComponent<SpriteRenderer>().sprite = m_SwitchOnSprite;

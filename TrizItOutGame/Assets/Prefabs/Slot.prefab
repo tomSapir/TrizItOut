@@ -459,7 +459,7 @@ GameObject:
   - component: {fileID: 6681419857254851175}
   m_Layer: 0
   m_Name: Slot
-  m_TagString: Untagged
+  m_TagString: slot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -583,6 +583,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_SlotItemImage: {fileID: 5259828532725135555}
   m_ZoomInWindow: {fileID: 0}
+  m_displayImage: 
 --- !u!1 &7446549788976692008
 GameObject:
   m_ObjectHideFlags: 0

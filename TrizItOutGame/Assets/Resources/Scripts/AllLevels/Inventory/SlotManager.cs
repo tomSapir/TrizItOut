@@ -6,6 +6,7 @@ using UnityEngine.EventSystems;
 
 public class SlotManager : MonoBehaviour, IPointerClickHandler
 {
+    public delegate void ZoomBtnDelegate();
     public enum Property { usable, displayable, empty };
 
     public GameObject m_SlotItemImage;
@@ -17,6 +18,8 @@ public class SlotManager : MonoBehaviour, IPointerClickHandler
     public int AmountOfUsage { get; set; }
     public string m_displayImage; // For displayable objects - the more informative image for the zoomIn window.
 
+    public event ZoomBtnDelegate OnClickZoomBtn;
+
     void Start()
     {
         m_InventoryManager = GameObject.Find("Inventory").GetComponent<InventoryManager>();
@@ -26,7 +29,8 @@ public class SlotManager : MonoBehaviour, IPointerClickHandler
     {
         if(IsEmpty == false)
         {
-            if(ItemProperty == Property.usable)
+            OnClickZoomBtn?.Invoke();
+            if (ItemProperty == Property.usable)
             {
                 m_ZoomInWindow.transform.Find("Item").GetComponent<Image>().sprite = m_SlotItemImage.GetComponent<Image>().sprite;
             }

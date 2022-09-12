@@ -17,6 +17,7 @@ public class ComputerMission : MonoBehaviour
     private bool m_CanShowDust = true;
     private int m_AmountOfDust;
     private bool m_AlredyOn = false;
+    private bool m_DustMsgShown = false;
 
     public event OnComputeOpen OnComputer;
 
@@ -86,6 +87,12 @@ public class ComputerMission : MonoBehaviour
         if(m_AmountOfDust == 0)
         {
             m_TornFuze.gameObject.layer = 0;
+
+            if(!m_DustMsgShown)
+            {
+                GameObject.Find("Communication_Iterface").GetComponent<CommunicationManagerLevel1>().ShowMsg("Well done! All the dust is gone. What should you do next?");
+                m_DustMsgShown = true;
+            }
         }
     }
 }

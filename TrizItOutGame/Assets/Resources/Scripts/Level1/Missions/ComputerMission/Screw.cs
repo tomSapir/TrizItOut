@@ -44,12 +44,12 @@ public class Screw : MonoBehaviour, IInteractable
             }
             else
             {
-                findCommunicationManagerAndShowMsg("You can't screw the screw out with this object...");
+                findCommunicationManagerAndShowMsg("The screw cannot be removed with this object..");
             }
         }
         else
         {
-            findCommunicationManagerAndShowMsg("You need an object to help you screw the screw out..");
+            findCommunicationManagerAndShowMsg("An object is required for this screw..");
         }
     }
 

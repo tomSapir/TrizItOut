@@ -13,15 +13,17 @@ public class piggyBank : MonoBehaviour, IInteractable
 
     public void Interact(DisplayManagerLevel1 currDisplay)
     {
+        SoundManager soundManager = GameObject.Find("SoundManager").GetComponent<SoundManager>();
+
         s_AmountOfTaps++;
         if(s_AmountOfTaps < 3)
         {
-            SoundManager.PlaySound(SoundManager.k_PiggyBankKnockSoundName);
+            soundManager.PlaySound(SoundManager.k_PiggyBankKnockSoundName);
         }
         else if(s_AmountOfTaps == 3)
         {
             GetComponent<SpriteRenderer>().sprite = m_PiggyBankBroken;
-            SoundManager.PlaySound(SoundManager.k_PiggyBankBreakSoundName);
+            soundManager.PlaySound(SoundManager.k_PiggyBankBreakSoundName);
         }
         else if(s_AmountOfTaps == 4)
         {

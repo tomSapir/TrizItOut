@@ -16,7 +16,7 @@ public class BigPot : MonoBehaviour
 
     public void OnBigPotMoved(MoveObject.eMovementType eMovementType)
     {
-        SoundManager.PlaySound(SoundManager.k_MoveBigPotSoundName);
+        GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySound(SoundManager.k_MoveBigPotSoundName);
 
         if(eMovementType == MoveObject.eMovementType.right)
         {

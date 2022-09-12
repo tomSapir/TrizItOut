@@ -15,10 +15,12 @@ public class LightingMissionHandler : MonoBehaviour
     static int s_AmountGreenPressed = 0;
     static int s_AmountBluePressed = 0;
 
+    private SoundManager m_SoundManager;
 
     // Start is called before the first frame update
     void Start()
     {
+        m_SoundManager = GameObject.Find("SoundManager").GetComponent<SoundManager>();
         LockedPanel.GetComponent<ClosedPanelManager>().panelOpenedHandler += onUnlockPanel;
         GameObject.Find("UltraLightSwitch").GetComponent<UltraLightSwitch>().OnInteractedHandler += checkColor;
     }
@@ -37,7 +39,7 @@ public class LightingMissionHandler : MonoBehaviour
 
     public void Red_OnClick()
     {
-        SoundManager.PlaySound(SoundManager.k_ButtonSoundName);
+        m_SoundManager.PlaySound(SoundManager.k_ButtonSoundName);
         rotateButton();
 
         Color32 color = UltraLighting.GetComponent<SpriteRenderer>().color;
@@ -57,7 +59,7 @@ public class LightingMissionHandler : MonoBehaviour
 
     public void Green_OnClick()
     {
-        SoundManager.PlaySound(SoundManager.k_ButtonSoundName);
+        m_SoundManager.PlaySound(SoundManager.k_ButtonSoundName);
         rotateButton();
 
         Color32 color = UltraLighting.GetComponent<SpriteRenderer>().color;
@@ -77,7 +79,7 @@ public class LightingMissionHandler : MonoBehaviour
 
     public void Blue_OnClick()
     {
-        SoundManager.PlaySound(SoundManager.k_ButtonSoundName);
+        m_SoundManager.PlaySound(SoundManager.k_ButtonSoundName);
         rotateButton();
 
         Color32 color = UltraLighting.GetComponent<SpriteRenderer>().color;

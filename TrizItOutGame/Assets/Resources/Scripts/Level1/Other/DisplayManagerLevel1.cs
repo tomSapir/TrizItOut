@@ -222,7 +222,7 @@ public class DisplayManagerLevel1 : MonoBehaviour
         m_LeftButton.interactable = false;
         m_ComputerCable.layer = 2;
         yield return new WaitForSeconds(sec);
-        SoundManager.PlaySound(SoundManager.k_ElectricFallSoundName);
+        GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySound(SoundManager.k_ElectricFallSoundName);
         m_Lightning1.SetActive(true);
         m_Lightning2.SetActive(true);
         m_CommunicationManager.ShowMsg("Looks like the power went out..");
@@ -257,7 +257,7 @@ public class DisplayManagerLevel1 : MonoBehaviour
         HintsManagerLevel1.m_IsLoadingNextLevel = true;
         yield return new WaitForSeconds(1);
         m_ComputerScreen.SetActive(true);
-        SoundManager.PlaySound(SoundManager.k_WindowsStartupSoundName);
+        GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySound(SoundManager.k_WindowsStartupSoundName);
         m_ComputerDesktopPicture.SetActive(false);
         m_ComputerWindowsLogo.SetActive(true);
         yield return new WaitForSeconds(3);

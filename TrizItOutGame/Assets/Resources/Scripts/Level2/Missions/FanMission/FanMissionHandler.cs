@@ -21,12 +21,13 @@ public class FanMissionHandler : MonoBehaviour
     public GameObject m_TopLeftScrew;
 
     public GameObject m_TwoScrewsPrefab;
-
+    private SoundManager m_SoundManager;
     private float m_Timer;
 
     void Start()
     {
-        SoundManager.PlaySound(SoundManager.k_FanSoundName);
+        m_SoundManager = GameObject.Find("SoundManager").GetComponent<SoundManager>();
+        m_SoundManager.PlaySound(SoundManager.k_FanSoundName);
         m_ZoomFanRazers.GetComponent<FanRazersManager>().FanStopped += OnFanStopped;
         m_ZoomNote.GetComponent<PickUpItem>().OnPickUp += OnNotePickedUp;
 
@@ -43,7 +44,7 @@ public class FanMissionHandler : MonoBehaviour
 
             if (m_Timer >= 1f)
             {
-                SoundManager.PlaySound(SoundManager.k_FanSoundName);
+                m_SoundManager.PlaySound(SoundManager.k_FanSoundName);
                 m_Timer = 0;
             }
         }

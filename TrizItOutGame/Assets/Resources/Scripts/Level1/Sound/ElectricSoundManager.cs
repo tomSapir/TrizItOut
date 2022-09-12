@@ -5,7 +5,12 @@ using UnityEngine;
 public class ElectricSoundManager : MonoBehaviour
 {
     private float m_Timer;
+    private SoundManager m_SoundManager;
 
+    void Start()
+    {
+        m_SoundManager = GameObject.Find("SoundManager").GetComponent<SoundManager>();
+    }
     void Update()
     {
         if(!LightningManager.s_TornComputerCablePickedUp)
@@ -22,13 +27,13 @@ public class ElectricSoundManager : MonoBehaviour
 
             if (m_Timer >= 2f)
             {
-                SoundManager.PlaySound(SoundManager.k_ElectricitySoundName);
+                m_SoundManager.PlaySound(SoundManager.k_ElectricitySoundName);
                 m_Timer = 0;
             }
         }
         else
         {
-            SoundManager.StopSound();
+            m_SoundManager.StopSound();
         }
     }
 }

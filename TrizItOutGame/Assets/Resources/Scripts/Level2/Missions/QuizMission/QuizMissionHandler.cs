@@ -15,9 +15,12 @@ public class QuizMissionHandler : MonoBehaviour
     public GameObject m_QuizStartMenu;
     public GameObject m_QuizGame;
     public GameObject m_QuizEndOfGame;
+
+    private SoundManager m_SoundManager;
  
     private void Start()
     {
+        m_SoundManager = GameObject.Find("SoundManager").GetComponent<SoundManager>();
         generateQuestion();
         setAnswers();
     }
@@ -27,13 +30,13 @@ public class QuizMissionHandler : MonoBehaviour
         GameObject.Find("Communication_Iterface").GetComponent<CommunicationManagerLevel2>().ShowMsg("YES! Good job!");
         m_QuestionsAndAnswers.RemoveAt(m_CurrentQuestion);
         generateQuestion();
-        SoundManager.PlaySound(SoundManager.k_QuizCorrectAnswerSoundName);
+        m_SoundManager.PlaySound(SoundManager.k_QuizCorrectAnswerSoundName);
     }
 
     public void Wrong()
     {
         GameObject.Find("Communication_Iterface").GetComponent<CommunicationManagerLevel2>().ShowMsg("Wrong answer, try again.");
-        SoundManager.PlaySound(SoundManager.k_QuizWrongAnswerSoundName);
+        m_SoundManager.PlaySound(SoundManager.k_QuizWrongAnswerSoundName);
     }
 
     private void setAnswers()

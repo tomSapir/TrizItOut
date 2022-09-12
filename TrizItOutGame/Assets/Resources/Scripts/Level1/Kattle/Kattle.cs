@@ -38,15 +38,16 @@ public class Kattle : MonoBehaviour, IInteractable
 
     IEnumerator ApplyKattleSmokeAndPassword(DisplayManagerLevel1 currDisplay)
     {
+        SoundManager soundManager = GameObject.Find("SoundManager").GetComponent<SoundManager>();
         m_ButtonRightArrow.GetComponent<Button>().interactable = false;
         if(m_SafeBoxClosed != null)
         {
             m_SafeBoxClosed.layer = 2;
         }
-        
-        SoundManager.PlaySound(SoundManager.k_SwitchSoundName);
+
+        soundManager.PlaySound(SoundManager.k_SwitchSoundName);
         yield return new WaitForSeconds(2);
-        SoundManager.PlaySound(SoundManager.k_KattleBoilSoundName);
+        soundManager.PlaySound(SoundManager.k_KattleBoilSoundName);
         yield return new WaitForSeconds(3);
         m_KattleSmoke.SetActive(true);
         yield return new WaitForSeconds(2);

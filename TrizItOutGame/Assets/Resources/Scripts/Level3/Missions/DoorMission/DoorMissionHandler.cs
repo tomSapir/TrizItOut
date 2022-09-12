@@ -13,8 +13,11 @@ public class DoorMissionHandler : MonoBehaviour
     private string m_CurrentCode = null;
     private int m_CurrentIndex = 0;
 
+    private SoundManager m_SoundManager;
+
     void Start()
     {
+        m_SoundManager = GameObject.Find("SoundManager").GetComponent<SoundManager>();
         m_OpenDoor = GameObject.Find("DoorOpen");
         Debug.Log(m_OpenDoor);
     }
@@ -26,7 +29,7 @@ public class DoorMissionHandler : MonoBehaviour
 
     public void OnClickNumberBtn(int i_Number)
     {
-        SoundManager.PlaySound(SoundManager.k_ButtonSoundName);
+        m_SoundManager.PlaySound(SoundManager.k_ButtonSoundName);
         if (m_CurrentIndex < 4)
         {
             m_CurrentIndex++;
@@ -39,13 +42,13 @@ public class DoorMissionHandler : MonoBehaviour
             if (m_CurrentCode == m_CorrectCode)
             {
                 doorWasOpendEvent?.Invoke();
-                SoundManager.PlaySound(SoundManager.k_CorrectPasswordSoundName);
+                m_SoundManager.PlaySound(SoundManager.k_CorrectPasswordSoundName);
                 GameObject.Find("Door").GetComponent<SpriteRenderer>().enabled = false;
                 m_OpenDoor.GetComponent<SpriteRenderer>().enabled = true;
             }
             else
             {
-                SoundManager.PlaySound(SoundManager.k_WorngPasswordSoundName);
+                m_SoundManager.PlaySound(SoundManager.k_WorngPasswordSoundName);
                 m_ScreenText.text = string.Empty;
                 m_CurrentIndex = 0;
                 m_CurrentCode = string.Empty;

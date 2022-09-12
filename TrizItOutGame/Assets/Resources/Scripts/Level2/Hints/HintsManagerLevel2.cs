@@ -25,8 +25,11 @@ public class HintsManagerLevel2 : MonoBehaviour
 
     private Dictionary<string, string> m_Hints = new Dictionary<string, string>();
 
+    private SoundManager m_SoundManager;
+
     void Start()
     {
+        m_SoundManager = GameObject.Find("SoundManager").GetComponent<SoundManager>();
         m_Inventory = GameObject.Find("Inventory");
         m_InventoryManager = m_Inventory.GetComponent<InventoryManager>();
         m_MainCameraManager = GameObject.Find("Main Camera").GetComponent<MainCameraManagerLevel2>();
@@ -70,7 +73,7 @@ public class HintsManagerLevel2 : MonoBehaviour
         {
             if (!m_Played)
             {
-                SoundManager.PlaySound(SoundManager.k_HintSoundName);
+                m_SoundManager.PlaySound(SoundManager.k_HintSoundName);
                 m_Played = true;
             }
 

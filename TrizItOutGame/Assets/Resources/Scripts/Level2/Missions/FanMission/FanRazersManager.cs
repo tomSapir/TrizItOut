@@ -57,7 +57,7 @@ public class FanRazersManager : MonoBehaviour, IInteractable
 
     private void handleFanStopped(InventoryManager i_InventoryManager)
     {
-        SoundManager.StopSound();
+        GameObject.Find("SoundManager").GetComponent<SoundManager>().StopSound();
         m_NeedToSpin = false;
         gameObject.layer = 2;
         i_InventoryManager.m_CurrentSelectedSlot = null;

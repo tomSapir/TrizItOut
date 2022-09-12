@@ -24,6 +24,7 @@ public class Dust : MonoBehaviour, IInteractable
     public void Interact(DisplayManagerLevel1 currDisplay)
     {
         GameObject currentSelectedSlot = m_inventory.GetComponent<InventoryManager>().m_CurrentSelectedSlot;
+        SoundManager soundManager = GameObject.Find("SoundManager").GetComponent<SoundManager>();
 
         if (currentSelectedSlot != null)
         {
@@ -32,11 +33,11 @@ public class Dust : MonoBehaviour, IInteractable
             {
                 if (selectedSlotSpriteName == m_UnlockItem1)
                 {
-                    SoundManager.PlaySound(SoundManager.k_SpraySoundName);
+                    soundManager.PlaySound(SoundManager.k_SpraySoundName);
                 }
                 else if(selectedSlotSpriteName == m_UnlockItem2)
                 {
-                    SoundManager.PlaySound(SoundManager.k_BroomSoundName);
+                    soundManager.PlaySound(SoundManager.k_BroomSoundName);
                 }
 
                 Destroy(gameObject);

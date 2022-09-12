@@ -24,8 +24,11 @@ public class SafeBoxMissionHandler : MonoBehaviour
     //private GameObject m_Door;
     private BoxCollider2D m_DoorBoxCollider;
 
+    private SoundManager m_SoundManager;
+
     void Start()
     {
+        m_SoundManager = GameObject.Find("SoundManager").GetComponent<SoundManager>();
         m_Canvas = GameObject.Find("/MissionHandler/SafeBoxMission/Canvas");
         m_FlyTicket_Zoom.GetComponent<PickUpItem>().OnPickUp += OnTicketPickedUp;
         m_Key_Zoom.GetComponent<PickUpItem>().OnPickUp += onKeyPickedUp;
@@ -48,14 +51,10 @@ public class SafeBoxMissionHandler : MonoBehaviour
         m_DoorBoxCollider.enabled = true;
     }
 
-    void Update()
-    {
-
-    }
 
     public void OnClick()
     {
-        SoundManager.PlaySound(SoundManager.k_ButtonSoundName);
+        m_SoundManager.PlaySound(SoundManager.k_ButtonSoundName);
         GameObject button = EventSystem.current.currentSelectedGameObject;
         Image image = button.GetComponent<Button>().image;
         image.color = new Color32(217, 91, 255, 152);
@@ -97,7 +96,7 @@ public class SafeBoxMissionHandler : MonoBehaviour
 
     IEnumerator WaitIfSolutionIncorrect(int sec)
     {
-        SoundManager.PlaySound(SoundManager.k_WorngPasswordSoundName);
+        m_SoundManager.PlaySound(SoundManager.k_WorngPasswordSoundName);
         m_Indicator.GetComponent<Image>().color = new Color32(255, 0, 71, 255);
         yield return new WaitForSeconds(sec);
         m_currentSolution.Clear();
@@ -111,7 +110,7 @@ public class SafeBoxMissionHandler : MonoBehaviour
 
     IEnumerator WaitIfSolutionCorrect(int sec)
     {
-        SoundManager.PlaySound(SoundManager.k_CorrectPasswordSoundName);
+        m_SoundManager.PlaySound(SoundManager.k_CorrectPasswordSoundName);
         m_Indicator.GetComponent<Image>().color = new Color32(12, 255, 0, 255);
         yield return new WaitForSeconds(sec);
         enabeledSafeBox();

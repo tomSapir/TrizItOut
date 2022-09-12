@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SoundManager : MonoBehaviour
 {
-    //public static SoundManager m_Instance;
+    public static SoundManager m_Instance;
 
     public static AudioClip s_ButtonSound, s_WorngPasswordSound,
                             s_CorrectPasswordSound, s_SwitchSound,
@@ -16,7 +16,7 @@ public class SoundManager : MonoBehaviour
                             s_PiggyBankKnockSound, s_FanSound, s_ElectricitySound, s_WindowsStartupSound,
                             s_HintSound, s_BroomSound;
 
-    public static AudioSource m_AudioSource;
+    public AudioSource m_AudioSource;
 
     public const string k_ButtonSoundName = "buttonSound";
     public const string k_WorngPasswordSoundName = "worngPasswordSound";
@@ -46,17 +46,17 @@ public class SoundManager : MonoBehaviour
 
     void Start()
     {
-        /*GameObject[] objs = GameObject.FindGameObjectsWithTag("SoundManager");
-
-        if(objs.Length > 1)
-        {
-            Destroy(this.gameObject);
-        }*/
-
         DontDestroyOnLoad(this.gameObject);
+        if (m_Instance == null)
+        {
+            m_Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
 
-        m_AudioSource = GetComponent<AudioSource>();
-       
+        m_AudioSource = GetComponent<AudioSource>();  
 
         s_ButtonSound = Resources.Load<AudioClip>(sr_SoundPath + k_ButtonSoundName);
         s_WorngPasswordSound = Resources.Load<AudioClip>(sr_SoundPath + k_WorngPasswordSoundName);
@@ -79,11 +79,9 @@ public class SoundManager : MonoBehaviour
         s_WindowsStartupSound = Resources.Load<AudioClip>(sr_SoundPath + k_WindowsStartupSoundName);
         s_HintSound = Resources.Load<AudioClip>(sr_SoundPath + k_HintSoundName);
         s_BroomSound = Resources.Load<AudioClip>(sr_SoundPath + k_BroomSoundName);
-
-        //m_AudioSource = GetComponent<AudioSource>();
     }
 
-    public static void PlaySound(string i_Clip)
+    public void PlaySound(string i_Clip)
     {
         if (!s_IsMuted)
         {
@@ -198,7 +196,7 @@ public class SoundManager : MonoBehaviour
         }
     }
 
-    public static void StopSound()
+    public void StopSound()
     {
         m_AudioSource.Stop();
     }

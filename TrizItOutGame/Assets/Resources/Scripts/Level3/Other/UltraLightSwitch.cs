@@ -12,11 +12,9 @@ public class UltraLightSwitch : MonoBehaviour, IInteractable
     public delegate void SwitchIntercatedDelegate();
     public SwitchIntercatedDelegate OnInteractedHandler;
 
-
-
     public void Interact(DisplayManagerLevel1 currDisplay)
     {
-        SoundManager.PlaySound(SoundManager.k_SwitchSoundName);
+        GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySound(SoundManager.k_SwitchSoundName);
         m_IsSwitchOn = !m_IsSwitchOn;
         GetComponent<SpriteRenderer>().sprite = m_IsSwitchOn is true ? m_SwitchOnSprite : m_SwitchOffSprite;
         m_UltraVioletLighting.GetComponent<SpriteRenderer>().enabled = m_IsSwitchOn;

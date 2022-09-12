@@ -19,10 +19,12 @@ public class SafeBoxBtnManager : MonoBehaviour
     private readonly string m_CorrectCode = "7135";
     private string m_CurrentPassCode = string.Empty;
     private int m_Index = 0;
+    private SoundManager m_SoundManager;
 
     public void Start()
     {
         m_SwitchManager.GetComponent<SwitchManager>().OnSwitch += OnSwitchChanged;
+        m_SoundManager = GameObject.Find("SoundManager").GetComponent<SoundManager>();
     }
 
     private void Update()
@@ -50,7 +52,7 @@ public class SafeBoxBtnManager : MonoBehaviour
 
     public void OnClickSafeBoxNumberBtn(string Number)
     {
-        SoundManager.PlaySound(SoundManager.k_ButtonSoundName);
+        m_SoundManager.PlaySound(SoundManager.k_ButtonSoundName);
         if (m_Index < 4)
         {
             m_Index++;
@@ -61,7 +63,7 @@ public class SafeBoxBtnManager : MonoBehaviour
 
     public void OnClickClearBtn()
     {
-        SoundManager.PlaySound(SoundManager.k_ButtonSoundName);
+        m_SoundManager.PlaySound(SoundManager.k_ButtonSoundName);
         m_Index = 0;
         m_CurrentPassCode = null;
         m_ScreenText.text = m_CurrentPassCode;
@@ -79,12 +81,12 @@ public class SafeBoxBtnManager : MonoBehaviour
         {
             if (m_CurrentPassCode == m_CorrectCode)
             {
-                SoundManager.PlaySound(SoundManager.k_CorrectPasswordSoundName);
+                m_SoundManager.PlaySound(SoundManager.k_CorrectPasswordSoundName);
                 safeBoxMissionScript.ApplyPasswordCorrect();
             }
             else
             {
-                SoundManager.PlaySound(SoundManager.k_WorngPasswordSoundName);
+                m_SoundManager.PlaySound(SoundManager.k_WorngPasswordSoundName);
                 OnClickClearBtn();
                 safeBoxMissionScript.ApplyPasswrodInCorrect();
             }

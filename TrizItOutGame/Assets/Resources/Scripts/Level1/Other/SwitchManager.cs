@@ -20,7 +20,8 @@ public class SwitchManager : MonoBehaviour, IInteractable
 
     public void Interact(DisplayManagerLevel1 currDisplay)
     {
-        SoundManager.PlaySound(SoundManager.k_SwitchSoundName);
+        GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySound(SoundManager.k_SwitchSoundName);
+
         if(m_IsLightOn)
         {
             GetComponent<SpriteRenderer>().sprite = m_SwitchOffSprite;

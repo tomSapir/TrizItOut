@@ -46,7 +46,7 @@ public class Screw : MonoBehaviour, IInteractable
 
     IEnumerator ScrewPickedUpEnumerator()
     {
-        SoundManager.PlaySound(SoundManager.k_ScrewOpenSoundName);
+        GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySound(SoundManager.k_ScrewOpenSoundName);
         m_Animation.Play("Screw");
         yield return new WaitForSeconds(1);
         Destroy(gameObject);

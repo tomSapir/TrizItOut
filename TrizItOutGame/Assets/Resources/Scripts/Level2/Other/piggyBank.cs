@@ -4,12 +4,17 @@ using UnityEngine;
 
 public class piggyBank : MonoBehaviour, IInteractable
 {
-    private static int s_AmountOfTaps = 0;
+    public static int s_AmountOfTaps = 0;
     [SerializeField]
     private Sprite m_PiggyBankBroken;
     [SerializeField]
     private GameObject m_TrizCoin;
     public int AmoutOfTaps { get; }
+
+    public start()
+    {
+        s_AmountOfTaps = 0;
+    }
 
     public void Interact(DisplayManagerLevel1 currDisplay)
     {

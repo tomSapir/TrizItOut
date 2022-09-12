@@ -11,13 +11,14 @@ public class piggyBank : MonoBehaviour, IInteractable
     private GameObject m_TrizCoin;
     public int AmoutOfTaps { get; }
 
-    public start()
+    void Start()
     {
         s_AmountOfTaps = 0;
     }
 
     public void Interact(DisplayManagerLevel1 currDisplay)
     {
+        //Debug.Log(s_AmountOfTaps);
         SoundManager soundManager = GameObject.Find("SoundManager").GetComponent<SoundManager>();
 
         s_AmountOfTaps++;

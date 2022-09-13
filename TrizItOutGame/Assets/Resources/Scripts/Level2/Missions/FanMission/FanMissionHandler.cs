@@ -26,6 +26,7 @@ public class FanMissionHandler : MonoBehaviour
 
     void Start()
     {
+        s_AmountOfScrewsRemoved = 0;
         m_SoundManager = GameObject.Find("SoundManager").GetComponent<SoundManager>();
         m_SoundManager.PlaySound(SoundManager.k_FanSoundName);
         m_ZoomFanRazers.GetComponent<FanRazersManager>().FanStopped += OnFanStopped;

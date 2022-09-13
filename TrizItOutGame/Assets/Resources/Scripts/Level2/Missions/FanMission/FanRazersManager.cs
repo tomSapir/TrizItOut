@@ -19,6 +19,7 @@ public class FanRazersManager : MonoBehaviour, IInteractable
 
     void Start()
     {
+        m_NeedToSpin = true;
         m_Inventory = GameObject.Find("/Canvas/Inventory");
         if(m_Inventory == null)
         {

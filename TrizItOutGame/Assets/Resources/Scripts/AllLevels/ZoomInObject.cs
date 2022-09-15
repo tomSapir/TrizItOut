@@ -10,10 +10,8 @@ public class ZoomInObject : MonoBehaviour, IInteractable
     {
         Camera.main.orthographicSize *= ZoomRatio;
         Camera.main.transform.position = new Vector3(this.transform.position.x, this.transform.position.y, Camera.main.transform.position.z);
-
         gameObject.layer = 2;
         currDisplay.CurrentState = DisplayManagerLevel1.State.zoom;
-
         ConstrainCamera();
     }
 

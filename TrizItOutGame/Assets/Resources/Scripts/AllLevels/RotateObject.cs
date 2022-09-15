@@ -6,10 +6,8 @@ public class RotateObject : MonoBehaviour, IInteractable
 {
     public delegate void RotateObjectAction();
 
-    [SerializeField]
-    private float m_SpeedRotation;
-    [SerializeField]
-    private float m_EndZ;
+    public float m_SpeedRotation;
+    public float m_EndZ;
 
     public event RotateObjectAction OnRotateObject;
 
@@ -24,10 +22,5 @@ public class RotateObject : MonoBehaviour, IInteractable
         {
             OnRotateObject();
         }
-        /*
-        var rotationVector = transform.rotation.eulerAngles;
-        rotationVector.z = 32;  // this number is the degree of rotation around Z Axis
-        transform.rotation = Quaternion.Euler(rotationVector);
-        */
     }
 }

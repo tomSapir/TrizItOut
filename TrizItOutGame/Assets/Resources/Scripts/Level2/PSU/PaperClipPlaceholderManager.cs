@@ -29,7 +29,7 @@ public class PaperClipPlaceholderManager : MonoBehaviour, IInteractable
     public void Interact(DisplayManagerLevel1 currDisplay)
     {
         InventoryManager inventoryManager = m_Inventory.GetComponent<InventoryManager>();
-        GameObject currSelectedSlot = inventoryManager.m_CurrentSelectedSlot;
+        GameObject currSelectedSlot = inventoryManager.CurrentSelectedSlot;
 
         if (m_ChildSpriteRenderer.enabled == true)
         {

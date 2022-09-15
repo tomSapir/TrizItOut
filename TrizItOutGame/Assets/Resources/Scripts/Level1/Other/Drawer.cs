@@ -18,10 +18,10 @@ public class Drawer : MonoBehaviour, IInteractable
     public void Interact(DisplayManagerLevel1 currDisplay)
     {
         // suppose we have a key that unlocks this drawer, the sprites name of the kwy would be m_unlocks.
-       if( m_inventory.GetComponent<InventoryManager>().m_CurrentSelectedSlot.gameObject.transform.GetChild(0).GetComponent<Image>().sprite.name == m_UnlockItem)
+       if( m_inventory.GetComponent<InventoryManager>().CurrentSelectedSlot.gameObject.transform.GetChild(0).GetComponent<Image>().sprite.name == m_UnlockItem)
         {
             Debug.Log("Unlock");
-            m_inventory.GetComponent<InventoryManager>().m_CurrentSelectedSlot.GetComponent<SlotManager>().ClearSlot();
+            m_inventory.GetComponent<InventoryManager>().CurrentSelectedSlot.GetComponent<SlotManager>().ClearSlot();
         }
     }
 }

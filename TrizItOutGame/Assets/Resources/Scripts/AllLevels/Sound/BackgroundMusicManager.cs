@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class BackgroundMusicManager : MonoBehaviour
 {
-    public static BackgroundMusicManager m_Instance;
+    public static BackgroundMusicManager s_Instance;
     private AudioSource m_AudioSource;
     private int m_PrevSceneIndex = 0;
     private bool m_QuizMusicAlreadyStarted = false;
@@ -14,9 +14,9 @@ public class BackgroundMusicManager : MonoBehaviour
     void Start()
     {
         DontDestroyOnLoad(this.gameObject);
-        if(m_Instance == null)
+        if(s_Instance == null)
         {
-            m_Instance = this;
+            s_Instance = this;
         }
         else
         {

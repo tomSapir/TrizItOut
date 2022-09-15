@@ -12,8 +12,8 @@ public class PauseMenuManager : MonoBehaviour
     public GameObject m_PauseMenuUI;
 
     public Toggle m_BackgroundMusicToggle;
-    public BackgroundMusicManager m_BackgroundMusicManager;
     public Toggle m_BackgroundNoisesToggle;
+    public BackgroundMusicManager m_BackgroundMusicManager;
 
     public GameObject m_PauseBtn;
     public GameObject m_PauseWindow;
@@ -97,8 +97,6 @@ public class PauseMenuManager : MonoBehaviour
             case 3:
             case 4:
                 {
-                    //SoundManager > ().
-                    //m_BackgroundNoisesToggle.onValueChanged.AddListener(SoundManager.m_AudioSource.mute);
                     m_PauseBtn.SetActive(true);
                     break;
                 }

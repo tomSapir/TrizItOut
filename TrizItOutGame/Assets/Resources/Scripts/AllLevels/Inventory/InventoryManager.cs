@@ -6,8 +6,8 @@ using UnityEngine.UI;
 public class InventoryManager : MonoBehaviour
 {
     public GameObject[] m_Slots = new GameObject[6]; 
-    public GameObject m_CurrentSelectedSlot { get; set; }
-    public GameObject m_PreviouslySelectedSlot { get; set; }
+    public GameObject CurrentSelectedSlot { get; set; }
+    public GameObject PreviouslySelectedSlot { get; set; }
 
     private Sprite m_EmptyItemSprite = null;
 
@@ -18,15 +18,18 @@ public class InventoryManager : MonoBehaviour
     public static readonly string sr_InventoryItemSpritePath = "Sprites/AllLevels/Items/";
     public static readonly string sr_EmptyItemSpritePath = "Sprites/AllLevels/Inventory/";
 
+    private SoundManager m_SoundManager;
+
     private void Start()
     {
+        m_SoundManager = GameObject.Find("SoundManager").GetComponent<SoundManager>();
         m_EmptyItemSprite = Resources.Load<Sprite>(sr_EmptyItemSpritePath + sr_EmptyItemName);
         initializeInventory();
     }
 
     private void Update()
     {
-        SelectedSlot();
+        selectedSlot();
         arrangeInventory();
     }
 
@@ -38,11 +41,12 @@ public class InventoryManager : MonoBehaviour
         }
     }
 
-    private void SelectedSlot()
+    private void selectedSlot()
     {
         foreach(GameObject slot in m_Slots)
         {
-            if(slot == m_CurrentSelectedSlot && slot.GetComponent<SlotManager>().ItemProperty == SlotManager.Property.usable && slot.GetComponent<SlotManager>().IsEmpty == false)
+            if(slot == CurrentSelectedSlot && slot.GetComponent<SlotManager>().ItemProperty == SlotManager.Property.usable 
+                && slot.GetComponent<SlotManager>().IsEmpty == false)
             {
                 slot.GetComponent<Image>().sprite = m_SlotSelectSprite;
             }
@@ -55,23 +59,30 @@ public class InventoryManager : MonoBehaviour
 
     public void AddItemToInventory(PickUpItem i_Item)
     {
-        GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySound(SoundManager.k_TakeItemSoundName);
+        m_SoundManager.PlaySound(SoundManager.k_TakeItemSoundName);
         if (i_Item.m_AmountOfUsage != 0)
         {
-            foreach (GameObject slot in m_Slots)
-            {
-                if(slot.GetComponent<SlotManager>().IsEmpty)
-                {
-                    slot.transform.GetChild(0).GetComponent<Image>().sprite = Resources.Load<Sprite>(sr_InventoryItemSpritePath + i_Item.m_DisplaySprite);
-                    slot.GetComponent<SlotManager>().IsEmpty = false;
-                    slot.GetComponent<SlotManager>().AssignPtoperty((int)i_Item.m_ItemProperty, i_Item.m_DisplayImage, i_Item.m_ResultOfCombinationItemName, i_Item.m_AmountOfUsage);
-                    Destroy(i_Item.gameObject);
-                    break;
-                }
-            }
+            GameObject firstEmptySlot = findFirstEmpetySlot();
+            firstEmptySlot.transform.GetChild(0).GetComponent<Image>().sprite = Resources.Load<Sprite>(sr_InventoryItemSpritePath + i_Item.m_DisplaySprite);
+            firstEmptySlot.GetComponent<SlotManager>().IsEmpty = false;
+            firstEmptySlot.GetComponent<SlotManager>().AssignPtoperty((int)i_Item.m_ItemProperty, i_Item.m_DisplayImage, i_Item.m_ResultOfCombinationItemName, i_Item.m_AmountOfUsage);
+            Destroy(i_Item.gameObject);
         }
 
         Destroy(i_Item.gameObject);
+    }
+
+    private GameObject findFirstEmpetySlot()
+    {
+        foreach(GameObject slot in m_Slots)
+        {
+            if(slot.GetComponent<SlotManager>().IsEmpty)
+            {
+                return slot;
+            }
+        }
+
+        return null;
     }
     
     public bool DoesItemInInventory(string i_ItemName)
@@ -89,18 +100,29 @@ public class InventoryManager : MonoBehaviour
 
     public bool RemoveFromInventory(string i_ItemName)
     {
-        bool res = false;
-        foreach (GameObject slot in m_Slots)
+        GameObject slotWithTheItem = findSlotWithItem(i_ItemName);
+
+        if (slotWithTheItem != null)
+        {
+            slotWithTheItem.GetComponent<SlotManager>().AmountOfUsage = 1;
+            slotWithTheItem.GetComponent<SlotManager>().ClearSlot();
+            return true;
+        }
+
+        return false;
+    }
+
+    private GameObject findSlotWithItem(string i_ItemName)
+    {
+        foreach(GameObject slot in m_Slots)
         {
             if (slot.GetComponent<SlotManager>().GetItemName() == i_ItemName)
             {
-                res = true;
-                slot.GetComponent<SlotManager>().AmountOfUsage = 1;
-                slot.GetComponent<SlotManager>().ClearSlot();
+                return slot;
             }
         }
 
-        return res;
+        return null;
     }
 
     private void arrangeInventory()
@@ -131,7 +153,7 @@ public class InventoryManager : MonoBehaviour
             if (!currentSlotManager.IsEmpty)
             {
                 usedSlotsData.Add(new SlotTempData(currentSlotManager.m_SlotItemImage.GetComponent<Image>().sprite,
-                    currentSlotManager.CombinationItem, currentSlotManager.ItemProperty, currentSlotManager.AmountOfUsage, currentSlotManager.m_displayImage));
+                    currentSlotManager.CombinationItem, currentSlotManager.ItemProperty, currentSlotManager.AmountOfUsage, currentSlotManager.m_DisplayImage));
             }
         }
 

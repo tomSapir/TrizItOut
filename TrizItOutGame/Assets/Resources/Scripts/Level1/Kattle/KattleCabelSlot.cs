@@ -49,13 +49,13 @@ public class KattleCabelSlot : MonoBehaviour, IInteractable
 
     public void Interact(DisplayManagerLevel1 currDisplay)
     {
-        if (m_inventory.GetComponent<InventoryManager>().m_CurrentSelectedSlot != null &&
-            m_inventory.GetComponent<InventoryManager>().m_CurrentSelectedSlot.gameObject.transform.GetChild(0).GetComponent<Image>().sprite.name == m_UnlockItem)
+        if (m_inventory.GetComponent<InventoryManager>().CurrentSelectedSlot != null &&
+            m_inventory.GetComponent<InventoryManager>().CurrentSelectedSlot.gameObject.transform.GetChild(0).GetComponent<Image>().sprite.name == m_UnlockItem)
         {
             var newCable = Instantiate(m_Cable, GameObject.Find("Furniture_2").transform);
             newCable.name = "Kettle_Cable";
-            m_inventory.GetComponent<InventoryManager>().m_CurrentSelectedSlot.GetComponent<SlotManager>().ClearSlot();
-            m_inventory.GetComponent<InventoryManager>().m_CurrentSelectedSlot = null;
+            m_inventory.GetComponent<InventoryManager>().CurrentSelectedSlot.GetComponent<SlotManager>().ClearSlot();
+            m_inventory.GetComponent<InventoryManager>().CurrentSelectedSlot = null;
         }
     }
 }

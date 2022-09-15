@@ -10,12 +10,11 @@ public class NextLevelLoader : MonoBehaviour
 
     public Animator m_Transition;
     public float m_TransitionTime = 1f;
-    public Text m_TitleText;
     private int m_NextLevelIndex;
+    public Text m_TitleText;
     public Text m_NextLvlDescriptionText;
     public GameObject m_ContinueBtn;
     public GameObject m_QuitBtn;
-
     public TextWriter m_TextWriter;
 
     private List<string> m_LvlsDescriptions = new List<string>();

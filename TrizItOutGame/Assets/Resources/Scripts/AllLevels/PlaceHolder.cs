@@ -33,7 +33,7 @@ public class PlaceHolder : MonoBehaviour, IInteractable
     {
         if(m_ActivatedByEvent == true)
         {
-           GameObject PlaceFor = GameObject.Find(m_PlaceFor);
+            GameObject PlaceFor = GameObject.Find(m_PlaceFor);
 
             if (PlaceFor != null)
             {
@@ -49,21 +49,17 @@ public class PlaceHolder : MonoBehaviour, IInteractable
 
     public void Interact(DisplayManagerLevel1 currDisplay)
     {
-        if (m_Inventory.GetComponent<InventoryManager>().m_CurrentSelectedSlot != null &&
-           m_Inventory.GetComponent<InventoryManager>().m_CurrentSelectedSlot.gameObject.transform.GetChild(0).GetComponent<Image>().sprite.name == m_ActiveBy)
+        if (m_Inventory.GetComponent<InventoryManager>().CurrentSelectedSlot != null &&
+           m_Inventory.GetComponent<InventoryManager>().CurrentSelectedSlot.gameObject.transform.GetChild(0).GetComponent<Image>().sprite.name == m_ActiveBy)
         {
             GameObject newCable = Instantiate(m_MyPrefab, GameObject.Find(m_WhereToSpawn).transform);
 
             newCable.name = m_MyPrefab.name;
-
             newCable.GetComponent<SpriteRenderer>().sortingOrder = 2;
             newCable.layer = 0;
             OnPrefabSpawned?.Invoke();
-
-
-            m_Inventory.GetComponent<InventoryManager>().m_CurrentSelectedSlot.GetComponent<SlotManager>().ClearSlot();
-            m_Inventory.GetComponent<InventoryManager>().m_CurrentSelectedSlot = null;
-
+            m_Inventory.GetComponent<InventoryManager>().CurrentSelectedSlot.GetComponent<SlotManager>().ClearSlot();
+            m_Inventory.GetComponent<InventoryManager>().CurrentSelectedSlot = null;
             if(m_IsReusable == false)
             {
                 newCable.layer = 2;

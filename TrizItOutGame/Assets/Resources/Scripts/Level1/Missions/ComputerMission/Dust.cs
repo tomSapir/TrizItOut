@@ -23,7 +23,7 @@ public class Dust : MonoBehaviour, IInteractable
 
     public void Interact(DisplayManagerLevel1 currDisplay)
     {
-        GameObject currentSelectedSlot = m_inventory.GetComponent<InventoryManager>().m_CurrentSelectedSlot;
+        GameObject currentSelectedSlot = m_inventory.GetComponent<InventoryManager>().CurrentSelectedSlot;
         SoundManager soundManager = GameObject.Find("SoundManager").GetComponent<SoundManager>();
 
         if (currentSelectedSlot != null)
@@ -42,7 +42,7 @@ public class Dust : MonoBehaviour, IInteractable
 
                 Destroy(gameObject);
                 OnCleanUp?.Invoke();
-                m_inventory.GetComponent<InventoryManager>().m_CurrentSelectedSlot.GetComponent<SlotManager>().ClearSlot();
+                m_inventory.GetComponent<InventoryManager>().CurrentSelectedSlot.GetComponent<SlotManager>().ClearSlot();
             }
             else 
             {

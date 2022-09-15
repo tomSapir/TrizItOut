@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,8 +8,7 @@ public class MainCameraManagerLevel2 : MonoBehaviour
     private int m_WallBeforeMission = 0;
     private float m_DistanceToMoveXOfCamera = 17.8f;
 
-    [SerializeField]
-    private GameObject m_LeftBtn, m_RightBtn, m_GoBackBtn;
+    public GameObject m_LeftBtn, m_RightBtn, m_GoBackBtn;
 
     public ChangeToMission m_QuizScreen;
 

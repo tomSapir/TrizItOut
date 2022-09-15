@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,13 +5,13 @@ using UnityEngine.UI;
 public class KattleCabelSlot : MonoBehaviour, IInteractable
 {
     public string m_UnlockItem;
-    private GameObject m_inventory;
+    private GameObject m_Inventory;
     private GameObject m_Kattle;
     public GameObject m_Cable;
 
     void Start()
     {
-        m_inventory = GameObject.Find("Inventory");
+        m_Inventory = GameObject.Find("Inventory");
         m_Kattle = GameObject.Find("Kattle");
     }
 
@@ -26,7 +24,7 @@ public class KattleCabelSlot : MonoBehaviour, IInteractable
             gameObject.layer = 2;
             if (m_Kattle != null)
             {
-                m_Kattle.GetComponent<Kattle>().m_isConnected = true;
+                m_Kattle.GetComponent<Kattle>().IsConnected = true;
             }
             else
             {
@@ -38,7 +36,7 @@ public class KattleCabelSlot : MonoBehaviour, IInteractable
             gameObject.layer = 0;
             if (m_Kattle != null)
             {
-                m_Kattle.GetComponent<Kattle>().m_isConnected = false;
+                m_Kattle.GetComponent<Kattle>().IsConnected = false;
             }
             else
             {
@@ -49,13 +47,13 @@ public class KattleCabelSlot : MonoBehaviour, IInteractable
 
     public void Interact(DisplayManagerLevel1 currDisplay)
     {
-        if (m_inventory.GetComponent<InventoryManager>().CurrentSelectedSlot != null &&
-            m_inventory.GetComponent<InventoryManager>().CurrentSelectedSlot.gameObject.transform.GetChild(0).GetComponent<Image>().sprite.name == m_UnlockItem)
+        if (m_Inventory.GetComponent<InventoryManager>().CurrentSelectedSlot != null &&
+            m_Inventory.GetComponent<InventoryManager>().CurrentSelectedSlot.gameObject.transform.GetChild(0).GetComponent<Image>().sprite.name == m_UnlockItem)
         {
             var newCable = Instantiate(m_Cable, GameObject.Find("Furniture_2").transform);
             newCable.name = "Kettle_Cable";
-            m_inventory.GetComponent<InventoryManager>().CurrentSelectedSlot.GetComponent<SlotManager>().ClearSlot();
-            m_inventory.GetComponent<InventoryManager>().CurrentSelectedSlot = null;
+            m_Inventory.GetComponent<InventoryManager>().CurrentSelectedSlot.GetComponent<SlotManager>().ClearSlot();
+            m_Inventory.GetComponent<InventoryManager>().CurrentSelectedSlot = null;
         }
     }
 }

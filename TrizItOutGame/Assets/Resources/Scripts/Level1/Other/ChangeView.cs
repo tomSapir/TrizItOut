@@ -7,7 +7,6 @@ public class ChangeView : MonoBehaviour, IInteractable
     public string m_SpriteName;
     public Sprite m_Sprite;
     private const string k_ChangeViewSpritesPath = "Sprites/Level1/";
-    public GameObject m_CommunicationInterface;
 
     public void Interact(DisplayManagerLevel1 currDisplay)
     {
@@ -22,13 +21,13 @@ public class ChangeView : MonoBehaviour, IInteractable
         {
             case "PCSide_ZoomIN_Close":
                 {
-                    m_CommunicationInterface.GetComponent<CommunicationManagerLevel1>().ShowMsg("Mmmm... The computer is closed.");
+                    CommunicationUtils.FindCommunicationManagerAndShowMsg("Mmmm... The computer is closed.");
                     break;
                 }
             case "MiddleDrawer_Open":
                 {
-                    m_CommunicationInterface.GetComponent<CommunicationManagerLevel1>().ShowMsg("Looks like a regular drawer, nothing you need here...");
-                        break;
+                    CommunicationUtils.FindCommunicationManagerAndShowMsg("Looks like a regular drawer, nothing you need here...");
+                    break;
                 }
         }
     }

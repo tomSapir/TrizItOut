@@ -7,14 +7,9 @@ using System;
 
 public class SafeBoxBtnManager : MonoBehaviour
 {
-    [SerializeField]
-    private TextMeshProUGUI m_ScreenText;
-
-    [SerializeField]
-    private GameObject m_SafeBoxMission;
-
-    [SerializeField]
-    private GameObject m_SwitchManager;
+    public TextMeshProUGUI m_ScreenText;
+    public GameObject m_SafeBoxMission;
+    public GameObject m_SwitchManager;
 
     private readonly string m_CorrectCode = "7135";
     private string m_CurrentPassCode = string.Empty;

@@ -35,7 +35,7 @@ public class Screw : MonoBehaviour, IInteractable
                 }
                 else if (name == m_UnlockItem2 && FanRazersManager.m_NeedToSpin)
                 {
-                    GameObject.Find("Communication_Iterface").GetComponent<CommunicationManagerLevel2>().ShowMsg("You can't remove the screws while the fan is spinning, too dangerous.");
+                    CommunicationUtils.FindCommunicationManagerAndShowMsg("You can't remove the screws while the fan is spinning, too dangerous.");
                 }
                 else
                 {
@@ -44,12 +44,12 @@ public class Screw : MonoBehaviour, IInteractable
             }
             else
             {
-                findCommunicationManagerAndShowMsg("The screw cannot be removed with this object..");
+                CommunicationUtils.FindCommunicationManagerAndShowMsg("The screw cannot be removed with this object..");
             }
         }
         else
         {
-            findCommunicationManagerAndShowMsg("An object is required for this screw..");
+            CommunicationUtils.FindCommunicationManagerAndShowMsg("An object is required for this screw..");
         }
     }
 
@@ -61,21 +61,5 @@ public class Screw : MonoBehaviour, IInteractable
         Destroy(gameObject);
         m_Inventory.GetComponent<InventoryManager>().CurrentSelectedSlot.GetComponent<SlotManager>().ClearSlot();
         ScrewRemovedHandler?.Invoke();
-    }
-
-    private void findCommunicationManagerAndShowMsg(string i_Msg)
-    {
-        if (SceneManager.GetActiveScene().name == "Level1_Scene")
-        {
-            GameObject.Find("Communication_Iterface").GetComponent<CommunicationManagerLevel1>().ShowMsg(i_Msg);
-        }
-        else if (SceneManager.GetActiveScene().name == "Level2_Scene")
-        {
-            GameObject.Find("Communication_Iterface").GetComponent<CommunicationManagerLevel2>().ShowMsg(i_Msg);
-        }
-        else if (SceneManager.GetActiveScene().name == "Level3_Scene")
-        {
-            GameObject.Find("Communication_Iterface").GetComponent<CommunicationManagerLevel3>().ShowMsg(i_Msg);
-        }
     }
 }

@@ -23,7 +23,6 @@ public class LightningManager : MonoBehaviour
         m_Lightning2.SetActive(false);
         s_NeedToPlayElectricSound = false;
         GameObject.Find("SoundManager").GetComponent<SoundManager>().StopSound();
-
         s_TornComputerCablePickedUp = true;
     }
 

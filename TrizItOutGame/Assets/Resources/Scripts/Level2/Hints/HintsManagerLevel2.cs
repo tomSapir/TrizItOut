@@ -57,8 +57,6 @@ public class HintsManagerLevel2 : MonoBehaviour
 
     private void findHint()
     {
-        bool trizCoinInInventory = m_InventoryManager.DoesItemInInventory("trizCoin");
-
         if (m_MainCameraManager.CurrentWallIndex == -2 && FanMissionHandler.s_AmountOfScrewsRemoved < 2)
         {
             m_CurrentHintKey = "Reduction";

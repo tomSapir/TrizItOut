@@ -1,4 +1,3 @@
-
 using TMPro;
 
 [System.Serializable]

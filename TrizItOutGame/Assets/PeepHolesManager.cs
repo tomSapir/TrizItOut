@@ -1,12 +1,8 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PeepHolesManager : MonoBehaviour
 {
     public GameObject[] m_PeepHoles;
-    public CommunicationManagerLevel2 m_CommunicationManager;
     private bool i_AlreadyPressedPeepHole = false;
 
     void Start()
@@ -21,7 +17,7 @@ public class PeepHolesManager : MonoBehaviour
     {
         if (!i_AlreadyPressedPeepHole)
         {
-            m_CommunicationManager.ShowMsg("Looks like we can take a look around the room, maybe we can find something outside that will help.");
+            CommunicationUtils.FindCommunicationManagerAndShowMsg("Looks like we can take a look around the room, maybe we can find something outside that will help.");
             i_AlreadyPressedPeepHole = true;
         }
     }

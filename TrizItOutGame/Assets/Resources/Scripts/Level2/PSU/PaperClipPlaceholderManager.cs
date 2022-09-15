@@ -8,7 +8,6 @@ public class PaperClipPlaceholderManager : MonoBehaviour, IInteractable
     public delegate void PaperClipPressedDelegate(int i_Id);
 
     public int m_Id;
-    public CommunicationManagerLevel2 m_CommunicationManagerLevel2;
     private string m_UnlockItem = "Box_Of_PaperClips";
     private GameObject m_Inventory;
     private SpriteRenderer m_ChildSpriteRenderer;
@@ -23,7 +22,6 @@ public class PaperClipPlaceholderManager : MonoBehaviour, IInteractable
         m_Inventory = GameObject.Find("Inventory");
         m_ChildSpriteRenderer = transform.GetChild(0).GetComponent<SpriteRenderer>();
         m_ChildSpriteRenderer.enabled = false;
-        m_CommunicationManagerLevel2 = GameObject.Find("Communication_Iterface").GetComponent<CommunicationManagerLevel2>();
     }
 
     public void Interact(DisplayManagerLevel1 currDisplay)
@@ -45,7 +43,7 @@ public class PaperClipPlaceholderManager : MonoBehaviour, IInteractable
 
         if(!m_PaperClipConnectedOnce)
         {
-            m_CommunicationManagerLevel2.ShowMsg("You need something to conduct electricity.");
+            CommunicationUtils.FindCommunicationManagerAndShowMsg("You need something to conduct electricity.");
         }
    
     }

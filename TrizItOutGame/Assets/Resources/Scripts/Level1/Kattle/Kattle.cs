@@ -4,11 +4,10 @@ using UnityEngine;
 using UnityEngine.UI;
 public class Kattle : MonoBehaviour, IInteractable
 {
-    public bool m_isConnected { get; set; } = false;
+    public bool IsConnected { get; set; } = false;
     public  GameObject m_KattleSmoke;
     public  GameObject m_Mirror;
     public  Sprite m_MirrorWithCodeSprite;
-    public  CommunicationManagerLevel1 m_CommunicationManager;
     public  GameObject m_ButtonRightArrow;
     private GameObject m_SafeBoxClosed;
     public SpriteRenderer m_PasswordOnMirrorSpriteRenderer;
@@ -26,13 +25,13 @@ public class Kattle : MonoBehaviour, IInteractable
 
     public void Interact(DisplayManagerLevel1 currDisplay)
     {
-        if(m_isConnected)
+        if(IsConnected)
         {
             StartCoroutine(ApplyKattleSmokeAndPassword(currDisplay));
         }
         else
         {
-            m_CommunicationManager.ShowMsg("It seems you need to plug in the kettle first.");
+            CommunicationUtils.FindCommunicationManagerAndShowMsg("It seems you need to plug in the kettle first.");
         }
     }
 

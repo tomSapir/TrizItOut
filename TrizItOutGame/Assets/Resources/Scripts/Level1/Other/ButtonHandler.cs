@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,22 +5,16 @@ public class ButtonHandler : MonoBehaviour
 {
     private DisplayManagerLevel1 m_CurrentDisplay;
 
-    [SerializeField]
-    private Button m_RightButton;
-    [SerializeField]
-    private Button m_LeftButton;
-    [SerializeField]
-    private Button m_ZoomOutButton;
-
-    [SerializeField]
-    private GameObject m_ZoomWindow;
+    public Button m_RightButton;
+    public Button m_LeftButton;
+    public Button m_ZoomOutButton;
+    public GameObject m_ZoomWindow;
 
     private const string k_BackgroundPath = "Sprites/Level1/Main_Backgrounds/Background";
 
     void Start()
     {
         m_CurrentDisplay = GameObject.Find("DisplayImage").GetComponent<DisplayManagerLevel1>();
-
         if (m_CurrentDisplay == null)
         {
             Debug.LogError("Could not found DisplayManagerLevel1.");

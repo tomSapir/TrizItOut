@@ -12,9 +12,8 @@ public class ComputerMission : MonoBehaviour
     public Sprite m_PCSideOpenSprite;
     public GameObject m_TornFuze;
     public GameObject m_PowerFuzeContainer;
-    public GameObject m_CommunicationInterface;
     public GameObject m_Computer;
-    private bool m_CanShowDust = true;
+    private bool CanShowDust { get; set; } = true;
     private int m_AmountOfDust;
     private bool m_AlredyOn = false;
     private bool m_DustMsgShown = false;
@@ -24,12 +23,6 @@ public class ComputerMission : MonoBehaviour
     void Start()
     {
         m_DisplayManager = GameObject.Find("DisplayImage").GetComponent<DisplayManagerLevel1>();
-
-        if (m_DisplayManager == null)
-        {
-            Debug.LogError("DisplayManagerLevel1 in ComputerMission is null!");
-        }
-
         m_AmountOfDust = m_Dusts.Length;
         subscribeToDustCleanUp();
         m_TornFuze.GetComponent<PickUpItem>().OnPickUp += activeFuzeContainer;
@@ -69,14 +62,14 @@ public class ComputerMission : MonoBehaviour
                 m_AlredyOn = true;
             }
 
-            if (m_CanShowDust)
+            if (CanShowDust)
             {
                 foreach (GameObject dust in m_Dusts)
                 {
                     dust.SetActive(true);
                 }
                 m_TornFuze.SetActive(true);
-                m_CanShowDust = false;
+                CanShowDust = false;
             }
         }
     }
@@ -90,7 +83,7 @@ public class ComputerMission : MonoBehaviour
 
             if(!m_DustMsgShown)
             {
-                GameObject.Find("Communication_Iterface").GetComponent<CommunicationManagerLevel1>().ShowMsg("Well done! All the dust is gone. What should you do next?");
+                CommunicationUtils.FindCommunicationManagerAndShowMsg("Well done! All the dust is gone. What should you do next?");
                 m_DustMsgShown = true;
             }
         }

@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class TutorialManager : MonoBehaviour
@@ -14,9 +11,7 @@ public class TutorialManager : MonoBehaviour
     public Text m_SlideTitle;
     public Sprite[] m_SlidesSprites;
     public string[] m_SlidesTitles;
-    private int m_SlideIndex = 1;
     private int m_CurrentSlideIndex = 1;
-    private int m_PreviousSlideIndex = 0;
     public GameObject m_ZoomInWindow;
 
     void Start()

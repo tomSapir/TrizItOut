@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class SwitchManager : MonoBehaviour, IInteractable
@@ -34,6 +32,7 @@ public class SwitchManager : MonoBehaviour, IInteractable
                 m_CommunicationInterface.GetComponent<CommunicationManagerLevel1>().ShowMsg("The light is on but the computer is still off...");
                 m_OnForTheFirstTime = true;
             }
+
             GetComponent<SpriteRenderer>().sprite = m_SwitchOnSprite;
             m_Dark.SetActive(false);
         }

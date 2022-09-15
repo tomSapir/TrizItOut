@@ -31,7 +31,6 @@ public class FanMissionHandler : MonoBehaviour
         m_SoundManager.PlaySound(SoundManager.k_FanSoundName);
         m_ZoomFanRazers.GetComponent<FanRazersManager>().FanStopped += OnFanStopped;
         m_ZoomNote.GetComponent<PickUpItem>().OnPickUp += OnNotePickedUp;
-
         m_BottomRightScrew.GetComponent<Screw>().ScrewRemovedHandler += OnBottomRightScrewRemoved;
         m_BottomRightScrew.GetComponent<Screw>().ScrewRemovedHandler += OnScrewRemoved;
         m_TopLeftScrew.GetComponent<Screw>().ScrewRemovedHandler += OnScrewRemoved;
@@ -42,7 +41,6 @@ public class FanMissionHandler : MonoBehaviour
         if(FanRazersManager.m_NeedToSpin)
         {
             m_Timer = m_Timer + Time.deltaTime;
-
             if (m_Timer >= 1f)
             {
                 m_SoundManager.PlaySound(SoundManager.k_FanSoundName);

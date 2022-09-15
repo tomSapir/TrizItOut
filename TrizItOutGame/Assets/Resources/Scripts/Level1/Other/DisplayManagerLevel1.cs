@@ -1,8 +1,5 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class DisplayManagerLevel1 : MonoBehaviour
@@ -20,12 +17,10 @@ public class DisplayManagerLevel1 : MonoBehaviour
     public   GameObject m_DarkMode;
     public   GameObject m_ComputerCable;
     public   Sprite m_TornComputerCableSprite;
-    private  GameObject m_CanvasOfSafeBoxCode;
     public   GameObject m_ComputerCableHolder;
     public   GameObject m_FuzeHolder;
     private  bool m_FuzeIsSpawned = false;
     public   bool m_ComputerCableIsSpawned = false;
-    public   CommunicationManagerLevel1 m_CommunicationManager;
     public   NextLevelLoader m_NextLevelLoader;
     public GameObject m_ComputerScreen;
     public GameObject m_ComputerWindowsLogo;
@@ -225,7 +220,7 @@ public class DisplayManagerLevel1 : MonoBehaviour
         GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySound(SoundManager.k_ElectricFallSoundName);
         m_Lightning1.SetActive(true);
         m_Lightning2.SetActive(true);
-        m_CommunicationManager.ShowMsg("Looks like the power went out..");
+        CommunicationUtils.FindCommunicationManagerAndShowMsg("Looks like the power went out..");
         m_ComputerScreen.SetActive(false);
         m_ComputerDesktopPicture.SetActive(false);
         m_ComputerCable.GetComponent<SpriteRenderer>().sprite = m_TornComputerCableSprite;

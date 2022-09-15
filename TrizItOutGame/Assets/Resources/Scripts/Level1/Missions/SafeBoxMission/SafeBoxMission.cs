@@ -6,28 +6,16 @@ using UnityEngine.UI;
 
 public class SafeBoxMission : MonoBehaviour
 {
-    [SerializeField]
-    private Sprite m_SafeBoxOpenZoomSprite;
-
-    [SerializeField]
-    private GameObject m_ScrewDriver; 
-
-    [SerializeField]
+    public Sprite m_SafeBoxOpenZoomSprite;
+    public GameObject m_ScrewDriver; 
     public TextMeshProUGUI uiText;
-
     private DisplayManagerLevel1 m_DisplayManager;
     private bool m_SafeBoxOpend = false;
-
-    [SerializeField]
     public GameObject m_CanvasOfButtons;
-
     public GameObject m_SafeBox_Closed;
     public GameObject m_SafeBox_Open;
-
     public Button[] m_SafeBoxBtns;
-
-    [SerializeField]
-    private GameObject m_BackButton;
+    public GameObject m_BackButton;
 
     void Start()
     {

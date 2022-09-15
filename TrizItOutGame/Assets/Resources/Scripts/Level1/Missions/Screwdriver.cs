@@ -1,19 +1,11 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Screwdriver : MonoBehaviour
 {
-    [SerializeField]
-    private GameObject m_SafeBoxOpen;
+    public GameObject m_SafeBoxOpen;
+    public Sprite m_OpenSafeBoxZoomOutWithoutScrew;
+    public PickUpItem m_PickUpItem;
 
-    [SerializeField]
-    private Sprite m_OpenSafeBoxZoomOutWithoutScrew;
-
-    [SerializeField]
-    private PickUpItem m_PickUpItem;
-
-    // Start is called before the first frame update
     void Start()
     {
         m_PickUpItem = GetComponent<PickUpItem>();

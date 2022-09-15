@@ -1,14 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class piggyBank : MonoBehaviour, IInteractable
 {
     public static int s_AmountOfTaps = 0;
-    [SerializeField]
-    private Sprite m_PiggyBankBroken;
-    [SerializeField]
-    private GameObject m_TrizCoin;
+    public Sprite m_PiggyBankBroken;
+    public GameObject m_TrizCoin;
     public int AmoutOfTaps { get; }
 
     void Start()
@@ -18,7 +14,6 @@ public class piggyBank : MonoBehaviour, IInteractable
 
     public void Interact(DisplayManagerLevel1 currDisplay)
     {
-        //Debug.Log(s_AmountOfTaps);
         SoundManager soundManager = GameObject.Find("SoundManager").GetComponent<SoundManager>();
 
         s_AmountOfTaps++;

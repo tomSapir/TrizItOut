@@ -66,7 +66,7 @@ public class HintsManagerLevel1 : MonoBehaviour
 
         bool sprayInInventory = inventoryManager.DoesItemInInventory("Spray");
         bool strawInIventory = inventoryManager.DoesItemInInventory("Straw");
-        bool kattleCableIsConnected = m_Kattle.GetComponent<Kattle>().m_isConnected;
+        bool kattleCableIsConnected = m_Kattle.GetComponent<Kattle>().IsConnected;
         bool computerCableIsConnected = displayManagerLevel1.m_ComputerCableIsSpawned;
         bool laptopInInventory = inventoryManager.DoesItemInInventory("Laptop");
         bool screwdriverInInventory = inventoryManager.DoesItemInInventory("Screwdriver");

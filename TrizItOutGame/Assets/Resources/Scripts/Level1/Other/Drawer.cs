@@ -1,27 +1,21 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class Drawer : MonoBehaviour, IInteractable
 {
-    [SerializeField]
-    private string m_UnlockItem;
-    private GameObject m_inventory;
+    public string m_UnlockItem;
+    private GameObject m_Inventory;
 
-    // Start is called before the first frame update
     void Start()
     {
-        m_inventory = GameObject.Find("Inventory");
+        m_Inventory = GameObject.Find("Inventory");
     }
 
     public void Interact(DisplayManagerLevel1 currDisplay)
     {
-        // suppose we have a key that unlocks this drawer, the sprites name of the kwy would be m_unlocks.
-       if( m_inventory.GetComponent<InventoryManager>().CurrentSelectedSlot.gameObject.transform.GetChild(0).GetComponent<Image>().sprite.name == m_UnlockItem)
+        if(m_Inventory.GetComponent<InventoryManager>().CurrentSelectedSlot.gameObject.transform.GetChild(0).GetComponent<Image>().sprite.name == m_UnlockItem)
         {
-            Debug.Log("Unlock");
-            m_inventory.GetComponent<InventoryManager>().CurrentSelectedSlot.GetComponent<SlotManager>().ClearSlot();
+            m_Inventory.GetComponent<InventoryManager>().CurrentSelectedSlot.GetComponent<SlotManager>().ClearSlot();
         }
     }
 }

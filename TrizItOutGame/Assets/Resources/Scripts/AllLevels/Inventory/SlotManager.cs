@@ -73,11 +73,10 @@ public class SlotManager : MonoBehaviour, IPointerClickHandler
     public void Combine()
     {
         if(m_InventoryManager.PreviouslySelectedSlot != null &&
-            m_InventoryManager.PreviouslySelectedSlot.GetComponent<SlotManager>().CombinationItem == this.gameObject.GetComponent<SlotManager>().CombinationItem 
-            && this.gameObject.GetComponent<SlotManager>().CombinationItem != string.Empty)
+            m_InventoryManager.PreviouslySelectedSlot.GetComponent<SlotManager>().CombinationItem == GetComponent<SlotManager>().CombinationItem 
+            && GetComponent<SlotManager>().CombinationItem != string.Empty)
         {
             var combinedItem = Instantiate(Resources.Load<GameObject>("Combined Items/" + CombinationItem));
-            print(combinedItem.name + " Was spawnd");
 
             m_InventoryManager.PreviouslySelectedSlot.GetComponent<SlotManager>().ClearSlot();
             ClearSlot();

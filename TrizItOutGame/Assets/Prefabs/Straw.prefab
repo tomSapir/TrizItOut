@@ -124,8 +124,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27edd0d0b838ed645975497ba7a5f1ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_DisplaySprite: Straw
+  m_ItemName: Straw
+  m_DisplaySpriteName: Straw
   m_ItemProperty: 0
-  m_DisplayImage: 
-  m_ResultOfCombinationItemName: 
+  m_ExtraDisplaySpriteName: 
+  m_ResultOfCombinationItemName: Spray_With_Straw
   m_AmountOfUsage: 0

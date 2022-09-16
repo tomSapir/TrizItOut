@@ -41,20 +41,15 @@ public class DisplayManagerLevel1 : MonoBehaviour
 
     public static bool m_AlreadyLoadingNextLevel = false;
 
-    public State m_CurrentState { get; set; }
-    
+    [SerializeField]
+    private State m_CurrentState;
+
     public State CurrentState
     {
-        get
-        {
-            return m_CurrentState;
-        }
-        set
-        {
-            m_CurrentState = value;
-        }
+        get { return m_CurrentState; }
+        set { m_CurrentState = value; }
     }
-
+   
     public int CurrentWall
     {
         get { return m_CurrentWall; }
@@ -79,13 +74,37 @@ public class DisplayManagerLevel1 : MonoBehaviour
     {
         m_PreviousWall = 0;
         m_CurrentWall = 1;
-        CurrentState = State.normal;
+        m_CurrentState = State.normal;
         m_DarkMode.SetActive(false);
         RenderUI();
         StartCoroutine(WaitBeforeDarkMode(2));
-
         m_ComputerCableHolder.GetComponent<PlaceHolder>().OnPrefabSpawned += OnComputerCableSpawned;
         m_FuzeHolder.GetComponent<PlaceHolder>().OnPrefabSpawned += OnFuzeSpawned;
+    }
+
+    void Update()
+    {
+        if (m_CurrentWall != m_PreviousWall)
+        {
+            GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>(k_BackgroundPath + CurrentWall.ToString());
+        }
+
+        m_PreviousWall = CurrentWall;
+        showRelevantPickUpItems();
+        showRelevantInteractableItems();
+
+        if (m_CurrentState == State.normal)
+        {
+            m_Missions.GetComponent<MissionsManager>().TurnOff();
+        }
+        else
+        {
+            m_Missions.SetActive(true);
+            string missionName = GetComponent<SpriteRenderer>().sprite.name;
+            m_Missions.GetComponent<MissionsManager>().ActiveRelevantMission(missionName);
+        }
+
+        CheckIfFinishedLevel();
     }
 
     public void OnFuzeSpawned()
@@ -114,39 +133,14 @@ public class DisplayManagerLevel1 : MonoBehaviour
         m_ComputerCableIsSpawned = false;
     }
 
-    void Update()
-    {
-        if (m_CurrentWall != m_PreviousWall)
-        {
-            GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>(k_BackgroundPath + CurrentWall.ToString());
-        }
 
-        m_PreviousWall = CurrentWall;
-
-        showRelevantPickUpItems();
-        showRelevantInteractableItems();
-
-        if (CurrentState == State.normal)
-        {
-            m_Missions.GetComponent<MissionsManager>().TurnOff();
-        }
-        else
-        {
-            m_Missions.SetActive(true);
-            string missionName = GetComponent<SpriteRenderer>().sprite.name;
-           
-            m_Missions.GetComponent<MissionsManager>().ActiveRelevantMission(missionName);
-        }
-
-        CheckIfFinishedLevel();
-    }
 
     private void showRelevantInteractableItems()
     {
         if (m_CurrentWall == 1)
         {
             m_Interactables2.SetActive(false);
-            if (CurrentState == State.normal)
+            if (m_CurrentState == State.normal)
             {
                 m_Interactables1.SetActive(true);
             }
@@ -158,7 +152,7 @@ public class DisplayManagerLevel1 : MonoBehaviour
         else if (m_CurrentWall == 2)
         {
             m_Interactables1.SetActive(false);
-            if (CurrentState == State.normal)
+            if (m_CurrentState == State.normal)
             {
                 m_Interactables2.SetActive(true);
             }
@@ -174,7 +168,7 @@ public class DisplayManagerLevel1 : MonoBehaviour
         if (m_CurrentWall == 1)
         {
             m_Furniture2.SetActive(false);
-            if (CurrentState == State.normal)
+            if (m_CurrentState == State.normal)
             {
                 m_Furniture1.SetActive(true);
             }
@@ -187,7 +181,7 @@ public class DisplayManagerLevel1 : MonoBehaviour
         else if (m_CurrentWall == 2)
         {
             m_Furniture1.SetActive(false);
-            if (CurrentState == State.normal)
+            if (m_CurrentState == State.normal)
             {
                 m_Furniture2.SetActive(true);
             }
@@ -208,7 +202,7 @@ public class DisplayManagerLevel1 : MonoBehaviour
 
     public void ChangeToNormalBackgroundAfterReturnFromZoom()
     {
-        CurrentState = State.normal;
+        m_CurrentState = State.normal;
         GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>(k_BackgroundPath + CurrentWall.ToString());
     }
 
@@ -237,7 +231,7 @@ public class DisplayManagerLevel1 : MonoBehaviour
         {
             m_AlreadyLoadingNextLevel = true;
 
-            if (CurrentState == State.zoom)
+            if (m_CurrentState == State.zoom)
             {
                 m_ReturnBtn.GetComponent<Button>().onClick.Invoke();
             }

@@ -6,16 +6,12 @@ public class PickUpItem : MonoBehaviour, IInteractable
     public delegate void PickUpAction();
     public enum eProperty { usable, displayable };
 
-    [SerializeField]
-    public string m_DisplaySprite;    // We need to know which sprite it should active with (On Inventory)
-    [SerializeField]
+    public string m_ItemName;
+    public string m_DisplaySpriteName;    
     public eProperty m_ItemProperty;
-    [SerializeField]
-    public string m_DisplayImage; // The more informative image of an object (In case property is displyable)
-    [SerializeField]
-    public string m_ResultOfCombinationItemName; // is needs to combine with another item to perform an action - like the spray and the straw.
-    [SerializeField]
-    public int m_AmountOfUsage; // will be transferd to the slot when get picked up to know when it should be ot of the inventory.
+    public string m_ExtraDisplaySpriteName; 
+    public string m_ResultOfCombinationItemName;
+    public int m_AmountOfUsage; 
 
     public event PickUpAction OnPickUp;
 

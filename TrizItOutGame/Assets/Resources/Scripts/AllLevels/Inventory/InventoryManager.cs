@@ -45,7 +45,7 @@ public class InventoryManager : MonoBehaviour
     {
         foreach(GameObject slot in m_Slots)
         {
-            if(slot == CurrentSelectedSlot && slot.GetComponent<SlotManager>().ItemProperty == SlotManager.Property.usable 
+            if(slot == CurrentSelectedSlot && slot.GetComponent<SlotManager>().ItemProperty == SlotManager.eProperty.Usable 
                 && slot.GetComponent<SlotManager>().IsEmpty == false)
             {
                 slot.GetComponent<Image>().sprite = m_SlotSelectSprite;
@@ -63,9 +63,10 @@ public class InventoryManager : MonoBehaviour
         if (i_Item.m_AmountOfUsage != 0)
         {
             GameObject firstEmptySlot = findFirstEmpetySlot();
-            firstEmptySlot.transform.GetChild(0).GetComponent<Image>().sprite = Resources.Load<Sprite>(sr_InventoryItemSpritePath + i_Item.m_DisplaySprite);
+
+            firstEmptySlot.transform.GetChild(0).GetComponent<Image>().sprite = Resources.Load<Sprite>(sr_InventoryItemSpritePath + i_Item.m_DisplaySpriteName);
             firstEmptySlot.GetComponent<SlotManager>().IsEmpty = false;
-            firstEmptySlot.GetComponent<SlotManager>().AssignPtoperty((int)i_Item.m_ItemProperty, i_Item.m_DisplayImage, i_Item.m_ResultOfCombinationItemName, i_Item.m_AmountOfUsage);
+            firstEmptySlot.GetComponent<SlotManager>().AssignProperty(i_Item.m_ItemName, (int)i_Item.m_ItemProperty, i_Item.m_ExtraDisplaySpriteName, i_Item.m_ResultOfCombinationItemName, i_Item.m_AmountOfUsage);
             Destroy(i_Item.gameObject);
         }
 
@@ -152,8 +153,8 @@ public class InventoryManager : MonoBehaviour
             SlotManager currentSlotManager = slot.GetComponent<SlotManager>();
             if (!currentSlotManager.IsEmpty)
             {
-                usedSlotsData.Add(new SlotTempData(currentSlotManager.m_SlotItemImage.GetComponent<Image>().sprite,
-                    currentSlotManager.CombinationItem, currentSlotManager.ItemProperty, currentSlotManager.AmountOfUsage, currentSlotManager.m_DisplayImage));
+                usedSlotsData.Add(new SlotTempData(currentSlotManager.ItemNameForZoomInWindow, currentSlotManager.m_SlotItemImage.GetComponent<Image>().sprite,
+                    currentSlotManager.CombinationItem, currentSlotManager.ItemProperty, currentSlotManager.AmountOfUsage, currentSlotManager.DisplayImage));
             }
         }
 

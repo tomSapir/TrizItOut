@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 public class ButtonBehaviour : MonoBehaviour
 {
-    public enum ButtonId { roomChange, zoomOut }
+    public enum ButtonId { RoomChange, ZoomOut }
 
     public ButtonId m_MyID;
     private DisplayManagerLevel1 m_CurrDisplay;
@@ -15,52 +15,37 @@ public class ButtonBehaviour : MonoBehaviour
 
     void Update()
     {
-        HideDisplay();
+        hideDisplay();
         Display();
     }
 
-    void HideDisplay()
+    private void hideDisplay()
     {
-        if(m_CurrDisplay.CurrentState == DisplayManagerLevel1.State.normal && m_MyID == ButtonId.zoomOut)
+        Color currColor = GetComponent<Image>().color;
+
+        if ((m_CurrDisplay.CurrentState == DisplayManagerLevel1.State.normal && m_MyID == ButtonId.ZoomOut) || 
+            (m_CurrDisplay.CurrentState == DisplayManagerLevel1.State.zoom && m_MyID == ButtonId.RoomChange))
         {
-            GetComponent<Image>().color = new Color(GetComponent<Image>().color.r, GetComponent<Image>().color.g,
-                GetComponent<Image>().color.b, 0);
-
-            GetComponent<Button>().enabled = false;
-            this.transform.SetSiblingIndex(0);
-        }
-
-        if (m_CurrDisplay.CurrentState == DisplayManagerLevel1.State.zoom && m_MyID == ButtonId.roomChange)
-        {
-            GetComponent<Image>().color = new Color(GetComponent<Image>().color.r, GetComponent<Image>().color.g,
-                GetComponent<Image>().color.b, 0);
-
+            GetComponent<Image>().color = new Color(currColor.r, currColor.g, currColor.b, 0);
             GetComponent<Button>().enabled = false;
             this.transform.SetSiblingIndex(0);
         }
     }  
 
+
     void Display()
     {
-        if (m_CurrDisplay.CurrentState == DisplayManagerLevel1.State.zoom && m_MyID == ButtonId.zoomOut)
-        {
-            GetComponent<Image>().color = new Color(GetComponent<Image>().color.r, GetComponent<Image>().color.g,
-                GetComponent<Image>().color.b, 1);
+        Color currColor = GetComponent<Image>().color;
 
+        if ((m_CurrDisplay.CurrentState == DisplayManagerLevel1.State.zoom && m_MyID == ButtonId.ZoomOut) ||
+            (m_CurrDisplay.CurrentState == DisplayManagerLevel1.State.normal && m_MyID == ButtonId.RoomChange))
+        {
+            GetComponent<Image>().color = new Color(currColor.r, currColor.g, currColor.b, 1);
             GetComponent<Button>().enabled = true;
             this.transform.SetSiblingIndex(0);
         }
 
-        if (m_CurrDisplay.CurrentState == DisplayManagerLevel1.State.normal && m_MyID == ButtonId.roomChange)
-        {
-            GetComponent<Image>().color = new Color(GetComponent<Image>().color.r, GetComponent<Image>().color.g,
-                GetComponent<Image>().color.b, 1);
-
-            GetComponent<Button>().enabled = true;
-            this.transform.SetSiblingIndex(0);
-        }
-
-        if(m_CurrDisplay.CurrentState == DisplayManagerLevel1.State.busy && m_MyID == ButtonId.zoomOut)
+        if(m_CurrDisplay.CurrentState == DisplayManagerLevel1.State.busy && m_MyID == ButtonId.ZoomOut)
         {
             GetComponent<Button>().enabled = false;
         }

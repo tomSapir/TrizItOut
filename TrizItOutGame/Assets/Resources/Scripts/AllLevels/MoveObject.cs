@@ -1,33 +1,29 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class MoveObject : MonoBehaviour, IInteractable
 {
-    public enum eMovementType { left, right, up, down }
+    public enum eMovementType { Left, Right, Up, Down }
 
     public delegate void ObjectMovedAction(eMovementType eMovementType);
+
     public float m_Steps;
-    public eMovementType MovmentType { get; set; }
+    public eMovementType m_MovmentType;
+
     public event ObjectMovedAction OnObjectMoved;
 
     public void Interact(DisplayManagerLevel1 currDisplay)
     {
-        if(OnObjectMoved != null)
+        OnObjectMoved?.Invoke(m_MovmentType);
+        switch(m_MovmentType)
         {
-            OnObjectMoved(MovmentType);
-        }    
-
-        switch(MovmentType)
-        {
-            case eMovementType.right:
+            case eMovementType.Right:
                 {
-                    MovmentType = eMovementType.left;
+                    m_MovmentType = eMovementType.Left;
                     break;
                 }
-            case eMovementType.left:
+            case eMovementType.Left:
                 {
-                    MovmentType = eMovementType.right;
+                    m_MovmentType = eMovementType.Right;
                     break;
                 }
         }

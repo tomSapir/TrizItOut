@@ -4,20 +4,23 @@ using UnityEngine.EventSystems;
 
 public class SlotManager : MonoBehaviour, IPointerClickHandler
 {
-    public delegate void ZoomBtnDelegate();
+    public delegate void ZoomBtnPressedDelegate();
 
-    public enum Property { usable, displayable, empty };
+    public enum eProperty { Usable, Displayable, Empty };
+
+    public string ItemNameForZoomInWindow { get; set; }
+    public string DisplayImage { get; set; }
+    public bool IsEmpty { get; set; } = true;
+    public string CombinationItem { get; set; }
+    public eProperty ItemProperty { get; set; }
+    public int AmountOfUsage { get; set; }
 
     public GameObject m_SlotItemImage;
     public GameObject m_ZoomInWindow;
-    public bool IsEmpty { get; set; } = true;
+    public Text m_ZoomInWindowText;
     private InventoryManager m_InventoryManager;
-    public string CombinationItem { get; set; }
-    public Property ItemProperty { get;  set; }
-    public int AmountOfUsage { get; set; }
-    public string m_DisplayImage; 
 
-    public event ZoomBtnDelegate OnClickZoomBtn;
+    public event ZoomBtnPressedDelegate OnClickZoomBtn;
 
     void Start()
     {
@@ -29,14 +32,17 @@ public class SlotManager : MonoBehaviour, IPointerClickHandler
         if(IsEmpty == false)
         {
             OnClickZoomBtn?.Invoke();
-            if (ItemProperty == Property.usable)
+            if (ItemProperty == eProperty.Usable)
             {
                 m_ZoomInWindow.transform.Find("Item").GetComponent<Image>().sprite = m_SlotItemImage.GetComponent<Image>().sprite;
+             
             }
             else
             {
-                m_ZoomInWindow.transform.Find("Item").GetComponent<Image>().sprite = Resources.Load<Sprite>("Sprites/Level1/Displayables/" + m_DisplayImage);
+                m_ZoomInWindow.transform.Find("Item").GetComponent<Image>().sprite = Resources.Load<Sprite>("Sprites/Level1/Displayables/" + DisplayImage);
             }
+
+            m_ZoomInWindowText.text = ItemNameForZoomInWindow;
             m_ZoomInWindow.SetActive(true);
         }
     }
@@ -55,12 +61,13 @@ public class SlotManager : MonoBehaviour, IPointerClickHandler
         }
     }
 
-    public void AssignPtoperty(int i_ordrNumber, string i_displayImage, string i_combinationItem, int i_amountOfUsage)
+    public void AssignProperty(string i_ItemName, int i_OrdrNumber, string i_DisplayImage, string i_CombinationItem, int i_AmountOfUsage)
     {
-        ItemProperty = (Property)i_ordrNumber;
-        this.m_DisplayImage = i_displayImage;
-        this.CombinationItem = i_combinationItem;
-        this.AmountOfUsage = i_amountOfUsage;
+        ItemProperty = (eProperty)i_OrdrNumber;
+        this.ItemNameForZoomInWindow = i_ItemName;
+        this.DisplayImage = i_DisplayImage;
+        this.CombinationItem = i_CombinationItem;
+        this.AmountOfUsage = i_AmountOfUsage;
     }
 
     public void Combine()
@@ -83,8 +90,8 @@ public class SlotManager : MonoBehaviour, IPointerClickHandler
         AmountOfUsage--;
         if(AmountOfUsage == 0)
         {
-            ItemProperty = SlotManager.Property.empty;
-            m_DisplayImage = string.Empty;
+            ItemProperty = SlotManager.eProperty.Empty;
+            DisplayImage = string.Empty;
             CombinationItem = string.Empty;
             IsEmpty = true;
             transform.GetChild(0).GetComponent<Image>().sprite = Resources.Load<Sprite>("Sprites/AllLevels/Inventory/Empty_Item");
@@ -101,18 +108,19 @@ public class SlotManager : MonoBehaviour, IPointerClickHandler
         transform.GetChild(0).GetComponent<Image>().sprite = Resources.Load<Sprite>("Sprites/AllLevels/Inventory/Empty_Item");
         IsEmpty = true;
         CombinationItem = string.Empty;
-        ItemProperty = SlotManager.Property.empty;
+        ItemProperty = SlotManager.eProperty.Empty;
         AmountOfUsage = 0;
-        m_DisplayImage = string.Empty;
+        DisplayImage = string.Empty;
     }
 
     public void SetSlotData(SlotTempData i_SlotData)
     {
+        ItemNameForZoomInWindow = i_SlotData.ItemName;
         m_SlotItemImage.GetComponent<Image>().sprite = i_SlotData.SlotImageSprite;
         IsEmpty = false;
         CombinationItem = i_SlotData.CombinationItem;
         ItemProperty = i_SlotData.Property;
         AmountOfUsage = i_SlotData.AmountOfUsage;
-        m_DisplayImage = i_SlotData.DisplayImageName;
+        DisplayImage = i_SlotData.DisplayImageName;
     }
 }

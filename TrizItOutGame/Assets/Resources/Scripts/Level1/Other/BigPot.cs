@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class BigPot : MonoBehaviour
@@ -18,11 +16,11 @@ public class BigPot : MonoBehaviour
     {
         GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySound(SoundManager.k_MoveBigPotSoundName);
 
-        if(eMovementType == MoveObject.eMovementType.right)
+        if(eMovementType == MoveObject.eMovementType.Right)
         {
             m_Animation.Play("BigPot_Right");
         }   
-        else if(eMovementType == MoveObject.eMovementType.left)
+        else if(eMovementType == MoveObject.eMovementType.Left)
         {
             m_Animation.Play("BigPot_Left");
         }

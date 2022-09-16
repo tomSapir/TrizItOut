@@ -84,7 +84,7 @@ SpriteRenderer:
   m_Size: {x: 0.46, y: 2.68}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!61 &4093783439070656511
@@ -140,8 +140,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27edd0d0b838ed645975497ba7a5f1ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_DisplaySprite: Screwdriver
+  m_ItemName: Screwdriver
+  m_DisplaySpriteName: Screwdriver
   m_ItemProperty: 0
-  m_DisplayImage: 
+  m_ExtraDisplaySpriteName: 
   m_ResultOfCombinationItemName: Power_Fuze
   m_AmountOfUsage: 5

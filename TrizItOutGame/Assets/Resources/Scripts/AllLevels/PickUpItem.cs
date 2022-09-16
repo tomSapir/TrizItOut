@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class PickUpItem : MonoBehaviour, IInteractable
+public class PickUpItem : MonoBehaviour, IInteractable, IRespondsCursor
 {
     public delegate void PickUpAction();
     public enum eProperty { usable, displayable };
@@ -33,17 +33,17 @@ public class PickUpItem : MonoBehaviour, IInteractable
         OnPickUp?.Invoke();
     }
 
-    void OnMouseEnter()
+    public void OnMouseEnter()
     {
         GameObject.Find("Cursor_Manager").GetComponent<CursorManager>().ChangeCursorToHighlight();
     }
 
-    void OnMouseExit()
+    public void OnMouseExit()
     {
         GameObject.Find("Cursor_Manager").GetComponent<CursorManager>().ChangeCursorToNormal();
     }
 
-    void OnMouseDown()
+    public void OnMouseDown()
     {
         GameObject.Find("Cursor_Manager").GetComponent<CursorManager>().ChangeCursorToNormal();
     }

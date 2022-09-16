@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.UI;
 
 public class PickUpItem : MonoBehaviour, IInteractable
 {
@@ -11,7 +10,7 @@ public class PickUpItem : MonoBehaviour, IInteractable
     public eProperty m_ItemProperty;
     public string m_ExtraDisplaySpriteName; 
     public string m_ResultOfCombinationItemName;
-    public int m_AmountOfUsage; 
+    public int m_AmountOfUsage;
 
     public event PickUpAction OnPickUp;
 
@@ -34,4 +33,18 @@ public class PickUpItem : MonoBehaviour, IInteractable
         OnPickUp?.Invoke();
     }
 
+    void OnMouseEnter()
+    {
+        GameObject.Find("Cursor_Manager").GetComponent<CursorManager>().ChangeCursorToHighlight();
+    }
+
+    void OnMouseExit()
+    {
+        GameObject.Find("Cursor_Manager").GetComponent<CursorManager>().ChangeCursorToNormal();
+    }
+
+    void OnMouseDown()
+    {
+        GameObject.Find("Cursor_Manager").GetComponent<CursorManager>().ChangeCursorToNormal();
+    }
 }

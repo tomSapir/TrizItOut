@@ -97,8 +97,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27edd0d0b838ed645975497ba7a5f1ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_DisplaySprite: Two_Screws
+  m_ItemName: Two Screws
+  m_DisplaySpriteName: Two_Screws
   m_ItemProperty: 0
-  m_DisplayImage: 
+  m_ExtraDisplaySpriteName: 
   m_ResultOfCombinationItemName: 
   m_AmountOfUsage: 1

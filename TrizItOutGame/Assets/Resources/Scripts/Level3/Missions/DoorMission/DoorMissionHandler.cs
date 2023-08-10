@@ -12,12 +12,13 @@ public class DoorMissionHandler : MonoBehaviour
     private string m_CorrectCode = "2468";
     private string m_CurrentCode = null;
     private int m_CurrentIndex = 0;
-
+    private GameObject m_Canvas;
     private SoundManager m_SoundManager;
 
     void Start()
     {
         m_SoundManager = GameObject.Find("SoundManager").GetComponent<SoundManager>();
+        m_Canvas = GameObject.Find("/MissionHandler/Door_Mission/Canvas");
         m_OpenDoor = GameObject.Find("DoorOpen");
         Debug.Log(m_OpenDoor);
     }

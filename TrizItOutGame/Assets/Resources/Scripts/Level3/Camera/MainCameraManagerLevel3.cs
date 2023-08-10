@@ -67,8 +67,12 @@ public class MainCameraManagerLevel3 : MonoBehaviour
     {
         bool leftBtnShouldAppear = m_CurrentWallIndex > 1;
         bool rightBtnShouldApper = m_CurrentWallIndex >= 1 && m_CurrentWallIndex < sr_MostRightWallIndex;
+
         if (m_CurrentWallIndex == 2 && m_CanGoRight == false)
+        {
+            Debug.Log("Do I get here?");
             rightBtnShouldApper = false;
+        }
         bool backBtnShouldAppear = m_CurrentWallIndex < 1;
 
         m_LeftBtn.SetActive(leftBtnShouldAppear);
@@ -95,6 +99,7 @@ public class MainCameraManagerLevel3 : MonoBehaviour
     {
         Debug.Log("In mission_Interact");
         m_WallBeforeMission = m_CurrentWallIndex;
+        Debug.Log("m_CurrentWallIndex = "+ m_CurrentWallIndex + "i_MissionWall = " + i_MissionWall);
         while (m_CurrentWallIndex != i_MissionWall)
         {
             m_LeftBtn.GetComponent<Button>().onClick.Invoke();

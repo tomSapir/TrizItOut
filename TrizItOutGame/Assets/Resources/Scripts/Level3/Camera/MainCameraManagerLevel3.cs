@@ -68,7 +68,10 @@ public class MainCameraManagerLevel3 : MonoBehaviour
         bool leftBtnShouldAppear = m_CurrentWallIndex > 1;
         bool rightBtnShouldApper = m_CurrentWallIndex >= 1 && m_CurrentWallIndex < sr_MostRightWallIndex;
         if (m_CurrentWallIndex == 2 && m_CanGoRight == false)
+        {
             rightBtnShouldApper = false;
+            Debug.Log("Im here?");
+        }
         bool backBtnShouldAppear = m_CurrentWallIndex < 1;
 
         m_LeftBtn.SetActive(leftBtnShouldAppear);

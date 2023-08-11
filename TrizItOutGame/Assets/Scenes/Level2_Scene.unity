@@ -6718,7 +6718,6 @@ GameObject:
   - component: {fileID: 708974298}
   - component: {fileID: 708974297}
   - component: {fileID: 708974301}
-  - component: {fileID: 708974302}
   m_Layer: 0
   m_Name: Canvas
   m_TagString: Untagged
@@ -6825,23 +6824,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b0209e6066b49e47852e3a529fd4ddf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ZoomInWindow: {fileID: 0}
---- !u!114 &708974302
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 708974296}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 03d8f5517732f3742959d89383762d3f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_RightButton: {fileID: 1153694905}
-  m_LeftButton: {fileID: 239986358}
-  m_ZoomOutButton: {fileID: 1484572366}
-  m_ZoomWindow: {fileID: 819972259}
+  m_ZoomInWindow: {fileID: 819972259}
 --- !u!1 &732900278
 GameObject:
   m_ObjectHideFlags: 0
@@ -8646,6 +8629,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 819972259}
     - target: {fileID: 1529483588353472611, guid: 1405a1707066b994284873d48a50b7b1, type: 3}
+      propertyPath: m_SlotItemImage
+      value: 
+      objectReference: {fileID: 913995010}
+    - target: {fileID: 1529483588353472611, guid: 1405a1707066b994284873d48a50b7b1, type: 3}
       propertyPath: m_ZoomInWindowText
       value: 
       objectReference: {fileID: 266099488}
@@ -8784,7 +8771,7 @@ PrefabInstance:
     - target: {fileID: 6757505103284311557, guid: 1405a1707066b994284873d48a50b7b1, type: 3}
       propertyPath: m_SlotItemImage
       value: 
-      objectReference: {fileID: 934658929}
+      objectReference: {fileID: 913995007}
     - target: {fileID: 6757505103284311557, guid: 1405a1707066b994284873d48a50b7b1, type: 3}
       propertyPath: m_ZoomInWindowText
       value: 
@@ -8796,7 +8783,7 @@ PrefabInstance:
     - target: {fileID: 6757505103442631063, guid: 1405a1707066b994284873d48a50b7b1, type: 3}
       propertyPath: m_SlotItemImage
       value: 
-      objectReference: {fileID: 934658929}
+      objectReference: {fileID: 913995008}
     - target: {fileID: 6757505103442631063, guid: 1405a1707066b994284873d48a50b7b1, type: 3}
       propertyPath: m_ZoomInWindowText
       value: 
@@ -8808,7 +8795,7 @@ PrefabInstance:
     - target: {fileID: 6757505104306512112, guid: 1405a1707066b994284873d48a50b7b1, type: 3}
       propertyPath: m_SlotItemImage
       value: 
-      objectReference: {fileID: 934658929}
+      objectReference: {fileID: 913995009}
     - target: {fileID: 6757505104306512112, guid: 1405a1707066b994284873d48a50b7b1, type: 3}
       propertyPath: m_ZoomInWindowText
       value: 
@@ -8823,6 +8810,26 @@ PrefabInstance:
       objectReference: {fileID: 266099488}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1405a1707066b994284873d48a50b7b1, type: 3}
+--- !u!1 &913995007 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5296508922768100513, guid: 1405a1707066b994284873d48a50b7b1, type: 3}
+  m_PrefabInstance: {fileID: 913995006}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &913995008 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5296508922595066675, guid: 1405a1707066b994284873d48a50b7b1, type: 3}
+  m_PrefabInstance: {fileID: 913995006}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &913995009 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5296508923458959956, guid: 1405a1707066b994284873d48a50b7b1, type: 3}
+  m_PrefabInstance: {fileID: 913995006}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &913995010 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5296508922380803121, guid: 1405a1707066b994284873d48a50b7b1, type: 3}
+  m_PrefabInstance: {fileID: 913995006}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &915836707
 GameObject:
   m_ObjectHideFlags: 0
@@ -8958,11 +8965,6 @@ MonoBehaviour:
   m_RequiresDepthTexture: 0
   m_RequiresColorTexture: 0
   m_Version: 2
---- !u!1 &934658929 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5296508923832812749, guid: 1405a1707066b994284873d48a50b7b1, type: 3}
-  m_PrefabInstance: {fileID: 913995006}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &937586441
 GameObject:
   m_ObjectHideFlags: 0
@@ -15048,10 +15050,14 @@ PrefabInstance:
     - target: {fileID: 4755350748434661548, guid: c32642203de17a441b31b853b4d249ee, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 708974302}
+      objectReference: {fileID: 708974301}
     - target: {fileID: 4755350748434661548, guid: c32642203de17a441b31b853b4d249ee, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: OnClickCloseZoomInventory
+      objectReference: {fileID: 0}
+    - target: {fileID: 4755350748434661548, guid: c32642203de17a441b31b853b4d249ee, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: MainCanvasManager, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 4755350750124117646, guid: c32642203de17a441b31b853b4d249ee, type: 3}
       propertyPath: m_AnchoredPosition.x
